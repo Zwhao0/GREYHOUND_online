@@ -6,7 +6,7 @@
 
 - 唯一新工程：`Zwhao0/GREYHOUND_online`。不得修改用户的其他项目（FLASH、myflash、20261015 等）；需要阅读外部公开资料时仅做只读研究，并引用来源。
 - 项目核心职责：ChatGPT 负责规划、验证设计、审查 Gate；Codex 主窗口统筹实现和验收，子智能体可承担独立代码审查/测试。用户批准跨 Gate 任务。
-- 每个任务开始前依次读取：`HANDOFF.md`、`STATUS.md`、`AGENTS.md`、`ROADMAP.md`、`docs/DECISIONS.md` 和当前 Issue/任务文件。若信息冲突，停止推进并明确指出冲突。
+- 新任务先读取 `HANDOFF.md` 与当前 Issue/PR，并回读 GitHub main/CI；`AGENTS.md` 由 Codex 运行环境自动加载时不必重复打开。仅在相关时读取 `STATUS.md`（Gate/证据）、`ROADMAP.md`（阶段）、`docs/DECISIONS.md`（设计变更）或技术数据契约；**不要为每个小改动机械预读全部文件**。若事实冲突，以 GitHub 真实状态及最新授权为准并说明。
 - 除非当前 Issue 明确授权，**不得**在真实 H800 上运行操作、访问生产数据、注入故障、修改安装包或升级驱动/NCCL。
 
 ## 2. 不可变的科学和工程原则
@@ -26,7 +26,7 @@
 - 原则上一个有范围的 Issue 对应一个 Draft PR；不要直接推送到 `main`（仓库初始化的第一笔提交除外）。
 - 每个 PR 关联 Issue、范围、不可做事项、证据清单、测试类别、失败与未运行项、回退说明、代码 HEAD SHA。
 - CI 绿不等于 GPU 验证通过；不得自行合并 Draft PR 或擅自关闭 Gate。
-- 完成一个可审核里程碑时，在**同一个 PR**更新 `STATUS.md` 和 `HANDOFF.md`。`HANDOFF.md` 只放当前状态与下一步；长期设计记录放 `docs/DECISIONS.md`。
+- 完成一个可审核里程碑时，在**同一个 PR**更新 `STATUS.md` 和 `HANDOFF.md`。**HANDOFF 只负责当前快照、唯一下一步与导航；STATUS 只负责阶段/测试事实；Issue 管任务细节，DECISIONS 管历史决策，实验报告管证据。避免全文重复或复制大日志。**
 - 不得在仓库提交令牌、内网 IP、含机密的生产日志、私有模型/权重；诊断数据应脱敏、有大小和留存限制。
 
 ## 4. 跨窗口交接协议
