@@ -8,14 +8,14 @@
 | --- | --- |
 | 唯一仓库 | [Zwhao0/GREYHOUND_online](https://github.com/Zwhao0/GREYHOUND_online)（Public） |
 | 当前 Gate | **G0 限定范围PASS → G1 IN_PROGRESS，G1未通过** |
-| 活跃任务 | [G1-01 Issue #9](https://github.com/Zwhao0/GREYHOUND_online/issues/9)（OPEN），目标双节点dense DDP被动NCCL事件采集与跨Rank对齐 |
+| 活跃任务 | [G1-01 Issue #9](https://github.com/Zwhao0/GREYHOUND_online/issues/9)（OPEN，按用户最新授权已修订）：**先升级两机兼容的较新PyTorch/NCCL/Profiler，再继续原定双节点DDP跨Rank事件对齐**；尚未执行新环境实验 |
 | 最近完成 | G0-03 [PR #8](https://github.com/Zwhao0/GREYHOUND_online/pull/8) PASS/MERGED；squash SHA `08731fcbcfbf3e70d930ad888424dd061933f6bc`；Issue #6 CLOSED |
 | 既有结果 | G0-02 `nccl-tests` NCCL2.28.3/v4、双rank87对AllReduce；G0-03真实DDP Torch2.7/NCCL2.25.1/v2、94对Collective |
 | 既有CI | G0-03 [DOC PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39445987211)，CPU归因 NOT_RUN |
 | GPU/DDP/双机 | GPU与DDP **PASS仅单节点PoC**；MULTINODE **NOT_RUN**；不允许声称有Rank根因定位 |
 | 当前PR/分支 | G1-01还没有执行PR；main HEAD每次实时回读。维护本次状态所用的PR若存在，也须确认merge状态 |
 | 审核结论 | [ChatGPT G0-03 PASS与 G0 限定范围 PASS](https://github.com/Zwhao0/GREYHOUND_online/pull/8#issuecomment-6294245015)；G1-01已发布，权限/资源现场重新确认 |
-| 权限 | 上一次Codex窗口称用户额外批准Docker/sudo+共享GPU；**不可视为后续节点或任务永久授权**。每次先确认可用测试节点和许可 |
+| 权限 | **用户本轮已明确批准G1-01使用两台H800测试资源及升级PyTorch/CUDA用户态/NCCL/Profiler**；可用受控容器/私有环境及必要的已有Docker/sudo客户端，无需每个常规动作重复申请。但必须核实节点属本项目/共享GPU资源安全；不擅自更改宿主驱动/系统依赖或停止现有训练 |
 
 ## B. 不变产品目标
 
@@ -26,6 +26,8 @@
 
 ## C. 已获证据和关键限制
 
+- **本轮最新授权（2026-10-20）**：G0单节点结果已PASS，不重做；新软件栈升级属于G1-01内部准备环节。允许在两台H800授权测试环境隔离升级PyTorch/CUDA用户态/NCCL/Profiler，升级后继续同一Issue #9的双节点采集验收，不新增升级Gate。旧的“不得升级/每次重复申请”文字由Issue #9新描述取代。
+
 - [G0-01审计](docs/G0-01-AUDIT.md)；[G0-02真实字段](docs/evidence/g0-02-summary.json)；[G0-03 DDP真实摘要](docs/evidence/g0-03-summary.json)；[源字段与时间语义](docs/MEASUREMENT_CONTRACT.md)。
 - G0-03两rank实际DDP均加载NCCL2.25.1/官方Profiler v2，94对Collective匹配；40步训练CUDA-event p50/p95已核实。**与G0-02 NCCL2.28.3/v4不同**；v2没有GPU channel clock，Host RDTSC不可未经校准跨节点比较。
 - CUDA step计时不能当单个Collective GPU kernel起止；`step→Coll`、`root Rank vs victim`、`Proxy`、`clock calibration`、`accurate drop`、`fail-open`仍UNKNOWN。单次共享GPU样本不能证明稳定≤2% SLA。
@@ -33,13 +35,13 @@
 
 ## D. 下一项唯一行动（Codex）
 
-**执行 [G1-01 Issue #9](https://github.com/Zwhao0/GREYHOUND_online/issues/9)，不跳过该任务审核，不启动G2。**
+**继续 [G1-01 Issue #9](https://github.com/Zwhao0/GREYHOUND_online/issues/9)；同一任务先升级再双节点验证，不返回G0或新开升级Gate。**
 
-1. Codex先核对main和Issue #9、真实双节点及Docker/GPU权限；权限不明可先完成离线小归并器/fixture准备，**不能操作GPU**，缺权限则最终BLOCKED。
-2. 仅在批准的两台H800测试节点（各最多两卡），复用现有最小dense DDP+当前版本可用官方Profiler，做一次健康对照及短时被动采集，确认每Rank真实加载版本、`run/rank/comm/type/seq`及跨机Collective关联。
-3. 使用最小离线归并脚本生成可审核的匹配、缺rank、重复及时间域信息；未观察到的准确性/丢失/Proxy须标UNKNOWN。**无故障注入、主动探测、Root Rank算法、训练暂停、系统升级/框架修改。**
-4. 一个Draft PR + 脱敏证据 + DOC/CPU/GPU/DDP/MULTINODE真实分类，并在同一PR更新 STATUS/HANDOFF；停止等待ChatGPT审核。
-
+1. 用户已批准两台H800**项目测试资源**与隔离安装/升级PyTorch、CUDA用户态、NCCL、官方Profiler。主Codex核对本次实际节点、Driver、GPU可用容量，优先选择官方较新/最新稳定且实测兼容的组合。候选PyTorch2.14.1 + CUDA13.0；NCCL2.32.3是官方更高候选，**只有在实际Torch兼容/加载验证通过后才能选用**。不得为版本号盲改PyTorch绑定的NCCL ABI，也不在共享机器擅自改驱动、重启或覆盖全局包。
+2. 在隔离环境中新版本单机只做**一次最小DDP+Profiler兼容smoke**，核对真实PID加载的libnccl、Profiler ABI和非空事件。**这不是G0重测，G0已PASS。**
+3. 立即按原G1-01做两节点各最多2×H800的健康dense DDP无插件对照+官方Profiler采集。报告跨Rank成员、commHash、type、seq与元数据对齐、Host/GPU/Proxy时钟域、事件缺项和方向性step p50/p95；不计算未经证据支持的原发Rank。
+4. 只交一个Draft PR，脱敏实测版本/DSO/插件/CPU/GPU/DDP/MULTINODE证据，**同PR更新 STATUS/HANDOFF**并停止等待ChatGPT审核。不做故障注入、生产任务改动、根因算法、G2或其他阶段。
+5. 子智能体分工保留：GPT 6 luna max做简单/重复工作，确有复杂疑难再升级GPT 6.1 sol medium；主Codex负责真实机器、兼容性决策和集成。
 ## E. Codex子智能体新规则（用户 2026-10-20 明确指定）
 
 - **GPT 6 luna max**：默认处理简单、重复、局部、可并行工作（文档、简单代码调整、fixture、静态/CI检查）。
@@ -49,12 +51,10 @@
 
 ## F. 新 ChatGPT 窗口可直接使用的交接指令
 
-> 我们继续 Greenhound Online（唯一仓库 https://github.com/Zwhao0/GREYHOUND_online）。你担任技术负责人，规划、派发任务、技术决策和独立PR/Gate审核。先用GitHub实际读取最新main上的 HANDOFF.md、STATUS.md、AGENTS.md、ROADMAP.md、docs/DECISIONS.md，及当前Issue/PR、CI，不能从历史聊天臆测。G0-01审计PASS；G0-02 PARTIAL已审核合并；G0-03真实2GPU DDP PASS、PR #8已合并、Issue #6关闭；G0限定范围正式PASS，当前进入G1，活跃任务为Issue #9（两节点dense DDP的被动NCCL事件采集/跨Rank对齐）。已有真实DDP使用Torch2.7/NCCL2.25.1官方Profiler v2，94对Collective可关联；但双机、Proxy/GPU时钟、精确drop、原发因果、在线fail-open仍UNKNOWN，不允许宣称系统已能定位。Codex负责实现，最多合理并行2–3个子智能体，简单/重复默认GPT 6 luna max，只有其无法处理的问题升级GPT 6.1 sol medium。不得为形式化过度验证阻塞开发；先获得真实可复现证据。任何GPU/Docker/sudo/跨节点操作须核实本次权限；上轮权限不自动延续。请等待/审核G1-01的Draft，之后按Gate推进，每阶段更新STATUS和HANDOFF。
-
+> 继续Greenhound Online，唯一仓库 https://github.com/Zwhao0/GREYHOUND_online。你是技术负责人，首先通过GitHub读取main上HANDOFF、STATUS、AGENTS、ROADMAP、docs/DECISIONS、当前Issue #9与Draft PR/CI。此前G0-01静态PASS、G0-02微基准PARTIAL已审核、G0-03真实单机PyTorch DDP PASS，故**G0已按限定范围PASS，不再重新做单节点Gate**；G1正在执行但尚未验收。**用户2026-10-20新决策：授权使用本项目两台H800测试资源、升级PyTorch/CUDA用户态/NCCL/官方Profiler，不必固定旧Torch2.7/NCCL2.25.1/v2；选择两机真正可兼容的最新或较新官方稳定组合，保留隔离回退，不干扰共享训练，勿无计划升级宿主GPU驱动。** 已原地更新G1-01 Issue #9：升级为当前任务的环境准备，升级后继续原定两节点健康DDP被动NCCL Rank事件采集和跨Rank对齐；新版单机只做简短兼容smoke，不新增升级Gate。官方候选PyTorch2.14.1/CUDA13.0与适配NCCL/Profiler，NCCL2.32.3仅实际兼容后采用，须看目标PID真实加载库而不能单看版本号。双机、跨节点时间、精确drop、原发因果、在线化均尚无新版本证据。Codex主窗口负责执行，可用GPT 6 luna max完成简单重复任务、GPT 6.1 sol medium处理疑难。后续审核一个Draft PR，严格不将未跑的升级/双机实验写PASS，最终更新STATUS/HANDOFF。
 ## G. 新 Codex 主窗口可直接使用的指令
 
-> 继续 Greenhound Online，唯一仓库 Zwhao0/GREYHOUND_online。先读取最新main的 HANDOFF、STATUS、AGENTS、ROADMAP、DECISIONS和G1-01 Issue #9。G0已按限定范围PASS，PR #8已合并，G1-01已正式发布；不要重复G0-02/03。当前只执行Issue #9最小双机DDP Rank事件采集和对齐；使用前重新确认两节点GPU/Docker/sudo资源许可，没有许可就离线准备并BLOCKED。主窗口自主拆分互不冲突的工作：简单/重复交GPT 6 luna max，失败或复杂再交GPT 6.1 sol medium，子智能体仅回报精简结果；主窗口负责整合、权限、安全、GPU与Draft PR。不得故障注入、主动验证、升级NCCL、开发Root Rank定位或进入G2。交付一个Draft PR（HEAD/CI/证据/缺口）并更新STATUS/HANDOFF，停止等待ChatGPT独立审核。
-
+> 继续Greenhound Online（Zwhao0/GREYHOUND_online），先核查GitHub最新main的HANDOFF/STATUS/AGENTS/ROADMAP/docs/DECISIONS和**已修订G1-01 Issue #9**。G0单节点Gate已PASS，旧Torch2.7/NCCL2.25.1/v2无须保留为新版本。用户明确授权本项目两台H800测试环境及隔离升级PyTorch、CUDA用户态、NCCL、Profiler；使用许可Docker/必要sudo客户端可按Issue执行，不必每项都请示，但不干扰其他运行任务、不替换宿主驱动或重启。先核对官方稳定组合和两机实际driver，用隔离镜像或任务目录装较新/最新可用版本，验证真实NCCL/Profiler ABI（优先PyTorch2.14.1+CUDA13.0适配版本；只有兼容才采用NCCL2.32.3）。新版单节点最小smoke之后**继续当前G1-01双节点4rank健康DDP+被动Collective采集与Rank关联**，不设升级Gate，不重复G0。优先把版本清单、脚本适配和普通fixture分派给GPT 6 luna max，疑难再用GPT 6.1 sol medium；主窗口集成、操作GPU、提交一个Draft PR并更新STATUS/HANDOFF。禁止故障注入、主动通信探测、根因Rank打分和提前进入G2。
 ## H. 每次交接必须更新的字段
 
 ```text
