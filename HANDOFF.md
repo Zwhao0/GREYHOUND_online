@@ -10,8 +10,8 @@
 | 唯一仓库 | [Zwhao0/GREYHOUND_online](https://github.com/Zwhao0/GREYHOUND_online)（Public，默认main） |
 | 当前阶段 | **G0 IN_PROGRESS**；G0-01 PASS；G0-02 PARTIAL/已审已合并；G0-03 PASS/DRAFT_REVIEW_PENDING；G1 BLOCKED |
 | 当前 Issue | [G0-03 #6](https://github.com/Zwhao0/GREYHOUND_online/issues/6)（OPEN）；G0-02 Issue #3 CLOSED/PARTIAL |
-| PR / HEAD | [G0-02 PR #5](https://github.com/Zwhao0/GREYHOUND_online/pull/5) MERGED，merge `f421fb752696d1e7f3a56344fc6e8a45c8b5d5d0`；最新 main HEAD 每次通过GitHub回读；G0-03候选分支 `g0-03-ddp-poc`（创建后回填Draft URL）；HEAD实时读取；base `67d4cd5736adfd2481eed1df803b4a573bc62ead` |
-| CI | [G0-02 DOC PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39442234938)；CPU算法测试NOT_RUN；G0-03本地DOC检查，最终HEAD CI按Draft checks核对 |
+| PR / HEAD | [G0-02 PR #5](https://github.com/Zwhao0/GREYHOUND_online/pull/5) MERGED，merge `f421fb752696d1e7f3a56344fc6e8a45c8b5d5d0`；最新 main HEAD 每次通过GitHub回读；G0-03 [Draft PR #8](https://github.com/Zwhao0/GREYHOUND_online/pull/8)，分支 `g0-03-ddp-poc`；HEAD实时读取；base `67d4cd5736adfd2481eed1df803b4a573bc62ead` |
+| CI | [G0-02 DOC PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39442234938)；CPU算法测试NOT_RUN；G0-03本地DOC检查，最终HEAD CI见[PR checks](https://github.com/Zwhao0/GREYHOUND_online/pull/8/checks) |
 | GPU/训练/双节点 | 2×H800 nccl-tests真实微基准已跑（87对AllReduce）；G0-03真实PyTorch DDP PASS（候选待审核）；MULTINODE NOT_RUN |
 | 独立审核结论 | [G0-02 ACCEPTED AS PARTIAL](https://github.com/Zwhao0/GREYHOUND_online/pull/5#issuecomment-6293707808)；仅 G0-03 Issue #6 范围获授权，须重新确认GPU资源许可；G1/G2/G3、双机和注入均未授权 |
 

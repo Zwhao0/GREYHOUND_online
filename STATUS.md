@@ -38,6 +38,6 @@
 - **已验证**：目标 `nccl-tests` 进程真实加载 NCCL 2.28.3 + 官方 v4 Profiler；同commHash的两rank各87条AllReduce事件可匹配，原始GPU channel clock可见。仅一次共享GPU环境的方向性开销样本；未证明全历史完整、精确drop、原发/等待或长期fail-open。
 - **G0-03候选PASS**：后续用户补充权限后访问已有Docker daemon，复用缓存NGC PyTorch25.03镜像；容器普通UID运行，没有修改Docker权限或安装系统软件。真实DDP目标为Torch2.7/NCCL2.25.1 + 官方example v2，未沿用2.28.3/v4推断。一次baseline/一次plugin各5+40步，停用后2步烟测全部退出0；两rank各94条Coll、94对匹配。
 - **DDP计时**：CUDA events批量末尾同步，无每step同步；rank0 baseline/plugin p50为1.144320/1.153632ms，p95为1.183483/1.190360ms；rank1 p50为1.151296/1.154144ms，p95为1.248669/1.193533ms。仅共享环境一次方向性样本；step→Coll、精确drop、长期fail-open仍UNKNOWN，v2没有GPU channel timer。
-- **验证**：DOC本地检查；最终HEAD CI按Draft checks核对；CPU算法测试NOT_RUN；GPU/DDP PASS仅本轮PoC；MULTINODE NOT_RUN。[证据](docs/evidence/g0-03-summary.json)、[记录](docs/G0-01-AUDIT.md)。
-- **Draft**：分支 `g0-03-ddp-poc`，URL创建后回填；HEAD实时读取；候选未合并，base `67d4cd5736adfd2481eed1df803b4a573bc62ead`。
+- **验证**：DOC本地检查；最终HEAD CI见[PR checks](https://github.com/Zwhao0/GREYHOUND_online/pull/8/checks)；CPU算法测试NOT_RUN；GPU/DDP PASS仅本轮PoC；MULTINODE NOT_RUN。[证据](docs/evidence/g0-03-summary.json)、[记录](docs/G0-01-AUDIT.md)。
+- **Draft**：[Draft PR #8](https://github.com/Zwhao0/GREYHOUND_online/pull/8)，分支 `g0-03-ddp-poc`；HEAD实时读取；候选未合并，base `67d4cd5736adfd2481eed1df803b4a573bc62ead`。
 - **下一步**：停止执行，等待ChatGPT独立审核。本次用户权限补充仅用于完成本轮接入与单机实验，不授权自行扩大到双机/注入/生产/G1或算法，不自行merge/关闭Issue。
