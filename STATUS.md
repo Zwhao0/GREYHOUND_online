@@ -1,43 +1,38 @@
 # STATUS — Greenhound Online
 
-- 更新日期：2026-10-20
-- 唯一仓库：[Zwhao0/GREYHOUND_online](https://github.com/Zwhao0/GREYHOUND_online)（Public）；默认分支 `main`
-- 当前阶段：**G0 IN_PROGRESS**；G0-01 静态审计 **PASS**；G0-02 NCCL 微基准 **DELIVERED / PARTIAL / MERGED**；G0-03 真实 DDP PoC **PASS / DRAFT_REVIEW_PENDING**
-- 当前任务：[G0-03 Issue #6](https://github.com/Zwhao0/GREYHOUND_online/issues/6) — 单节点许可环境下真实 PyTorch dense DDP + NCCL Profiler 字段/step 时延 PoC
-- 状态变更：[G0-02 PR #5](https://github.com/Zwhao0/GREYHOUND_online/pull/5) 已由 ChatGPT 独立审核后合并，squash SHA `f421fb752696d1e7f3a56344fc6e8a45c8b5d5d0`；[Issue #3](https://github.com/Zwhao0/GREYHOUND_online/issues/3) **CLOSED / PARTIAL_DELIVERED**
-- 实测：[G0-02 脱敏证据](docs/evidence/g0-02-summary.json)；[执行记录](docs/G0-01-AUDIT.md)；[G0-02 HEAD DOC CI PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39442234938)
-- 目前系统代码：尚无在线检测/Rank 定位系统；仅有微基准及极简DDP实验脚本
-- 实测分类：DOC=PASS；CPU算法测试=NOT_RUN；GPU=PASS（单节点2×H800微基准及真实dense DDP）；**DDP=PASS（本轮PoC候选）；MULTINODE=NOT_RUN**
-- 真实开销：共享GPU下一次NCCL microbenchmark均值增幅约 +0.866% / +0.963%；G0-03已取得DDP step p50/p95（约1.14–1.25ms），不可宣称生产 ≤2% 开销、非阻塞或 fail-open
-- 故障原发Rank定位准确率：UNKNOWN；尚无真实注入、因果归因和在线服务证据
+- **更新日期**：2026-10-20（Asia/Shanghai）；唯一仓库：[Zwhao0/GREYHOUND_online](https://github.com/Zwhao0/GREYHOUND_online)（Public），默认 `main`
+- **当前 Gate：G0 PASS（范围限定：候选审计、单节点NCCL/DDP字段可行性与初步开销）→ G1 IN_PROGRESS（尚未验收）**
+- **当前执行任务**：[G1-01 Issue #9](https://github.com/Zwhao0/GREYHOUND_online/issues/9)（OPEN）：两节点真实dense DDP的被动NCCL Rank事件采集与跨Rank匹配。Issue已发布；尚未实测；跨节点/GPU/sudo/Docker权限需要当次明确确认。
+- **已完成**：G0-01 [PR #2](https://github.com/Zwhao0/GREYHOUND_online/pull/2) PASS；G0-02 [PR #5](https://github.com/Zwhao0/GREYHOUND_online/pull/5) **PARTIAL已接收**（单机NCCL测试87对事件，DDP没跑）；G0-03 [PR #8](https://github.com/Zwhao0/GREYHOUND_online/pull/8) **PASS/MERGED**（`08731fcbcfbf3e70d930ad888424dd061933f6bc`），[Issue #6](https://github.com/Zwhao0/GREYHOUND_online/issues/6) CLOSED，[独立审核](https://github.com/Zwhao0/GREYHOUND_online/pull/8#issuecomment-6294245015)，[PR HEAD DOC CI PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39445987211)
+- **程序状态**：只有最小PoC/采集字段验证及测试脚本；本项目没有生产级采集器、在线Detector或Rank因果归因器；G1的跨节点关联脚本尚未交付。
+- **分类**：DOC=PASS（已完成PR）；CPU归因算法测试=NOT_RUN；GPU=PASS（G0-02、G0-03各自受限单机实验）；DDP=PASS（仅G0-03单机）；**MULTINODE=NOT_RUN**；故障注入/在线化=NOT_RUN。
 
-## 已批准产品约束
+## G0 三个任务的真实结论
 
-1. 路线B：借鉴 GREYHOUND ACF/变点及 Group 筛选，先复用兼容的开源 NCCL 观测并验证真实Rank证据，再做离线归因、最后在线化。
-2. V1先固定 dense DDP、普通 NCCL、两台 H800，后续DP/TP/PP；MoE/DeepEP/恢复不作第一版强制条件。
-3. 不修改生产训练/模型/框架/NCCL源代码，不暂停、不插入诊断collective，低开销与fail-open必须实测。
-4. GREYHOUND detector 许可证仍 UNVERIFIED，禁止复制。仓库Public，禁止发布公司主机、内网、密钥、私有原始日志及权重。
-5. ChatGPT规划/独立审核，Codex执行并以Draft PR交付；跨Gate及双机/注入实验须另行明确授权。
+1. **G0-01 静态审计**：借鉴GREYHOUND ACF/变点/Group设计；原profiler主动同步/暂停路径不适用；detector许可证仍未明，**禁止复制源码**。选NCCL官方原生Profiler作为首测。
+2. **G0-02 GPU微基准（PARTIAL）**：单机2×H800的`nccl-tests`真正加载NCCL2.28.3和官方Profiler **v4**；两rank各87条AllReduce，87对可匹配；单次共享环境聚合平均延迟增幅+0.866%/+0.963%；该实验没有跑DDP。
+3. **G0-03 真实 DDP（PASS）**：单机共享2×H800、NGC缓存PyTorch25.03镜像，真实forward/backward/SGD，两个DDP PID分别加载**Torch2.7.0a0 + NCCL2.25.1 / 官方Profiler v2**；两rank各94条Collective，94对按commHash/type/seq匹配，单侧缺项0（不等于全历史零drop）。40个测量step CUDA event p50/p95已按原始数据独立复算一致。
 
-## 阶段验收
-
-| Gate | 状态 | 可核查的证据 |
+| Rank | 无插件 GPU step p50 / p95 | 开插件 GPU step p50 / p95 |
 | --- | --- | --- |
-| Bootstrap | PASS | 初始化与文档CI |
-| G0-01 静态审计 | PASS / MERGED | [PR #2](https://github.com/Zwhao0/GREYHOUND_online/pull/2) |
-| G0-02 单机 NCCL microbenchmark | **PARTIAL / ACCEPTED / MERGED** | [PR #5](https://github.com/Zwhao0/GREYHOUND_online/pull/5)；2rank各87条AllReduce，87对可关联 |
-| G0-03 单机 PyTorch DDP | **PASS / DRAFT_REVIEW_PENDING** | [真实摘要](docs/evidence/g0-03-summary.json)，未合并、待独立审核 |
-| G0 总 Gate | **IN_PROGRESS / NOT_PASSED** | 已有本次DDP候选证据；低开销长期性/丢失/因果仍不支持宣称 |
-| G1 Rank级跨节点数据 | BLOCKED_BY_G0 | 无 |
-| G2 离线因果归因 | BLOCKED_BY_G1 | 无 |
-| G3 在线非暂停 | BLOCKED_BY_G2 | 无 |
-| G4 DP/TP/PP扩展 | BLOCKED_BY_G3 | 无 |
+| 0 | 1.144320 / 1.183483 ms | 1.153632 / 1.190360 ms |
+| 1 | 1.151296 / 1.248669 ms | 1.154144 / 1.193533 ms |
 
-## 下一步及真实缺口
+**限制**：只有一次共享GPU短窗对照，不能宣称稳定 ≤2% 训练开销、完全非阻塞或长期fail-open。NCCL v2没有GPU channel timer，CUDA事件只是本地step区间；跨进程时钟不可直接相减，step→Collective、Proxy、精确drop、全历史完整性、跨节点匹配及原发/受害因果均 **UNKNOWN/NOT_RUN**。不能把v4的能力回填给v2。
 
-- **已验证**：目标 `nccl-tests` 进程真实加载 NCCL 2.28.3 + 官方 v4 Profiler；同commHash的两rank各87条AllReduce事件可匹配，原始GPU channel clock可见。仅一次共享GPU环境的方向性开销样本；未证明全历史完整、精确drop、原发/等待或长期fail-open。
-- **G0-03候选PASS**：后续用户补充权限后访问已有Docker daemon，复用缓存NGC PyTorch25.03镜像；容器普通UID运行，没有修改Docker权限或安装系统软件。真实DDP目标为Torch2.7/NCCL2.25.1 + 官方example v2，未沿用2.28.3/v4推断。一次baseline/一次plugin各5+40步，停用后2步烟测全部退出0；两rank各94条Coll、94对匹配。
-- **DDP计时**：CUDA events批量末尾同步，无每step同步；rank0 baseline/plugin p50为1.144320/1.153632ms，p95为1.183483/1.190360ms；rank1 p50为1.151296/1.154144ms，p95为1.248669/1.193533ms。仅共享环境一次方向性样本；step→Coll、精确drop、长期fail-open仍UNKNOWN，v2没有GPU channel timer。
-- **验证**：DOC本地检查；最终HEAD CI见[PR checks](https://github.com/Zwhao0/GREYHOUND_online/pull/8/checks)；CPU算法测试NOT_RUN；GPU/DDP PASS仅本轮PoC；MULTINODE NOT_RUN。[证据](docs/evidence/g0-03-summary.json)、[记录](docs/G0-01-AUDIT.md)。
-- **Draft**：[Draft PR #8](https://github.com/Zwhao0/GREYHOUND_online/pull/8)，分支 `g0-03-ddp-poc`；HEAD实时读取；候选未合并，base `67d4cd5736adfd2481eed1df803b4a573bc62ead`。
-- **下一步**：停止执行，等待ChatGPT独立审核。本次用户权限补充仅用于完成本轮接入与单机实验，不授权自行扩大到双机/注入/生产/G1或算法，不自行merge/关闭Issue。
+## Gate 记录
+
+| 阶段 | 状态 | 通过的范围 / 待解决事项 |
+| --- | --- | --- |
+| Bootstrap | PASS | GitHub基线 |
+| G0 可观测性候选 | **PASS（范围限定）** | 单机实际字段+兼容性+初步开销已核实；生产能力未证实 |
+| G1 Rank级证据采集 | **IN_PROGRESS；G1-01 OPEN/NOT_STARTED** | [Issue #9](https://github.com/Zwhao0/GREYHOUND_online/issues/9)，需真实双机DDP/Rank-comm-op-seq匹配/缺失记录 |
+| G2 离线因果归因 | BLOCKED_BY_G1 | 不能将最长等待判原发Rank |
+| G3 在线非暂停 | BLOCKED_BY_G2 | 需真实负载、fail-open、丢失/低开销证据 |
+| G4 扩展 | BLOCKED_BY_G3 | 后续DP/TP/PP，MoE可选 |
+
+## 新增执行规则及下一步
+
+- 用户指定Codex子智能体两级分工：**GPT 6 luna max**处理简单/重复任务；其无法处理或复杂难点再升级 **GPT 6.1 sol medium**；主Codex集成/负责关键授权与实测。详见 [AGENTS.md](AGENTS.md)、[DECISIONS.md](docs/DECISIONS.md)。
+- **Codex下一唯一动作**：执行 [G1-01 Issue #9](https://github.com/Zwhao0/GREYHOUND_online/issues/9) 的许可确认与两节点2×H800/节点健康DDP被动采集；先做可分配的脚本/解析准备；无资源授权就BLOCKED，不能运行GPU。
+- **禁止**：擅自sudo/Docker越权、生产训练/修改框架与NCCL、故障注入/主动减速、诊断collective、GREYHOUND不明许可证代码拷贝、Rank因果结论、自动进入G2或自行合并PR。Public仓库不得泄露公司机器/网络/私有日志/权重。
