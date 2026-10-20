@@ -37,3 +37,8 @@
 
 - 仍使用上述官方NCCL `v2.27.7-1` example（BSD-3-Clause），未修改源码，只在私有构建目录编译。运行时NCCL报告2.28.3，实际DSO/插件SHA见[实测摘要](evidence/g0-02-summary.json)。[2.28.3加载器](https://github.com/NVIDIA/nccl/blob/f1308997d0420148b1be1c24d63f19d902ae589b/src/plugin/profiler.cc#L70-L75)支持v5→v4回退；两目标rank实际协商v4。该源码tag只作加载器依据，不声称已知已装DSO的构建commit。
 - 复用已安装NVIDIA nccl-tests 2.17.6；[对应上游tag/README](https://github.com/NVIDIA/nccl-tests/blob/da0b547b1b9c6e3b1d4c15578087874522ae3761/README.md)、[BSD-3-Clause许可](https://github.com/NVIDIA/nccl-tests/blob/da0b547b1b9c6e3b1d4c15578087874522ae3761/LICENSE.txt)。安装二进制构建commit UNKNOWN，记录其版本输出与SHA，不冒充从该tag自行构建。没有将第三方源码/二进制复制入Public仓库。
+
+## G0-03 实际依赖（不分发第三方源码或镜像）
+
+- 官方NCCL `v2.25.1-1` / `80f6bda4378b99d99e82b4d76a633791cc45fef0`：[LICENSE.txt](https://github.com/NVIDIA/nccl/blob/80f6bda4378b99d99e82b4d76a633791cc45fef0/LICENSE.txt)，BSD-3-Clause；[v2 ABI字段](https://github.com/NVIDIA/nccl/blob/80f6bda4378b99d99e82b4d76a633791cc45fef0/ext-profiler/example/nccl/profiler_v2.h#L21-L41)、[Host时钟](https://github.com/NVIDIA/nccl/blob/80f6bda4378b99d99e82b4d76a633791cc45fef0/ext-profiler/example/plugin.c#L41-L57)。只按原Makefile编译未改example，真实DDP目标实际加载v2；不回填v3/v4的GPU字段。
+- 复用已缓存NGC `nvcr.io/nvidia/pytorch:25.03-py3` 镜像，ID及Torch版本见[摘要](evidence/g0-03-summary.json)；镜像运行时提示适用NVIDIA软件许可及AI产品专用条款，不将整个镜像当作BSD代码再分发。本PR只含原创PoC和脱敏实验数据，无镜像/外部源码导入。
