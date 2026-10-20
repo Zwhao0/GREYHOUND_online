@@ -34,7 +34,7 @@
 | Gate | 状态 | 证据 | 放行人 |
 | --- | --- | --- | --- |
 | Bootstrap | PENDING_REMOTE | 当前仅有初始化包 | — |
-| G0：候选/可观测性 | NOT_STARTED | 无 | — |
+| G0：候选/可观测性 | STATIC_AUDIT_READY / NOT_STARTED | Issue #1 开放；无 GPU 证据 | — |
 | G1：Rank 级证据采集 | BLOCKED_BY_G0 | 无 | — |
 | G2：真实数据离线归因 | BLOCKED_BY_G1 | 无 | — |
 | G3：在线非暂停模式 | BLOCKED_BY_G2 | 无 | — |
