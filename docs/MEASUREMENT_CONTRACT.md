@@ -31,3 +31,27 @@
 - MULTINODE：真实 NCCL 跨节点及故障实验，含通信路径与时钟问题。
 - 注入标识与参数存放在测试方私有证据中，**不能传给算法**；评估时统计 Top-1、Top-k、UNKNOWN、误报、召回、检测/定位延迟、正常迭代 p50/p95 开销。
 - 所有数据收集必须在用户许可的隔离窗口，禁止在生产任务注入故障。
+
+## 5. G0-01 最小事件契约（静态候选，2026-10-20）
+
+`SUPPORTED` 仅表示固定上游接口/实现存在；`UNKNOWN` 表示未证实或未采集；`UNSUPPORTED` 表示该来源不提供。**所有本项目运行时字段、完整性和开销均 UNKNOWN，GPU/MULTINODE NOT_RUN。** 固定源码依据见 [来源矩阵](SOURCES_AND_LICENSES.md)，实验门槛见 [G0-01](G0-01-AUDIT.md)。
+
+| 字段/键 | 最小来源与语义 | 静态状态/缺口 |
+| --- | --- | --- |
+| `run_id, rank_epoch, node_id, pid` | 经审查的启动包装/运行清单；重启新 epoch；公开产物脱敏 | NCCL 不生成 run/epoch；运行清单 UNKNOWN |
+| `global_rank, local_rank, gpu_uuid` | 启动器环境 + 实际 PID/GPU 映射；不能把 communicator rank 当 global rank | Profiler rank 为 comm 内 rank；GPU UUID 不在 v4 描述符，映射 UNKNOWN |
+| `comm_key, comm_rank, members` | v4 init 的 commHash/nranks/rank/nNodes；汇总每 rank 的 init 与启动身份，保留原始证据 | commHash SUPPORTED；完整成员数组 UNSUPPORTED（需外部重建）；hash 不是全局唯一性证明 |
+| `collective_key` | `(run_id, rank_epoch, verified_comm_key, collective_type, seqNumber)`，再核对 func/count/datatype/root、参与成员 | v4 coll.seqNumber 按 communicator + collective type 各自递增（[源码](https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/src/plugin/profiler.cc#L247-L270)），不可当全类型总序号；重建 comm 成员前跨 rank 匹配 UNKNOWN；不按时间最近或本地指针匹配 |
+| `op, logical_message_bytes` | coll.func/count/datatype；bytes=count×类型宽度，写明每 rank 输入语义 | SUPPORTED；不是网卡传输字节；AllGather/ReduceScatter 输入/输出另标，未知类型宽度 UNKNOWN |
+| `parent, channel, peer, proxy_state` | parentObj 只在同地址空间有效；ProxyOp/Step 状态链及 channel/peer | ABI SUPPORTED；PXN 跨 PID 父链可能断裂，断链 UNKNOWN，不猜关联 |
+| `host_enqueue_start/end` | 插件回调时 CLOCK_MONOTONIC（example）；coll.stopEvent 仅 enqueue 结束 | SUPPORTED；不是 GPU 完成时间，也不是精确训练计算结束 |
+| `gpu_channel_start/end` | v4 KernelCh pTimer / KernelChStop，GPU globaltimer；保存原始值与转换元数据 | ABI SUPPORTED；是 channel work 时间，不能把它叫完整 kernel launch 时间；实测覆盖 UNKNOWN |
+| `proxy_progress_ts` | ProxyOp/Step 回调的本地 Host 时钟；区分 SendGPUWait/RecvWait 等状态 | SUPPORTED；不是硬件线上包时间；网络事件依赖 net plugin，不能从 ABI 推导实际支持 |
+| `clock_domain, unit, calibration, uncertainty` | 每进程/每 GPU 独立域；example Host 微秒，GPU pTimer 原始纳秒需核对；保留转换方法 | 跨节点和跨 GPU 校准 UNKNOWN；禁止直接相减；误差大于效应则 UNKNOWN |
+| `sampling, seen, emitted, dropped, overwritten, truncated, collector_health` | 每 rank/事件类/窗口的计数、容量和启停边界；区分未激活/未产生/丢失 | ABI 无通用 drop 字段；example 有界池会静默丢弃且只导出尾窗，精确 drop UNKNOWN；未报告不等于零 |
+
+关联顺序：先用身份清单验证成员与 commHash 一致性，再按 seq + 元数据核对；每个匹配键必须在每名预期成员恰有一个 collective。channel/ProxyStep 是子事件，不是另一 collective。同类型同序号元数据冲突、缺 rank、重启复用、重复事件、PXN 断链均隔离并记原因，不做强行补齐。固定 dense DDP 的唯一 world communicator 可先测；多组/重建 communicator 和 DP/TP/PP 不得据此宣称已支持。
+
+晚进入、通信执行久、等待的判别必须保留反例：较长 GPU 区间可能只是等待迟到 peer；较晚 Host enqueue 可能是 CPU 调度或数据准备；RecvWait 可能由远端计算、网络或本地进度线程引起。只有区间长短或 Inspector 聚合时，最多 `SUSPECT_GROUP_OR_EDGE`；缺校准/父链/完整性时 `UNKNOWN`。本阶段不产生原发 Rank 结论或实现归因算法。
+
+采集不得要求暂停训练、额外 world collective 或热路径 GPU 同步。插件回调在 NCCL 线程执行，有界内存不等于无阻塞、低开销或 fail-open 已获证明；这些均保留为后续隔离 PoC 的验收项。
