@@ -1,0 +1,276 @@
+{
+  "scope": "G0-02 single-node two-rank NCCL microbenchmark; user authorized shared GPUs after occupancy check",
+  "result": "PARTIAL: NCCL raw fields observed/aligned; dense DDP and step percentiles NOT_RUN",
+  "hardware": {
+    "node": "test-node",
+    "gpus": [
+      {
+        "global_rank": 0,
+        "local_rank": 0,
+        "comm_rank": 0,
+        "visible_device": 0,
+        "model": "NVIDIA H800"
+      },
+      {
+        "global_rank": 1,
+        "local_rank": 1,
+        "comm_rank": 1,
+        "visible_device": 1,
+        "model": "NVIDIA H800"
+      }
+    ],
+    "driver": "580.178.04"
+  },
+  "runtime": {
+    "benchmark_version": "nccl-tests 2.17.6",
+    "benchmark_sha256": "d4d4fd352038ba35a93afabc183afffc5439efccd1929c8ded92f0ab86bb8f59",
+    "actual_nccl_version": "2.28.3+cuda12.9",
+    "actual_nccl_path": "/opt/nccl-tests/bin/../lib/libnccl.so.2",
+    "actual_nccl_sha256": "da4d22f215c45435fcbaa465351ad5d2b9c4a87dfd8005565b25b14e5695cf68",
+    "evidence": "LD_DEBUG calling init from each target PID + NCCL own runtime log + benchmark nccl-library=22803",
+    "runtime_build_commit": "UNKNOWN",
+    "torch": "NOT_USED",
+    "actual_cudart_path": "/opt/nccl-tests/bin/../lib/libcudart.so.12",
+    "actual_cudart_sha256": "256e6409e4f06f618e1fb53d4844a6b81cdded1013afa8ade40c22f99eb133b7",
+    "cudart_exact_version": "UNKNOWN; +cuda12.9 is NCCL build suffix, loaded cudart has major ABI 12"
+  },
+  "plugin": {
+    "upstream_tag": "v2.27.7-1",
+    "upstream_commit": "593de54e52679b51428571c13271e2ea9f91b1b1",
+    "sha256": "3982ac146d710cfd3eca59e0c36fd1502790840211eb8f41c2d35934b51c9571",
+    "build": "official make -C ext-profiler/example CUDA_VERSION=12.9; GCC 13.3.0; no source changes",
+    "loaded_abi": "v4",
+    "event_mask": 64,
+    "group_pool": 128,
+    "coll_pool": 128,
+    "rank_load_evidence": [
+      {
+        "rank": 0,
+        "commHash": "14248957799767872916",
+        "nranks": 2,
+        "runtime_log_excerpt": "PROFILER/Plugin: Loaded Example-profiler (v4)",
+        "actual_loader_plugin_path": "$TASK_DIR/nccl-v2.27.7-1/ext-profiler/example/libnccl-profiler-example.so"
+      },
+      {
+        "rank": 1,
+        "commHash": "14248957799767872916",
+        "nranks": 2,
+        "runtime_log_excerpt": "PROFILER/Plugin: Loaded Example-profiler (v4)",
+        "actual_loader_plugin_path": "$TASK_DIR/nccl-v2.27.7-1/ext-profiler/example/libnccl-profiler-example.so"
+      }
+    ]
+  },
+  "runs": {
+    "baseline": {
+      "exit_code": 0,
+      "warmup": 5,
+      "iterations_per_layout": 40,
+      "layouts": [
+        "out_of_place",
+        "in_place"
+      ],
+      "size_bytes": 8388608,
+      "count": 2097152,
+      "datatype": "float",
+      "mean_us": {
+        "out_of_place": 76.111487,
+        "in_place": 75.272838
+      },
+      "max_rss_kib_by_rank": [
+        957944,
+        956672
+      ],
+      "all_output_bytes": 99442
+    },
+    "plugin": {
+      "exit_code": 0,
+      "warmup": 5,
+      "iterations_per_layout": 40,
+      "layouts": [
+        "out_of_place",
+        "in_place"
+      ],
+      "size_bytes": 8388608,
+      "count": 2097152,
+      "datatype": "float",
+      "mean_us": {
+        "out_of_place": 76.770263,
+        "in_place": 75.9974
+      },
+      "max_rss_kib_by_rank": [
+        998512,
+        993180
+      ],
+      "all_output_bytes": 1047739
+    },
+    "rollback": {
+      "exit_code": 0,
+      "warmup": 0,
+      "iterations_per_layout": 2,
+      "layouts": [
+        "out_of_place",
+        "in_place"
+      ],
+      "size_bytes": 8388608,
+      "count": 2097152,
+      "datatype": "float",
+      "mean_us": {
+        "out_of_place": 91.44325,
+        "in_place": 78.896
+      },
+      "max_rss_kib_by_rank": [
+        956868,
+        958980
+      ],
+      "all_output_bytes": 99430
+    }
+  },
+  "events": {
+    "0": {
+      "collectives": 87,
+      "unique_match_keys": 87,
+      "sequence_min": 0,
+      "sequence_max": 86,
+      "gpu_channel_begin": 1392,
+      "gpu_channel_end": 1392,
+      "proxy_events": 0,
+      "trace_bytes": 473139,
+      "trace_sha256": "fa884c4f6e09fac33c0bbbbdc77237de639dabc8870ac508f21a6fd86dadde7c"
+    },
+    "1": {
+      "collectives": 87,
+      "unique_match_keys": 87,
+      "sequence_min": 0,
+      "sequence_max": 86,
+      "gpu_channel_begin": 1392,
+      "gpu_channel_end": 1392,
+      "proxy_events": 0,
+      "trace_bytes": 473139,
+      "trace_sha256": "767a916369d6983a6a5baeb1b8197b61a1910e63bd55a97ac6c4d5bac5fc3731"
+    }
+  },
+  "samples": [
+    {
+      "rank": 0,
+      "type": "AllReduce",
+      "commHash": "14248957799767872916",
+      "seqNumber": 0,
+      "count": 2097152,
+      "datatype": "ncclFloat32",
+      "logical_bytes": 8388608,
+      "algorithm": "RING",
+      "protocol": "SIMPLE",
+      "channels": 16,
+      "host_coll_begin_us": 189082.713135,
+      "gpu_channel": {
+        "Channel": 0,
+        "StartGpuClk": 1792507160988793696,
+        "StopGpuClk": 1792507160988847936
+      },
+      "gpu_event_host_observed_begin_us": 193306.064209
+    },
+    {
+      "rank": 0,
+      "type": "AllReduce",
+      "commHash": "14248957799767872916",
+      "seqNumber": 86,
+      "count": 2097152,
+      "datatype": "ncclFloat32",
+      "logical_bytes": 8388608,
+      "algorithm": "RING",
+      "protocol": "SIMPLE",
+      "channels": 16,
+      "host_coll_begin_us": 193223.208008,
+      "gpu_channel": {
+        "Channel": 0,
+        "StartGpuClk": 1792507160995444288,
+        "StopGpuClk": 1792507160995489152
+      },
+      "gpu_event_host_observed_begin_us": 195740.031982
+    },
+    {
+      "rank": 1,
+      "type": "AllReduce",
+      "commHash": "14248957799767872916",
+      "seqNumber": 0,
+      "count": 2097152,
+      "datatype": "ncclFloat32",
+      "logical_bytes": 8388608,
+      "algorithm": "RING",
+      "protocol": "SIMPLE",
+      "channels": 16,
+      "host_coll_begin_us": 187484.982178,
+      "gpu_channel": {
+        "Channel": 0,
+        "StartGpuClk": 1792507162296348000,
+        "StopGpuClk": 1792507162298046944
+      },
+      "gpu_event_host_observed_begin_us": 191502.297119
+    },
+    {
+      "rank": 1,
+      "type": "AllReduce",
+      "commHash": "14248957799767872916",
+      "seqNumber": 86,
+      "count": 2097152,
+      "datatype": "ncclFloat32",
+      "logical_bytes": 8388608,
+      "algorithm": "RING",
+      "protocol": "SIMPLE",
+      "channels": 16,
+      "host_coll_begin_us": 193311.088135,
+      "gpu_channel": {
+        "Channel": 0,
+        "StartGpuClk": 1792507162304643904,
+        "StopGpuClk": 1792507162304689440
+      },
+      "gpu_event_host_observed_begin_us": 195783.665039
+    }
+  ],
+  "unknowns": [
+    "dense DDP behavior",
+    "step p50/p95 (installed nccl-tests provides aggregate mean only)",
+    "exact dropped/overwritten counts",
+    "complete history coverage",
+    "Host enqueue end independently exported",
+    "cross-GPU clock calibration",
+    "Proxy/network wait (mask not enabled)",
+    "fail-open under collector faults",
+    "causal origin rank",
+    "strict performance SLA"
+  ],
+  "sanitization": "Hostnames/IPs/PIDs/GPU UUIDs/PCI bus identifiers/user paths/environment removed; target processes are rank aliases. CommHash retained as decimal string. No synthetic events.",
+  "alignment": {
+    "matching_keys": 87,
+    "rank0_only": 0,
+    "rank1_only": 0,
+    "key": [
+      "run (this plugin invocation)",
+      "commHash",
+      "type",
+      "seqNumber"
+    ],
+    "metadata_checked": [
+      "count",
+      "datatype"
+    ],
+    "not_a_drop_zero_proof": true
+  },
+  "directional_mean_change_percent": {
+    "out_of_place": 0.8655408348545279,
+    "in_place": 0.962580951179226
+  },
+  "rollback": {
+    "both_ranks_exit": 0,
+    "profiler_loaded": false,
+    "runtime_log_excerpt": "PROFILER/Plugin: Could not find: libnccl-profiler.so",
+    "selected_gpu_memory_after_mib": [
+      75875,
+      75875
+    ],
+    "selected_gpu_memory_before_mib": [
+      75875,
+      75875
+    ]
+  }
+}

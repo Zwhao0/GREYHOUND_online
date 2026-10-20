@@ -55,3 +55,19 @@
 晚进入、通信执行久、等待的判别必须保留反例：较长 GPU 区间可能只是等待迟到 peer；较晚 Host enqueue 可能是 CPU 调度或数据准备；RecvWait 可能由远端计算、网络或本地进度线程引起。只有区间长短或 Inspector 聚合时，最多 `SUSPECT_GROUP_OR_EDGE`；缺校准/父链/完整性时 `UNKNOWN`。本阶段不产生原发 Rank 结论或实现归因算法。
 
 采集不得要求暂停训练、额外 world collective 或热路径 GPU 同步。插件回调在 NCCL 线程执行，有界内存不等于无阻塞、低开销或 fail-open 已获证明；这些均保留为后续隔离 PoC 的验收项。
+
+## 6. G0-02 实测覆盖（候选待审核，仅共享单机 NCCL microbenchmark）
+
+[真实证据摘要](evidence/g0-02-summary.json)及[执行记录](G0-01-AUDIT.md#g0-02-执行记录候选未合并等待独立审核)更新的是本次运行事实，不回填为任意训练环境的保证：
+
+| 要求 | 本次事实 | 边界 |
+| --- | --- | --- |
+| 实际库/ABI | 两目标PID加载同一NCCL2.28.3 DSO；官方2.27.7 example均加载v4 | 不是v5实测，Torch/DDP未使用；构建commit未知，保留二进制SHA |
+| rank/GPU/comm | MPI测试自身rank→device0/1；同PID comm init rank0/1、nranks2、同commHash | 单world，无重启/多组证明，公开摘要以alias脱敏 |
+| collective关联 | 87对`(run,commHash,type,seq)`，count/dtype一致；float32×2097152=8MiB | 不证明全历史/零drop；两rank键一致不代表采集无共同丢失 |
+| Host时间 | Coll begin为Host回调时间；带子事件的Coll end为refcount归零时刻 | 独立Host enqueue end UNKNOWN，Chrome GPU类别ts仍是Host观察时间 |
+| GPU时间 | 每rank1392组KernelCh原始StartGpuClk/StopGpuClk | GPU timer域，不作跨GPU绝对差、不等同完整kernel launch |
+| Proxy/drop/因果 | Proxy未启用，精确drop和等待/原发区别UNKNOWN | 未注入、未做Rank归因；单机不能代替跨机验证 |
+| 基本开销 | 一次无插件/插件平均延迟、RSS、输出量和停用烟测已记录 | step p50/p95 NOT_AVAILABLE；共享资源干扰未知，无SLA/fail-open证明 |
+
+G0-02整体为PARTIAL：真实NCCL字段链可用，但DDP和step分位数未验证。GPU PASS仅限这次微基准，不等于完整G0或G1通过。

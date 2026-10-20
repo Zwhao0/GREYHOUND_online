@@ -1,4 +1,6 @@
-# G0-01 静态审计 — 候选待审核
+# G0-01 静态审计与 G0-02 字段 PoC 记录
+
+G0-01 已经[独立审核 PASS 并合并](https://github.com/Zwhao0/GREYHOUND_online/pull/2#issuecomment-6293155716)。下面 G0-01 段落保留静态交付时的历史语义；G0-02 执行边界以 [Issue #3](https://github.com/Zwhao0/GREYHOUND_online/issues/3) 为准，不沿用旧方案的多轮/完整性硬门槛。
 
 2026-10-20；依据 [Issue 最新指令](https://github.com/Zwhao0/GREYHOUND_online/issues/1#issuecomment-6291225324)。基于 main `d2a47a6b0edb94199c611933f71777136f904649`。两个只读子审计，主窗口复核并写入；本分支为候选，未合并、未跨 Gate。DOC 静态证据不代表 GPU 可观测性。
 
@@ -46,3 +48,59 @@
 - GREYHOUND detector 许可未证实；其他组件许可证只覆盖审查范围，依赖/分发需复核。
 - DOC：现有 validate_docs.py PASS、git diff --check PASS；31个外链去重检查后修复1个RAS路径，PyTorch教程HEAD 403但浏览器读取成功，其余HTTP 200；CI以 PR 实际运行记录为准；CPU/GPU/MULTINODE：NOT_RUN。未访问H800、未运行上游程序、无算法或采集器实现。
 - 回退本PR：关闭/撤回候选文档分支即可；main 未改变。交一个 Draft PR 后停止，等待 ChatGPT 独立审核。
+
+
+## G0-02 执行记录（候选未合并，等待独立审核）
+
+依据 [Issue #3](https://github.com/Zwhao0/GREYHOUND_online/issues/3)，base main `4d8a49c71f1dc24d7252f7ce21b56d06c9a9b225`。**结果 PARTIAL：单节点2×H800真实 NCCL 原始字段采集/对齐成功；dense DDP、step p50/p95 未验证。G0 总 Gate 未通过，G1 未授权。**
+
+### 实际授权、接入与运行
+
+资源检查时两个候选节点全部GPU有进程占用，未停止或读取现存训练日志。用户随后在本轮对话明确授权“共享GPU”，因此选第二候选节点GPU0/1（各约5204 MiB空闲）运行单独任务进程/目录；**设备共享而非独占隔离，性能受共租干扰**。只在这一台机器运行GPU任务，没有双机实验。结束后所选卡占用回到运行前75875 MiB；未评估对其他任务的影响。
+
+宿主默认Python无Torch，Docker普通用户无访问权限。未使用sudo、未改权限/安装Torch。为避免搭环境，复用已安装官方 `nccl-tests 2.17.6` 的 `all_reduce_perf`：单机MPI2进程、每rank1 GPU，8MiB float32 sum，`-n40 -w5 -c0 -z0`，分别测out-of-place/in-place。它是**NCCL微基准，不是DDP step**；数值正确性检查关闭，不能宣称已验证训练正确性。
+
+无插件对照一次完成后，从两个目标PID的 `LD_DEBUG=libs` 的 `calling init` 确认实际加载 `/opt/nccl-tests/bin/../lib/libnccl.so.2`；其自身NCCL日志均为 `2.28.3+cuda12.9`，测试程序同时报告 `nccl-library=22803`。实际cudart也由目标PID加载记录确认路径，`+cuda12.9`仅是NCCL构建后缀，不冒充独立查询过的cudaRuntimeGetVersion。驱动580.178.04，Torch未使用；不是用宿主pip元数据推断运行库。
+
+插件选择官方 `v2.27.7-1` / `593de54e52679b51428571c13271e2ea9f91b1b1` 的未修改example，BSD-3-Clause。目标2.28.3加载器有[尝试v5后回退v4](https://github.com/NVIDIA/nccl/blob/f1308997d0420148b1be1c24d63f19d902ae589b/src/plugin/profiler.cc#L70-L75)路径；v4 example自带所需头文件，可不安装CUDA开发环境。仅在任务私有目录 `make -C ext-profiler/example CUDA_VERSION=12.9`（GCC13.3.0），没有重编译或替换NCCL。`CUDA_VERSION`是Makefile配置，不是升级。两rank真实日志均记录 `Loaded Example-profiler (v4)`、相同commHash、nranks=2及rank0/1；各自目标PID加载日志也包含插件路径。
+
+- libnccl SHA256：`da4d22f215c45435fcbaa465351ad5d2b9c4a87dfd8005565b25b14e5695cf68`。
+- 插件 SHA256：`3982ac146d710cfd3eca59e0c36fd1502790840211eb8f41c2d35934b51c9571`；仅导出`ncclProfiler_v4`。
+- 插件配置：`NCCL_PROFILE_EVENT_MASK=64`（KernelCh及祖先Coll/Group）；Group/Coll pool各128；输出任务私有文件。非插件两次启动均清除插件变量；所有运行使用同样的NCCL INFO/loader记录方式。
+- 完整脱敏事实、库/测试二进制/原始trace哈希和样例：[g0-02-summary.json](evidence/g0-02-summary.json)。原始主机名、地址、PID、GPU UUID、PCI地址、环境变量和私有路径不公开。摘要中的rank alias不改变实际commHash/sequence/时钟数值。
+
+### 原始字段、对齐与时间语义
+
+两rank各导出87条AllReduce，seq0–86，均为同一commHash；按本次run + commHash + type + seq匹配87对、无仅单侧键，count/datatype一致。global/local rank与device映射来自MPI nccl-tests自身JSON（0→GPU0、1→GPU1），并用相同PID的NCCL comm init及trace comm rank核对，不按时间最近匹配。单world、未重启的小样本不证明任意communicator映射。
+
+| 原始样例（两个rank均有） | 值 |
+| --- | --- |
+| commHash / type / seq | `14248957799767872916` / `AllReduce` / `86` |
+| comm rank / count / datatype | `0,1` / `2097152` / `ncclFloat32` |
+| 每rank逻辑字节 / algorithm / protocol | `8388608` / `RING` / `SIMPLE` |
+| channels / GPU子事件 | 每collective16 channels；每rank1392个KernelCh begin和1392个end |
+
+Host Coll begin是插件CLOCK_MONOTONIC相对起点的微秒；导出Coll end由[refcount归零时刻](https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/plugin.c#L470-L475)产生，启用KernelCh后**不能当独立Host enqueue end**。GPU类别的Chrome `ts`仍是Host观察时间；真正GPU证据在 `StartGpuClk/StopGpuClk`，保留原始GPU timer域而不冒充完整kernel launch边界。跨GPU校准未知，不能直接比较两个rank的绝对时间。Proxy未启用且单机路径无网络事件，本次不验证等待分解或原发Rank。
+
+87个导出键全匹配仅证明这一小段可关联；官方example有限池/尾窗及精确drop缺口仍在，未证明全历史完整、无丢失或fail-open。没有为了字段PoC新增计数器/解析平台，B无需切换。
+
+### 一次对照的基本开销、失败与回退
+
+| 指标 | 无插件对照 | 插件短窗 | 解释 |
+| --- | --- | --- | --- |
+| out-of-place官方平均延迟（μs） | 76.111487 | 76.770263 | +0.866%，仅一次共享环境样本 |
+| in-place官方平均延迟（μs） | 75.272838 | 75.997400 | +0.963%，不是2% SLA证明 |
+| step p50/p95 | NOT_AVAILABLE | NOT_AVAILABLE | 此安装版本只导出聚合均值；没有把均值或channel时长冒充step分位数 |
+| max RSS rank0/rank1（KiB） | 957944 / 956672 | 998512 / 993180 | `/usr/bin/time -v`，不是GPU显存峰值 |
+| 本任务输出总字节 | 99442 | 1047739 | 含loader/NCCL日志；每rank trace各473139字节 |
+| 两rank退出 / 异常停滞 | 0 / 未观察到 | 0 / 未观察到 | 不证明长期稳定/严格非阻塞/其他任务无影响 |
+
+最初MPI启动因`--host localhost`只有1 slot而在GPU程序启动前失败；改成`localhost:2`后只完成上述一组对照/插件测试。没有故障注入或环境升级。官方2.28.3 example依赖本机缺少的CUDA开发头文件，未为此安装SDK或修补ABI，使用已审核的官方兼容v4 example。额外下载的开发依赖未安装、未进入仓库。
+
+清除插件配置后仅做 `-n2 -w0` 启动/退出烟测：两rank退出0，实际加载日志无profiler，NCCL日志再次为`Could not find: libnccl-profiler.so`；未重复整轮性能实验。无任务残留配置写入全局环境。所有运行外层timeout120秒、TERM后5秒KILL仅限本次进程组，无sudo/系统变更、生产脚本修改或停止他人进程。
+
+复现入口：[tools/g0_02_nccl_poc.sh](../tools/g0_02_nccl_poc.sh)，由实际执行命令整理，静态语法检查；使用已批准资源和私有目录，依次`baseline <dir>`、`plugin <dir> <official-plugin.so>`、`rollback <dir>`。不提交第三方源码或私有原始日志。结果报告里的版本/字段来自本次真实进程，不以脚本静态检查替代GPU证据。
+
+**验证分类：** DOC=现有文档/链接与shell语法检查（CI看Draft实际记录）；CPU测试=NOT_RUN；GPU=PASS（仅本次共享单机NCCL微基准/加载/原始字段/回退）；DDP=NOT_RUN；MULTINODE=NOT_RUN；G0-02整体PARTIAL，待独立审核。
+
+下一步建议先审核本Draft，并明确后续可用的既有Torch运行入口与共享/独占资源条件，再单独授权一次固定dense DDP及step分位数验证。当前不请求G1、双机、注入、Rank算法或生产部署，也不因微基准字段成功放行整个G0。
