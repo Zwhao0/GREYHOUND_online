@@ -12,12 +12,12 @@
 | 实际仓库 | [Zwhao0/GREYHOUND_online](https://github.com/Zwhao0/GREYHOUND_online)（Public） |
 | 远端状态 | **CREATED / BOOTSTRAP PASS**（15 个文件已上传 GitHub main 并回读） |
 | 默认分支 | `main`（每次交接需回读最新 HEAD） |
-| 当前 Gate | **BOOTSTRAP PASS**；G0-01 静态审计已交付待审核（DRAFT，未合并） |
-| 当前 Issue | [G0-01 Issue #1](https://github.com/Zwhao0/GREYHOUND_online/issues/1)（OPEN；当前只授权静态审计） |
-| 当前 PR / HEAD | [Draft PR #2](https://github.com/Zwhao0/GREYHOUND_online/pull/2)，分支 `g0-01-static-audit`；本分支 HEAD 实时读取。base main `d2a47a6b0edb94199c611933f71777136f904649` |
-| CI | main [DOC PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39423999157)；候选 DOC 本地 PASS；最新 HEAD [PR checks](https://github.com/Zwhao0/GREYHOUND_online/pull/2/checks)按实际运行核对；CPU NOT_RUN |
+| 当前 Gate | **G0 IN_PROGRESS**；G0-01 静态审计 PASS/MERGED；G0-02 单节点字段 PoC READY/NOT_STARTED；G1 BLOCKED |
+| 当前 Issue | [G0-02 Issue #3](https://github.com/Zwhao0/GREYHOUND_online/issues/3)（OPEN；隔离单节点 2×H800，无注入）；G0-01 #1 CLOSED |
+| 当前 PR / HEAD | [G0-01 PR #2](https://github.com/Zwhao0/GREYHOUND_online/pull/2) 已合并；squash SHA `c73d552eb14695fa9e02247193fd8e6465b863d5`；最新 main HEAD 请 GitHub 实时回读；G0-02 尚无执行 PR |
+| CI | G0-01 [DOC PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39438158278)；CPU/GPU/MULTINODE NOT_RUN；G0-02 新结果尚无 |
 | GPU / 双机真实实验 | NOT_RUN |
-| 独立审核结论 | Bootstrap 已审核通过；G0-01 候选待独立审核；GPU 与 G1/G2/G3 均未授权 |
+| 独立审核结论 | [G0-01 STATIC PASS](https://github.com/Zwhao0/GREYHOUND_online/pull/2#issuecomment-6293155716)；仅 G0-02 单节点隔离测试按 Issue #3 条件授权；双机、注入、G1/G2/G3 均未授权 |
 
 ## B. 已批准的方向（不得在交接中重新解释）
 
@@ -30,13 +30,12 @@
 
 ## C. 立即下一步（只做这一件）
 
-**停止执行，等待 ChatGPT 独立审核 G0-01 Draft PR；不启动 GPU/G1/G2。**
+**执行 [G0-02 Issue #3](https://github.com/Zwhao0/GREYHOUND_online/issues/3) 的单节点真实 NCCL Profiler 字段 PoC，仍属 G0；不启动 G1。**
 
-- 候选交付：[报告](docs/G0-01-AUDIT.md)、[来源/许可](docs/SOURCES_AND_LICENSES.md)、[最小事件契约](docs/MEASUREMENT_CONTRACT.md)。首测 A=原生 NCCL Profiler example 短窗口；备选 B=Probing。Inspector 仅兼容版本摘要。
-- 主窗口已综合两个只读子审计。seq 必须带 collective type；example 无精确drop，Inspector覆盖latest，Probing锁/同步flush，尚无生产非暂停保证。GREYHOUND detector 许可未证实，不复制。
-- 当前结果仅 DOC 静态证据；CPU/GPU/MULTINODE NOT_RUN；未访问服务器，真实字段/版本/开销 UNKNOWN。
-- 下一项最小操作须另行授权：隔离单节点2 GPU固定dense DDP的实际库/插件加载核验 + 无采集对照 + A短窗口无注入PoC；不因文档审核自动放行，双节点及注入另批。
-- 禁止真实 H800 操作、故障注入、暂停训练、升级/修改 NCCL/框架/生产脚本、算法开发、自行 merge、关闭Issue或跨Gate。Public仓库不提交服务器信息/私有日志/密钥。
+- 首测 A：仅在已获用户许可的隔离单节点（最多 2×H800）核对实际加载 NCCL 与官方 Profiler example 的 ABI、插件加载、Rank/communicator/collective/sequence 原始字段及简要开销。
+- 用户要求快速推进：首轮字段 PoC 只需无采集对照 + 有采集短窗口一次。不要机械要求三轮配对、100% 长时无丢失、精确 drop、完整 2% SLA 或双机归因。GPU 实测能否跑通及字段缺口必须准确记录。
+- 若没有确认过用户许可的隔离 GPU 资源，Codex 只能做准备并将 GPU 标 BLOCKED/NOT_RUN；不能访问生产训练。主机信息和原始私有日志不得提交 Public 仓库。
+- 交付一个 Draft PR、真实运行/失败证据、可复现最小步骤并在同一 PR 更新 STATUS/HANDOFF。未获审核不得自行合并；双机、注入、Rank 归因、升级环境、训练暂停仍禁止。
 
 ## D. 接班第一步：每个新 ChatGPT / Codex 窗口
 
@@ -55,11 +54,11 @@
 
 ## F. 当前交接给 ChatGPT 新窗口的完整指令
 
-> 我们继续全新项目 **Greenhound Online**，GitHub 目标仓库 `Zwhao0/GREYHOUND_online`。请首先读取仓库根目录 `HANDOFF.md`、`STATUS.md`、`AGENTS.md`、`ROADMAP.md`、`docs/DECISIONS.md` 和当前 G0-01 任务/Issue，并回读 GitHub 真实状态。本仓库已建立；先复核 Issue #1 与最新 main，再按 G0-01 的授权范围推进。G0-01 静态候选已交付，先独立审核 Draft，未获新授权不继续执行。用户已批准的方向：GREYHOUND 的异常检测与 Group 筛选 + 开源 NCCL 证据 + 独立的离线先行 Rank 归因 + 最后在线化。第一版固定密集 DDP，普通 NCCL、两台 H800，之后扩展 DP/TP/PP，不强制 MoE；不暂停训练、不改训练代码。ChatGPT 规划与审核，Codex 执行。请从当前 Gate 的最小任务继续，不要跳过证据验证，不要擅自进入下一阶段。
+> 继续 Greenhound Online 项目：唯一仓库 Zwhao0/GREYHOUND_online。先通过 GitHub 阅读 HANDOFF、STATUS、AGENTS、ROADMAP、docs/DECISIONS 和当前 Issue/PR，回读最新 main HEAD/CI。G0-01 静态审计已经 PASS，PR #2 MERGED，Issue #1 CLOSED；G0-02 Issue #3 OPEN，目标是许可隔离单节点 2×H800 无注入 NCCL Profiler 字段 PoC。不要把该 PoC 当成全部 G0 Gate 通过。ChatGPT 负责审核，Codex 执行。严格禁止未经许可的服务器访问、生产注入、改训练/框架/NCCL及跳到 G1。
 
 ## G. 当前交接给 Codex 新窗口的完整指令
 
-> 你是 **Greenhound Online** 主 Codex 执行者。先从 `Zwhao0/GREYHOUND_online` 读取 `HANDOFF.md`、`STATUS.md`、`AGENTS.md`、`ROADMAP.md`、`docs/DECISIONS.md`、`docs/MEASUREMENT_CONTRACT.md` 及 [G0-01 Issue #1](https://github.com/Zwhao0/GREYHOUND_online/issues/1)。**以已合并 main 状态为准，Draft PR 必须另行标识。** 本轮静态交付已完成，等待独立审核；仅在新授权后继续当前 Issue 范围，不启动未经批准的真实 GPU 操作、不复制许可不明的 GREYHOUND 代码、不自行 merge 或推进 Gate。遇到不能观测的字段请输出 `UNKNOWN`/证据缺口，不得模拟数据冒充 GPU 证据。提交 Draft PR 时提供 HEAD SHA、CI、运行证据、失败项、回退方案并更新 `STATUS.md`/`HANDOFF.md`，等待 ChatGPT 独立审核。
+> 你是 Greenhound Online 主 Codex，唯一仓库 Zwhao0/GREYHOUND_online。先核对最新 main、HANDOFF、STATUS、AGENTS、ROADMAP、docs/DECISIONS、docs/MEASUREMENT_CONTRACT 与 G0-02 Issue #3。G0-01 PR #2 已通过并合并。仅执行 Issue #3 授权范围：已获用户许可的隔离节点最多 2×H800、无注入短时间 DDP + NCCL 原生 Profiler 的加载/字段 PoC；若资源许可无法确认，只做准备并报告 BLOCKED。首轮勿增加无意义的多轮测试或平台化工作，不升级环境、不改生产训练、绝不执行双机/故障注入/Rank 因果归因。完成交一个 Draft PR、脱敏实测证据和 STATUS/HANDOFF 更新，停下等待独立审核。
 
 ## H. 后续每次必须更新的交接字段模板
 
