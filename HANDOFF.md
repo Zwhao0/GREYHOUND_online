@@ -14,8 +14,8 @@
 | 默认分支 | `main`（每次交接需回读最新 HEAD） |
 | 当前 Gate | **G0 IN_PROGRESS**；G0-01 静态审计 PASS/MERGED；G0-02 PARTIAL / DRAFT_REVIEW_PENDING（NCCL字段成功，DDP未运行）；G1 BLOCKED |
 | 当前 Issue | [G0-02 Issue #3](https://github.com/Zwhao0/GREYHOUND_online/issues/3)（OPEN；隔离单节点 2×H800，无注入）；G0-01 #1 CLOSED |
-| 当前 PR / HEAD | [G0-01 PR #2](https://github.com/Zwhao0/GREYHOUND_online/pull/2) 已合并；squash SHA `c73d552eb14695fa9e02247193fd8e6465b863d5`；最新 main HEAD 请 GitHub 实时回读；G0-02候选分支 `g0-02-profiler-poc`（创建后回填Draft URL），本分支HEAD实时读取；base `4d8a49c71f1dc24d7252f7ce21b56d06c9a9b225` |
-| CI | G0-01 [DOC PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39438158278)；CPU/GPU/MULTINODE NOT_RUN；G0-02本地DOC静态检查，最新HEAD CI按Draft checks核对；GPU仅NCCL微基准PASS，DDP未运行 |
+| 当前 PR / HEAD | [G0-01 PR #2](https://github.com/Zwhao0/GREYHOUND_online/pull/2) 已合并；squash SHA `c73d552eb14695fa9e02247193fd8e6465b863d5`；最新 main HEAD 请 GitHub 实时回读；G0-02 [Draft PR #5](https://github.com/Zwhao0/GREYHOUND_online/pull/5)，分支 `g0-02-profiler-poc`，本分支HEAD实时读取；base `4d8a49c71f1dc24d7252f7ce21b56d06c9a9b225` |
+| CI | G0-01 [DOC PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39438158278)；CPU/GPU/MULTINODE NOT_RUN；G0-02本地DOC静态检查，最新HEAD CI见[PR checks](https://github.com/Zwhao0/GREYHOUND_online/pull/5/checks)；GPU仅NCCL微基准PASS，DDP未运行 |
 | GPU / 双机真实实验 | GPU=PASS（共享单节点NCCL微基准）；DDP=NOT_RUN；MULTINODE=NOT_RUN |
 | 独立审核结论 | [G0-01 STATIC PASS](https://github.com/Zwhao0/GREYHOUND_online/pull/2#issuecomment-6293155716)；仅 G0-02 单节点隔离测试按 Issue #3 条件授权；双机、注入、G1/G2/G3 均未授权 |
 

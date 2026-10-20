@@ -47,6 +47,6 @@
 - 首测 A：NCCL 原生 Profiler example 短窗口字段 PoC；备选 B：Probing 单独受控试验。Inspector 仅兼容版本摘要，不能代替原始事件完整性。
 - 证据：[来源/许可](docs/SOURCES_AND_LICENSES.md)、[最小契约](docs/MEASUREMENT_CONTRACT.md)、[结论/阻断/PoC](docs/G0-01-AUDIT.md)。尚无完整生产非暂停采集器通过证明。
 - G0-02候选：首测A官方example得到两rank各87个可对齐Collective、1392对GPU channel事件；实际NCCL2.28.3 + 插件v4；B未启用。一次平均延迟变化约+0.866%/+0.963%，不作SLA结论。
-- DOC：本地静态检查，最新HEAD CI按Draft checks核对；CPU=NOT_RUN；GPU=PASS（仅共享单机NCCL微基准）；DDP=NOT_RUN；MULTINODE=NOT_RUN。
-- G0-02 Draft PR：分支 `g0-02-profiler-poc`（创建后回填URL；本分支候选未合并，HEAD实时读取）；[执行记录](docs/G0-01-AUDIT.md)、[脱敏事实](docs/evidence/g0-02-summary.json)。
+- DOC：本地静态检查，最新HEAD CI见[PR checks](https://github.com/Zwhao0/GREYHOUND_online/pull/5/checks)；CPU=NOT_RUN；GPU=PASS（仅共享单机NCCL微基准）；DDP=NOT_RUN；MULTINODE=NOT_RUN。
+- G0-02 Draft PR：[PR #5](https://github.com/Zwhao0/GREYHOUND_online/pull/5)，分支 `g0-02-profiler-poc`（候选未合并，HEAD实时读取）；[执行记录](docs/G0-01-AUDIT.md)、[脱敏事实](docs/evidence/g0-02-summary.json)。
 - 下一动作：ChatGPT独立审核本Draft；后续先明确现有Torch环境及资源条件，再单独授权dense DDP/step分位数。禁止自行合并、G1、双机、注入、升级或算法开发。
