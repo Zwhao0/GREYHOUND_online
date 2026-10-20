@@ -32,3 +32,8 @@
 | DCGM `v4.3.1` = `1477d8785e899ab3450fdff2b486102e9bed096b` | [Apache-2.0](https://github.com/NVIDIA/DCGM/blob/1477d8785e899ab3450fdff2b486102e9bed096b/LICENSE)，附带组件另核 | [dcgm_fields.h](https://github.com/NVIDIA/DCGM/blob/1477d8785e899ab3450fdff2b486102e9bed096b/dcgmlib/dcgm_fields.h#L2408)：SM/DRAM/PCIe/NVLink及错误遥测 SUPPORTED；H800/权限/复用冲突 UNKNOWN；NCCL comm/seq UNSUPPORTED，低利用率可能是受害等待，不能独立证明原发rank |
 
 主窗口另核 NCCL `v2.27.5-1` = `3ea7eedf3b9b94f1d9f99f4e55536dfcbd23c1ca` 的 [v4定义](https://github.com/NVIDIA/nccl/blob/3ea7eedf3b9b94f1d9f99f4e55536dfcbd23c1ca/ext-profiler/example/nccl/profiler_v4.h)与 example 损失路径，和上述2.27.7结论一致；这不证明2.27所有patch或目标环境兼容。较新tag的字段不能回填到旧ABI。
+
+## G0-02 实际选用组件
+
+- 仍使用上述官方NCCL `v2.27.7-1` example（BSD-3-Clause），未修改源码，只在私有构建目录编译。运行时NCCL报告2.28.3，实际DSO/插件SHA见[实测摘要](evidence/g0-02-summary.json)。[2.28.3加载器](https://github.com/NVIDIA/nccl/blob/f1308997d0420148b1be1c24d63f19d902ae589b/src/plugin/profiler.cc#L70-L75)支持v5→v4回退；两目标rank实际协商v4。该源码tag只作加载器依据，不声称已知已装DSO的构建commit。
+- 复用已安装NVIDIA nccl-tests 2.17.6；[对应上游tag/README](https://github.com/NVIDIA/nccl-tests/blob/da0b547b1b9c6e3b1d4c15578087874522ae3761/README.md)、[BSD-3-Clause许可](https://github.com/NVIDIA/nccl-tests/blob/da0b547b1b9c6e3b1d4c15578087874522ae3761/LICENSE.txt)。安装二进制构建commit UNKNOWN，记录其版本输出与SHA，不冒充从该tag自行构建。没有将第三方源码/二进制复制入Public仓库。
