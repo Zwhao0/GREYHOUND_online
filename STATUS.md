@@ -1,52 +1,40 @@
 # STATUS — Greenhound Online
 
 - 更新日期：2026-10-20
-- 项目：Greenhound Online
-- 唯一仓库：[`Zwhao0/GREYHOUND_online`](https://github.com/Zwhao0/GREYHOUND_online)（Public）
-- 远端仓库：**CREATED**（main Bootstrap 文件已上传并回读）
-- 当前阶段：**G0 IN_PROGRESS**；G0-01 静态审计 **PASS / MERGED**；G0-02 单节点字段 PoC **PARTIAL / DRAFT_REVIEW_PENDING**
-- 当前任务：[G0-02 Issue #3](https://github.com/Zwhao0/GREYHOUND_online/issues/3)：隔离单节点 2×H800 NCCL Profiler 真实字段 PoC；整个 G0 Gate 未通过，G1 未授权
-- 本项目代码实现：仅最小NCCL复现shell入口；无采集器/定位算法开发
-- 真实 H800 实验：共享单节点2 GPU官方NCCL微基准PASS；dense DDP NOT_RUN
-- 真实开销测量：一次对照/插件聚合均值已采；step p50/p95 NOT_AVAILABLE，非独占SLA
-- GPU/Rank 故障定位准确率：UNKNOWN / 尚无本项目实验依据
-- GitHub Issue：[G0-01 #1](https://github.com/Zwhao0/GREYHOUND_online/issues/1) **CLOSED**，下一项 [G0-02 #3](https://github.com/Zwhao0/GREYHOUND_online/issues/3) **OPEN**；[PR #2](https://github.com/Zwhao0/GREYHOUND_online/pull/2) **MERGED**（合并提交 `c73d552eb14695fa9e02247193fd8e6465b863d5`）；[对应 HEAD 文档 CI PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39438158278)
-- 原 GREYHOUND detector 许可证：UNVERIFIED，禁止复制或声称已获商用授权
+- 唯一仓库：[Zwhao0/GREYHOUND_online](https://github.com/Zwhao0/GREYHOUND_online)（Public）；默认分支 `main`
+- 当前阶段：**G0 IN_PROGRESS**；G0-01 静态审计 **PASS**；G0-02 NCCL 微基准 **DELIVERED / PARTIAL / MERGED**；G0-03 真实 DDP PoC **OPEN / NOT_STARTED**
+- 当前任务：[G0-03 Issue #6](https://github.com/Zwhao0/GREYHOUND_online/issues/6) — 单节点许可环境下真实 PyTorch dense DDP + NCCL Profiler 字段/step 时延 PoC
+- 状态变更：[G0-02 PR #5](https://github.com/Zwhao0/GREYHOUND_online/pull/5) 已由 ChatGPT 独立审核后合并，squash SHA `f421fb752696d1e7f3a56344fc6e8a45c8b5d5d0`；[Issue #3](https://github.com/Zwhao0/GREYHOUND_online/issues/3) **CLOSED / PARTIAL_DELIVERED**
+- 实测：[G0-02 脱敏证据](docs/evidence/g0-02-summary.json)；[执行记录](docs/G0-01-AUDIT.md)；[最终 HEAD DOC CI PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39442234938)
+- 目前系统代码：尚无在线检测/Rank 定位系统；仅有微基准复现脚本
+- 实测分类：DOC=PASS；CPU算法测试=NOT_RUN；GPU=PASS（仅单节点 2×H800 nccl-tests）；**DDP=NOT_RUN；MULTINODE=NOT_RUN**
+- 真实开销：共享GPU下一次NCCL microbenchmark均值增幅约 +0.866% / +0.963%；DDP step p50/p95 **NOT_AVAILABLE**，不可宣称生产 ≤2% 开销、非阻塞或 fail-open
+- 故障原发Rank定位准确率：UNKNOWN；尚无真实注入、因果归因和在线服务证据
 
-## 已经批准的产品范围
+## 已批准产品约束
 
-- [x] 用户选择方案 B：保留/借鉴 GREYHOUND 检测与 Group 筛选，复用可兼容的开源 NCCL 观测能力，新增离线先行的 Rank 因果归因，再在线化。
-- [x] V1 先支持普通 NCCL、密集模型、固定 workload DDP → DP/TP/PP。
-- [x] 不暂停训练、不改训练脚本/模型/框架源码，低开销、fail-open。
-- [x] MoE/DeepEP、恢复/迁移和精确物理链路定位不作为 V1 Gate 前提。
-- [x] 使用 ChatGPT 策划/独立审核 + Codex 主窗口/子智能体实现 + GitHub Issue/PR 审核 + HANDOFF 持续交接。
+1. 路线B：借鉴 GREYHOUND ACF/变点及 Group 筛选，先复用兼容的开源 NCCL 观测并验证真实Rank证据，再做离线归因、最后在线化。
+2. V1先固定 dense DDP、普通 NCCL、两台 H800，后续DP/TP/PP；MoE/DeepEP/恢复不作第一版强制条件。
+3. 不修改生产训练/模型/框架/NCCL源代码，不暂停、不插入诊断collective，低开销与fail-open必须实测。
+4. GREYHOUND detector 许可证仍 UNVERIFIED，禁止复制。仓库Public，禁止发布公司主机、内网、密钥、私有原始日志及权重。
+5. ChatGPT规划/独立审核，Codex执行并以Draft PR交付；跨Gate及双机/注入实验须另行明确授权。
 
-## 未关闭的前置问题
+## 阶段验收
 
-1. 实际仓库为 Public；严禁上传公司内部数据、凭证、网络拓扑信息和许可不明的外部源码。
-2. 本次目标NCCL进程实际加载2.28.3 DSO与v4插件已核对；Torch/DDP未使用，不能替代生产训练运行时核验。
-3. GREYHOUND 改造的源码许可、可用性与可能的强制同步：静态审计已定位同步/暂停路径；许可仍 UNVERIFIED，禁止复制。
-4. Probing/NCCL Profiler 与训练版本 ABI 和 Rank 事件覆盖：本次官方example实际v4加载成功；Probing未运行，精确丢失、长期阻塞/fail-open与DDP开销仍未知。
-5. 用户本轮明确允许共享GPU后已执行单机微基准；设备非独占，性能受共租干扰。后续Torch入口、DDP/双机/注入仍需独立授权。
+| Gate | 状态 | 可核查的证据 |
+| --- | --- | --- |
+| Bootstrap | PASS | 初始化与文档CI |
+| G0-01 静态审计 | PASS / MERGED | [PR #2](https://github.com/Zwhao0/GREYHOUND_online/pull/2) |
+| G0-02 单机 NCCL microbenchmark | **PARTIAL / ACCEPTED / MERGED** | [PR #5](https://github.com/Zwhao0/GREYHOUND_online/pull/5)；2rank各87条AllReduce，87对可关联 |
+| G0-03 单机 PyTorch DDP | **OPEN / NOT_STARTED** | [Issue #6](https://github.com/Zwhao0/GREYHOUND_online/issues/6) |
+| G0 总 Gate | **IN_PROGRESS / NOT_PASSED** | DDP缺证据；低开销长期性/丢失/因果均不支持宣称 |
+| G1 Rank级跨节点数据 | BLOCKED_BY_G0 | 无 |
+| G2 离线因果归因 | BLOCKED_BY_G1 | 无 |
+| G3 在线非暂停 | BLOCKED_BY_G2 | 无 |
+| G4 DP/TP/PP扩展 | BLOCKED_BY_G3 | 无 |
 
-## Gate 记录
+## 下一步及真实缺口
 
-| Gate | 状态 | 证据 | 放行人 |
-| --- | --- | --- | --- |
-| Bootstrap | **PASS** | main 文件、Issue #1 已回读，文档 CI 已通过 | ChatGPT / 2026-10-20 |
-| G0：候选/可观测性 | G0-01 STATIC_AUDIT_PASS / G0-02 PARTIAL / DRAFT_REVIEW_PENDING；G0 总 Gate 未通过 | [PR #2](https://github.com/Zwhao0/GREYHOUND_online/pull/2) 已合并；[真实摘要](docs/evidence/g0-02-summary.json)；本次NCCL字段/加载/回退成功，DDP未验证 | ChatGPT / 2026-10-20（仅 G0-01） |
-| G1：Rank 级证据采集 | BLOCKED_BY_G0 | 无 | — |
-| G2：真实数据离线归因 | BLOCKED_BY_G1 | 无 | — |
-| G3：在线非暂停模式 | BLOCKED_BY_G2 | 无 | — |
-| G4：DP/TP/PP 扩展评估 | BLOCKED_BY_G3 | 无 | — |
-
-> 只有有可检查的 GitHub 证据且获得 ChatGPT/用户审查批准后，才能升级状态；不得用“文档完成”替代真实功能测试。
-
-## G0-01 静态审核通过 / G0-02 启动记录（2026-10-20）
-
-- 首测 A：NCCL 原生 Profiler example 短窗口字段 PoC；备选 B：Probing 单独受控试验。Inspector 仅兼容版本摘要，不能代替原始事件完整性。
-- 证据：[来源/许可](docs/SOURCES_AND_LICENSES.md)、[最小契约](docs/MEASUREMENT_CONTRACT.md)、[结论/阻断/PoC](docs/G0-01-AUDIT.md)。尚无完整生产非暂停采集器通过证明。
-- G0-02候选：首测A官方example得到两rank各87个可对齐Collective、1392对GPU channel事件；实际NCCL2.28.3 + 插件v4；B未启用。一次平均延迟变化约+0.866%/+0.963%，不作SLA结论。
-- DOC：本地静态检查，最新HEAD CI见[PR checks](https://github.com/Zwhao0/GREYHOUND_online/pull/5/checks)；CPU=NOT_RUN；GPU=PASS（仅共享单机NCCL微基准）；DDP=NOT_RUN；MULTINODE=NOT_RUN。
-- G0-02 Draft PR：[PR #5](https://github.com/Zwhao0/GREYHOUND_online/pull/5)，分支 `g0-02-profiler-poc`（候选未合并，HEAD实时读取）；[执行记录](docs/G0-01-AUDIT.md)、[脱敏事实](docs/evidence/g0-02-summary.json)。
-- 下一动作：ChatGPT独立审核本Draft；后续先明确现有Torch环境及资源条件，再单独授权dense DDP/step分位数。禁止自行合并、G1、双机、注入、升级或算法开发。
+- **已验证**：目标 `nccl-tests` 进程真实加载 NCCL 2.28.3 + 官方 v4 Profiler；同commHash的两rank各87条AllReduce事件可匹配，原始GPU channel clock可见。仅一次共享GPU环境的方向性开销样本；未证明全历史完整、精确drop、原发/等待或长期fail-open。
+- **G0-03**：上轮宿主默认Python无Torch、普通用户无Docker权限。先在重新确认许可的资源/目录找可用Torch运行环境；如有，最小2-GPU DDP baseline+plugin一次短窗，记录实际DDP进程NCCL/ABI/collective及step p50/p95。如无可用环境，快速BLOCKED，明确用户需要提供的受授权Torch入口。不能通过重跑nccl-tests代替。
+- **禁止**：未经许可操作共享GPU或生产环境、sudo/Docker越权、系统升级、双机、故障注入、Rank算法、主动验证和自行跨Gate。
