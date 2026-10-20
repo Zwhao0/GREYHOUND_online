@@ -24,18 +24,19 @@
 3. **[AGENTS.md](AGENTS.md)**：Codex/子智能体工作约束与 PR 提交要求。
 4. **[ROADMAP.md](ROADMAP.md)**：分阶段目标、验证准入与退出条件。
 5. **[docs/DECISIONS.md](docs/DECISIONS.md)**：架构决策记录，避免交接中发生漂移。
-6. **[tasks/G0-01.md](tasks/G0-01.md)**：首项只读审计与验证方案任务；GPU 操作须单独授权。
+6. **[tasks/G0-01.md](tasks/G0-01.md)**：远端仓库建立后，第一项可授权的只读+验证任务。
 
 ## 当前事实
 
-- 仓库由用户创建（2026-10-20），Bootstrap 文档已上传至 main；代码和 GPU 实验均未开始。以 GitHub 最新状态为准。
+- 仓库初始化文件已准备，但 GitHub 远端 **尚未创建/推送**。请不要声称 GitHub 上已有提交、Issue、CI 或 PR。
 - **代码和 GPU 测试：NOT_RUN**；不能把以前其他项目的 H800 测试当作本项目已通过的结果。
 - 许可风险：原 GREYHOUND detector 的明确再利用授权尚未确认。许可确认前只可参考其论文和对公开源码的分析，不能直接复制进本项目。
 
-## GitHub 仓库
+## 拟创建仓库
 
-- GitHub：[`Zwhao0/GREYHOUND_online`](https://github.com/Zwhao0/GREYHOUND_online)
-- **当前可见性：Public。** 禁止提交公司内部资料、敏感信息和未确认许可证的外部代码。
+- GitHub 登录：`Zwhao0`
+- 仓库 slug：`Greenhound-Online`
+- 建议先 **Private**，直到公司许可与代码来源核查完成后再决定是否公开。
 
 ## 开发原则
 

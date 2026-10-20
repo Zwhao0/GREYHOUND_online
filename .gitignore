@@ -1,0 +1,25 @@
+# Do not commit credentials, actual cluster addresses, private training data or large traces
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.token
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
+.DS_Store
+*.log
+*.trace
+*.sqlite
+*.db
+*.bin
+*.tgz
+*.tar.gz
+*.pt
+*.pth
+*.safetensors
+artifacts/
+recordings/
+experiments/raw/
