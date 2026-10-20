@@ -16,7 +16,7 @@
 
 | 本轮分类 | 结果 | 范围 |
 | --- | --- | --- |
-| DOC | 本地PASS；PR HEAD CI待运行 | `python3 tools/validate_docs.py` |
+| DOC | 本地PASS；[代码/证据HEAD CI PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39457160530) | `python3 tools/validate_docs.py` |
 | CPU | PASS，9项synthetic fixture+真实trace解析 | fixture只证明逻辑 |
 | GPU smoke | PASS，新栈兼容 | 一次2Rank，1 warmup+2 steps；各6 Coll/81 GPU channel |
 | DDP / MULTINODE | 四Rank运行/匹配候选PASS，待独立审核 | baseline一次+plugin一次，各5 warmup+30 steps；launcher均exit0 |
@@ -33,6 +33,6 @@
 
 ## 候选提交与收尾
 
-- 分支 `g1-01-multinode-profiler`，Draft PR待创建；提交基点main `6ec44426cd18342d441bf34c9eda2f3e0f22782d`，实验开始基点`f455125`；代码HEAD/CI链接在交接提交补齐。
+- 分支 `g1-01-multinode-profiler`，[Draft PR #13](https://github.com/Zwhao0/GREYHOUND_online/pull/13) OPEN/未合并；代码/证据HEAD `79d59354d57da391f4831501876b81aff9d877b2`，base main `6ec44426cd18342d441bf34c9eda2f3e0f22782d`，实验开始基点`f455125`。交接提交仅文档变更，最新HEAD/CI回读PR。
 - 用户已确认两机持续共享及隔离升级。本轮未改驱动/内核/全局包/生产任务，旧环境保留；停用插件已在新栈baseline实测。私有原始数据与回退细节见报告。
-- **下一动作**：完成Draft PR/HEAD CI与交接后停止，待ChatGPT审核；不自行merge/关Issue/判Gate PASS、不重验G0、不新增升级Gate或进入G2。
+- **下一动作**：停止执行，等待ChatGPT审核本Draft的最新HEAD/CI与实验报告；不自行merge/关Issue/判Gate PASS、不重验G0、不新增升级Gate或进入G2。
