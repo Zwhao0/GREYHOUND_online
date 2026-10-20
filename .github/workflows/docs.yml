@@ -1,4 +1,4 @@
-name: Documentation baseline
+name: Documentation and CPU parser fixtures
 on:
   push:
     branches: [ main ]
@@ -10,3 +10,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify repository bootstrap documents
         run: python3 tools/validate_docs.py
+      - name: Verify CPU trace parser fixtures (no GPU evidence)
+        run: python3 -m unittest discover -s tests -v

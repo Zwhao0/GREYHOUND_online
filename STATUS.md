@@ -1,28 +1,38 @@
 # STATUS — Greenhound Online
 
-更新：2026-10-20（Asia/Shanghai） · 唯一仓库：[Zwhao0/GREYHOUND_online](https://github.com/Zwhao0/GREYHOUND_online)（Public）。当前状态以 GitHub main / Issue / PR 实时信息为准。
+2026-10-21（Asia/Shanghai）；[唯一仓库](https://github.com/Zwhao0/GREYHOUND_online) Public。**G1-01结果为本 Draft 候选未合并，G1总Gate仍 IN_PROGRESS。** 具体执行和证据放[实验报告](docs/G1-01-RESULTS.md)，下一动作见[HANDOFF](HANDOFF.md)。
 
-**当前行动**：[G1-01 Issue #9](https://github.com/Zwhao0/GREYHOUND_online/issues/9) — 用户已授权在两台 H800 测试环境中**隔离升级** PyTorch、CUDA 用户态、NCCL、Profiler；新版单机只做兼容 smoke，然后继续原定两节点 DDP NCCL Rank 事件采集/对齐。**不是新 Gate，不重新验收 G0。**
+## 阶段与测试事实
 
-| 阶段 / 验证 | 当前状态 | 证据 |
+| 阶段 | 当前状态 | 证据 |
 | --- | --- | --- |
-| G0-01 静态方案 | PASS | [PR #2](https://github.com/Zwhao0/GREYHOUND_online/pull/2) |
-| G0-02 NCCL 微基准 | PARTIAL / 已接收 | [PR #5](https://github.com/Zwhao0/GREYHOUND_online/pull/5)：单机2Rank、87对 AllReduce |
-| G0-03 真实 dense DDP | PASS / 已合并 | [PR #8](https://github.com/Zwhao0/GREYHOUND_online/pull/8)：单机2×H800、94对Collective、40 step |
-| **G0 总 Gate** | **PASS（仅单节点可行性）** | G0-01/02/03；不证明生产级能力 |
-| **G1-01 新栈+两节点** | **OPEN / NOT_RUN** | [Issue #9](https://github.com/Zwhao0/GREYHOUND_online/issues/9)；尚无对应升级/双机实测 |
-| **G1 总 Gate** | **IN_PROGRESS / 未通过** | 双机 Rank 证据、完整性/时间来源待验证 |
-| G2 离线归因 / G3 在线化 | BLOCKED | 尚无因果定位或在线运行证据 |
+| G0-01 | PASS | [PR #2](https://github.com/Zwhao0/GREYHOUND_online/pull/2)静态审计 |
+| G0-02 | PARTIAL / 已接收 | [PR #5](https://github.com/Zwhao0/GREYHOUND_online/pull/5)：单机NCCL2.28.3/v4，87对 |
+| G0-03 | PASS / MERGED | [PR #8](https://github.com/Zwhao0/GREYHOUND_online/pull/8)：单机Torch2.7/NCCL2.25.1/v2，94对/40steps |
+| G0 Gate | **限定范围PASS** | 单节点可行性；本轮未重复完整验收 |
+| G1-01 #9 | **候选完成、OPEN待审** | 新稳定栈+真实双节点4Rank被动事件/实例匹配 |
+| G1 Gate | **IN_PROGRESS，未由ChatGPT验收** | 当前Draft不可当已合并或自动Gate PASS |
+| G2 / G3 / G4 | BLOCKED | 无原发因果、在线化或扩展验收 |
 
-## 已核实、未证实
+| 本轮分类 | 结果 | 范围 |
+| --- | --- | --- |
+| DOC | 本地PASS；PR HEAD CI待运行 | `python3 tools/validate_docs.py` |
+| CPU | PASS，9项synthetic fixture+真实trace解析 | fixture只证明逻辑 |
+| GPU smoke | PASS，新栈兼容 | 一次2Rank，1 warmup+2 steps；各6 Coll/81 GPU channel |
+| DDP / MULTINODE | 四Rank运行/匹配候选PASS，待独立审核 | baseline一次+plugin一次，各5 warmup+30 steps；launcher均exit0 |
+| 故障注入 / 根因 / 在线化 | NOT_RUN | 未进入G2/G3 |
 
-- G0-02 微基准：目标 NCCL **2.28.3 / Profiler v4**，87 对事件；[脱敏证据](docs/evidence/g0-02-summary.json)。
-- G0-03 DDP：目标 Torch **2.7.0a0 / NCCL 2.25.1 / Profiler v2**，94 对事件、真实 step p50/p95；[脱敏证据](docs/evidence/g0-03-summary.json)。**版本不同，不能混用其能力或推断新版兼容性。**
-- GPU/DDP：**PASS 仅指上述单节点 PoC**；新版本 GPU/双机 MULTINODE：**NOT_RUN**；精确 drop、跨节点时钟、Proxy、Rank 原发/等待归因、严格开销 SLA、长期 fail-open：**UNKNOWN**。
-- 系统仍只有 PoC/脚本，没有在线检测器或 Rank 根因定位器；本项目 Public，原 GREYHOUND detector 许可未确认，禁止复制。
+## 新栈与观测事实
 
-## 当前权限与收尾
+- 两机私有Python3.12 venv，**Torch2.14.1+cu130 / CUDA runtime13.0.96 / 配套NCCL2.30.7 / 官方example实际v4**。30包/机SHA与pip check通过；10个训练PID的CUDA/NCCL DSO及同DSO版本查询、6个plugin PID的插件SHA/ABI日志一致。Driver580.178.04未改。
+- **每Rank70 Coll，70个四Rank实例匹配**（1 AllGather、69 AllReduce）；观察键并集中缺侧、重复、metadata/成员冲突0。每Rank553组正序非零GPU channel。完整init/finalize、WORLD成员、launch身份和私有GPU UUID交叉核对，NCCL报告nNodes2、network IB。
+- 一次共享GPU顺序对照，step p50变化 **+6.10%～7.53%**，p95 **+6.60%～7.82%**。仅方向性证据，不宣称稳定≤2%；不为数字追加轮次。收尾本项目训练进程0，原有各8个GPU应用仍在。
+- 精确drop/共同遗漏/全历史、未观察操作、绝对校时与误差界、step→Coll、root、原发/受害因果 UNKNOWN；Proxy未采。只有最小DDP负载、启动包装、离线manifest/匹配脚本，无生产采集器、通用comm重建或根因定位器。
 
-用户批准 G1-01 使用**本项目两台 H800 测试资源**及受控容器/私有目录内升级 PyTorch/CUDA 用户态/NCCL/Profiler（必要时已许可 Docker/sudo）。不得改变宿主驱动/全局依赖或影响他人训练；禁止故障注入、训练暂停、主动诊断 collective、生产代码修改或提前进入 G2。选用版本与实际 ABI **只能在新实验完成后记录**。
+[实测汇总/原始step数组与SHA](docs/evidence/g1-01-summary.json)；[70实例逐键结果](docs/evidence/g1-01-matches.json)；[版本锁](tools/g1_01_pylock.toml)。旧G0证据原样保留，不能混用版本能力。
 
-下一动作与验收以 [Issue #9](https://github.com/Zwhao0/GREYHOUND_online/issues/9) 为准；Codex 提交**一个 Draft PR**、真实测试分类与脱敏证据，并同步更新 [HANDOFF.md](HANDOFF.md) 和本文件；ChatGPT 独立审核后才推进。
+## 候选提交与收尾
+
+- 分支 `g1-01-multinode-profiler`，Draft PR待创建；提交基点main `6ec44426cd18342d441bf34c9eda2f3e0f22782d`，实验开始基点`f455125`；代码HEAD/CI链接在交接提交补齐。
+- 用户已确认两机持续共享及隔离升级。本轮未改驱动/内核/全局包/生产任务，旧环境保留；停用插件已在新栈baseline实测。私有原始数据与回退细节见报告。
+- **下一动作**：完成Draft PR/HEAD CI与交接后停止，待ChatGPT审核；不自行merge/关Issue/判Gate PASS、不重验G0、不新增升级Gate或进入G2。

@@ -1,0 +1,1586 @@
+{
+  "classification": "CPU_FIXTURE_OR_TRACE_PARSER_ONLY",
+  "clock_boundaries": [
+    {
+      "calibration": "UNKNOWN",
+      "clock_domain": "PROCESS_CLOCK_MONOTONIC_RELATIVE",
+      "cross_rank_comparable": false,
+      "first_ts": 271355.906006,
+      "last_ts": 909596.612061,
+      "rank": "rank-0",
+      "uncertainty": "UNKNOWN",
+      "unit": "us"
+    },
+    {
+      "calibration": "UNKNOWN",
+      "clock_domain": "PROCESS_CLOCK_MONOTONIC_RELATIVE",
+      "cross_rank_comparable": false,
+      "first_ts": 273996.593018,
+      "last_ts": 909585.395996,
+      "rank": "rank-1",
+      "uncertainty": "UNKNOWN",
+      "unit": "us"
+    },
+    {
+      "calibration": "UNKNOWN",
+      "clock_domain": "PROCESS_CLOCK_MONOTONIC_RELATIVE",
+      "cross_rank_comparable": false,
+      "first_ts": 271714.614014,
+      "last_ts": 909663.224854,
+      "rank": "rank-2",
+      "uncertainty": "UNKNOWN",
+      "unit": "us"
+    },
+    {
+      "calibration": "UNKNOWN",
+      "clock_domain": "PROCESS_CLOCK_MONOTONIC_RELATIVE",
+      "cross_rank_comparable": false,
+      "first_ts": 270584.006104,
+      "last_ts": 909707.593994,
+      "rank": "rank-3",
+      "uncertainty": "UNKNOWN",
+      "unit": "us"
+    }
+  ],
+  "cross_rank_clock_comparison": "NOT_PERFORMED",
+  "data_loss": {
+    "meaning": "per-rank manifest declaration; absence remains UNKNOWN",
+    "ranks": [
+      {
+        "dropped": "UNKNOWN",
+        "rank": "rank-0",
+        "truncated": "UNKNOWN"
+      },
+      {
+        "dropped": "UNKNOWN",
+        "rank": "rank-1",
+        "truncated": "UNKNOWN"
+      },
+      {
+        "dropped": "UNKNOWN",
+        "rank": "rank-2",
+        "truncated": "UNKNOWN"
+      },
+      {
+        "dropped": "UNKNOWN",
+        "rank": "rank-3",
+        "truncated": "UNKNOWN"
+      }
+    ]
+  },
+  "instances": [
+    {
+      "algorithm": "RING",
+      "count": 8,
+      "datatype": "ncclInt8",
+      "duplicate_global_ranks": [],
+      "function": "AllGather",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 1,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "LL",
+      "seq_num": 0,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 2099200,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 0,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 1,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 2,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 3,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 4,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 5,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 6,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 7,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 8,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 9,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 10,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 11,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 12,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 13,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 14,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 15,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 16,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 17,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 18,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 19,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 20,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 21,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 22,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 23,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 24,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 25,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 26,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 27,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 28,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 29,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 30,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 31,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 32,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 33,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 34,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 35,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 36,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 37,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 38,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 39,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 40,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 41,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 42,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 43,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 44,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 45,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 46,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 47,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 48,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 49,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 50,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 51,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 52,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 53,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 54,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 55,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 56,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 57,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 58,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 59,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 60,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 61,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 62,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 63,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 64,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 65,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 66,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 67,
+      "status": "MATCHED"
+    },
+    {
+      "algorithm": "TREE",
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "duplicate_global_ranks": [],
+      "function": "AllReduce",
+      "metadata_issues": [],
+      "missing_global_ranks": [],
+      "n_channels": 8,
+      "pairing_contamination": [],
+      "present_global_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "protocol": "SIMPLE",
+      "seq_num": 68,
+      "status": "MATCHED"
+    }
+  ],
+  "matching_scope": "run_id + rank_epoch + verified_world_comm + func + seq_num",
+  "matching_scope_status": "MANIFEST_CONSISTENT",
+  "overall_status": "MATCHED",
+  "precondition_issues": [],
+  "rank_epoch": "REDACTED",
+  "rank_traces": [
+    {
+      "bad_pid_events": 0,
+      "coll_phase_events": 140,
+      "comm_rank": 0,
+      "dropped": "UNKNOWN",
+      "global_rank": 0,
+      "local_rank": 0,
+      "node_alias": "REDACTED",
+      "paired_collectives": 70,
+      "pairing_issues": {},
+      "rank": "rank-0",
+      "trace_boundary": {
+        "calibration": "UNKNOWN",
+        "clock_domain": "PROCESS_CLOCK_MONOTONIC_RELATIVE",
+        "cross_rank_comparable": false,
+        "first_ts": 271355.906006,
+        "last_ts": 909596.612061,
+        "uncertainty": "UNKNOWN",
+        "unit": "us"
+      },
+      "truncated": "UNKNOWN"
+    },
+    {
+      "bad_pid_events": 0,
+      "coll_phase_events": 140,
+      "comm_rank": 1,
+      "dropped": "UNKNOWN",
+      "global_rank": 1,
+      "local_rank": 1,
+      "node_alias": "REDACTED",
+      "paired_collectives": 70,
+      "pairing_issues": {},
+      "rank": "rank-1",
+      "trace_boundary": {
+        "calibration": "UNKNOWN",
+        "clock_domain": "PROCESS_CLOCK_MONOTONIC_RELATIVE",
+        "cross_rank_comparable": false,
+        "first_ts": 273996.593018,
+        "last_ts": 909585.395996,
+        "uncertainty": "UNKNOWN",
+        "unit": "us"
+      },
+      "truncated": "UNKNOWN"
+    },
+    {
+      "bad_pid_events": 0,
+      "coll_phase_events": 140,
+      "comm_rank": 2,
+      "dropped": "UNKNOWN",
+      "global_rank": 2,
+      "local_rank": 0,
+      "node_alias": "REDACTED",
+      "paired_collectives": 70,
+      "pairing_issues": {},
+      "rank": "rank-2",
+      "trace_boundary": {
+        "calibration": "UNKNOWN",
+        "clock_domain": "PROCESS_CLOCK_MONOTONIC_RELATIVE",
+        "cross_rank_comparable": false,
+        "first_ts": 271714.614014,
+        "last_ts": 909663.224854,
+        "uncertainty": "UNKNOWN",
+        "unit": "us"
+      },
+      "truncated": "UNKNOWN"
+    },
+    {
+      "bad_pid_events": 0,
+      "coll_phase_events": 140,
+      "comm_rank": 3,
+      "dropped": "UNKNOWN",
+      "global_rank": 3,
+      "local_rank": 1,
+      "node_alias": "REDACTED",
+      "paired_collectives": 70,
+      "pairing_issues": {},
+      "rank": "rank-3",
+      "trace_boundary": {
+        "calibration": "UNKNOWN",
+        "clock_domain": "PROCESS_CLOCK_MONOTONIC_RELATIVE",
+        "cross_rank_comparable": false,
+        "first_ts": 270584.006104,
+        "last_ts": 909707.593994,
+        "uncertainty": "UNKNOWN",
+        "unit": "us"
+      },
+      "truncated": "UNKNOWN"
+    }
+  ],
+  "run_id": "REDACTED",
+  "schema_version": 1,
+  "summary": {
+    "bad_pid_event_count": 0,
+    "collective_keys": 70,
+    "comm_hash_mismatch_events": 0,
+    "duplicates": 0,
+    "event_pairing_issue_count": 0,
+    "expected_ranks": 4,
+    "matched": 70,
+    "member_mismatch_events": 0,
+    "metadata_conflicts": 0,
+    "missing_rank": 0,
+    "parsed_rank_traces": 4,
+    "unknown": 0
+  },
+  "time_matching": "NOT_USED",
+  "unkeyed_or_invalid_events": []
+}

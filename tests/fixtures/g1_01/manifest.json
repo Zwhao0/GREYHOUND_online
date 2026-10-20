@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "run_id": "fixture-run-a",
+  "rank_epoch": "epoch-0",
+  "world_comm": {
+    "comm_hash": 117001,
+    "nranks": 2,
+    "members": [
+      {"global_rank": 0, "comm_rank": 0, "node_alias": "node-a", "local_rank": 0},
+      {"global_rank": 1, "comm_rank": 1, "node_alias": "node-b", "local_rank": 0}
+    ]
+  },
+  "ranks": [
+    {
+      "global_rank": 0,
+      "comm_rank": 0,
+      "node_alias": "node-a",
+      "local_rank": 0,
+      "pid": 42137,
+      "trace_file": "rank0.trace.json",
+      "comm_inventory_complete": true,
+      "communicator_inventory": [
+        {"scope": "world", "comm_hash": 117001, "nranks": 2, "comm_rank": 0}
+      ],
+      "clock": {
+        "domain": "HOST_MONOTONIC_RELATIVE",
+        "unit": "us",
+        "calibration": "UNKNOWN",
+        "uncertainty": "UNKNOWN"
+      },
+      "integrity": {"dropped": "UNKNOWN", "truncated": "UNKNOWN"}
+    },
+    {
+      "global_rank": 1,
+      "comm_rank": 1,
+      "node_alias": "node-b",
+      "local_rank": 0,
+      "pid": 42137,
+      "trace_file": "rank1.trace.json",
+      "comm_inventory_complete": true,
+      "communicator_inventory": [
+        {"scope": "world", "comm_hash": 117001, "nranks": 2, "comm_rank": 1}
+      ],
+      "clock": {
+        "domain": "HOST_MONOTONIC_RELATIVE",
+        "unit": "us",
+        "calibration": "UNKNOWN",
+        "uncertainty": "UNKNOWN"
+      },
+      "integrity": {"dropped": "UNKNOWN", "truncated": "UNKNOWN"}
+    }
+  ]
+}

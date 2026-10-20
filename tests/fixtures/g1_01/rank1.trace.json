@@ -1,0 +1,7 @@
+[
+  {"name":"AllReduce","cat":"COLL","ph":"b","id":0,"pid":42137,"tid":1,"ts":900000.0,"args":{"SeqNum":7,"CommHash":117001,"Rank":1,"Count":4096,"Datatype":"float32","Algorithm":"Ring","Protocol":"Simple","nChannels":4}},
+  {"name":"AllReduce","cat":"COLL","ph":"e","id":0,"pid":42137,"tid":1,"ts":900027.0},
+  {"name":"AllGather","cat":"COLL","ph":"b","id":1,"pid":42137,"tid":1,"ts":900040.0,"args":{"SeqNum":3,"CommHash":117001,"Rank":1,"Count":128,"Datatype":"int64","Algorithm":"Ring","Protocol":"LL","nChannels":2}},
+  {"name":"AllGather","cat":"COLL","ph":"e","id":1,"pid":42137,"tid":1,"ts":900055.0},
+  {}
+]
