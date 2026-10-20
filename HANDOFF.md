@@ -14,8 +14,8 @@
 | 默认分支 | `main`（每次交接需回读最新 HEAD） |
 | 当前 Gate | **BOOTSTRAP PASS**；G0-01 静态审计已交付待审核（DRAFT，未合并） |
 | 当前 Issue | [G0-01 Issue #1](https://github.com/Zwhao0/GREYHOUND_online/issues/1)（OPEN；当前只授权静态审计） |
-| 当前 PR / HEAD | Draft 分支 `g0-01-static-audit`；PR URL 随创建回填；本分支 HEAD 实时读取。base main `d2a47a6b0edb94199c611933f71777136f904649` |
-| CI | main [DOC PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39423999157)；候选 DOC 本地检查，PR CI 按实际运行核对；CPU NOT_RUN |
+| 当前 PR / HEAD | [Draft PR #2](https://github.com/Zwhao0/GREYHOUND_online/pull/2)，分支 `g0-01-static-audit`；本分支 HEAD 实时读取。base main `d2a47a6b0edb94199c611933f71777136f904649` |
+| CI | main [DOC PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39423999157)；候选 DOC 本地 PASS；最新 HEAD [PR checks](https://github.com/Zwhao0/GREYHOUND_online/pull/2/checks)按实际运行核对；CPU NOT_RUN |
 | GPU / 双机真实实验 | NOT_RUN |
 | 独立审核结论 | Bootstrap 已审核通过；G0-01 候选待独立审核；GPU 与 G1/G2/G3 均未授权 |
 

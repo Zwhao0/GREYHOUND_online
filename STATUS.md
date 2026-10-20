@@ -10,7 +10,7 @@
 - 真实 H800 训练实验：NOT_RUN
 - 真实开销测量：NOT_RUN
 - GPU/Rank 故障定位准确率：UNKNOWN / 尚无本项目实验依据
-- GitHub Issue：[G0-01 #1](https://github.com/Zwhao0/GREYHOUND_online/issues/1)（OPEN）；Draft PR：`g0-01-static-audit`（URL随创建回填）；main DOC [PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39423999157)，本分支 DOC 以 PR CI 为准
+- GitHub Issue：[G0-01 #1](https://github.com/Zwhao0/GREYHOUND_online/issues/1)（OPEN）；Draft PR：[ #2](https://github.com/Zwhao0/GREYHOUND_online/pull/2)，分支 `g0-01-static-audit`；main DOC [PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39423999157)，本地 DOC PASS；最新 HEAD CI 见 [PR checks](https://github.com/Zwhao0/GREYHOUND_online/pull/2/checks)
 - 原 GREYHOUND detector 许可证：UNVERIFIED，禁止复制或声称已获商用授权
 
 ## 已经批准的产品范围
