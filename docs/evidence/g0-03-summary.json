@@ -1,0 +1,466 @@
+{
+  "result": "PASS / DRAFT_REVIEW_PENDING; G0-03 only, not G0/G1 approval",
+  "scope": "One shared node, two H800s, synthetic dense DDP; no nccl-tests rerun, multinode, injection or rank attribution",
+  "authorization": "User renewed resource authorization and, after the environment failure, explicitly granted all resources/permissions and asked to execute. Sudo used only for existing Docker daemon client; no permission/service/package changes. Containers used original unprivileged UID/GID.",
+  "image": {
+    "name": "nvcr.io/nvidia/pytorch:25.03-py3",
+    "id": "sha256:f065828cf368a1ac2af99118ee11a7ba11ba08c4b50ec4628e3c768dbeaeb4f6",
+    "repo_digest": "UNKNOWN; local image has no RepoDigests",
+    "pulled_or_installed": false
+  },
+  "hardware": {
+    "node": "shared-test-node",
+    "device_indices": [
+      0,
+      1
+    ],
+    "model": "NVIDIA H800",
+    "driver": "580.178.04",
+    "before_used_mib": [
+      75879,
+      75877
+    ],
+    "before_free_mib": [
+      5200,
+      5202
+    ],
+    "after_used_mib": [
+      75879,
+      75877
+    ]
+  },
+  "workload": {
+    "seed": 20261020,
+    "batch": 32,
+    "model": "Linear(1024,1024), ReLU, Linear(1024,1024)",
+    "dtype": "float32",
+    "optimizer": "SGD lr=0.001",
+    "loss": "output.square().mean()",
+    "warmup": 5,
+    "measured_steps": 40,
+    "script_sha256": "bcb3316b95fe29bd7c2318c221abfed700e67561c89e25a8be515cd708b79b63"
+  },
+  "timing": "Per-rank CUDA events on current stream, before forward and after optimizer; synchronization only after warmup and all measured steps. Includes GPU waits and submission gaps, not pure kernel time. Host dispatch measured separately. p50=median; p95=linear interpolation at (n-1)*0.95.",
+  "runtime": {
+    "torch": "2.7.0a0+7c8ec84dab.nv25.03",
+    "cuda_build": "12.8",
+    "actual_ddp_nccl": {
+      "path": "/usr/lib/x86_64-linux-gnu/libnccl.so.2.25.1",
+      "sha256": "42ba6acaf7c1211480668f252c71801c8f54c72424f59f8a4d5462f394796ad6",
+      "version_query_status": 0,
+      "version": 22501
+    },
+    "source": "Both DDP PIDs /proc/self/maps + file SHA + same-process ncclGetVersion returned status 0/version 22501; corroborated NCCL logs"
+  },
+  "plugin": {
+    "tag": "v2.25.1-1",
+    "commit": "80f6bda4378b99d99e82b4d76a633791cc45fef0",
+    "abi": "v2",
+    "sha256": "5f130774d37e6f1264cd88ad00de099e02cb053ca262842c18c5f86796b5b733",
+    "source_modified": false,
+    "build": "make -C nccl-v2.25.1-1/ext-profiler/example",
+    "mask": 2,
+    "group_pool": 128,
+    "coll_pool": 128,
+    "actual_load_by_rank": [
+      {
+        "rank": 0,
+        "log_excerpt": "PROFILER/Plugin: loaded ncclProfiler_v2.",
+        "maps": [
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libnccl.so.2.25.1",
+            "sha256": "42ba6acaf7c1211480668f252c71801c8f54c72424f59f8a4d5462f394796ad6",
+            "version_query_status": 0,
+            "version": 22501
+          },
+          {
+            "path": "/work/nccl-v2.25.1-1/ext-profiler/example/libnccl-profiler.so",
+            "sha256": "5f130774d37e6f1264cd88ad00de099e02cb053ca262842c18c5f86796b5b733"
+          }
+        ]
+      },
+      {
+        "rank": 1,
+        "log_excerpt": "PROFILER/Plugin: loaded ncclProfiler_v2.",
+        "maps": [
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libnccl.so.2.25.1",
+            "sha256": "42ba6acaf7c1211480668f252c71801c8f54c72424f59f8a4d5462f394796ad6",
+            "version_query_status": 0,
+            "version": 22501
+          },
+          {
+            "path": "/work/nccl-v2.25.1-1/ext-profiler/example/libnccl-profiler.so",
+            "sha256": "5f130774d37e6f1264cd88ad00de099e02cb053ca262842c18c5f86796b5b733"
+          }
+        ]
+      }
+    ]
+  },
+  "runs": {
+    "baseline": {
+      "exit": 0,
+      "ranks": [
+        {
+          "rank": 0,
+          "local_rank": 0,
+          "world_size": 2,
+          "device": 0,
+          "gpu_name": "NVIDIA H800",
+          "process_group": {
+            "backend": "nccl",
+            "members": [
+              0,
+              1
+            ],
+            "name": "0"
+          },
+          "warmup": 5,
+          "steps": 40,
+          "gpu_p50_ms": 1.144320011138916,
+          "gpu_p95_ms": 1.183483153581619,
+          "host_p50_ms": 1.1542325373739004,
+          "host_p95_ms": 1.193725748453289,
+          "wall_ms_per_step": 1.1528797971550375,
+          "max_rss_kib": 1381428,
+          "max_torch_allocated_bytes": 92562432,
+          "raw_manifest_sha256": "471f9a242e7d4e37577cbe4e6c0624cbf62672fc108f43a327bbb7f930af99f8",
+          "gpu_step_ms": [
+            1.4605439901351929, 0.7962239980697632, 1.0626239776611328, 1.2916159629821777, 1.151968002319336, 0.9231680035591125, 1.0227839946746826, 1.177791953086853, 1.174015998840332, 1.156383991241455,
+            1.1601920127868652, 1.164736032485962, 1.1521600484848022, 1.1439039707183838, 1.1385279893875122, 1.158400058746338, 1.1308799982070923, 1.1420799493789673, 1.1723519563674927, 1.1519039869308472,
+            1.15830397605896, 1.146016001701355, 1.1447360515594482, 1.142848014831543, 1.156864047050476, 1.1297279596328735, 1.1410239934921265, 1.1155519485473633, 1.1597440242767334, 1.1412479877471924,
+            1.137727975845337, 1.1449919939041138, 1.1197439432144165, 1.1325119733810425, 1.1141760349273682, 1.1649279594421387, 1.1399680376052856, 1.1296319961547852, 1.168511986732483, 1.141983985900879
+          ]
+        },
+        {
+          "rank": 1,
+          "local_rank": 1,
+          "world_size": 2,
+          "device": 1,
+          "gpu_name": "NVIDIA H800",
+          "process_group": {
+            "backend": "nccl",
+            "members": [
+              0,
+              1
+            ],
+            "name": "0"
+          },
+          "warmup": 5,
+          "steps": 40,
+          "gpu_p50_ms": 1.1512959599494934,
+          "gpu_p95_ms": 1.248668760061264,
+          "host_p50_ms": 0.5438545485958457,
+          "host_p95_ms": 1.2393664452247322,
+          "wall_ms_per_step": 1.1477698513772339,
+          "max_rss_kib": 1386600,
+          "max_torch_allocated_bytes": 92562432,
+          "raw_manifest_sha256": "6b220cf786ab9b33d1f7b2b9ca42ed1700ddd2a968ac70c694c8eec7135f646b",
+          "gpu_step_ms": [
+            1.5334080457687378, 0.722495973110199, 0.8541759848594666, 1.285696029663086, 1.2467199563980103, 0.9393280148506165, 0.9986559748649597, 1.168511986732483, 1.1595840454101562, 1.1789120435714722,
+            1.1539839506149292, 1.1991679668426514, 1.1664639711380005, 1.1495360136032104, 1.148576021194458, 1.1303679943084717, 1.1705280542373657, 1.128607988357544, 1.1856000423431396, 1.173248052597046,
+            1.1423039436340332, 1.1662399768829346, 1.1279679536819458, 1.1798080205917358, 1.1446399688720703, 1.161728024482727, 1.1509759426116943, 1.1224000453948975, 1.1458560228347778, 1.1473920345306396,
+            1.1596479415893555, 1.1388800144195557, 1.1516159772872925, 1.1385279893875122, 1.1178560256958008, 1.1622079610824585, 1.1406079530715942, 1.1584320068359375, 1.1472959518432617, 1.172160029411316
+          ]
+        }
+      ],
+      "output_bytes": 16854,
+      "profiler_loaded": false
+    },
+    "plugin": {
+      "exit": 0,
+      "ranks": [
+        {
+          "rank": 0,
+          "local_rank": 0,
+          "world_size": 2,
+          "device": 0,
+          "gpu_name": "NVIDIA H800",
+          "process_group": {
+            "backend": "nccl",
+            "members": [
+              0,
+              1
+            ],
+            "name": "0"
+          },
+          "warmup": 5,
+          "steps": 40,
+          "gpu_p50_ms": 1.1536319851875305,
+          "gpu_p95_ms": 1.190359991788864,
+          "host_p50_ms": 1.1703924974426627,
+          "host_p95_ms": 1.2122509302571416,
+          "wall_ms_per_step": 1.1066367500461638,
+          "max_rss_kib": 1383860,
+          "max_torch_allocated_bytes": 92562432,
+          "raw_manifest_sha256": "cdb8ec21e064ac2a0ed74baf0dbadd0de78b25980e11287de4c497ec9c8f2dd1",
+          "gpu_step_ms": [
+            1.5954560041427612, 0.7439039945602417, 0.7556800246238708, 1.0056320428848267, 0.9875199794769287, 0.9150400161743164, 0.9074239730834961, 1.0144000053405762, 0.9910079836845398, 0.987392008304596,
+            1.0364480018615723, 1.0079360008239746, 0.9836480021476746, 0.9958080053329468, 1.0230079889297485, 0.9976959824562073, 0.9927999973297119, 1.1891200542449951, 1.1741119623184204, 1.1711039543151855,
+            1.1700799465179443, 1.190816044807434, 1.164512038230896, 1.1823680400848389, 1.1566720008850098, 1.174015998840332, 1.190335988998413, 1.155168056488037, 1.1713600158691406, 1.1370879411697388,
+            1.160256028175354, 1.1681599617004395, 1.1480640172958374, 1.180832028388977, 1.1623040437698364, 1.1745599508285522, 1.1480640172958374, 1.1535359621047974, 1.1720960140228271, 1.1537280082702637
+          ]
+        },
+        {
+          "rank": 1,
+          "local_rank": 1,
+          "world_size": 2,
+          "device": 1,
+          "gpu_name": "NVIDIA H800",
+          "process_group": {
+            "backend": "nccl",
+            "members": [
+              0,
+              1
+            ],
+            "name": "0"
+          },
+          "warmup": 5,
+          "steps": 40,
+          "gpu_p50_ms": 1.1541439890861511,
+          "gpu_p95_ms": 1.1935328245162964,
+          "host_p50_ms": 0.9944065241143107,
+          "host_p95_ms": 1.0758524760603903,
+          "wall_ms_per_step": 1.1017293494660407,
+          "max_rss_kib": 1384700,
+          "max_torch_allocated_bytes": 92562432,
+          "raw_manifest_sha256": "fd348a9f763c90ac48d09b2017fc87aad824e072d0bc78a583281ee1cbc47427",
+          "gpu_step_ms": [
+            1.482848048210144, 0.8474239706993103, 0.7749760150909424, 0.7758079767227173, 1.1112639904022217, 1.0624959468841553, 1.0017919540405273, 1.02019202709198, 0.9804480075836182, 0.9927039742469788,
+            1.0316799879074097, 0.9784319996833801, 0.9957119822502136, 0.9793919920921326, 1.0182080268859863, 0.9906240105628967, 0.9682239890098572, 0.9738240242004395, 1.0620160102844238, 1.1669440269470215,
+            1.1888959407806396, 1.1946879625320435, 1.1841599941253662, 1.1883200407028198, 1.1571199893951416, 1.1841919422149658, 1.187648057937622, 1.1864960193634033, 1.1675519943237305, 1.1603200435638428,
+            1.152351975440979, 1.149407982826233, 1.1934720277786255, 1.1716480255126953, 1.1715519428253174, 1.18886399269104, 1.1588159799575806, 1.1559360027313232, 1.1693439483642578, 1.1780799627304077
+          ]
+        }
+      ],
+      "output_bytes": 131537,
+      "profiler_loaded": true
+    },
+    "rollback": {
+      "exit": 0,
+      "ranks": [
+        {
+          "rank": 0,
+          "local_rank": 0,
+          "world_size": 2,
+          "device": 0,
+          "gpu_name": "NVIDIA H800",
+          "process_group": {
+            "backend": "nccl",
+            "members": [
+              0,
+              1
+            ],
+            "name": "0"
+          },
+          "warmup": 0,
+          "steps": 2,
+          "gpu_p50_ms": 90.5292010307312,
+          "gpu_p95_ms": 170.09062762260436,
+          "host_p50_ms": 90.27931350283325,
+          "host_p95_ms": 170.16006233170629,
+          "wall_ms_per_step": 90.59460449498147,
+          "max_rss_kib": 1376736,
+          "max_torch_allocated_bytes": 92562432,
+          "raw_manifest_sha256": "c48671d85d5a752974d229150bca12d924092529e3990b81fb08d56c32d20244"
+        },
+        {
+          "rank": 1,
+          "local_rank": 1,
+          "world_size": 2,
+          "device": 1,
+          "gpu_name": "NVIDIA H800",
+          "process_group": {
+            "backend": "nccl",
+            "members": [
+              0,
+              1
+            ],
+            "name": "0"
+          },
+          "warmup": 0,
+          "steps": 2,
+          "gpu_p50_ms": 90.6203179359436,
+          "gpu_p95_ms": 170.785231256485,
+          "host_p50_ms": 90.67533363122493,
+          "host_p95_ms": 170.87570653529838,
+          "wall_ms_per_step": 90.6963930465281,
+          "max_rss_kib": 1383456,
+          "max_torch_allocated_bytes": 92562432,
+          "raw_manifest_sha256": "2586b8b93b5c79abb9f84c35676a2652361b4cecff6a93b7a332fcd9f83998e2"
+        }
+      ],
+      "output_bytes": 13229,
+      "profiler_loaded": false
+    }
+  },
+  "alignment": {
+    "key": [
+      "this plugin run",
+      "commHash",
+      "type",
+      "seqNumber"
+    ],
+    "metadata_checks": [
+      "count",
+      "datatype"
+    ],
+    "matched": 94,
+    "rank0_only": 0,
+    "rank1_only": 0,
+    "by_rank": {
+      "0": {
+        "exported_coll": 94,
+        "unique_keys": 94,
+        "by_type": {
+          "AllGather": 1,
+          "Broadcast": 4,
+          "AllReduce": 89
+        },
+        "trace_bytes": 56930
+      },
+      "1": {
+        "exported_coll": 94,
+        "unique_keys": 94,
+        "by_type": {
+          "AllGather": 1,
+          "Broadcast": 4,
+          "AllReduce": 89
+        },
+        "trace_bytes": 56930
+      }
+    },
+    "raw_trace_sha256_by_rank": {
+      "0": "e04e40b60bd8fec45d74088dca253b397007672d51dc9990d0a41c9f1c6383ed",
+      "1": "00ccd8255d4d28082e1fe5abefcc90ef01a52f0e91e7bec597322e14214fa5f9"
+    },
+    "process_group_evidence": "Both ranks configured WORLD backend nccl/name 0/members [0,1]; each target PID has one NCCL communicator initialization and one exported commHash. Scoped association only; log commId is NOT treated as numeric CommHash.",
+    "step_to_collective": "UNKNOWN; no step marker, no timestamp-nearest join"
+  },
+  "event_samples": [
+    {
+      "rank": 0,
+      "type": "AllGather",
+      "host_ts_us": 198143.650635,
+      "SeqNum": 0,
+      "CommHash": "6923652004110217972",
+      "Rank": 0,
+      "Count": 8,
+      "Datatype": "ncclInt8",
+      "Algorithm": "RING",
+      "Protocol": "LL",
+      "nMaxChannels": 1
+    },
+    {
+      "rank": 0,
+      "type": "AllReduce",
+      "host_ts_us": 1610706.902344,
+      "SeqNum": 86,
+      "CommHash": "6923652004110217972",
+      "Rank": 0,
+      "Count": 1049600,
+      "Datatype": "ncclFloat32",
+      "Algorithm": "RING",
+      "Protocol": "SIMPLE",
+      "nMaxChannels": 16
+    },
+    {
+      "rank": 0,
+      "type": "AllReduce",
+      "host_ts_us": 1611605.373291,
+      "SeqNum": 87,
+      "CommHash": "6923652004110217972",
+      "Rank": 0,
+      "Count": 1049600,
+      "Datatype": "ncclFloat32",
+      "Algorithm": "RING",
+      "Protocol": "SIMPLE",
+      "nMaxChannels": 16
+    },
+    {
+      "rank": 0,
+      "type": "AllReduce",
+      "host_ts_us": 1611889.250244,
+      "SeqNum": 88,
+      "CommHash": "6923652004110217972",
+      "Rank": 0,
+      "Count": 1049600,
+      "Datatype": "ncclFloat32",
+      "Algorithm": "RING",
+      "Protocol": "SIMPLE",
+      "nMaxChannels": 16
+    },
+    {
+      "rank": 1,
+      "type": "AllGather",
+      "host_ts_us": 171561.034668,
+      "SeqNum": 0,
+      "CommHash": "6923652004110217972",
+      "Rank": 1,
+      "Count": 8,
+      "Datatype": "ncclInt8",
+      "Algorithm": "RING",
+      "Protocol": "LL",
+      "nMaxChannels": 1
+    },
+    {
+      "rank": 1,
+      "type": "AllReduce",
+      "host_ts_us": 1582609.700439,
+      "SeqNum": 86,
+      "CommHash": "6923652004110217972",
+      "Rank": 1,
+      "Count": 1049600,
+      "Datatype": "ncclFloat32",
+      "Algorithm": "RING",
+      "Protocol": "SIMPLE",
+      "nMaxChannels": 16
+    },
+    {
+      "rank": 1,
+      "type": "AllReduce",
+      "host_ts_us": 1583384.063232,
+      "SeqNum": 87,
+      "CommHash": "6923652004110217972",
+      "Rank": 1,
+      "Count": 1049600,
+      "Datatype": "ncclFloat32",
+      "Algorithm": "RING",
+      "Protocol": "SIMPLE",
+      "nMaxChannels": 16
+    },
+    {
+      "rank": 1,
+      "type": "AllReduce",
+      "host_ts_us": 1583598.162109,
+      "SeqNum": 88,
+      "CommHash": "6923652004110217972",
+      "Rank": 1,
+      "Count": 1049600,
+      "Datatype": "ncclFloat32",
+      "Algorithm": "RING",
+      "Protocol": "SIMPLE",
+      "nMaxChannels": 16
+    }
+  ],
+  "unknowns": [
+    "exact dropped/overwritten counts and complete history",
+    "step-to-collective mapping",
+    "generic ProcessGroup-to-comm mapping beyond this single-PG task",
+    "GPU channel pTimer (unsupported in profiler v2)",
+    "Proxy/network progress (not enabled)",
+    "cross-GPU/node clock calibration",
+    "long-term fail-open, overhead SLA, production impact, causal rank"
+  ],
+  "sanitization": "Host/address/PID/UUID/PCI IDs/host paths removed; rank aliases retained. CommHash is a decimal string. Raw trace/manifest hashes refer to private original files. No synthesized events or timings.",
+  "directional_change_percent": {
+    "0": {
+      "gpu_p50_ms": 0.813756113497166,
+      "gpu_p95_ms": 0.5810676887485489
+    },
+    "1": {
+      "gpu_p50_ms": 0.24737593422829995,
+      "gpu_p95_ms": -4.4155773979852375
+    }
+  }
+}

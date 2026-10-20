@@ -71,3 +71,9 @@
 | 基本开销 | 一次无插件/插件平均延迟、RSS、输出量和停用烟测已记录 | step p50/p95 NOT_AVAILABLE；共享资源干扰未知，无SLA/fail-open证明 |
 
 G0-02整体为PARTIAL：真实NCCL字段链可用，但DDP和step分位数未验证。GPU PASS仅限这次微基准，不等于完整G0或G1通过。
+
+## 7. G0-03 实测覆盖（DDP PoC候选PASS，非Gate放行）
+
+[真实摘要](evidence/g0-03-summary.json)覆盖一组共享单机DDP：实际Torch2.7/NCCL2.25.1/官方profiler v2，两DDP PID的DSO指纹和同进程版本查询、插件maps/ABI日志均已核对。两rank各94条Coll按run+commHash+type+seq匹配，并核对count/dtype；单WORLD PG0成员[0,1]的关联基于同PID唯一comm初始化/单commHash，不是通用PG映射；NCCL日志commId不当作CommHash。
+
+每rank 40个真实CUDA-event step值及p50/p95已采，Host dispatch独立计时。只在warmup/测量末尾同步，无每步强制同步。v2 collector Host时钟是gettimeofday估频的RDTSC相对微秒，不能沿用v4 CLOCK_MONOTONIC假设；本次Host Coll-only不是GPU执行时间，v2 KernelCh/pTimer UNSUPPORTED。step→Coll UNKNOWN，Proxy未启用，精确drop/全历史/因果/跨机及fail-open仍未验证。原始GPU channel缺失与训练step GPU计时可用是两个不同结论。

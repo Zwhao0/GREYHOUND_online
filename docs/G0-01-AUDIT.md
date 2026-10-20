@@ -1,4 +1,4 @@
-# G0-01 静态审计与 G0-02 字段 PoC 记录
+# G0 静态审计与字段 PoC 记录
 
 G0-01 已经[独立审核 PASS 并合并](https://github.com/Zwhao0/GREYHOUND_online/pull/2#issuecomment-6293155716)。下面 G0-01 段落保留静态交付时的历史语义；G0-02 执行边界以 [Issue #3](https://github.com/Zwhao0/GREYHOUND_online/issues/3) 为准，不沿用旧方案的多轮/完整性硬门槛。
 
@@ -104,3 +104,63 @@ Host Coll begin是插件CLOCK_MONOTONIC相对起点的微秒；导出Coll end由
 **验证分类：** DOC=现有文档/链接与shell语法检查（CI看Draft实际记录）；CPU测试=NOT_RUN；GPU=PASS（仅本次共享单机NCCL微基准/加载/原始字段/回退）；DDP=NOT_RUN；MULTINODE=NOT_RUN；G0-02整体PARTIAL，待独立审核。
 
 下一步建议先审核本Draft，并明确后续可用的既有Torch运行入口与共享/独占资源条件，再单独授权一次固定dense DDP及step分位数验证。当前不请求G1、双机、注入、Rank算法或生产部署，也不因微基准字段成功放行整个G0。
+
+
+## G0-03 真实 DDP 字段与 step PoC（候选待审核）
+
+基于 main `67d4cd5736adfd2481eed1df803b4a573bc62ead`；[Issue #6](https://github.com/Zwhao0/GREYHOUND_online/issues/6)。**本轮 PASS / DRAFT_REVIEW_PENDING；只表示本次单节点DDP PoC，不是G0总Gate或G1通过。** G0-02已按PARTIAL审核合并，没有重跑nccl-tests。
+
+### 环境与授权
+
+现有venv的入口指向不存在的`/usr/bin/python`；只读复用site-packages又遇到缺少typing_extensions及多项CUDA依赖。没有安装wheel或继续搭环境。用户随后明确补充“所有资源和权限、想办法执行”的授权，才使用sudo Docker客户端访问**现有自定义daemon**，找到已缓存的官方 `nvcr.io/nvidia/pytorch:25.03-py3`。此访问方式基于后续用户授权，与Issue最初的无root接入限制不同，明确提交独立审核。未改Docker权限、启动daemon、安装/升级系统或拉取镜像；容器实际以原普通UID/GID运行，网络隔离、只挂载本任务目录，仅暴露GPU0/1，退出自动删除。
+
+镜像ID `sha256:f065828cf368a1ac2af99118ee11a7ba11ba08c4b50ec4628e3c768dbeaeb4f6`；本地无RepoDigests，不编造digest。两卡测试前分别空闲5200/5202 MiB，整个任务前后已有占用仍为75879/75877 MiB，驱动580.178.04。资源为用户本轮授权的共享单节点2×H800，不停止/读取他人训练日志，不声称无共租干扰。
+
+### 真实训练与加载
+
+[极简脚本](../tools/g0_03_ddp_poc.py)：固定seed20261020，batch32，两层1024×1024 Linear/ReLU，float32，SGD lr0.001；真实forward、loss、backward、optimizer step。一个NCCL WORLD ProcessGroup，成员[0,1]；各rank绑定本地device0/1。一次无插件和一次插件运行各5 warmup+40 measured steps；无额外诊断collective、无故障注入。清除插件后只做0 warmup+2步启动/退出烟测，不重做性能对照。
+
+两rank在实际DDP PID中读取`/proc/self/maps`、流式SHA及同一DSO的`ncclGetVersion`，返回status0/version22501。实际Torch为 `2.7.0a0+7c8ec84dab.nv25.03`，CUDA构建12.8，NCCL为 `/usr/lib/x86_64-linux-gnu/libnccl.so.2.25.1`（SHA256 `42ba6acaf7c1211480668f252c71801c8f54c72424f59f8a4d5462f394796ad6`）；各自NCCL日志也报告2.25.1+cuda12.8。不是沿用G0-02的2.28.3结论。
+
+官方兼容example取 `v2.25.1-1` / `80f6bda4378b99d99e82b4d76a633791cc45fef0`，BSD-3-Clause，源码未改，按原Makefile在任务目录编译，仅导出v2。插件SHA256 `5f130774d37e6f1264cd88ad00de099e02cb053ca262842c18c5f86796b5b733`；两个真实DDP PID均记录`loaded ncclProfiler_v2.`，maps也包含该插件。mask=2（Coll及祖先Group），Group/Coll pool各128；没有换Torch/NCCL以追求v4。
+
+### 字段、关联与时钟
+
+[脱敏证据](evidence/g0-03-summary.json)保留各rank真实CUDA step样本、库/trace/manifest指纹、ABI日志摘录与Collective样例。原始主机/地址/PID/UUID/PCI与宿主路径不公开。两rank各94个唯一导出键，按`(本次run, commHash, type, seq)`匹配94对，单侧键0、count/datatype一致：AllGather1、Broadcast4、AllReduce89。AllReduce seq0–88，其中88条count1049600/float32，另1条count2099200/float32；多条样例见JSON。
+
+| 同一次AllReduce样例 | 两rank共同值 |
+| --- | --- |
+| CommHash / type / seq | `6923652004110217972` / AllReduce / 88 |
+| count / datatype / logical bytes | 1049600 / ncclFloat32 / 4198400 |
+| algorithm / protocol / nMaxChannels | RING / SIMPLE / 16 |
+
+PG name0与commHash的关联只在**单PG、每PID仅一次NCCL初始化且trace仅一commHash**的本测试中成立，并由PID/rank/device证据约束；不把NCCL日志中的commId数值当CommHash，不声称通用多PG映射。step→具体Collective缺少可信标记，保持UNKNOWN，未按跨进程绝对时间最近匹配。
+
+v2 example Host时间是[经gettimeofday短窗估频的RDTSC相对微秒](https://github.com/NVIDIA/nccl/blob/80f6bda4378b99d99e82b4d76a633791cc45fef0/ext-profiler/example/plugin.c#L41-L57)，不是v4 example的CLOCK_MONOTONIC。本次Coll-only回调时间不代表GPU执行时间；**v2没有KernelCh/pTimer字段**，Proxy未激活。训练step GPU时间来自PyTorch CUDA events，Host dispatch来自perf_counter，两个域分别记录；不拿Host Coll耗时替代GPU时间。
+
+### step分位数与开销口径
+
+CUDA begin在forward前、end在optimizer后记录在当前流；DDP计算/通信的流依赖自然参与该区间，区间也可能包含GPU等待和CPU提交空隙，不是纯kernel时间。仅warmup结束和全部40步结束统一同步，循环及Profiler热路径不强制同步。p50为median，p95按`(n-1)*0.95`线性插值；JSON保留40个原始GPU step值供核对。Host dispatch分位数不含GPU完成等待，另存JSON。
+
+| rank / GPU step（ms） | baseline p50 / p95 | plugin p50 / p95 |
+| --- | --- | --- |
+| 0 | 1.144320 / 1.183483 | 1.153632 / 1.190360 |
+| 1 | 1.151296 / 1.248669 | 1.154144 / 1.193533 |
+
+p50方向性变化约+0.814%/+0.247%，p95约+0.581%/−4.416%；共享资源和单次小样本不能证明改善、严格2% SLA或生产开销。max RSS（KiB）baseline rank0/1为1381428/1386600，plugin为1383860/1384700；Torch allocator峰值各92562432字节，不是整个进程GPU显存峰值。输出baseline16854字节、plugin131537字节，插件trace各56930字节。所有主测试及烟测两rank退出0，没有观察到本任务挂起、OOM或插件崩溃；不能推广为长期无影响。
+
+### 复现、失败与回退
+
+使用上述缓存镜像ID、普通UID/GID、`--gpus '"device=0,1"' --network none --shm-size 256m`，私有任务目录挂载`/work`，配置`OMP_NUM_THREADS=1`、`NCCL_SOCKET_IFNAME=lo`、`NCCL_DEBUG=INFO`和每PID日志。实际训练入口：
+
+```sh
+python -m torch.distributed.run --nnodes=1 --nproc-per-node=2 \
+  --master-addr=127.0.0.1 --master-port=29573 \
+  /work/g0_03_ddp_poc.py --output /work/<baseline-or-plugin>
+```
+
+baseline/烟测指定`NCCL_PROFILER_PLUGIN=none`；plugin指定`/work/nccl-v2.25.1-1/ext-profiler/example/libnccl-profiler.so`，mask2、两pool128和私有dump前缀。烟测加`--steps 2 --warmup 0`。配置仅对任务子进程生效；外层timeout120秒，失败只清理本任务命名容器。原始脚本上传SHA与仓库脚本一致，见JSON。
+
+环境前置失败已记录；另一次Docker预检因设备列表CSV引用格式错误在容器启动前失败，修正后未影响GPU训练。没有额外重跑主实验。两步冷启动烟测只判断停用/退出，不比较其冷启动耗时；maps只包含NCCL、不含插件，日志为`Could not find: none none.`，三次命名容器均已自动删除，无全局配置残留。
+
+**DOC=本地语法/文档/脱敏与真实摘要一致性检查，最终CI见Draft；CPU算法测试=NOT_RUN；GPU/DDP=PASS（仅本轮PoC）；MULTINODE=NOT_RUN。** 精确drop/覆盖率、step关联、多PG、GPU channel/Proxy、跨节点时钟、长期非阻塞/fail-open和原发Rank仍未知或未支持。此例94对导出事件不证明零丢失。下一步仅ChatGPT独立审核，之后另行确定最小缺口任务；不自行双机、注入、进入G1或合并。
