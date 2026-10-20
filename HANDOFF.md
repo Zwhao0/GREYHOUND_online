@@ -9,15 +9,15 @@
 | 更新日期 | 2026-10-20 |
 | 项目名称 | Greenhound Online（不同于上游 GREYHOUND） |
 | GitHub 用户 | `Zwhao0` |
-| 目标仓库 | `Zwhao0/Greenhound-Online` |
-| 远端状态 | **NOT_CREATED — 当前仅有本地初始化项目包** |
-| 默认分支 | 计划 `main`，尚未创建 |
-| 当前 Gate | `BOOTSTRAP`：等待新仓库和初始推送 |
-| 当前 Issue | 无（NOT_CREATED） |
-| 当前 PR / HEAD | 无（NOT_CREATED） |
-| CI | NOT_RUN |
+| 实际仓库 | [Zwhao0/GREYHOUND_online](https://github.com/Zwhao0/GREYHOUND_online)（Public） |
+| 远端状态 | **CREATED / BOOTSTRAP PASS**（15 个文件已上传 GitHub main 并回读） |
+| 默认分支 | `main`（每次交接需回读最新 HEAD） |
+| 当前 Gate | **BOOTSTRAP PASS**；G0-01 静态审计 READY / NOT_STARTED |
+| 当前 Issue | [G0-01 Issue #1](https://github.com/Zwhao0/GREYHOUND_online/issues/1)（OPEN；当前只授权静态审计） |
+| 当前 PR / HEAD | PR：无；main HEAD 请通过 GitHub 实时读取，避免文档内的自引用 SHA |
+| CI | [DOC PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39423267555)（Bootstrap 提交；最新 HEAD CI 需重新复核） |
 | GPU / 双机真实实验 | NOT_RUN |
-| 独立审核结论 | 尚无可审核代码；未授权进入 G1/G2/G3 |
+| 独立审核结论 | Bootstrap 已审核通过；G0-01 尚未开始，GPU 与 G1/G2/G3 均未授权 |
 
 ## B. 已批准的方向（不得在交接中重新解释）
 
@@ -30,16 +30,16 @@
 
 ## C. 立即下一步（只做这一件）
 
-**完成仓库 bootstrap：** 用户在 `Zwhao0` 下创建一个空的 **Private** 仓库，名为 `Greenhound-Online`，不勾选 GitHub 自动生成 README/.gitignore/LICENSE。将本项目包内容推送到 `main`，并给 GitHub 连接应用授权此仓库。
+**执行 [G0-01 Issue #1](https://github.com/Zwhao0/GREYHOUND_online/issues/1) 的首轮静态审计，不启动 G1/G2。**
 
-完成后需：
-- 回读实际仓库 URL、默认分支和提交 SHA，填入本文件和 `STATUS.md`，将远端状态改为 `READY`。
-- 创建首个 `G0-01` Issue，链接 `tasks/G0-01.md`，但**只读审计 / 实验方案阶段**，未经用户授权不得自动跑 GPU 实验。
-- 开启首个 Codex 主窗口：先阅读 `AGENTS.md`、`STATUS.md`、`ROADMAP.md`、`docs/DECISIONS.md`、`docs/MEASUREMENT_CONTRACT.md` 和 G0-01 Issue。只做 G0-01，不推进 G1。
+- ChatGPT 新窗口：读取当前 `HANDOFF.md`、`STATUS.md`、`AGENTS.md`、`ROADMAP.md`、`docs/DECISIONS.md` 和 Issue #1；核对 main HEAD、CI、授权范围，然后派发当前 G0-01 的最小任务。
+- Codex 主窗口：只读审查 GREYHOUND、Probing、NCCL、PyTorch 等公开源码与文档，核查版本/许可证、观测字段、失效条件并提出两个最小采集候选和真实 GPU 实验计划；用 Draft PR 交付审核。
+- **当前绝不授权**真实 H800 GPU 操作、故障注入、暂停训练、修改 NCCL/框架、复制许可不明源码，或开始双基线及 Rank 归因算法。
+- 当前仓库为 **Public**，不得提交公司机密、私有日志、密钥、模型权重或网络地址。
 
 ## D. 接班第一步：每个新 ChatGPT / Codex 窗口
 
-1. 以 GitHub 仓库 **真实可访问的内容**为准读取 `HANDOFF.md`、`STATUS.md`、`AGENTS.md`、`ROADMAP.md`、`docs/DECISIONS.md`。如尚未建库，则用初始化项目包；不可虚构远端状态。
+1. 以 GitHub 仓库 **真实可访问的内容**为准读取 `HANDOFF.md`、`STATUS.md`、`AGENTS.md`、`ROADMAP.md`、`docs/DECISIONS.md`。仓库已创建；新窗口应从实际 main 和 Draft PR 的真实状态继续。
 2. 检查当前 Issue、Draft PR、PR HEAD SHA、base、最新 CI 与真实实验报告；区分 `MAIN` 和 `DRAFT`。
 3. 简要复述：当前 Gate、已有证据、尚未批准的事项、**下一项最小任务**。若状态冲突先指出，不盲目继续。
 4. 每个执行窗口结束前更新本文（若未授权写入 GitHub，给出建议变更，不擅自将其标为已提交）。
@@ -54,11 +54,11 @@
 
 ## F. 当前交接给 ChatGPT 新窗口的完整指令
 
-> 我们继续全新项目 **Greenhound Online**，GitHub 目标仓库 `Zwhao0/Greenhound-Online`。请首先读取仓库根目录 `HANDOFF.md`、`STATUS.md`、`AGENTS.md`、`ROADMAP.md`、`docs/DECISIONS.md` 和当前 G0-01 任务/Issue，并回读 GitHub 真实状态。若新仓库仍未创建，明确指出并从项目初始化包推进，不要假定已有 PR。用户已批准：GREYHOUND 的异常检测与 Group 筛选 + 开源 NCCL 证据 + 独立的离线先行 Rank 归因 + 最后在线化。第一版固定密集 DDP，普通 NCCL、两台 H800，之后扩展 DP/TP/PP，不强制 MoE；不暂停训练、不改训练代码。ChatGPT 规划与审核，Codex 执行。请从当前 Gate 的最小任务继续，不要跳过证据验证，不要擅自进入下一阶段。
+> 我们继续全新项目 **Greenhound Online**，GitHub 目标仓库 `Zwhao0/GREYHOUND_online`。请首先读取仓库根目录 `HANDOFF.md`、`STATUS.md`、`AGENTS.md`、`ROADMAP.md`、`docs/DECISIONS.md` 和当前 G0-01 任务/Issue，并回读 GitHub 真实状态。本仓库已建立；先复核 Issue #1 与最新 main，再按 G0-01 的授权范围推进。用户已批准：GREYHOUND 的异常检测与 Group 筛选 + 开源 NCCL 证据 + 独立的离线先行 Rank 归因 + 最后在线化。第一版固定密集 DDP，普通 NCCL、两台 H800，之后扩展 DP/TP/PP，不强制 MoE；不暂停训练、不改训练代码。ChatGPT 规划与审核，Codex 执行。请从当前 Gate 的最小任务继续，不要跳过证据验证，不要擅自进入下一阶段。
 
 ## G. 当前交接给 Codex 新窗口的完整指令
 
-> 你是 **Greenhound Online** 主 Codex 执行者。先从 `Zwhao0/Greenhound-Online` 读取 `HANDOFF.md`、`STATUS.md`、`AGENTS.md`、`ROADMAP.md`、`docs/DECISIONS.md`、`docs/MEASUREMENT_CONTRACT.md` 及已授权的当前 Issue。**以已合并 main 状态为准，Draft PR 必须另行标识。** 仅完成当前 Issue 明确授权范围，不启动未经批准的真实 GPU 操作、不复制许可不明的 GREYHOUND 代码、不自行 merge 或推进 Gate。遇到不能观测的字段请输出 `UNKNOWN`/证据缺口，不得模拟数据冒充 GPU 证据。提交 Draft PR 时提供 HEAD SHA、CI、运行证据、失败项、回退方案并更新 `STATUS.md`/`HANDOFF.md`，等待 ChatGPT 独立审核。
+> 你是 **Greenhound Online** 主 Codex 执行者。先从 `Zwhao0/GREYHOUND_online` 读取 `HANDOFF.md`、`STATUS.md`、`AGENTS.md`、`ROADMAP.md`、`docs/DECISIONS.md`、`docs/MEASUREMENT_CONTRACT.md` 及 [G0-01 Issue #1](https://github.com/Zwhao0/GREYHOUND_online/issues/1)。**以已合并 main 状态为准，Draft PR 必须另行标识。** 仅完成当前 Issue 明确授权范围，不启动未经批准的真实 GPU 操作、不复制许可不明的 GREYHOUND 代码、不自行 merge 或推进 Gate。遇到不能观测的字段请输出 `UNKNOWN`/证据缺口，不得模拟数据冒充 GPU 证据。提交 Draft PR 时提供 HEAD SHA、CI、运行证据、失败项、回退方案并更新 `STATUS.md`/`HANDOFF.md`，等待 ChatGPT 独立审核。
 
 ## H. 后续每次必须更新的交接字段模板
 

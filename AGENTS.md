@@ -4,7 +4,7 @@
 
 ## 1. 身份和仓库边界
 
-- 唯一新工程：`Zwhao0/Greenhound-Online`。不得修改用户的其他项目（FLASH、myflash、20261015 等）；需要阅读外部公开资料时仅做只读研究，并引用来源。
+- 唯一新工程：`Zwhao0/GREYHOUND_online`。不得修改用户的其他项目（FLASH、myflash、20261015 等）；需要阅读外部公开资料时仅做只读研究，并引用来源。
 - 项目核心职责：ChatGPT 负责规划、验证设计、审查 Gate；Codex 主窗口统筹实现和验收，子智能体可承担独立代码审查/测试。用户批准跨 Gate 任务。
 - 每个任务开始前依次读取：`HANDOFF.md`、`STATUS.md`、`AGENTS.md`、`ROADMAP.md`、`docs/DECISIONS.md` 和当前 Issue/任务文件。若信息冲突，停止推进并明确指出冲突。
 - 除非当前 Issue 明确授权，**不得**在真实 H800 上运行操作、访问生产数据、注入故障、修改安装包或升级驱动/NCCL。

@@ -2,15 +2,15 @@
 
 - 更新日期：2026-10-20
 - 项目：Greenhound Online
-- 拟建仓库：`Zwhao0/Greenhound-Online`
-- 远端仓库：**NOT_CREATED（当前生成的是初始化项目包）**
-- 当前阶段：`BOOTSTRAP`，等待 GitHub 仓库创建与初始化文件推送
+- 唯一仓库：[`Zwhao0/GREYHOUND_online`](https://github.com/Zwhao0/GREYHOUND_online)（Public）
+- 远端仓库：**CREATED**（main Bootstrap 文件已上传并回读）
+- 当前阶段：**BOOTSTRAP PASS**；G0-01 静态审计 READY / NOT_STARTED
 - 下一阶段：`G0`，候选工具可用性与真实观测可行性评估
 - 本项目代码实现：NOT_STARTED
 - 真实 H800 训练实验：NOT_RUN
 - 真实开销测量：NOT_RUN
 - GPU/Rank 故障定位准确率：UNKNOWN / 尚无本项目实验依据
-- GitHub Issue / PR / CI：NOT_CREATED / NOT_RUN
+- GitHub Issue：[G0-01 #1](https://github.com/Zwhao0/GREYHOUND_online/issues/1)（OPEN）；PR：NOT_CREATED；文档 CI：[PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39423267555)（Bootstrap 提交；最新 HEAD 的运行仍须核查）
 - 原 GREYHOUND detector 许可证：UNVERIFIED，禁止复制或声称已获商用授权
 
 ## 已经批准的产品范围
@@ -23,7 +23,7 @@
 
 ## 未关闭的前置问题
 
-1. GitHub 远端尚未创建；需用户执行首次建仓及推送，然后确认已授予 GitHub 连接应用该仓库访问权限。
+1. 实际仓库为 Public；严禁上传公司内部数据、凭证、网络拓扑信息和许可不明的外部源码。
 2. 当前训练进程实际 `torch`、CUDA、NCCL 版本与动态链接方式：未核实。过去其他项目的记录不可替代。
 3. GREYHOUND 改造的源码许可、可用性与可能的强制同步：需要专门审核。
 4. Probing/NCCL Profiler 与训练版本 ABI 和 Rank 事件覆盖：需要验证。
@@ -33,8 +33,8 @@
 
 | Gate | 状态 | 证据 | 放行人 |
 | --- | --- | --- | --- |
-| Bootstrap | PENDING_REMOTE | 当前仅有初始化包 | — |
-| G0：候选/可观测性 | STATIC_AUDIT_READY / NOT_STARTED | Issue #1 开放；无 GPU 证据 | — |
+| Bootstrap | **PASS** | main 文件、Issue #1 已回读，文档 CI 已通过 | ChatGPT / 2026-10-20 |
+| G0：候选/可观测性 | STATIC_AUDIT_READY / NOT_STARTED | Issue #1，尚无 GPU 证据 | — |
 | G1：Rank 级证据采集 | BLOCKED_BY_G0 | 无 | — |
 | G2：真实数据离线归因 | BLOCKED_BY_G1 | 无 | — |
 | G3：在线非暂停模式 | BLOCKED_BY_G2 | 无 | — |

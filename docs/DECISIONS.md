@@ -28,3 +28,9 @@ GREYHOUND detector 许可证尚未核实；暂不复制源码。可以读论文�
 - 用户实际创建了 `Zwhao0/GREYHOUND_online`，与原拟定 slug `Greenhound-Online` 不同。后续唯一仓库使用真实地址，不再新建同类仓库。
 - 当前仓库为 **Public**。Bootstrap 只包含本项目原创规划/流程/任务文档与验证脚本；不导入上游 GREYHOUND 源码、不上传公司内部日志、网络地址、模型和密钥。
 - 项目对外展示名仍是 **Greenhound Online**，须明确其并非原 GREYHOUND 项目官方分支。
+
+## DEC-005 — 2026-10-20：实际仓库已创建且为 Public
+
+- 唯一仓库是 `Zwhao0/GREYHOUND_online`（用户创建，Public），与原拟定的 `Greenhound-Online` slug 不同。项目名称仍为 **Greenhound Online**，不是上游 GREYHOUND 官方项目。
+- 此次 Bootstrap 仅上传项目原创规划、任务、约束和文档验证脚本；引入上游实现需单独确认许可证并遵守公司信息安全限制。
+- 首项任务 [G0-01 #1](https://github.com/Zwhao0/GREYHOUND_online/issues/1) 目前只允许静态审计，未经授权不运行 H800。
