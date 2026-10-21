@@ -1,29 +1,23 @@
 # HANDOFF — Greenhound Online
 
-> 跨 ChatGPT / Codex 窗口的简短入口。以 [GitHub main](https://github.com/Zwhao0/GREYHOUND_online)、当前 Issue/PR 为事实源，不复制历史实验全文。
+> 简短跨窗口入口。以[仓库 main](https://github.com/Zwhao0/GREYHOUND_online)、当前 Issue/PR/CI 为事实源，不在此复述完整实验或长任务。
 
 ## 当前状态（2026-10-21，Asia/Shanghai）
 
-- **G0**：单节点限定范围 **PASS**，不再重复验收。
-- **G1-01**：[Issue #9](https://github.com/Zwhao0/GREYHOUND_online/issues/9) **CLOSED / scoped PASS**，[PR #13](https://github.com/Zwhao0/GREYHOUND_online/pull/13) 已独立审核并合并（squash `1c2ef7f491d5979f1d7e3a55a54bd4d537e7b77c`）；[审核记录](https://github.com/Zwhao0/GREYHOUND_online/pull/13#issuecomment-6306390974)、[最终CI PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39457361258)。
-- **G1 总 Gate**：**IN_PROGRESS**，未批准通过；G2/G3 BLOCKED。
-- **已得证据**：在两机H800私有Torch 2.14.1+cu130 / NCCL 2.30.7 / 实际Profiler v4上，健康4 Rank DDP短窗观察到70个四Rank Collective匹配。仅观察窗口内一致；精确drop/共同遗漏、跨GPU/节点校时、step→Coll与原发/等待因果 UNKNOWN。单次共享资源GPU step p50相对增加6.1%～7.5%，并非低开销达标。
+- **G0**：单节点观测限定范围 **PASS**，不重验。
+- **G1-01**：真实两机H800健康DDP采集 **限定范围 PASS**；[PR #13已合并](https://github.com/Zwhao0/GREYHOUND_online/pull/13) / [Issue #9已关闭](https://github.com/Zwhao0/GREYHOUND_online/issues/9)。
+- **G1-02**：离线CaptureQuality + 四时间戳保守数学契约 **PARTIAL已接收**；[PR #16已合并](https://github.com/Zwhao0/GREYHOUND_online/pull/16) / [Issue #14已关闭](https://github.com/Zwhao0/GREYHOUND_online/issues/14)，[独立审核](https://github.com/Zwhao0/GREYHOUND_online/pull/16#issuecomment-6307501674)，[最终HEAD CI 33项CPU PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39539775945)。本轮 **GPU/MULTINODE NOT_RUN**。
+- **G1 Gate**：**IN_PROGRESS / 未批准**；G2/G3/G4 **BLOCKED**。
+- **事实与缺口**：G1-01两机Torch2.14.1+cu130/NCCL2.30.7/v4 Profiler，4Rank已观察70个匹配Collective。G1-02复核旧trace的SHA 4/4相符、内部seq无gap，但 attempted/drop/flush、共同遗漏、active-window、跨节点Host offset/误差均 UNKNOWN；原始GPU globaltimer不能直接跨卡相减。一次共享短窗p50额外开销约6%～8%，低开销SLA未证明。
 
-## G1-02 本轮候选（未合并）
+## 唯一下一任务
 
-- [Issue #14](https://github.com/Zwhao0/GREYHOUND_online/issues/14)：**PARTIAL，等待独立审核**。新增 CPU CaptureQuality 与时钟反例，G1-01真实归档离线复核；[详细报告](docs/G1-02-RESULTS.md)、[脱敏质量数据](docs/evidence/g1-02-quality.json)。[Draft PR #16](https://github.com/Zwhao0/GREYHOUND_online/pull/16)；代码提交 `ea0d8085a821b1f5872f86083b13abebefb92575`，[代码CI PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39539690045)；最终HEAD以PR为准。
-- 真实每 Rank Coll70/Group70/KernelCh553对、AllReduce seq0–68、AllGather seq0；内部gap/重复/配对异常0，仅导出窗口。精确drop、共同遗漏、active window/flush仍 UNKNOWN；跨Rank Host/GPU均 UNSAFE_TO_SUBTRACT。
-- **本轮 DOC/CPU；GPU/MULTINODE NOT_RUN**。未改采集/运行路径、未访问远端、未升级。合成时钟区间不等于现场校准。G1总Gate仍 IN_PROGRESS，保留共享短窗6%～8%开销风险。
+**Codex执行 [G1-03 Issue #17](https://github.com/Zwhao0/GREYHOUND_online/issues/17)：两节点真实 Host 校时与 Profiler 逐类采集审计。** 保持已经实测的新稳定栈，通过独立控制通道+同PID相对时钟origin建立可信Host时间误差界，并对现有v4插件做最小逐类计数/导出状态补证，至多一次有界健康4RankDDP测试及必要的同配置baseline。按Issue验收；无法安全界定时输出UNKNOWN/PARTIAL，不能硬凑PASS。提交一个 Draft PR 并在同PR更新简洁STATUS/HANDOFF，停止等待ChatGPT独立审核。
 
-## 唯一下一步
+**权限**：两台已授权共享H800、隔离目录/venv、有限健康测试；执行前检查共租安全。禁止故障注入、原发Rank定位/评分、G2/G3、修改生产训练脚本/框架/NCCL核心、额外训练world collective、每步同步、驱动/全局依赖/其他作业变更、发布敏感原始数据或许可不明的GREYHOUND代码。
 
-**停止，等待 ChatGPT 独立审核本轮 Draft PR。** 不合并、不关闭 Issue #14、不自行提交 G1 Gate PASS；G2/G3 BLOCKED。报告中的最小后继方案待审核后另行授权。本轮已有授权工作至 Draft PR 为止。
+**分工**：GPT 6 luna max负责常规统计/fixture/机械审查；GPT 6.1 sol medium处理时钟误差界与Profiler ABI/并发安全；主Codex负责集成、现场资源与真实性。子智能体短结论即可。
 
-**权限边界**：禁止故障注入、原发Rank推理/评分、生产/框架/NCCL核心改造、训练world诊断collective、宿主/全局包变更、共租抢占和公开敏感日志。未来如需现场有限健康测试，由主Codex核对资源与明确任务授权。
+## 按需读取
 
-## 按需查阅
-
-- [STATUS.md](STATUS.md)：Gate和真实测试分类。
-- [G1-02结果](docs/G1-02-RESULTS.md)：质量契约、时间来源、反例、风险与回退。
-- [G1-01结果](docs/G1-01-RESULTS.md)、[原汇总](docs/evidence/g1-01-summary.json)、[70实例](docs/evidence/g1-01-matches.json)：历史真实采集依据。
-- [AGENTS.md](AGENTS.md)、[ROADMAP.md](ROADMAP.md)、[数据契约](docs/MEASUREMENT_CONTRACT.md)：规则与阶段边界。
+[STATUS](STATUS.md) · [Issue #17](https://github.com/Zwhao0/GREYHOUND_online/issues/17) · [G1-02实验报告](docs/G1-02-RESULTS.md) · [G1-01实验报告](docs/G1-01-RESULTS.md) · [测量契约](docs/MEASUREMENT_CONTRACT.md) · [AGENTS](AGENTS.md) / [ROADMAP](ROADMAP.md)（仅需时）。
