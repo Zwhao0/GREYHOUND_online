@@ -1,22 +1,18 @@
 # STATUS — Greenhound Online
 
-更新：2026-10-21（Asia/Shanghai）；唯一仓库 [Zwhao0/GREYHOUND_online](https://github.com/Zwhao0/GREYHOUND_online)。以 GitHub main / 当前 Issue/PR/CI 为准。
+2026-10-21（Asia/Shanghai）；[唯一仓库](https://github.com/Zwhao0/GREYHOUND_online)。以main、当前Issue/PR和CI为事实源。
 
-| 阶段 | 审核状态 | 证据或下一步 |
+| 阶段 | 正式状态 | 证据 |
 | --- | --- | --- |
 | G0 | 限定范围 PASS，不重验 | [PR #8](https://github.com/Zwhao0/GREYHOUND_online/pull/8) |
-| G1 | PASS_SCOPED_OBSERVABILITY，不重验 | [PR #22](https://github.com/Zwhao0/GREYHOUND_online/pull/22)；限定 Host 事件可观察性 |
-| G2-01 | **候选未合并 / 实验完成 / 待独立审核** | [Issue #24](https://github.com/Zwhao0/GREYHOUND_online/issues/24)；唯一 [Draft PR #26](https://github.com/Zwhao0/GREYHOUND_online/pull/26) |
-| G2 总 Gate | **NOT_PASSED** | 先导操作性 NO_GO；隔离 episode 可识别性 INCONCLUSIVE |
-| G3/G4 | **BLOCKED** | 未授权在线化或生产部署 |
+| G1 | PASS_SCOPED_OBSERVABILITY，不重验 | [PR #22](https://github.com/Zwhao0/GREYHOUND_online/pull/22) |
+| G2-01 | **NO_GO_FOR_CURRENT_SIGNAL / MERGED；Issue CLOSED** | [PR #26](https://github.com/Zwhao0/GREYHOUND_online/pull/26)、[独立审核](https://github.com/Zwhao0/GREYHOUND_online/pull/26#issuecomment-6311124128)、[Issue #24](https://github.com/Zwhao0/GREYHOUND_online/issues/24) |
+| **G2-02** | **AUTHORIZED / OPEN / NOT_RUN** | [唯一下一任务 Issue #27](https://github.com/Zwhao0/GREYHOUND_online/issues/27) |
+| G2 总Gate | **NOT_PASSED** | 不允许用先导小样本冒充精度验收 |
+| G3/G4 | **BLOCKED** | 尚未授权在线化/生产化 |
 
-## G2-01 测试事实
+**真实 G2-01 结论**：两机4Rank的1次健康+1次注入均远端正常结束；8次pre-backward 20ms sleep执行，冻结原发候选盲评仅 **3/8 Top-1**，预定8个无新注入窗中**6个出现候选**；130 CPU CI PASS。Rank1累计Host晚到持续占据seq25–88，episode恢复/独立未证实；因此**停止基于绝对Host晚到量的原发Rank定位方法**，G2没有通过。[失败与真值证据](docs/G2-01-RESULTS.md)、[评分](docs/evidence/g2-01-score.json)。
 
-- DOC/CPU：130 tests PASS，文档检查 PASS；最终 HEAD/CI 见唯一 Draft PR。两次真实 GPU/MULTINODE（一次健康、一次注入）均完成，远端训练/侧车 exit 0；没有追加运行。复用 G1 Torch 2.14.1+cu130 / NCCL 2.30.7 / Profiler v4 与严格 Host 因果时钟界。
-- 8 次实际 sleep 20.060–20.070ms；冻结预测后揭盲：**Top-1 3/8、注入 UNKNOWN 0/8、预定无新注入窗口告警 6/8**。持续 Rank 1 Host 延后跨越后续窗口，未证明 episode 恢复/独立，不能把 6/8 当干净健康特异度或 3/8 当总体精度。
-- 各运行 90/90 通信实例匹配；分析全部 89 个 AllReduce，各 356/356 已观察 Host begin 有界。计数内 drop/reject 0；全集 loss、GPU 时间同步、生产 fail-open/净开销仍 UNKNOWN。两机原有 GPU 应用各 8 个、本任务残留 0；本地注入主控会话中断收尾，远端完成凭据保留。
-- [详细结果与失败记录](docs/G2-01-RESULTS.md)、[脱敏汇总](docs/evidence/g2-01-summary.json)、[预登记](docs/evidence/g2-01-registration.json)、[事后因果审阅](docs/G2-01-INDEPENDENT-REVIEW.md)。不复制大日志。
+**揭盲后的探索性发现（不算新验证）**：独立从已公开健康/注入轨迹的同Rank本地 `source_ns` 计算相邻Collective间隔增量；8个已知注入位置的Rank均有约20.05–20.68ms突变，另有seq19的3个其他Rank出现约20ms后续突变（疑似等待传播）。**不得报成8/8盲测或据此通过G2**。GPU kernel时间/精确根因/端到端丢失/低开销SLA依旧未证实。
 
-## 唯一下一动作
-
-停止等待 ChatGPT 对同一 Draft PR 的 HEAD、CI、冻结/揭盲证据独立审核。建议先设计本地进度/恢复证据，再决定后续 G2；本次不实现后续设计、不合并、不重跑、不进入 G3。
+**下一步**：Codex只执行 [Issue #27 G2-02](https://github.com/Zwhao0/GREYHOUND_online/issues/27)：冻结“Rank本地进度增量+多Rank传播UNKNOWN”最小方法，用**新的隐藏随机真值**做至多一次新注入GPU盲测（健康baseline优先复用已有合法数据）。如再次NO_GO，停止仅依赖NCCL Host的精确原发Rank路线，评估额外非侵入CPU/GPU/NIC证据或组级定位。只交一个Draft PR及简洁STATUS/HANDOFF，待ChatGPT独立审核。
