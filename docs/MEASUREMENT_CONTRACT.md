@@ -93,3 +93,9 @@ G0-02整体为PARTIAL：真实NCCL字段链可用，但DDP和step分位数未验
 - Coll、Group、KernelCh、Proxy分别输出观察/配对；一个事件类或池的计数不得升级成全事件类型完整性。attempted/emitted/dropped/overwritten/flush必须有逐类、逐窗口来源，缺失记 UNKNOWN；文件 parse 成功仅证明 export 可读。
 - 时间必须携带域/单位/来源/校准/不确定度/有效窗口。实测 Host relative/GPU raw/step elapsed 分开；无校准输出 UNSAFE_TO_SUBTRACT。合成 BOUNDED 仅验证声明的区间数学；不产生现场 CALIBRATED。
 - 任何内部 seq gap 只证明声明的序号空间中缺少导出槽，不能断言一定发生池丢弃，也不等价于训练未执行。无 gap 不能断言无损。
+
+## 10. G1-03 实测扩展（CaptureQuality v2，候选）
+
+[真实摘要](evidence/g1-03-summary.json)将同PID origin、独立控制四时戳和逐类audit与现有trace分析合并。`callback_attempted = accepted + own_pool_drop + parent_rejected + guard_rejected`只在逐类字段齐全、相同callback单位时校验；不代表NCCL操作全集。exported仅在文件open/write/close成功且与trace header数相符时可作为观察值；持久化、ring覆盖及未回调总量分别UNKNOWN。
+
+Host控制片段 `[b2,b3]` 的单调因果reference包络为 `[a1,a4]`，不要求路径对称或连续漂移率。BOUNDED只在该片段和预定预算内成立；训练窗另用pre/post宽包络，超预算UNSAFE。绝不能把控制片段BOUNDED外推到训练窗，或把条件式固定offset区间冒充无条件校准。GPU globaltimer与CUDA-event duration继续分域；原始GPU时钟跨卡相减被禁止。

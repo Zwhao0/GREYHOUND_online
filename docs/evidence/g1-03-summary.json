@@ -1,0 +1,2193 @@
+{
+  "candidate_status": "PARTIAL",
+  "clock_input_sha256": {
+    "post-client": "bf2058c24b968d059010845c322558417976f7184f610a9744311ed852c0ebd6",
+    "post-server": "4aec65f848a16b4996e0e3f97f5857f4335665eb3a27d5106edd30217ee714e7",
+    "pre-client": "b3497f8f371467846d80f2c9160fb97fa3df13eb082e2de6820e87b01bb5d882",
+    "pre-server": "b0977e1309f15bac0de82bff1bdf0b4b0f94861bb9f5970d2b86d63ed680440c"
+  },
+  "control_source_verification": {
+    "current_sha256": "53c6c4276626ad03dacfb5cee25eaf13445f27deb5f2cdb11cf01c06fd6ab652",
+    "difference_scope": "offline verification helpers only; no runtime rerun claimed",
+    "executed_sha256": "017596c542e37b073928d844e10916b67dca3bffd16f7c381609567ec017a351",
+    "runtime_functions_ast_identical": true,
+    "status": "OBSERVED"
+  },
+  "gate": "IN_PROGRESS_NOT_SUBMITTED_AS_PASS",
+  "gpu_clock": {
+    "calibration": "UNKNOWN",
+    "status": "UNSAFE",
+    "step_to_coll": "UNKNOWN",
+    "usable_for_cross_rank": false
+  },
+  "host_clock": {
+    "action": "UNSAFE_TO_SUBTRACT",
+    "actual_cross_rank_comparable": false,
+    "assumptions": [
+      "nonnegative one-way delays; symmetry is not assumed",
+      "CLOCK_MONOTONIC remains monotonic in the bound boot/time namespaces"
+    ],
+    "bounded_control_segments": 16,
+    "calibration": "UNSAFE",
+    "classification": "REAL_HOST_CONTROL",
+    "coarse_reference_envelope_ns": [
+      770917558633870,
+      770984117436097
+    ],
+    "control_segment_scope": "CONTROL_SEGMENT_ONLY; never extrapolate to training window",
+    "drift_bound_ppm": "UNKNOWN",
+    "mapping_model": "MONOTONIC_CAUSAL_BRACKET_NO_DRIFT_ASSUMPTION",
+    "max_uncertainty_ns": 1000000,
+    "post": [
+      {
+        "calibration": "BOUNDED",
+        "causal_reference_interval_ns": [
+          770984116071442,
+          770984117436097
+        ],
+        "causal_source_segment_ns": [
+          1602891027702870,
+          1602891027747050
+        ],
+        "conditional_constant_offset_envelope_ns": [
+          831906910310953,
+          831906911631428
+        ],
+        "conditional_envelope_valid": true,
+        "mapping_model": "MONOTONIC_CAUSAL_SEGMENT_NO_RATE_ASSUMPTION",
+        "max_uncertainty_ns": 1000000,
+        "nominal_network_rtt_ns": 1320475,
+        "offset_envelope_over_segment_ns": [
+          831906910266773,
+          831906911675608
+        ],
+        "reference_round_trip_ns": 1364655,
+        "reference_window_ns": [
+          770984116071442,
+          770984117436097
+        ],
+        "scope": "CONTROL_SEGMENT_ONLY",
+        "source_processing_ns": 44180,
+        "status": "BOUNDED",
+        "uncertainty_half_width_ns": 682328,
+        "usable_for_control_segment": true,
+        "usable_for_training_window": false
+      },
+      {
+        "calibration": "BOUNDED",
+        "causal_reference_interval_ns": [
+          770984117464035,
+          770984118223234
+        ],
+        "causal_source_segment_ns": [
+          1602891028599837,
+          1602891028614304
+        ],
+        "conditional_constant_offset_envelope_ns": [
+          831906910391070,
+          831906911135802
+        ],
+        "conditional_envelope_valid": true,
+        "mapping_model": "MONOTONIC_CAUSAL_SEGMENT_NO_RATE_ASSUMPTION",
+        "max_uncertainty_ns": 1000000,
+        "nominal_network_rtt_ns": 744732,
+        "offset_envelope_over_segment_ns": [
+          831906910376603,
+          831906911150269
+        ],
+        "reference_round_trip_ns": 759199,
+        "reference_window_ns": [
+          770984117464035,
+          770984118223234
+        ],
+        "scope": "CONTROL_SEGMENT_ONLY",
+        "source_processing_ns": 14467,
+        "status": "BOUNDED",
+        "uncertainty_half_width_ns": 379600,
+        "usable_for_control_segment": true,
+        "usable_for_training_window": false
+      },
+      {
+        "calibration": "BOUNDED",
+        "causal_reference_interval_ns": [
+          770984118241407,
+          770984119013533
+        ],
+        "causal_source_segment_ns": [
+          1602891029407308,
+          1602891029417232
+        ],
+        "conditional_constant_offset_envelope_ns": [
+          831906910403699,
+          831906911165901
+        ],
+        "conditional_envelope_valid": true,
+        "mapping_model": "MONOTONIC_CAUSAL_SEGMENT_NO_RATE_ASSUMPTION",
+        "max_uncertainty_ns": 1000000,
+        "nominal_network_rtt_ns": 762202,
+        "offset_envelope_over_segment_ns": [
+          831906910393775,
+          831906911175825
+        ],
+        "reference_round_trip_ns": 772126,
+        "reference_window_ns": [
+          770984118241407,
+          770984119013533
+        ],
+        "scope": "CONTROL_SEGMENT_ONLY",
+        "source_processing_ns": 9924,
+        "status": "BOUNDED",
+        "uncertainty_half_width_ns": 386063,
+        "usable_for_control_segment": true,
+        "usable_for_training_window": false
+      },
+      {
+        "calibration": "BOUNDED",
+        "causal_reference_interval_ns": [
+          770984119026458,
+          770984119828029
+        ],
+        "causal_source_segment_ns": [
+          1602891030227700,
+          1602891030237575
+        ],
+        "conditional_constant_offset_envelope_ns": [
+          831906910409546,
+          831906911201242
+        ],
+        "conditional_envelope_valid": true,
+        "mapping_model": "MONOTONIC_CAUSAL_SEGMENT_NO_RATE_ASSUMPTION",
+        "max_uncertainty_ns": 1000000,
+        "nominal_network_rtt_ns": 791696,
+        "offset_envelope_over_segment_ns": [
+          831906910399671,
+          831906911211117
+        ],
+        "reference_round_trip_ns": 801571,
+        "reference_window_ns": [
+          770984119026458,
+          770984119828029
+        ],
+        "scope": "CONTROL_SEGMENT_ONLY",
+        "source_processing_ns": 9875,
+        "status": "BOUNDED",
+        "uncertainty_half_width_ns": 400786,
+        "usable_for_control_segment": true,
+        "usable_for_training_window": false
+      },
+      {
+        "calibration": "BOUNDED",
+        "causal_reference_interval_ns": [
+          770984119836667,
+          770984120739223
+        ],
+        "causal_source_segment_ns": [
+          1602891031122809,
+          1602891031135766
+        ],
+        "conditional_constant_offset_envelope_ns": [
+          831906910396543,
+          831906911286142
+        ],
+        "conditional_envelope_valid": true,
+        "mapping_model": "MONOTONIC_CAUSAL_SEGMENT_NO_RATE_ASSUMPTION",
+        "max_uncertainty_ns": 1000000,
+        "nominal_network_rtt_ns": 889599,
+        "offset_envelope_over_segment_ns": [
+          831906910383586,
+          831906911299099
+        ],
+        "reference_round_trip_ns": 902556,
+        "reference_window_ns": [
+          770984119836667,
+          770984120739223
+        ],
+        "scope": "CONTROL_SEGMENT_ONLY",
+        "source_processing_ns": 12957,
+        "status": "BOUNDED",
+        "uncertainty_half_width_ns": 451278,
+        "usable_for_control_segment": true,
+        "usable_for_training_window": false
+      },
+      {
+        "calibration": "BOUNDED",
+        "causal_reference_interval_ns": [
+          770984120747720,
+          770984121691365
+        ],
+        "causal_source_segment_ns": [
+          1602891032074375,
+          1602891032086968
+        ],
+        "conditional_constant_offset_envelope_ns": [
+          831906910395603,
+          831906911326655
+        ],
+        "conditional_envelope_valid": true,
+        "mapping_model": "MONOTONIC_CAUSAL_SEGMENT_NO_RATE_ASSUMPTION",
+        "max_uncertainty_ns": 1000000,
+        "nominal_network_rtt_ns": 931052,
+        "offset_envelope_over_segment_ns": [
+          831906910383010,
+          831906911339248
+        ],
+        "reference_round_trip_ns": 943645,
+        "reference_window_ns": [
+          770984120747720,
+          770984121691365
+        ],
+        "scope": "CONTROL_SEGMENT_ONLY",
+        "source_processing_ns": 12593,
+        "status": "BOUNDED",
+        "uncertainty_half_width_ns": 471823,
+        "usable_for_control_segment": true,
+        "usable_for_training_window": false
+      },
+      {
+        "calibration": "BOUNDED",
+        "causal_reference_interval_ns": [
+          770984121698775,
+          770984122643839
+        ],
+        "causal_source_segment_ns": [
+          1602891033030766,
+          1602891033043582
+        ],
+        "conditional_constant_offset_envelope_ns": [
+          831906910399743,
+          831906911331991
+        ],
+        "conditional_envelope_valid": true,
+        "mapping_model": "MONOTONIC_CAUSAL_SEGMENT_NO_RATE_ASSUMPTION",
+        "max_uncertainty_ns": 1000000,
+        "nominal_network_rtt_ns": 932248,
+        "offset_envelope_over_segment_ns": [
+          831906910386927,
+          831906911344807
+        ],
+        "reference_round_trip_ns": 945064,
+        "reference_window_ns": [
+          770984121698775,
+          770984122643839
+        ],
+        "scope": "CONTROL_SEGMENT_ONLY",
+        "source_processing_ns": 12816,
+        "status": "BOUNDED",
+        "uncertainty_half_width_ns": 472532,
+        "usable_for_control_segment": true,
+        "usable_for_training_window": false
+      },
+      {
+        "calibration": "BOUNDED",
+        "causal_reference_interval_ns": [
+          770984122650612,
+          770984123710882
+        ],
+        "causal_source_segment_ns": [
+          1602891034072445,
+          1602891034088611
+        ],
+        "conditional_constant_offset_envelope_ns": [
+          831906910377729,
+          831906911421833
+        ],
+        "conditional_envelope_valid": true,
+        "mapping_model": "MONOTONIC_CAUSAL_SEGMENT_NO_RATE_ASSUMPTION",
+        "max_uncertainty_ns": 1000000,
+        "nominal_network_rtt_ns": 1044104,
+        "offset_envelope_over_segment_ns": [
+          831906910361563,
+          831906911437999
+        ],
+        "reference_round_trip_ns": 1060270,
+        "reference_window_ns": [
+          770984122650612,
+          770984123710882
+        ],
+        "scope": "CONTROL_SEGMENT_ONLY",
+        "source_processing_ns": 16166,
+        "status": "BOUNDED",
+        "uncertainty_half_width_ns": 530135,
+        "usable_for_control_segment": true,
+        "usable_for_training_window": false
+      }
+    ],
+    "pre": [
+      {
+        "calibration": "BOUNDED",
+        "causal_reference_interval_ns": [
+          770917552336205,
+          770917553603329
+        ],
+        "causal_source_segment_ns": [
+          1602824463870863,
+          1602824463915367
+        ],
+        "conditional_constant_offset_envelope_ns": [
+          831906910312038,
+          831906911534658
+        ],
+        "conditional_envelope_valid": true,
+        "mapping_model": "MONOTONIC_CAUSAL_SEGMENT_NO_RATE_ASSUMPTION",
+        "max_uncertainty_ns": 1000000,
+        "nominal_network_rtt_ns": 1222620,
+        "offset_envelope_over_segment_ns": [
+          831906910267534,
+          831906911579162
+        ],
+        "reference_round_trip_ns": 1267124,
+        "reference_window_ns": [
+          770917552336205,
+          770917553603329
+        ],
+        "scope": "CONTROL_SEGMENT_ONLY",
+        "source_processing_ns": 44504,
+        "status": "BOUNDED",
+        "uncertainty_half_width_ns": 633562,
+        "usable_for_control_segment": true,
+        "usable_for_training_window": false
+      },
+      {
+        "calibration": "BOUNDED",
+        "causal_reference_interval_ns": [
+          770917553631789,
+          770917554388087
+        ],
+        "causal_source_segment_ns": [
+          1602824464763189,
+          1602824464777966
+        ],
+        "conditional_constant_offset_envelope_ns": [
+          831906910389879,
+          831906911131400
+        ],
+        "conditional_envelope_valid": true,
+        "mapping_model": "MONOTONIC_CAUSAL_SEGMENT_NO_RATE_ASSUMPTION",
+        "max_uncertainty_ns": 1000000,
+        "nominal_network_rtt_ns": 741521,
+        "offset_envelope_over_segment_ns": [
+          831906910375102,
+          831906911146177
+        ],
+        "reference_round_trip_ns": 756298,
+        "reference_window_ns": [
+          770917553631789,
+          770917554388087
+        ],
+        "scope": "CONTROL_SEGMENT_ONLY",
+        "source_processing_ns": 14777,
+        "status": "BOUNDED",
+        "uncertainty_half_width_ns": 378149,
+        "usable_for_control_segment": true,
+        "usable_for_training_window": false
+      },
+      {
+        "calibration": "BOUNDED",
+        "causal_reference_interval_ns": [
+          770917554406968,
+          770917555180989
+        ],
+        "causal_source_segment_ns": [
+          1602824465563254,
+          1602824465573124
+        ],
+        "conditional_constant_offset_envelope_ns": [
+          831906910392135,
+          831906911156286
+        ],
+        "conditional_envelope_valid": true,
+        "mapping_model": "MONOTONIC_CAUSAL_SEGMENT_NO_RATE_ASSUMPTION",
+        "max_uncertainty_ns": 1000000,
+        "nominal_network_rtt_ns": 764151,
+        "offset_envelope_over_segment_ns": [
+          831906910382265,
+          831906911166156
+        ],
+        "reference_round_trip_ns": 774021,
+        "reference_window_ns": [
+          770917554406968,
+          770917555180989
+        ],
+        "scope": "CONTROL_SEGMENT_ONLY",
+        "source_processing_ns": 9870,
+        "status": "BOUNDED",
+        "uncertainty_half_width_ns": 387011,
+        "usable_for_control_segment": true,
+        "usable_for_training_window": false
+      },
+      {
+        "calibration": "BOUNDED",
+        "causal_reference_interval_ns": [
+          770917555193819,
+          770917555994977
+        ],
+        "causal_source_segment_ns": [
+          1602824466387816,
+          1602824466397816
+        ],
+        "conditional_constant_offset_envelope_ns": [
+          831906910402839,
+          831906911193997
+        ],
+        "conditional_envelope_valid": true,
+        "mapping_model": "MONOTONIC_CAUSAL_SEGMENT_NO_RATE_ASSUMPTION",
+        "max_uncertainty_ns": 1000000,
+        "nominal_network_rtt_ns": 791158,
+        "offset_envelope_over_segment_ns": [
+          831906910392839,
+          831906911203997
+        ],
+        "reference_round_trip_ns": 801158,
+        "reference_window_ns": [
+          770917555193819,
+          770917555994977
+        ],
+        "scope": "CONTROL_SEGMENT_ONLY",
+        "source_processing_ns": 10000,
+        "status": "BOUNDED",
+        "uncertainty_half_width_ns": 400579,
+        "usable_for_control_segment": true,
+        "usable_for_training_window": false
+      },
+      {
+        "calibration": "BOUNDED",
+        "causal_reference_interval_ns": [
+          770917556007733,
+          770917556797893
+        ],
+        "causal_source_segment_ns": [
+          1602824467193401,
+          1602824467202414
+        ],
+        "conditional_constant_offset_envelope_ns": [
+          831906910404521,
+          831906911185668
+        ],
+        "conditional_envelope_valid": true,
+        "mapping_model": "MONOTONIC_CAUSAL_SEGMENT_NO_RATE_ASSUMPTION",
+        "max_uncertainty_ns": 1000000,
+        "nominal_network_rtt_ns": 781147,
+        "offset_envelope_over_segment_ns": [
+          831906910395508,
+          831906911194681
+        ],
+        "reference_round_trip_ns": 790160,
+        "reference_window_ns": [
+          770917556007733,
+          770917556797893
+        ],
+        "scope": "CONTROL_SEGMENT_ONLY",
+        "source_processing_ns": 9013,
+        "status": "BOUNDED",
+        "uncertainty_half_width_ns": 395080,
+        "usable_for_control_segment": true,
+        "usable_for_training_window": false
+      },
+      {
+        "calibration": "BOUNDED",
+        "causal_reference_interval_ns": [
+          770917556806751,
+          770917557676952
+        ],
+        "causal_source_segment_ns": [
+          1602824468065659,
+          1602824468075761
+        ],
+        "conditional_constant_offset_envelope_ns": [
+          831906910398809,
+          831906911258908
+        ],
+        "conditional_envelope_valid": true,
+        "mapping_model": "MONOTONIC_CAUSAL_SEGMENT_NO_RATE_ASSUMPTION",
+        "max_uncertainty_ns": 1000000,
+        "nominal_network_rtt_ns": 860099,
+        "offset_envelope_over_segment_ns": [
+          831906910388707,
+          831906911269010
+        ],
+        "reference_round_trip_ns": 870201,
+        "reference_window_ns": [
+          770917556806751,
+          770917557676952
+        ],
+        "scope": "CONTROL_SEGMENT_ONLY",
+        "source_processing_ns": 10102,
+        "status": "BOUNDED",
+        "uncertainty_half_width_ns": 435101,
+        "usable_for_control_segment": true,
+        "usable_for_training_window": false
+      },
+      {
+        "calibration": "BOUNDED",
+        "causal_reference_interval_ns": [
+          770917557684294,
+          770917558626942
+        ],
+        "causal_source_segment_ns": [
+          1602824468999940,
+          1602824469020335
+        ],
+        "conditional_constant_offset_envelope_ns": [
+          831906910393393,
+          831906911315646
+        ],
+        "conditional_envelope_valid": true,
+        "mapping_model": "MONOTONIC_CAUSAL_SEGMENT_NO_RATE_ASSUMPTION",
+        "max_uncertainty_ns": 1000000,
+        "nominal_network_rtt_ns": 922253,
+        "offset_envelope_over_segment_ns": [
+          831906910372998,
+          831906911336041
+        ],
+        "reference_round_trip_ns": 942648,
+        "reference_window_ns": [
+          770917557684294,
+          770917558626942
+        ],
+        "scope": "CONTROL_SEGMENT_ONLY",
+        "source_processing_ns": 20395,
+        "status": "BOUNDED",
+        "uncertainty_half_width_ns": 471324,
+        "usable_for_control_segment": true,
+        "usable_for_training_window": false
+      },
+      {
+        "calibration": "BOUNDED",
+        "causal_reference_interval_ns": [
+          770917558633870,
+          770917559687984
+        ],
+        "causal_source_segment_ns": [
+          1602824470048803,
+          1602824470063459
+        ],
+        "conditional_constant_offset_envelope_ns": [
+          831906910375475,
+          831906911414933
+        ],
+        "conditional_envelope_valid": true,
+        "mapping_model": "MONOTONIC_CAUSAL_SEGMENT_NO_RATE_ASSUMPTION",
+        "max_uncertainty_ns": 1000000,
+        "nominal_network_rtt_ns": 1039458,
+        "offset_envelope_over_segment_ns": [
+          831906910360819,
+          831906911429589
+        ],
+        "reference_round_trip_ns": 1054114,
+        "reference_window_ns": [
+          770917558633870,
+          770917559687984
+        ],
+        "scope": "CONTROL_SEGMENT_ONLY",
+        "source_processing_ns": 14656,
+        "status": "BOUNDED",
+        "uncertainty_half_width_ns": 527057,
+        "usable_for_control_segment": true,
+        "usable_for_training_window": false
+      }
+    ],
+    "reasons": [
+      "narrow endpoint envelopes are conditional on unverified constant offset during exchanges; no continuous offset/drift calibration established",
+      "TOO_WIDE: causal envelope exceeds max_uncertainty_ns"
+    ],
+    "status": "UNSAFE",
+    "timestamp_accuracy_bound_ns": "UNKNOWN",
+    "training_origin_binding": "OBSERVED",
+    "training_pids_bound": 4,
+    "uncertainty_half_width_ns": 33279401114,
+    "unit": "ns",
+    "usable_for_cross_rank": false,
+    "valid_source_interval": "OPEN: strict inequalities avoid equal-clock-read ambiguity",
+    "valid_source_ns": [
+      1602824470048803,
+      1602891027747050
+    ],
+    "validity_reference_ns": [
+      770917559687984,
+      770984116071442
+    ],
+    "validity_status": "CAUSAL_BRACKET_ONLY_NO_OFFSET_INTERPOLATION"
+  },
+  "matching_summary": {
+    "bad_pid_event_count": 0,
+    "collective_keys": 70,
+    "comm_hash_mismatch_events": 0,
+    "duplicates": 0,
+    "event_pairing_issue_count": 0,
+    "expected_ranks": 4,
+    "matched": 70,
+    "member_mismatch_events": 0,
+    "metadata_conflicts": 0,
+    "missing_rank": 0,
+    "parsed_rank_traces": 4,
+    "unknown": 0
+  },
+  "performance": {
+    "classification": "ONE_SEQUENTIAL_SHARED_RESOURCE_PAIR_INCONCLUSIVE_OVERHEAD",
+    "historical_g1_01_p50_increase_percent": [
+      6.1,
+      7.53
+    ],
+    "overhead_sla": "NOT_ESTABLISHED",
+    "ranks": [
+      {
+        "baseline": {
+          "gpu_p50_ms": 1.782256007194519,
+          "gpu_p95_ms": 3.651423954963684,
+          "gpu_step_ms": [
+            5.448544025421143,
+            2.970463991165161,
+            2.9826560020446777,
+            2.9951040744781494,
+            3.022336006164551,
+            2.982464075088501,
+            0.5854399800300598,
+            3.6253440380096436,
+            0.5652480125427246,
+            0.582144021987915,
+            3.576319932937622,
+            0.5746240019798279,
+            3.569632053375244,
+            0.5897279977798462,
+            0.5729600191116333,
+            3.580159902572632,
+            0.5911359786987305,
+            3.633471965789795,
+            0.5639039874076843,
+            0.594048023223877,
+            3.5842559337615967,
+            0.5783680081367493,
+            3.666111946105957,
+            0.5551040172576904,
+            0.5815680027008057,
+            3.593791961669922,
+            0.5748159885406494,
+            0.5830079913139343,
+            3.5340158939361572,
+            0.5939199924468994
+          ],
+          "max_rss_kib": 1719112,
+          "max_torch_allocated_bytes": 100959232,
+          "max_torch_reserved_bytes": 111149056
+        },
+        "global_rank": 0,
+        "p50_change_percent": -49.1888929622912,
+        "p95_change_percent": -70.35957411175673,
+        "plugin": {
+          "gpu_p50_ms": 0.9055840075016022,
+          "gpu_p95_ms": 1.082297611236572,
+          "gpu_step_ms": [
+            2.512608051300049,
+            1.0975040197372437,
+            1.0637120008468628,
+            1.0086079835891724,
+            1.0000319480895996,
+            0.9688320159912109,
+            0.9004799723625183,
+            0.8747519850730896,
+            0.8771839737892151,
+            0.9112319946289062,
+            0.8937600255012512,
+            0.9032959938049316,
+            0.8656960129737854,
+            0.8684160113334656,
+            0.8994240164756775,
+            0.9078720211982727,
+            0.8783360123634338,
+            0.8737919926643372,
+            0.9004480242729187,
+            0.8953279852867126,
+            0.883072018623352,
+            0.9262719750404358,
+            0.9376000165939331,
+            0.9085119962692261,
+            0.896511971950531,
+            1.0087039470672607,
+            0.9186879992485046,
+            0.9328640103340149,
+            0.8960000276565552,
+            0.93094402551651
+          ],
+          "max_rss_kib": 1709556,
+          "max_torch_allocated_bytes": 100959232,
+          "max_torch_reserved_bytes": 111149056
+        }
+      },
+      {
+        "baseline": {
+          "gpu_p50_ms": 2.0955519676208496,
+          "gpu_p95_ms": 3.5864799857139587,
+          "gpu_step_ms": [
+            3.258431911468506,
+            2.983232021331787,
+            2.9827840328216553,
+            2.9948480129241943,
+            3.0212159156799316,
+            2.9822399616241455,
+            0.5848960280418396,
+            3.620863914489746,
+            0.5693119764328003,
+            0.5819200277328491,
+            3.5716800689697266,
+            0.5786880254745483,
+            3.5719680786132812,
+            0.5868480205535889,
+            0.5731199979782104,
+            3.580319881439209,
+            0.5921279788017273,
+            2.9870400428771973,
+            1.2088639736175537,
+            0.5948799848556519,
+            3.5677759647369385,
+            0.5926399827003479,
+            3.0309760570526123,
+            1.1904319524765015,
+            0.5837759971618652,
+            3.591520071029663,
+            0.5759040117263794,
+            3.0119359493255615,
+            1.1051199436187744,
+            0.5958719849586487
+          ],
+          "max_rss_kib": 1709480,
+          "max_torch_allocated_bytes": 100959232,
+          "max_torch_reserved_bytes": 111149056
+        },
+        "global_rank": 1,
+        "p50_change_percent": -56.722046840153276,
+        "p95_change_percent": -70.0293102594447,
+        "plugin": {
+          "gpu_p50_ms": 0.9069119989871979,
+          "gpu_p95_ms": 1.0748927891254425,
+          "gpu_step_ms": [
+            2.518847942352295,
+            1.0845119953155518,
+            1.0631359815597534,
+            1.009503960609436,
+            1.0104639530181885,
+            0.9717440009117126,
+            0.9008319973945618,
+            0.8742079734802246,
+            0.8780159950256348,
+            0.9112640023231506,
+            0.8920320272445679,
+            0.9057919979095459,
+            0.8645439743995667,
+            0.8702399730682373,
+            0.8965759873390198,
+            0.9080320000648499,
+            0.8779199719429016,
+            0.875711977481842,
+            0.8991680145263672,
+            0.8955199718475342,
+            0.8833600282669067,
+            0.925599992275238,
+            0.9378560185432434,
+            0.9085440039634705,
+            0.8965439796447754,
+            1.0099519491195679,
+            0.9175999760627747,
+            0.9328640103340149,
+            0.8965439796447754,
+            0.9303039908409119
+          ],
+          "max_rss_kib": 1703736,
+          "max_torch_allocated_bytes": 92562432,
+          "max_torch_reserved_bytes": 111149056
+        }
+      },
+      {
+        "baseline": {
+          "gpu_p50_ms": 2.0708640217781067,
+          "gpu_p95_ms": 3.6253616571426392,
+          "gpu_step_ms": [
+            7.408095836639404,
+            3.033792018890381,
+            2.9738240242004395,
+            3.0056960582733154,
+            2.987776041030884,
+            2.9755520820617676,
+            0.5786880254745483,
+            3.62825608253479,
+            0.5741119980812073,
+            0.5755519866943359,
+            3.593791961669922,
+            0.574400007724762,
+            3.5497279167175293,
+            0.5894399881362915,
+            0.5700799822807312,
+            3.5885438919067383,
+            0.5845440030097961,
+            3.054719924926758,
+            1.167904019355774,
+            0.5850560069084167,
+            3.621824026107788,
+            0.5843520164489746,
+            3.052608013153076,
+            1.0981760025024414,
+            0.5809599757194519,
+            3.6003520488739014,
+            0.5707520246505737,
+            0.5740479826927185,
+            3.58841609954834,
+            0.5861759781837463
+          ],
+          "max_rss_kib": 1715116,
+          "max_torch_allocated_bytes": 100959232,
+          "max_torch_reserved_bytes": 111149056
+        },
+        "global_rank": 2,
+        "p50_change_percent": -56.248600271021786,
+        "p95_change_percent": -70.98864915900991,
+        "plugin": {
+          "gpu_p50_ms": 0.906031996011734,
+          "gpu_p95_ms": 1.051766389608383,
+          "gpu_step_ms": [
+            2.6434879302978516,
+            1.046239972114563,
+            1.0562880039215088,
+            1.022752046585083,
+            0.9954559803009033,
+            0.9544320106506348,
+            0.8915519714355469,
+            0.8575680255889893,
+            0.8768960237503052,
+            0.922111988067627,
+            0.8679999709129333,
+            0.9255359768867493,
+            0.8573439717292786,
+            0.8918079733848572,
+            0.8852800130844116,
+            0.902400016784668,
+            0.8766400218009949,
+            0.8677759766578674,
+            0.9074239730834961,
+            0.8926720023155212,
+            0.8888639807701111,
+            0.9299520254135132,
+            0.9411519765853882,
+            0.8974080085754395,
+            0.9046400189399719,
+            0.9704959988594055,
+            0.9510400295257568,
+            0.9305599927902222,
+            0.8935359716415405,
+            0.9115840196609497
+          ],
+          "max_rss_kib": 1701032,
+          "max_torch_allocated_bytes": 100959232,
+          "max_torch_reserved_bytes": 111149056
+        }
+      },
+      {
+        "baseline": {
+          "gpu_p50_ms": 1.78262397646904,
+          "gpu_p95_ms": 3.6383808255195618,
+          "gpu_step_ms": [
+            7.388224124908447,
+            3.0342719554901123,
+            2.9893760681152344,
+            3.0066239833831787,
+            2.9890239238739014,
+            2.970207929611206,
+            0.581279993057251,
+            3.6139519214630127,
+            0.581824004650116,
+            0.5768319964408875,
+            3.5806078910827637,
+            0.5751039981842041,
+            3.5464959144592285,
+            0.5950400233268738,
+            0.5805119872093201,
+            3.576159954071045,
+            0.5833280086517334,
+            3.6583681106567383,
+            0.5816320180892944,
+            0.5862079858779907,
+            3.603935956954956,
+            0.5856000185012817,
+            0.5923839807510376,
+            3.5620479583740234,
+            0.5829759836196899,
+            3.5929598808288574,
+            0.5803520083427429,
+            0.5832319855690002,
+            3.5702080726623535,
+            0.5840640068054199
+          ],
+          "max_rss_kib": 1710380,
+          "max_torch_allocated_bytes": 92562432,
+          "max_torch_reserved_bytes": 111149056
+        },
+        "global_rank": 3,
+        "p50_change_percent": -49.2227183729281,
+        "p95_change_percent": -70.86585294910786,
+        "plugin": {
+          "gpu_p50_ms": 0.9051679968833923,
+          "gpu_p95_ms": 1.0600112199783325,
+          "gpu_step_ms": [
+            2.6456000804901123,
+            1.0512640476226807,
+            1.0671679973602295,
+            1.022495985031128,
+            0.9920960068702698,
+            0.9572479724884033,
+            0.891264021396637,
+            0.8512319922447205,
+            0.8737599849700928,
+            0.9304640293121338,
+            0.8612160086631775,
+            0.9216639995574951,
+            0.8590400218963623,
+            0.8825600147247314,
+            0.8903999924659729,
+            0.9029120206832886,
+            0.8756160140037537,
+            0.8696640133857727,
+            0.9074239730834961,
+            0.8966720104217529,
+            0.8848959803581238,
+            0.926144003868103,
+            0.9383360147476196,
+            0.8994560241699219,
+            0.902400016784668,
+            0.9887999892234802,
+            0.9434559941291809,
+            0.9211199879646301,
+            0.900160014629364,
+            0.9212480187416077
+          ],
+          "max_rss_kib": 1699712,
+          "max_torch_allocated_bytes": 100959232,
+          "max_torch_reserved_bytes": 111149056
+        }
+      }
+    ]
+  },
+  "private_evidence_sources": {
+    "node-a": {
+      "executed_sources_sha256": {
+        "g1-03-example.patch": "2f77362399ba2fb984aae32cf8e8b1b40aaf52a04a2e07a26a358eb6ddfe96db",
+        "g1_01_ddp_capture.py": "6f9e20bf32b93731808abd1ec304a29da1f043add1202f77e5c22006271823b5",
+        "g1_03_audit.h": "f3676250942cbc02fd8b07dd7cd960f789f8fafabaad08b95ae726b11dbbf975",
+        "g1_03_host_clock.py": "017596c542e37b073928d844e10916b67dca3bffd16f7c381609567ec017a351",
+        "g1_03_run.sh": "2c79b6e98d30c332b91e072836cb7025150e5c5e548a3a22f31073798121d470"
+      },
+      "old_profiler_unchanged_sha256": "3982ac146d710cfd3eca59e0c36fd1502790840211eb8f41c2d35934b51c9571",
+      "summary_sha256": "d2d34a601f3c385cc326207cb672ab5f770154faaa442d26b93b30de8de8f948"
+    },
+    "node-b": {
+      "executed_sources_sha256": {
+        "g1-03-example.patch": "2f77362399ba2fb984aae32cf8e8b1b40aaf52a04a2e07a26a358eb6ddfe96db",
+        "g1_01_ddp_capture.py": "6f9e20bf32b93731808abd1ec304a29da1f043add1202f77e5c22006271823b5",
+        "g1_03_audit.h": "f3676250942cbc02fd8b07dd7cd960f789f8fafabaad08b95ae726b11dbbf975",
+        "g1_03_host_clock.py": "017596c542e37b073928d844e10916b67dca3bffd16f7c381609567ec017a351",
+        "g1_03_run.sh": "2c79b6e98d30c332b91e072836cb7025150e5c5e548a3a22f31073798121d470"
+      },
+      "old_profiler_unchanged_sha256": "3982ac146d710cfd3eca59e0c36fd1502790840211eb8f41c2d35934b51c9571",
+      "summary_sha256": "a2a9c9322444915cd59463901d8e347511e81cfb5015929ba9cd33b3b4811748"
+    }
+  },
+  "ranks": [
+    {
+      "collector_audit": {
+        "callback_attempted_is_nccl_total": false,
+        "classes": {
+          "Coll": {
+            "callback_conservation": "OBSERVED",
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "exported": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "overwritten": "UNKNOWN",
+              "parent_rejected": "OBSERVED",
+              "pool_accepted": "OBSERVED"
+            },
+            "counters": {
+              "callback_attempted": 70,
+              "exported": 70,
+              "guard_rejected": 0,
+              "known_pool_drop": 0,
+              "overwritten": "UNKNOWN",
+              "parent_rejected": 0,
+              "pool_accepted": 70
+            },
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED",
+            "status": "OBSERVED"
+          },
+          "Group": {
+            "callback_conservation": "OBSERVED",
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "exported": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "overwritten": "UNKNOWN",
+              "parent_rejected": "OBSERVED",
+              "pool_accepted": "OBSERVED"
+            },
+            "counters": {
+              "callback_attempted": 70,
+              "exported": 70,
+              "guard_rejected": 0,
+              "known_pool_drop": 0,
+              "overwritten": "UNKNOWN",
+              "parent_rejected": 0,
+              "pool_accepted": 70
+            },
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED",
+            "status": "OBSERVED"
+          },
+          "KernelCh": {
+            "callback_conservation": "OBSERVED",
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "exported": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "overwritten": "UNKNOWN",
+              "parent_rejected": "OBSERVED",
+              "pool_accepted": "OBSERVED"
+            },
+            "counters": {
+              "callback_attempted": 553,
+              "exported": 553,
+              "guard_rejected": 0,
+              "known_pool_drop": 0,
+              "overwritten": "UNKNOWN",
+              "parent_rejected": 0,
+              "pool_accepted": 553
+            },
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED",
+            "status": "OBSERVED"
+          }
+        },
+        "export": {
+          "close_ok": true,
+          "file_open_ok": true,
+          "status": "OBSERVED_SUCCESS",
+          "write_ok": true
+        },
+        "identity": {
+          "active_until_monotonic_ns": 770931352385427,
+          "clock_api": "CLOCK_MONOTONIC",
+          "comm_rank": 0,
+          "node_alias": "node-a",
+          "origin_mapping_error_ns": 4000,
+          "origin_monotonic_ns": 770930023968658,
+          "resolution_ns": 1
+        },
+        "issues": [],
+        "mapping_checks": {
+          "boot_id": "NOT_CHECKED",
+          "comm_hash": "MATCH",
+          "comm_rank": "MATCH",
+          "node_alias": "MATCH",
+          "pid": "MATCH",
+          "pid_namespace": "NOT_CHECKED",
+          "rank_epoch": "MATCH",
+          "run_id": "MATCH",
+          "time_namespace": "NOT_CHECKED"
+        },
+        "mapping_status": "OBSERVED",
+        "schema_status": "OBSERVED",
+        "schema_version": 1
+      },
+      "end_to_end_loss": "UNKNOWN",
+      "event_classes": {
+        "Coll": {
+          "attributed_begin_count": 70,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 70,
+          "observed_end_count": 70,
+          "paired_count": 70,
+          "pairing_issues": {}
+        },
+        "Group": {
+          "attributed_begin_count": 70,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 70,
+          "observed_end_count": 70,
+          "paired_count": 70,
+          "pairing_issues": {}
+        },
+        "KernelCh": {
+          "attributed_begin_count": 553,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 553,
+          "observed_end_count": 553,
+          "paired_count": 553,
+          "pairing_issues": {}
+        },
+        "Proxy": {
+          "attributed_begin_count": 0,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "UNKNOWN",
+          "observed_begin_count": 0,
+          "observed_end_count": 0,
+          "paired_count": 0,
+          "pairing_issues": {}
+        }
+      },
+      "global_rank": 0,
+      "gpu_timer_ring_overwrite": "UNKNOWN",
+      "host_origin_mapping": {
+        "api": "CLOCK_MONOTONIC",
+        "meaning": "local numerical mapping only; no hardware accuracy or cross-node drift claim",
+        "representation_error_ns": 4000,
+        "status": "OBSERVED",
+        "trace_window_absolute_ns": [
+          770930340516113,
+          770930961635935
+        ],
+        "unit": "ns"
+      },
+      "input_audit_sha256": "1af582432a1ce1fcc617ead032346a461d64ebec514b26eb68a9a155eb532e6b",
+      "input_trace_sha256": "42da6035dc932a74f5d2b382243ecd7bd325302e2419974bb2c1a71d3e26216b",
+      "operations": [
+        {
+          "communicator_alias": "world",
+          "duplicate_seq_count": 0,
+          "gap_interpretation": "MISSING_EXPORTED_SEQUENCE_SLOTS; NOT_PROVEN_COLLECTOR_DROPS",
+          "internal_seq_gap_ranges": [],
+          "missing_exported_sequence_slot_count": 0,
+          "observed_begin_count": 1,
+          "operation": "AllGather",
+          "paired_count": 1,
+          "pairing_issues": {},
+          "parser_issues": {},
+          "seq_max": 0,
+          "seq_min": 0,
+          "sequence_completeness_status": "UNKNOWN",
+          "sequence_status": "OBSERVED",
+          "unknown_sequence_begin_count": 0
+        },
+        {
+          "communicator_alias": "world",
+          "duplicate_seq_count": 0,
+          "gap_interpretation": "MISSING_EXPORTED_SEQUENCE_SLOTS; NOT_PROVEN_COLLECTOR_DROPS",
+          "internal_seq_gap_ranges": [],
+          "missing_exported_sequence_slot_count": 0,
+          "observed_begin_count": 69,
+          "operation": "AllReduce",
+          "paired_count": 69,
+          "pairing_issues": {},
+          "parser_issues": {},
+          "seq_max": 68,
+          "seq_min": 0,
+          "sequence_completeness_status": "UNKNOWN",
+          "sequence_status": "OBSERVED",
+          "unknown_sequence_begin_count": 0
+        }
+      ]
+    },
+    {
+      "collector_audit": {
+        "callback_attempted_is_nccl_total": false,
+        "classes": {
+          "Coll": {
+            "callback_conservation": "OBSERVED",
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "exported": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "overwritten": "UNKNOWN",
+              "parent_rejected": "OBSERVED",
+              "pool_accepted": "OBSERVED"
+            },
+            "counters": {
+              "callback_attempted": 70,
+              "exported": 70,
+              "guard_rejected": 0,
+              "known_pool_drop": 0,
+              "overwritten": "UNKNOWN",
+              "parent_rejected": 0,
+              "pool_accepted": 70
+            },
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED",
+            "status": "OBSERVED"
+          },
+          "Group": {
+            "callback_conservation": "OBSERVED",
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "exported": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "overwritten": "UNKNOWN",
+              "parent_rejected": "OBSERVED",
+              "pool_accepted": "OBSERVED"
+            },
+            "counters": {
+              "callback_attempted": 70,
+              "exported": 70,
+              "guard_rejected": 0,
+              "known_pool_drop": 0,
+              "overwritten": "UNKNOWN",
+              "parent_rejected": 0,
+              "pool_accepted": 70
+            },
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED",
+            "status": "OBSERVED"
+          },
+          "KernelCh": {
+            "callback_conservation": "OBSERVED",
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "exported": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "overwritten": "UNKNOWN",
+              "parent_rejected": "OBSERVED",
+              "pool_accepted": "OBSERVED"
+            },
+            "counters": {
+              "callback_attempted": 553,
+              "exported": 553,
+              "guard_rejected": 0,
+              "known_pool_drop": 0,
+              "overwritten": "UNKNOWN",
+              "parent_rejected": 0,
+              "pool_accepted": 553
+            },
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED",
+            "status": "OBSERVED"
+          }
+        },
+        "export": {
+          "close_ok": true,
+          "file_open_ok": true,
+          "status": "OBSERVED_SUCCESS",
+          "write_ok": true
+        },
+        "identity": {
+          "active_until_monotonic_ns": 770931350034158,
+          "clock_api": "CLOCK_MONOTONIC",
+          "comm_rank": 1,
+          "node_alias": "node-a",
+          "origin_mapping_error_ns": 4000,
+          "origin_monotonic_ns": 770930023939336,
+          "resolution_ns": 1
+        },
+        "issues": [],
+        "mapping_checks": {
+          "boot_id": "NOT_CHECKED",
+          "comm_hash": "MATCH",
+          "comm_rank": "MATCH",
+          "node_alias": "MATCH",
+          "pid": "MATCH",
+          "pid_namespace": "NOT_CHECKED",
+          "rank_epoch": "MATCH",
+          "run_id": "MATCH",
+          "time_namespace": "NOT_CHECKED"
+        },
+        "mapping_status": "OBSERVED",
+        "schema_status": "OBSERVED",
+        "schema_version": 1
+      },
+      "end_to_end_loss": "UNKNOWN",
+      "event_classes": {
+        "Coll": {
+          "attributed_begin_count": 70,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 70,
+          "observed_end_count": 70,
+          "paired_count": 70,
+          "pairing_issues": {}
+        },
+        "Group": {
+          "attributed_begin_count": 70,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 70,
+          "observed_end_count": 70,
+          "paired_count": 70,
+          "pairing_issues": {}
+        },
+        "KernelCh": {
+          "attributed_begin_count": 553,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 553,
+          "observed_end_count": 553,
+          "paired_count": 553,
+          "pairing_issues": {}
+        },
+        "Proxy": {
+          "attributed_begin_count": 0,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "UNKNOWN",
+          "observed_begin_count": 0,
+          "observed_end_count": 0,
+          "paired_count": 0,
+          "pairing_issues": {}
+        }
+      },
+      "global_rank": 1,
+      "gpu_timer_ring_overwrite": "UNKNOWN",
+      "host_origin_mapping": {
+        "api": "CLOCK_MONOTONIC",
+        "meaning": "local numerical mapping only; no hardware accuracy or cross-node drift claim",
+        "representation_error_ns": 4000,
+        "status": "OBSERVED",
+        "trace_window_absolute_ns": [
+          770930337550863,
+          770930961635944
+        ],
+        "unit": "ns"
+      },
+      "input_audit_sha256": "88288ce206b6608c2fb1b5570afd7ca17b59a53be00d8f24128ef8c2c8a763a2",
+      "input_trace_sha256": "c687de92c322d1f35d164213d29409f4257d4c1cf49cea2f1ae71e6b5b2a28a8",
+      "operations": [
+        {
+          "communicator_alias": "world",
+          "duplicate_seq_count": 0,
+          "gap_interpretation": "MISSING_EXPORTED_SEQUENCE_SLOTS; NOT_PROVEN_COLLECTOR_DROPS",
+          "internal_seq_gap_ranges": [],
+          "missing_exported_sequence_slot_count": 0,
+          "observed_begin_count": 1,
+          "operation": "AllGather",
+          "paired_count": 1,
+          "pairing_issues": {},
+          "parser_issues": {},
+          "seq_max": 0,
+          "seq_min": 0,
+          "sequence_completeness_status": "UNKNOWN",
+          "sequence_status": "OBSERVED",
+          "unknown_sequence_begin_count": 0
+        },
+        {
+          "communicator_alias": "world",
+          "duplicate_seq_count": 0,
+          "gap_interpretation": "MISSING_EXPORTED_SEQUENCE_SLOTS; NOT_PROVEN_COLLECTOR_DROPS",
+          "internal_seq_gap_ranges": [],
+          "missing_exported_sequence_slot_count": 0,
+          "observed_begin_count": 69,
+          "operation": "AllReduce",
+          "paired_count": 69,
+          "pairing_issues": {},
+          "parser_issues": {},
+          "seq_max": 68,
+          "seq_min": 0,
+          "sequence_completeness_status": "UNKNOWN",
+          "sequence_status": "OBSERVED",
+          "unknown_sequence_begin_count": 0
+        }
+      ]
+    },
+    {
+      "collector_audit": {
+        "callback_attempted_is_nccl_total": false,
+        "classes": {
+          "Coll": {
+            "callback_conservation": "OBSERVED",
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "exported": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "overwritten": "UNKNOWN",
+              "parent_rejected": "OBSERVED",
+              "pool_accepted": "OBSERVED"
+            },
+            "counters": {
+              "callback_attempted": 70,
+              "exported": 70,
+              "guard_rejected": 0,
+              "known_pool_drop": 0,
+              "overwritten": "UNKNOWN",
+              "parent_rejected": 0,
+              "pool_accepted": 70
+            },
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED",
+            "status": "OBSERVED"
+          },
+          "Group": {
+            "callback_conservation": "OBSERVED",
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "exported": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "overwritten": "UNKNOWN",
+              "parent_rejected": "OBSERVED",
+              "pool_accepted": "OBSERVED"
+            },
+            "counters": {
+              "callback_attempted": 70,
+              "exported": 70,
+              "guard_rejected": 0,
+              "known_pool_drop": 0,
+              "overwritten": "UNKNOWN",
+              "parent_rejected": 0,
+              "pool_accepted": 70
+            },
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED",
+            "status": "OBSERVED"
+          },
+          "KernelCh": {
+            "callback_conservation": "OBSERVED",
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "exported": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "overwritten": "UNKNOWN",
+              "parent_rejected": "OBSERVED",
+              "pool_accepted": "OBSERVED"
+            },
+            "counters": {
+              "callback_attempted": 553,
+              "exported": 553,
+              "guard_rejected": 0,
+              "known_pool_drop": 0,
+              "overwritten": "UNKNOWN",
+              "parent_rejected": 0,
+              "pool_accepted": 553
+            },
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED",
+            "status": "OBSERVED"
+          }
+        },
+        "export": {
+          "close_ok": true,
+          "file_open_ok": true,
+          "status": "OBSERVED_SUCCESS",
+          "write_ok": true
+        },
+        "identity": {
+          "active_until_monotonic_ns": 1602838259099541,
+          "clock_api": "CLOCK_MONOTONIC",
+          "comm_rank": 2,
+          "node_alias": "node-b",
+          "origin_mapping_error_ns": 4000,
+          "origin_monotonic_ns": 1602836934907282,
+          "resolution_ns": 1
+        },
+        "issues": [],
+        "mapping_checks": {
+          "boot_id": "NOT_CHECKED",
+          "comm_hash": "MATCH",
+          "comm_rank": "MATCH",
+          "node_alias": "MATCH",
+          "pid": "MATCH",
+          "pid_namespace": "NOT_CHECKED",
+          "rank_epoch": "MATCH",
+          "run_id": "MATCH",
+          "time_namespace": "NOT_CHECKED"
+        },
+        "mapping_status": "OBSERVED",
+        "schema_status": "OBSERVED",
+        "schema_version": 1
+      },
+      "end_to_end_loss": "UNKNOWN",
+      "event_classes": {
+        "Coll": {
+          "attributed_begin_count": 70,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 70,
+          "observed_end_count": 70,
+          "paired_count": 70,
+          "pairing_issues": {}
+        },
+        "Group": {
+          "attributed_begin_count": 70,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 70,
+          "observed_end_count": 70,
+          "paired_count": 70,
+          "pairing_issues": {}
+        },
+        "KernelCh": {
+          "attributed_begin_count": 553,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 553,
+          "observed_end_count": 553,
+          "paired_count": 553,
+          "pairing_issues": {}
+        },
+        "Proxy": {
+          "attributed_begin_count": 0,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "UNKNOWN",
+          "observed_begin_count": 0,
+          "observed_end_count": 0,
+          "paired_count": 0,
+          "pairing_issues": {}
+        }
+      },
+      "global_rank": 2,
+      "gpu_timer_ring_overwrite": "UNKNOWN",
+      "host_origin_mapping": {
+        "api": "CLOCK_MONOTONIC",
+        "meaning": "local numerical mapping only; no hardware accuracy or cross-node drift claim",
+        "representation_error_ns": 4000,
+        "status": "OBSERVED",
+        "trace_window_absolute_ns": [
+          1602837248830793,
+          1602837872649879
+        ],
+        "unit": "ns"
+      },
+      "input_audit_sha256": "adcbd2d0803fd44ec98e47ee68bd8baf8e33344fe535732283da4cfaf5112808",
+      "input_trace_sha256": "53b3187f2e937ccc790ada6fb60bc84eb9a1e06ef664d4cae4fccd12adcffab4",
+      "operations": [
+        {
+          "communicator_alias": "world",
+          "duplicate_seq_count": 0,
+          "gap_interpretation": "MISSING_EXPORTED_SEQUENCE_SLOTS; NOT_PROVEN_COLLECTOR_DROPS",
+          "internal_seq_gap_ranges": [],
+          "missing_exported_sequence_slot_count": 0,
+          "observed_begin_count": 1,
+          "operation": "AllGather",
+          "paired_count": 1,
+          "pairing_issues": {},
+          "parser_issues": {},
+          "seq_max": 0,
+          "seq_min": 0,
+          "sequence_completeness_status": "UNKNOWN",
+          "sequence_status": "OBSERVED",
+          "unknown_sequence_begin_count": 0
+        },
+        {
+          "communicator_alias": "world",
+          "duplicate_seq_count": 0,
+          "gap_interpretation": "MISSING_EXPORTED_SEQUENCE_SLOTS; NOT_PROVEN_COLLECTOR_DROPS",
+          "internal_seq_gap_ranges": [],
+          "missing_exported_sequence_slot_count": 0,
+          "observed_begin_count": 69,
+          "operation": "AllReduce",
+          "paired_count": 69,
+          "pairing_issues": {},
+          "parser_issues": {},
+          "seq_max": 68,
+          "seq_min": 0,
+          "sequence_completeness_status": "UNKNOWN",
+          "sequence_status": "OBSERVED",
+          "unknown_sequence_begin_count": 0
+        }
+      ]
+    },
+    {
+      "collector_audit": {
+        "callback_attempted_is_nccl_total": false,
+        "classes": {
+          "Coll": {
+            "callback_conservation": "OBSERVED",
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "exported": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "overwritten": "UNKNOWN",
+              "parent_rejected": "OBSERVED",
+              "pool_accepted": "OBSERVED"
+            },
+            "counters": {
+              "callback_attempted": 70,
+              "exported": 70,
+              "guard_rejected": 0,
+              "known_pool_drop": 0,
+              "overwritten": "UNKNOWN",
+              "parent_rejected": 0,
+              "pool_accepted": 70
+            },
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED",
+            "status": "OBSERVED"
+          },
+          "Group": {
+            "callback_conservation": "OBSERVED",
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "exported": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "overwritten": "UNKNOWN",
+              "parent_rejected": "OBSERVED",
+              "pool_accepted": "OBSERVED"
+            },
+            "counters": {
+              "callback_attempted": 70,
+              "exported": 70,
+              "guard_rejected": 0,
+              "known_pool_drop": 0,
+              "overwritten": "UNKNOWN",
+              "parent_rejected": 0,
+              "pool_accepted": 70
+            },
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED",
+            "status": "OBSERVED"
+          },
+          "KernelCh": {
+            "callback_conservation": "OBSERVED",
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "exported": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "overwritten": "UNKNOWN",
+              "parent_rejected": "OBSERVED",
+              "pool_accepted": "OBSERVED"
+            },
+            "counters": {
+              "callback_attempted": 553,
+              "exported": 553,
+              "guard_rejected": 0,
+              "known_pool_drop": 0,
+              "overwritten": "UNKNOWN",
+              "parent_rejected": 0,
+              "pool_accepted": 553
+            },
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED",
+            "status": "OBSERVED"
+          }
+        },
+        "export": {
+          "close_ok": true,
+          "file_open_ok": true,
+          "status": "OBSERVED_SUCCESS",
+          "write_ok": true
+        },
+        "identity": {
+          "active_until_monotonic_ns": 1602838262479901,
+          "clock_api": "CLOCK_MONOTONIC",
+          "comm_rank": 3,
+          "node_alias": "node-b",
+          "origin_mapping_error_ns": 4000,
+          "origin_monotonic_ns": 1602836934905652,
+          "resolution_ns": 1
+        },
+        "issues": [],
+        "mapping_checks": {
+          "boot_id": "NOT_CHECKED",
+          "comm_hash": "MATCH",
+          "comm_rank": "MATCH",
+          "node_alias": "MATCH",
+          "pid": "MATCH",
+          "pid_namespace": "NOT_CHECKED",
+          "rank_epoch": "MATCH",
+          "run_id": "MATCH",
+          "time_namespace": "NOT_CHECKED"
+        },
+        "mapping_status": "OBSERVED",
+        "schema_status": "OBSERVED",
+        "schema_version": 1
+      },
+      "end_to_end_loss": "UNKNOWN",
+      "event_classes": {
+        "Coll": {
+          "attributed_begin_count": 70,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 70,
+          "observed_end_count": 70,
+          "paired_count": 70,
+          "pairing_issues": {}
+        },
+        "Group": {
+          "attributed_begin_count": 70,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 70,
+          "observed_end_count": 70,
+          "paired_count": 70,
+          "pairing_issues": {}
+        },
+        "KernelCh": {
+          "attributed_begin_count": 553,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 553,
+          "observed_end_count": 553,
+          "paired_count": 553,
+          "pairing_issues": {}
+        },
+        "Proxy": {
+          "attributed_begin_count": 0,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "UNKNOWN",
+          "observed_begin_count": 0,
+          "observed_end_count": 0,
+          "paired_count": 0,
+          "pairing_issues": {}
+        }
+      },
+      "global_rank": 3,
+      "gpu_timer_ring_overwrite": "UNKNOWN",
+      "host_origin_mapping": {
+        "api": "CLOCK_MONOTONIC",
+        "meaning": "local numerical mapping only; no hardware accuracy or cross-node drift claim",
+        "representation_error_ns": 4000,
+        "status": "OBSERVED",
+        "trace_window_absolute_ns": [
+          1602837244216860,
+          1602837872626581
+        ],
+        "unit": "ns"
+      },
+      "input_audit_sha256": "1f208ce1dfc0ec5e52f652077683c9ff8f5b7565a807baee7be6b060fe90dab5",
+      "input_trace_sha256": "209bb14827b91b8c708d5bb1cbecb629c75c2fd62a2b66d9e5aaf2414cd57728",
+      "operations": [
+        {
+          "communicator_alias": "world",
+          "duplicate_seq_count": 0,
+          "gap_interpretation": "MISSING_EXPORTED_SEQUENCE_SLOTS; NOT_PROVEN_COLLECTOR_DROPS",
+          "internal_seq_gap_ranges": [],
+          "missing_exported_sequence_slot_count": 0,
+          "observed_begin_count": 1,
+          "operation": "AllGather",
+          "paired_count": 1,
+          "pairing_issues": {},
+          "parser_issues": {},
+          "seq_max": 0,
+          "seq_min": 0,
+          "sequence_completeness_status": "UNKNOWN",
+          "sequence_status": "OBSERVED",
+          "unknown_sequence_begin_count": 0
+        },
+        {
+          "communicator_alias": "world",
+          "duplicate_seq_count": 0,
+          "gap_interpretation": "MISSING_EXPORTED_SEQUENCE_SLOTS; NOT_PROVEN_COLLECTOR_DROPS",
+          "internal_seq_gap_ranges": [],
+          "missing_exported_sequence_slot_count": 0,
+          "observed_begin_count": 69,
+          "operation": "AllReduce",
+          "paired_count": 69,
+          "pairing_issues": {},
+          "parser_issues": {},
+          "seq_max": 68,
+          "seq_min": 0,
+          "sequence_completeness_status": "UNKNOWN",
+          "sequence_status": "OBSERVED",
+          "unknown_sequence_begin_count": 0
+        }
+      ]
+    }
+  ],
+  "raw_four_stamps_ns": {
+    "post": [
+      {
+        "t1": 770984116071442,
+        "t2": 1602891027702870,
+        "t3": 1602891027747050,
+        "t4": 770984117436097
+      },
+      {
+        "t1": 770984117464035,
+        "t2": 1602891028599837,
+        "t3": 1602891028614304,
+        "t4": 770984118223234
+      },
+      {
+        "t1": 770984118241407,
+        "t2": 1602891029407308,
+        "t3": 1602891029417232,
+        "t4": 770984119013533
+      },
+      {
+        "t1": 770984119026458,
+        "t2": 1602891030227700,
+        "t3": 1602891030237575,
+        "t4": 770984119828029
+      },
+      {
+        "t1": 770984119836667,
+        "t2": 1602891031122809,
+        "t3": 1602891031135766,
+        "t4": 770984120739223
+      },
+      {
+        "t1": 770984120747720,
+        "t2": 1602891032074375,
+        "t3": 1602891032086968,
+        "t4": 770984121691365
+      },
+      {
+        "t1": 770984121698775,
+        "t2": 1602891033030766,
+        "t3": 1602891033043582,
+        "t4": 770984122643839
+      },
+      {
+        "t1": 770984122650612,
+        "t2": 1602891034072445,
+        "t3": 1602891034088611,
+        "t4": 770984123710882
+      }
+    ],
+    "pre": [
+      {
+        "t1": 770917552336205,
+        "t2": 1602824463870863,
+        "t3": 1602824463915367,
+        "t4": 770917553603329
+      },
+      {
+        "t1": 770917553631789,
+        "t2": 1602824464763189,
+        "t3": 1602824464777966,
+        "t4": 770917554388087
+      },
+      {
+        "t1": 770917554406968,
+        "t2": 1602824465563254,
+        "t3": 1602824465573124,
+        "t4": 770917555180989
+      },
+      {
+        "t1": 770917555193819,
+        "t2": 1602824466387816,
+        "t3": 1602824466397816,
+        "t4": 770917555994977
+      },
+      {
+        "t1": 770917556007733,
+        "t2": 1602824467193401,
+        "t3": 1602824467202414,
+        "t4": 770917556797893
+      },
+      {
+        "t1": 770917556806751,
+        "t2": 1602824468065659,
+        "t3": 1602824468075761,
+        "t4": 770917557676952
+      },
+      {
+        "t1": 770917557684294,
+        "t2": 1602824468999940,
+        "t3": 1602824469020335,
+        "t4": 770917558626942
+      },
+      {
+        "t1": 770917558633870,
+        "t2": 1602824470048803,
+        "t3": 1602824470063459,
+        "t4": 770917559687984
+      }
+    ]
+  },
+  "resource_exit": [
+    {
+      "gpu_application_count_after": 8,
+      "launcher_exits": {
+        "baseline": 0,
+        "plugin": 0
+      },
+      "node_alias": "node-a",
+      "task_processes_remaining": 0
+    },
+    {
+      "gpu_application_count_after": 8,
+      "launcher_exits": {
+        "baseline": 0,
+        "plugin": 0
+      },
+      "node_alias": "node-b",
+      "task_processes_remaining": 0
+    }
+  ],
+  "runtime": [
+    {
+      "dsos": [
+        {
+          "basename": "libcudart.so.13",
+          "sha256": "96c42e418cec19054186b9429c321603cc190bf26a18104e19408117a2a817b0",
+          "version": 13000,
+          "version_query_status": 0
+        },
+        {
+          "basename": "libnccl.so.2",
+          "sha256": "618968ee277041751512e619190132a9bdf351c3ce7129c73484f6ef441ad692",
+          "version": 23007,
+          "version_query_status": 0
+        }
+      ],
+      "global_rank": 0,
+      "mode": "baseline",
+      "nccl": [
+        2,
+        30,
+        7
+      ],
+      "torch": "2.14.1+cu130"
+    },
+    {
+      "dsos": [
+        {
+          "basename": "libcudart.so.13",
+          "sha256": "96c42e418cec19054186b9429c321603cc190bf26a18104e19408117a2a817b0",
+          "version": 13000,
+          "version_query_status": 0
+        },
+        {
+          "basename": "libnccl.so.2",
+          "sha256": "618968ee277041751512e619190132a9bdf351c3ce7129c73484f6ef441ad692",
+          "version": 23007,
+          "version_query_status": 0
+        },
+        {
+          "basename": "libnccl-profiler-example.so",
+          "sha256": "06740a4ea051720ca974a22a6f448bcacb5648e7a9c4a928e81e043ad88dcf54"
+        }
+      ],
+      "global_rank": 0,
+      "mode": "plugin",
+      "nccl": [
+        2,
+        30,
+        7
+      ],
+      "torch": "2.14.1+cu130"
+    },
+    {
+      "dsos": [
+        {
+          "basename": "libcudart.so.13",
+          "sha256": "96c42e418cec19054186b9429c321603cc190bf26a18104e19408117a2a817b0",
+          "version": 13000,
+          "version_query_status": 0
+        },
+        {
+          "basename": "libnccl.so.2",
+          "sha256": "618968ee277041751512e619190132a9bdf351c3ce7129c73484f6ef441ad692",
+          "version": 23007,
+          "version_query_status": 0
+        }
+      ],
+      "global_rank": 1,
+      "mode": "baseline",
+      "nccl": [
+        2,
+        30,
+        7
+      ],
+      "torch": "2.14.1+cu130"
+    },
+    {
+      "dsos": [
+        {
+          "basename": "libcudart.so.13",
+          "sha256": "96c42e418cec19054186b9429c321603cc190bf26a18104e19408117a2a817b0",
+          "version": 13000,
+          "version_query_status": 0
+        },
+        {
+          "basename": "libnccl.so.2",
+          "sha256": "618968ee277041751512e619190132a9bdf351c3ce7129c73484f6ef441ad692",
+          "version": 23007,
+          "version_query_status": 0
+        },
+        {
+          "basename": "libnccl-profiler-example.so",
+          "sha256": "06740a4ea051720ca974a22a6f448bcacb5648e7a9c4a928e81e043ad88dcf54"
+        }
+      ],
+      "global_rank": 1,
+      "mode": "plugin",
+      "nccl": [
+        2,
+        30,
+        7
+      ],
+      "torch": "2.14.1+cu130"
+    },
+    {
+      "dsos": [
+        {
+          "basename": "libcudart.so.13",
+          "sha256": "96c42e418cec19054186b9429c321603cc190bf26a18104e19408117a2a817b0",
+          "version": 13000,
+          "version_query_status": 0
+        },
+        {
+          "basename": "libnccl.so.2",
+          "sha256": "618968ee277041751512e619190132a9bdf351c3ce7129c73484f6ef441ad692",
+          "version": 23007,
+          "version_query_status": 0
+        }
+      ],
+      "global_rank": 2,
+      "mode": "baseline",
+      "nccl": [
+        2,
+        30,
+        7
+      ],
+      "torch": "2.14.1+cu130"
+    },
+    {
+      "dsos": [
+        {
+          "basename": "libcudart.so.13",
+          "sha256": "96c42e418cec19054186b9429c321603cc190bf26a18104e19408117a2a817b0",
+          "version": 13000,
+          "version_query_status": 0
+        },
+        {
+          "basename": "libnccl.so.2",
+          "sha256": "618968ee277041751512e619190132a9bdf351c3ce7129c73484f6ef441ad692",
+          "version": 23007,
+          "version_query_status": 0
+        },
+        {
+          "basename": "libnccl-profiler-example.so",
+          "sha256": "06740a4ea051720ca974a22a6f448bcacb5648e7a9c4a928e81e043ad88dcf54"
+        }
+      ],
+      "global_rank": 2,
+      "mode": "plugin",
+      "nccl": [
+        2,
+        30,
+        7
+      ],
+      "torch": "2.14.1+cu130"
+    },
+    {
+      "dsos": [
+        {
+          "basename": "libcudart.so.13",
+          "sha256": "96c42e418cec19054186b9429c321603cc190bf26a18104e19408117a2a817b0",
+          "version": 13000,
+          "version_query_status": 0
+        },
+        {
+          "basename": "libnccl.so.2",
+          "sha256": "618968ee277041751512e619190132a9bdf351c3ce7129c73484f6ef441ad692",
+          "version": 23007,
+          "version_query_status": 0
+        }
+      ],
+      "global_rank": 3,
+      "mode": "baseline",
+      "nccl": [
+        2,
+        30,
+        7
+      ],
+      "torch": "2.14.1+cu130"
+    },
+    {
+      "dsos": [
+        {
+          "basename": "libcudart.so.13",
+          "sha256": "96c42e418cec19054186b9429c321603cc190bf26a18104e19408117a2a817b0",
+          "version": 13000,
+          "version_query_status": 0
+        },
+        {
+          "basename": "libnccl.so.2",
+          "sha256": "618968ee277041751512e619190132a9bdf351c3ce7129c73484f6ef441ad692",
+          "version": 23007,
+          "version_query_status": 0
+        },
+        {
+          "basename": "libnccl-profiler-example.so",
+          "sha256": "06740a4ea051720ca974a22a6f448bcacb5648e7a9c4a928e81e043ad88dcf54"
+        }
+      ],
+      "global_rank": 3,
+      "mode": "plugin",
+      "nccl": [
+        2,
+        30,
+        7
+      ],
+      "torch": "2.14.1+cu130"
+    }
+  ],
+  "schema_name": "CaptureQuality",
+  "schema_version": 2,
+  "source_classification": "REAL_HEALTHY_MULTINODE_TRACE_AND_CONTROL_EXCHANGES",
+  "source_origin_maps": [
+    {
+      "global_rank": 2,
+      "mapping_model": "MONOTONIC_CAUSAL_BRACKET_NO_DRIFT_ASSUMPTION",
+      "reference_interval_ns": [
+        770917558633870,
+        770984117436097
+      ],
+      "source_host_origin_ns": 1602836934907282,
+      "source_minus_reference_offset_interval_ns": [
+        831852817471185,
+        831919376273412
+      ],
+      "status": "UNSAFE",
+      "usable_for_cross_rank": false
+    },
+    {
+      "global_rank": 3,
+      "mapping_model": "MONOTONIC_CAUSAL_BRACKET_NO_DRIFT_ASSUMPTION",
+      "reference_interval_ns": [
+        770917558633870,
+        770984117436097
+      ],
+      "source_host_origin_ns": 1602836934905652,
+      "source_minus_reference_offset_interval_ns": [
+        831852817469555,
+        831919376271782
+      ],
+      "status": "UNSAFE",
+      "usable_for_cross_rank": false
+    }
+  ],
+  "task": "G1-03",
+  "test_classifications": {
+    "CPU": "PASS",
+    "DOC": "PASS",
+    "GPU": "PASS_SCOPED_HEALTHY_DDP",
+    "MULTINODE": "PASS_SCOPED_HEALTHY_DDP"
+  },
+  "unresolved": [
+    "continuous training-window drift/offset bound insufficient for useful Host comparisons",
+    "upstream GPU timer ring loss, upstream missing callbacks and full-history completeness UNKNOWN",
+    "shared short-run overhead is inconclusive; historical6-8percent risk remains"
+  ],
+  "world": {
+    "communicator_alias": "world",
+    "communicator_alias_per_operation": "world",
+    "manifest_precondition_issues": [],
+    "member_global_ranks": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "membership_status": "VERIFIED",
+    "world_size": 4
+  }
+}
