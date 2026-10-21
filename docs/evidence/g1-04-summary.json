@@ -1,0 +1,6035 @@
+{
+  "schema": "g1-04-public-evidence-v1",
+  "classification": "REAL_HEALTHY_MULTINODE_TRACE_WITH_FAILED_CONTROL_CAPTURE",
+  "task": "G1-04",
+  "candidate_status": "PARTIAL",
+  "test_classifications": {
+    "DOC": "PASS",
+    "CPU": "PASS",
+    "GPU": "HEALTHY_DDP_ONLY_PASS",
+    "MULTINODE": "HEALTHY_4RANK_ONLY_PASS",
+    "REAL_HOST_MAPPING": "FAIL"
+  },
+  "mapping_model": "STRICT_MONOTONIC_CAUSAL_NO_RATE_ASSUMPTION",
+  "unit": "ns",
+  "budget_ns": 1000000,
+  "assumptions": [
+    "nonnegative communication delay",
+    "CLOCK_MONOTONIC monotonic in audited boot/time namespace",
+    "audited trace representation bound, not physical hardware accuracy"
+  ],
+  "run_alias": "g104-plugin",
+  "epoch_alias": "epoch-1",
+  "matching_summary": {
+    "expected_ranks": 4,
+    "parsed_rank_traces": 4,
+    "collective_keys": 70,
+    "matched": 70,
+    "missing_rank": 0,
+    "duplicates": 0,
+    "metadata_conflicts": 0,
+    "unknown": 0,
+    "comm_hash_mismatch_events": 0,
+    "member_mismatch_events": 0,
+    "event_pairing_issue_count": 0,
+    "bad_pid_event_count": 0
+  },
+  "ranks": [
+    {
+      "rank": 0,
+      "node_alias": "node-a",
+      "status": "UNSAFE_TO_SUBTRACT",
+      "identity_binding": "TRACE_TRAINING_PID_ONLY_CONTROL_UNAVAILABLE",
+      "origin_monotonic_ns": 774007248507443,
+      "active_until_monotonic_ns": 774008558492503,
+      "input_trace_sha256": "234d651570e68b8e215cbc098a57de783022a0b979b511d2c4c155c52ecc672d",
+      "input_audit_sha256": "74c8bd6e78d0c986b79f5ba535087f62390589a6fa3f0b5378b453bc8b83b572",
+      "collector_audit": {
+        "schema_version": 1,
+        "schema_status": "OBSERVED",
+        "identity": {
+          "node_alias": "node-a",
+          "comm_rank": 0,
+          "origin_monotonic_ns": 774007248507443,
+          "clock_api": "CLOCK_MONOTONIC",
+          "resolution_ns": 1,
+          "origin_mapping_error_ns": 4000,
+          "active_until_monotonic_ns": 774008558492503
+        },
+        "mapping_status": "OBSERVED",
+        "mapping_checks": {
+          "run_id": "MATCH",
+          "rank_epoch": "MATCH",
+          "node_alias": "MATCH",
+          "pid": "MATCH",
+          "comm_rank": "MATCH",
+          "comm_hash": "MATCH",
+          "time_namespace": "NOT_CHECKED",
+          "pid_namespace": "NOT_CHECKED",
+          "boot_id": "NOT_CHECKED"
+        },
+        "classes": {
+          "Group": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 70,
+              "pool_accepted": 70,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 70,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "Coll": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 70,
+              "pool_accepted": 70,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 70,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "KernelCh": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 553,
+              "pool_accepted": 553,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 553,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          }
+        },
+        "export": {
+          "file_open_ok": true,
+          "write_ok": true,
+          "close_ok": true,
+          "status": "OBSERVED_SUCCESS"
+        },
+        "callback_attempted_is_nccl_total": false,
+        "issues": []
+      },
+      "summary": {
+        "events": 70,
+        "covered": 0,
+        "bounded": 0,
+        "unsafe_fraction": 1.0,
+        "half_width_ns": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "budget_coverage": {
+          "1000000": 0.0,
+          "5000000": 0.0,
+          "10000000": 0.0
+        },
+        "rejection_reasons": {
+          "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']": 70
+        }
+      }
+    },
+    {
+      "rank": 1,
+      "node_alias": "node-a",
+      "status": "UNSAFE_TO_SUBTRACT",
+      "identity_binding": "TRACE_TRAINING_PID_ONLY_CONTROL_UNAVAILABLE",
+      "origin_monotonic_ns": 774007248487987,
+      "active_until_monotonic_ns": 774008551789031,
+      "input_trace_sha256": "a89d43bbdff2f88c511b1d1ae28ebc25bf3986270d8fd6a4e3bd6e33c1d3ab10",
+      "input_audit_sha256": "6b095f13cd0c22d6169fc29976ec09cd1ee1c1a00a59527c52668713f9c9647d",
+      "collector_audit": {
+        "schema_version": 1,
+        "schema_status": "OBSERVED",
+        "identity": {
+          "node_alias": "node-a",
+          "comm_rank": 1,
+          "origin_monotonic_ns": 774007248487987,
+          "clock_api": "CLOCK_MONOTONIC",
+          "resolution_ns": 1,
+          "origin_mapping_error_ns": 4000,
+          "active_until_monotonic_ns": 774008551789031
+        },
+        "mapping_status": "OBSERVED",
+        "mapping_checks": {
+          "run_id": "MATCH",
+          "rank_epoch": "MATCH",
+          "node_alias": "MATCH",
+          "pid": "MATCH",
+          "comm_rank": "MATCH",
+          "comm_hash": "MATCH",
+          "time_namespace": "NOT_CHECKED",
+          "pid_namespace": "NOT_CHECKED",
+          "boot_id": "NOT_CHECKED"
+        },
+        "classes": {
+          "Group": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 70,
+              "pool_accepted": 70,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 70,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "Coll": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 70,
+              "pool_accepted": 70,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 70,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "KernelCh": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 553,
+              "pool_accepted": 553,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 553,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          }
+        },
+        "export": {
+          "file_open_ok": true,
+          "write_ok": true,
+          "close_ok": true,
+          "status": "OBSERVED_SUCCESS"
+        },
+        "callback_attempted_is_nccl_total": false,
+        "issues": []
+      },
+      "summary": {
+        "events": 70,
+        "covered": 0,
+        "bounded": 0,
+        "unsafe_fraction": 1.0,
+        "half_width_ns": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "budget_coverage": {
+          "1000000": 0.0,
+          "5000000": 0.0,
+          "10000000": 0.0
+        },
+        "rejection_reasons": {
+          "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']": 70
+        }
+      }
+    },
+    {
+      "rank": 2,
+      "node_alias": "node-b",
+      "status": "UNSAFE_TO_SUBTRACT",
+      "identity_binding": "TRACE_TRAINING_PID_ONLY_CONTROL_UNAVAILABLE",
+      "origin_monotonic_ns": 1605914159605452,
+      "active_until_monotonic_ns": 1605915422582548,
+      "input_trace_sha256": "6aa5715a2b090cf8ed1ae92d10a2d949647ae2c294ef1252799a5e03e9d8ad96",
+      "input_audit_sha256": "c11901e7d3ef50df0bbd4edc223b34c640de9fb1d30a794ad37be5fc37293493",
+      "collector_audit": {
+        "schema_version": 1,
+        "schema_status": "OBSERVED",
+        "identity": {
+          "node_alias": "node-b",
+          "comm_rank": 2,
+          "origin_monotonic_ns": 1605914159605452,
+          "clock_api": "CLOCK_MONOTONIC",
+          "resolution_ns": 1,
+          "origin_mapping_error_ns": 4000,
+          "active_until_monotonic_ns": 1605915422582548
+        },
+        "mapping_status": "OBSERVED",
+        "mapping_checks": {
+          "run_id": "MATCH",
+          "rank_epoch": "MATCH",
+          "node_alias": "MATCH",
+          "pid": "MATCH",
+          "comm_rank": "MATCH",
+          "comm_hash": "MATCH",
+          "time_namespace": "NOT_CHECKED",
+          "pid_namespace": "NOT_CHECKED",
+          "boot_id": "NOT_CHECKED"
+        },
+        "classes": {
+          "Group": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 70,
+              "pool_accepted": 70,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 70,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "Coll": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 70,
+              "pool_accepted": 70,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 70,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "KernelCh": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 553,
+              "pool_accepted": 553,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 553,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          }
+        },
+        "export": {
+          "file_open_ok": true,
+          "write_ok": true,
+          "close_ok": true,
+          "status": "OBSERVED_SUCCESS"
+        },
+        "callback_attempted_is_nccl_total": false,
+        "issues": []
+      },
+      "summary": {
+        "events": 70,
+        "covered": 0,
+        "bounded": 0,
+        "unsafe_fraction": 1.0,
+        "half_width_ns": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "budget_coverage": {
+          "1000000": 0.0,
+          "5000000": 0.0,
+          "10000000": 0.0
+        },
+        "rejection_reasons": {
+          "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']": 70
+        }
+      }
+    },
+    {
+      "rank": 3,
+      "node_alias": "node-b",
+      "status": "UNSAFE_TO_SUBTRACT",
+      "identity_binding": "TRACE_TRAINING_PID_ONLY_CONTROL_UNAVAILABLE",
+      "origin_monotonic_ns": 1605914159597809,
+      "active_until_monotonic_ns": 1605915457331211,
+      "input_trace_sha256": "56105c109eb13c368474915ebf2157b380446cd6f864d8de4364cc54e299913c",
+      "input_audit_sha256": "461c296c8e8df3aff49c3b34453403e9690e3ad8bf2d935dab8cda4e6d43da8d",
+      "collector_audit": {
+        "schema_version": 1,
+        "schema_status": "OBSERVED",
+        "identity": {
+          "node_alias": "node-b",
+          "comm_rank": 3,
+          "origin_monotonic_ns": 1605914159597809,
+          "clock_api": "CLOCK_MONOTONIC",
+          "resolution_ns": 1,
+          "origin_mapping_error_ns": 4000,
+          "active_until_monotonic_ns": 1605915457331211
+        },
+        "mapping_status": "OBSERVED",
+        "mapping_checks": {
+          "run_id": "MATCH",
+          "rank_epoch": "MATCH",
+          "node_alias": "MATCH",
+          "pid": "MATCH",
+          "comm_rank": "MATCH",
+          "comm_hash": "MATCH",
+          "time_namespace": "NOT_CHECKED",
+          "pid_namespace": "NOT_CHECKED",
+          "boot_id": "NOT_CHECKED"
+        },
+        "classes": {
+          "Group": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 70,
+              "pool_accepted": 70,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 70,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "Coll": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 70,
+              "pool_accepted": 70,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 70,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "KernelCh": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 553,
+              "pool_accepted": 553,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 553,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          }
+        },
+        "export": {
+          "file_open_ok": true,
+          "write_ok": true,
+          "close_ok": true,
+          "status": "OBSERVED_SUCCESS"
+        },
+        "callback_attempted_is_nccl_total": false,
+        "issues": []
+      },
+      "summary": {
+        "events": 70,
+        "covered": 0,
+        "bounded": 0,
+        "unsafe_fraction": 1.0,
+        "half_width_ns": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "budget_coverage": {
+          "1000000": 0.0,
+          "5000000": 0.0,
+          "10000000": 0.0
+        },
+        "rejection_reasons": {
+          "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']": 70
+        }
+      }
+    }
+  ],
+  "events": [
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllGather",
+      "seq": 0,
+      "source_ns": 774007538451233,
+      "representation_error_ns": 4000,
+      "trace_index": 1
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 0,
+      "source_ns": 774008101453674,
+      "representation_error_ns": 4000,
+      "trace_index": 7
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 1,
+      "source_ns": 774008126193894,
+      "representation_error_ns": 4000,
+      "trace_index": 27
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 2,
+      "source_ns": 774008126361394,
+      "representation_error_ns": 4000,
+      "trace_index": 47
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 3,
+      "source_ns": 774008127633567,
+      "representation_error_ns": 4000,
+      "trace_index": 67
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 4,
+      "source_ns": 774008127759736,
+      "representation_error_ns": 4000,
+      "trace_index": 87
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 5,
+      "source_ns": 774008129007868,
+      "representation_error_ns": 4000,
+      "trace_index": 107
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 6,
+      "source_ns": 774008129152678,
+      "representation_error_ns": 4000,
+      "trace_index": 127
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 7,
+      "source_ns": 774008130295293,
+      "representation_error_ns": 4000,
+      "trace_index": 147
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 8,
+      "source_ns": 774008130399181,
+      "representation_error_ns": 4000,
+      "trace_index": 167
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 9,
+      "source_ns": 774008133394976,
+      "representation_error_ns": 4000,
+      "trace_index": 187
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 10,
+      "source_ns": 774008133495067,
+      "representation_error_ns": 4000,
+      "trace_index": 207
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 11,
+      "source_ns": 774008135285373,
+      "representation_error_ns": 4000,
+      "trace_index": 227
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 12,
+      "source_ns": 774008135389269,
+      "representation_error_ns": 4000,
+      "trace_index": 247
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 13,
+      "source_ns": 774008136327181,
+      "representation_error_ns": 4000,
+      "trace_index": 267
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 14,
+      "source_ns": 774008136428699,
+      "representation_error_ns": 4000,
+      "trace_index": 287
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 15,
+      "source_ns": 774008137291101,
+      "representation_error_ns": 4000,
+      "trace_index": 307
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 16,
+      "source_ns": 774008137392495,
+      "representation_error_ns": 4000,
+      "trace_index": 327
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 17,
+      "source_ns": 774008138213253,
+      "representation_error_ns": 4000,
+      "trace_index": 347
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 18,
+      "source_ns": 774008138326650,
+      "representation_error_ns": 4000,
+      "trace_index": 367
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 19,
+      "source_ns": 774008139209814,
+      "representation_error_ns": 4000,
+      "trace_index": 387
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 20,
+      "source_ns": 774008139357385,
+      "representation_error_ns": 4000,
+      "trace_index": 407
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 21,
+      "source_ns": 774008140099824,
+      "representation_error_ns": 4000,
+      "trace_index": 427
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 22,
+      "source_ns": 774008140251670,
+      "representation_error_ns": 4000,
+      "trace_index": 447
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 23,
+      "source_ns": 774008140930728,
+      "representation_error_ns": 4000,
+      "trace_index": 467
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 24,
+      "source_ns": 774008141072373,
+      "representation_error_ns": 4000,
+      "trace_index": 487
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 25,
+      "source_ns": 774008141768719,
+      "representation_error_ns": 4000,
+      "trace_index": 507
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 26,
+      "source_ns": 774008141903159,
+      "representation_error_ns": 4000,
+      "trace_index": 527
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 27,
+      "source_ns": 774008142641492,
+      "representation_error_ns": 4000,
+      "trace_index": 547
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 28,
+      "source_ns": 774008142780135,
+      "representation_error_ns": 4000,
+      "trace_index": 567
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 29,
+      "source_ns": 774008143506033,
+      "representation_error_ns": 4000,
+      "trace_index": 587
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 30,
+      "source_ns": 774008143644836,
+      "representation_error_ns": 4000,
+      "trace_index": 607
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 31,
+      "source_ns": 774008144396185,
+      "representation_error_ns": 4000,
+      "trace_index": 627
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 32,
+      "source_ns": 774008144541084,
+      "representation_error_ns": 4000,
+      "trace_index": 647
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 33,
+      "source_ns": 774008145292137,
+      "representation_error_ns": 4000,
+      "trace_index": 667
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 34,
+      "source_ns": 774008145434276,
+      "representation_error_ns": 4000,
+      "trace_index": 687
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 35,
+      "source_ns": 774008146174253,
+      "representation_error_ns": 4000,
+      "trace_index": 707
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 36,
+      "source_ns": 774008146324535,
+      "representation_error_ns": 4000,
+      "trace_index": 727
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 37,
+      "source_ns": 774008147034740,
+      "representation_error_ns": 4000,
+      "trace_index": 747
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 38,
+      "source_ns": 774008147179158,
+      "representation_error_ns": 4000,
+      "trace_index": 767
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 39,
+      "source_ns": 774008147890772,
+      "representation_error_ns": 4000,
+      "trace_index": 787
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 40,
+      "source_ns": 774008148048081,
+      "representation_error_ns": 4000,
+      "trace_index": 807
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 41,
+      "source_ns": 774008148819827,
+      "representation_error_ns": 4000,
+      "trace_index": 827
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 42,
+      "source_ns": 774008148968452,
+      "representation_error_ns": 4000,
+      "trace_index": 847
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 43,
+      "source_ns": 774008149719122,
+      "representation_error_ns": 4000,
+      "trace_index": 867
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 44,
+      "source_ns": 774008149866352,
+      "representation_error_ns": 4000,
+      "trace_index": 887
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 45,
+      "source_ns": 774008150603762,
+      "representation_error_ns": 4000,
+      "trace_index": 907
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 46,
+      "source_ns": 774008150747358,
+      "representation_error_ns": 4000,
+      "trace_index": 927
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 47,
+      "source_ns": 774008151466125,
+      "representation_error_ns": 4000,
+      "trace_index": 947
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 48,
+      "source_ns": 774008151609206,
+      "representation_error_ns": 4000,
+      "trace_index": 967
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 49,
+      "source_ns": 774008152360962,
+      "representation_error_ns": 4000,
+      "trace_index": 987
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 50,
+      "source_ns": 774008152511848,
+      "representation_error_ns": 4000,
+      "trace_index": 1007
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 51,
+      "source_ns": 774008153272757,
+      "representation_error_ns": 4000,
+      "trace_index": 1027
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 52,
+      "source_ns": 774008153416595,
+      "representation_error_ns": 4000,
+      "trace_index": 1047
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 53,
+      "source_ns": 774008154152398,
+      "representation_error_ns": 4000,
+      "trace_index": 1067
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 54,
+      "source_ns": 774008154311723,
+      "representation_error_ns": 4000,
+      "trace_index": 1087
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 55,
+      "source_ns": 774008155120108,
+      "representation_error_ns": 4000,
+      "trace_index": 1107
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 56,
+      "source_ns": 774008155278906,
+      "representation_error_ns": 4000,
+      "trace_index": 1127
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 57,
+      "source_ns": 774008156070795,
+      "representation_error_ns": 4000,
+      "trace_index": 1147
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 58,
+      "source_ns": 774008156237629,
+      "representation_error_ns": 4000,
+      "trace_index": 1167
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 59,
+      "source_ns": 774008157018092,
+      "representation_error_ns": 4000,
+      "trace_index": 1187
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 60,
+      "source_ns": 774008157180313,
+      "representation_error_ns": 4000,
+      "trace_index": 1207
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 61,
+      "source_ns": 774008157950863,
+      "representation_error_ns": 4000,
+      "trace_index": 1227
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 62,
+      "source_ns": 774008158112834,
+      "representation_error_ns": 4000,
+      "trace_index": 1247
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 63,
+      "source_ns": 774008158894791,
+      "representation_error_ns": 4000,
+      "trace_index": 1267
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 64,
+      "source_ns": 774008159056282,
+      "representation_error_ns": 4000,
+      "trace_index": 1287
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 65,
+      "source_ns": 774008159833703,
+      "representation_error_ns": 4000,
+      "trace_index": 1307
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 66,
+      "source_ns": 774008159987999,
+      "representation_error_ns": 4000,
+      "trace_index": 1327
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 67,
+      "source_ns": 774008160732331,
+      "representation_error_ns": 4000,
+      "trace_index": 1347
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 68,
+      "source_ns": 774008160883285,
+      "representation_error_ns": 4000,
+      "trace_index": 1367
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllGather",
+      "seq": 0,
+      "source_ns": 774007538496585,
+      "representation_error_ns": 4000,
+      "trace_index": 1
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 0,
+      "source_ns": 774008101432721,
+      "representation_error_ns": 4000,
+      "trace_index": 7
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 1,
+      "source_ns": 774008126149732,
+      "representation_error_ns": 4000,
+      "trace_index": 27
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 2,
+      "source_ns": 774008126302425,
+      "representation_error_ns": 4000,
+      "trace_index": 47
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 3,
+      "source_ns": 774008127614514,
+      "representation_error_ns": 4000,
+      "trace_index": 67
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 4,
+      "source_ns": 774008127735438,
+      "representation_error_ns": 4000,
+      "trace_index": 87
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 5,
+      "source_ns": 774008128985043,
+      "representation_error_ns": 4000,
+      "trace_index": 107
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 6,
+      "source_ns": 774008129182993,
+      "representation_error_ns": 4000,
+      "trace_index": 127
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 7,
+      "source_ns": 774008130331188,
+      "representation_error_ns": 4000,
+      "trace_index": 147
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 8,
+      "source_ns": 774008130435295,
+      "representation_error_ns": 4000,
+      "trace_index": 167
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 9,
+      "source_ns": 774008133206552,
+      "representation_error_ns": 4000,
+      "trace_index": 187
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 10,
+      "source_ns": 774008133307336,
+      "representation_error_ns": 4000,
+      "trace_index": 207
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 11,
+      "source_ns": 774008135274294,
+      "representation_error_ns": 4000,
+      "trace_index": 227
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 12,
+      "source_ns": 774008135384543,
+      "representation_error_ns": 4000,
+      "trace_index": 247
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 13,
+      "source_ns": 774008136312985,
+      "representation_error_ns": 4000,
+      "trace_index": 267
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 14,
+      "source_ns": 774008136420784,
+      "representation_error_ns": 4000,
+      "trace_index": 287
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 15,
+      "source_ns": 774008137288002,
+      "representation_error_ns": 4000,
+      "trace_index": 307
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 16,
+      "source_ns": 774008137393756,
+      "representation_error_ns": 4000,
+      "trace_index": 327
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 17,
+      "source_ns": 774008138236343,
+      "representation_error_ns": 4000,
+      "trace_index": 347
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 18,
+      "source_ns": 774008138342272,
+      "representation_error_ns": 4000,
+      "trace_index": 367
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 19,
+      "source_ns": 774008139159714,
+      "representation_error_ns": 4000,
+      "trace_index": 387
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 20,
+      "source_ns": 774008139270063,
+      "representation_error_ns": 4000,
+      "trace_index": 407
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 21,
+      "source_ns": 774008139976734,
+      "representation_error_ns": 4000,
+      "trace_index": 427
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 22,
+      "source_ns": 774008140148481,
+      "representation_error_ns": 4000,
+      "trace_index": 447
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 23,
+      "source_ns": 774008140842126,
+      "representation_error_ns": 4000,
+      "trace_index": 467
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 24,
+      "source_ns": 774008140988377,
+      "representation_error_ns": 4000,
+      "trace_index": 487
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 25,
+      "source_ns": 774008141684095,
+      "representation_error_ns": 4000,
+      "trace_index": 507
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 26,
+      "source_ns": 774008141817166,
+      "representation_error_ns": 4000,
+      "trace_index": 527
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 27,
+      "source_ns": 774008142543122,
+      "representation_error_ns": 4000,
+      "trace_index": 547
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 28,
+      "source_ns": 774008142684078,
+      "representation_error_ns": 4000,
+      "trace_index": 567
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 29,
+      "source_ns": 774008143385908,
+      "representation_error_ns": 4000,
+      "trace_index": 587
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 30,
+      "source_ns": 774008143522938,
+      "representation_error_ns": 4000,
+      "trace_index": 607
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 31,
+      "source_ns": 774008144276484,
+      "representation_error_ns": 4000,
+      "trace_index": 627
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 32,
+      "source_ns": 774008144427187,
+      "representation_error_ns": 4000,
+      "trace_index": 647
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 33,
+      "source_ns": 774008145168644,
+      "representation_error_ns": 4000,
+      "trace_index": 667
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 34,
+      "source_ns": 774008145317270,
+      "representation_error_ns": 4000,
+      "trace_index": 687
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 35,
+      "source_ns": 774008146080171,
+      "representation_error_ns": 4000,
+      "trace_index": 707
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 36,
+      "source_ns": 774008146227948,
+      "representation_error_ns": 4000,
+      "trace_index": 727
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 37,
+      "source_ns": 774008146962633,
+      "representation_error_ns": 4000,
+      "trace_index": 747
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 38,
+      "source_ns": 774008147120805,
+      "representation_error_ns": 4000,
+      "trace_index": 767
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 39,
+      "source_ns": 774008147833822,
+      "representation_error_ns": 4000,
+      "trace_index": 787
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 40,
+      "source_ns": 774008147984163,
+      "representation_error_ns": 4000,
+      "trace_index": 807
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 41,
+      "source_ns": 774008148724609,
+      "representation_error_ns": 4000,
+      "trace_index": 827
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 42,
+      "source_ns": 774008148867892,
+      "representation_error_ns": 4000,
+      "trace_index": 847
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 43,
+      "source_ns": 774008149601822,
+      "representation_error_ns": 4000,
+      "trace_index": 867
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 44,
+      "source_ns": 774008149750272,
+      "representation_error_ns": 4000,
+      "trace_index": 887
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 45,
+      "source_ns": 774008150470315,
+      "representation_error_ns": 4000,
+      "trace_index": 907
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 46,
+      "source_ns": 774008150623178,
+      "representation_error_ns": 4000,
+      "trace_index": 927
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 47,
+      "source_ns": 774008151328913,
+      "representation_error_ns": 4000,
+      "trace_index": 947
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 48,
+      "source_ns": 774008151480775,
+      "representation_error_ns": 4000,
+      "trace_index": 967
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 49,
+      "source_ns": 774008152202907,
+      "representation_error_ns": 4000,
+      "trace_index": 987
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 50,
+      "source_ns": 774008152369031,
+      "representation_error_ns": 4000,
+      "trace_index": 1007
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 51,
+      "source_ns": 774008153116958,
+      "representation_error_ns": 4000,
+      "trace_index": 1027
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 52,
+      "source_ns": 774008153269357,
+      "representation_error_ns": 4000,
+      "trace_index": 1047
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 53,
+      "source_ns": 774008153980647,
+      "representation_error_ns": 4000,
+      "trace_index": 1067
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 54,
+      "source_ns": 774008154156940,
+      "representation_error_ns": 4000,
+      "trace_index": 1087
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 55,
+      "source_ns": 774008154874976,
+      "representation_error_ns": 4000,
+      "trace_index": 1107
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 56,
+      "source_ns": 774008155031539,
+      "representation_error_ns": 4000,
+      "trace_index": 1127
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 57,
+      "source_ns": 774008155729107,
+      "representation_error_ns": 4000,
+      "trace_index": 1147
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 58,
+      "source_ns": 774008155875629,
+      "representation_error_ns": 4000,
+      "trace_index": 1167
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 59,
+      "source_ns": 774008156643865,
+      "representation_error_ns": 4000,
+      "trace_index": 1187
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 60,
+      "source_ns": 774008156798934,
+      "representation_error_ns": 4000,
+      "trace_index": 1207
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 61,
+      "source_ns": 774008157546815,
+      "representation_error_ns": 4000,
+      "trace_index": 1227
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 62,
+      "source_ns": 774008157692141,
+      "representation_error_ns": 4000,
+      "trace_index": 1247
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 63,
+      "source_ns": 774008158412031,
+      "representation_error_ns": 4000,
+      "trace_index": 1267
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 64,
+      "source_ns": 774008158556544,
+      "representation_error_ns": 4000,
+      "trace_index": 1287
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 65,
+      "source_ns": 774008159276742,
+      "representation_error_ns": 4000,
+      "trace_index": 1307
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 66,
+      "source_ns": 774008159422899,
+      "representation_error_ns": 4000,
+      "trace_index": 1327
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 67,
+      "source_ns": 774008160204918,
+      "representation_error_ns": 4000,
+      "trace_index": 1347
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 68,
+      "source_ns": 774008160354931,
+      "representation_error_ns": 4000,
+      "trace_index": 1367
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllGather",
+      "seq": 0,
+      "source_ns": 1605914441096980,
+      "representation_error_ns": 4000,
+      "trace_index": 1
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 0,
+      "source_ns": 1605915010753343,
+      "representation_error_ns": 4000,
+      "trace_index": 7
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 1,
+      "source_ns": 1605915037149492,
+      "representation_error_ns": 4000,
+      "trace_index": 27
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 2,
+      "source_ns": 1605915037302818,
+      "representation_error_ns": 4000,
+      "trace_index": 47
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 3,
+      "source_ns": 1605915038620427,
+      "representation_error_ns": 4000,
+      "trace_index": 67
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 4,
+      "source_ns": 1605915038745269,
+      "representation_error_ns": 4000,
+      "trace_index": 87
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 5,
+      "source_ns": 1605915039962443,
+      "representation_error_ns": 4000,
+      "trace_index": 107
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 6,
+      "source_ns": 1605915040086412,
+      "representation_error_ns": 4000,
+      "trace_index": 127
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 7,
+      "source_ns": 1605915041307107,
+      "representation_error_ns": 4000,
+      "trace_index": 147
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 8,
+      "source_ns": 1605915041414374,
+      "representation_error_ns": 4000,
+      "trace_index": 167
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 9,
+      "source_ns": 1605915044351852,
+      "representation_error_ns": 4000,
+      "trace_index": 187
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 10,
+      "source_ns": 1605915044455772,
+      "representation_error_ns": 4000,
+      "trace_index": 207
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 11,
+      "source_ns": 1605915046316642,
+      "representation_error_ns": 4000,
+      "trace_index": 227
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 12,
+      "source_ns": 1605915046423674,
+      "representation_error_ns": 4000,
+      "trace_index": 247
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 13,
+      "source_ns": 1605915047335708,
+      "representation_error_ns": 4000,
+      "trace_index": 267
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 14,
+      "source_ns": 1605915047440056,
+      "representation_error_ns": 4000,
+      "trace_index": 287
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 15,
+      "source_ns": 1605915048326230,
+      "representation_error_ns": 4000,
+      "trace_index": 307
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 16,
+      "source_ns": 1605915048431300,
+      "representation_error_ns": 4000,
+      "trace_index": 327
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 17,
+      "source_ns": 1605915049258104,
+      "representation_error_ns": 4000,
+      "trace_index": 347
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 18,
+      "source_ns": 1605915049369019,
+      "representation_error_ns": 4000,
+      "trace_index": 367
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 19,
+      "source_ns": 1605915050213638,
+      "representation_error_ns": 4000,
+      "trace_index": 387
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 20,
+      "source_ns": 1605915050323446,
+      "representation_error_ns": 4000,
+      "trace_index": 407
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 21,
+      "source_ns": 1605915050969070,
+      "representation_error_ns": 4000,
+      "trace_index": 427
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 22,
+      "source_ns": 1605915051095250,
+      "representation_error_ns": 4000,
+      "trace_index": 447
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 23,
+      "source_ns": 1605915051774602,
+      "representation_error_ns": 4000,
+      "trace_index": 467
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 24,
+      "source_ns": 1605915051909321,
+      "representation_error_ns": 4000,
+      "trace_index": 487
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 25,
+      "source_ns": 1605915052587524,
+      "representation_error_ns": 4000,
+      "trace_index": 507
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 26,
+      "source_ns": 1605915052715300,
+      "representation_error_ns": 4000,
+      "trace_index": 527
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 27,
+      "source_ns": 1605915053411974,
+      "representation_error_ns": 4000,
+      "trace_index": 547
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 28,
+      "source_ns": 1605915053554027,
+      "representation_error_ns": 4000,
+      "trace_index": 567
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 29,
+      "source_ns": 1605915054252749,
+      "representation_error_ns": 4000,
+      "trace_index": 587
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 30,
+      "source_ns": 1605915054387351,
+      "representation_error_ns": 4000,
+      "trace_index": 607
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 31,
+      "source_ns": 1605915055079672,
+      "representation_error_ns": 4000,
+      "trace_index": 627
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 32,
+      "source_ns": 1605915055221710,
+      "representation_error_ns": 4000,
+      "trace_index": 647
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 33,
+      "source_ns": 1605915055967844,
+      "representation_error_ns": 4000,
+      "trace_index": 667
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 34,
+      "source_ns": 1605915056116124,
+      "representation_error_ns": 4000,
+      "trace_index": 687
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 35,
+      "source_ns": 1605915056847389,
+      "representation_error_ns": 4000,
+      "trace_index": 707
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 36,
+      "source_ns": 1605915056996612,
+      "representation_error_ns": 4000,
+      "trace_index": 727
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 37,
+      "source_ns": 1605915057717761,
+      "representation_error_ns": 4000,
+      "trace_index": 747
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 38,
+      "source_ns": 1605915057889483,
+      "representation_error_ns": 4000,
+      "trace_index": 767
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 39,
+      "source_ns": 1605915059086719,
+      "representation_error_ns": 4000,
+      "trace_index": 787
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 40,
+      "source_ns": 1605915059239170,
+      "representation_error_ns": 4000,
+      "trace_index": 807
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 41,
+      "source_ns": 1605915059938479,
+      "representation_error_ns": 4000,
+      "trace_index": 827
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 42,
+      "source_ns": 1605915060086964,
+      "representation_error_ns": 4000,
+      "trace_index": 847
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 43,
+      "source_ns": 1605915060808227,
+      "representation_error_ns": 4000,
+      "trace_index": 867
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 44,
+      "source_ns": 1605915060954430,
+      "representation_error_ns": 4000,
+      "trace_index": 887
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 45,
+      "source_ns": 1605915061692191,
+      "representation_error_ns": 4000,
+      "trace_index": 907
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 46,
+      "source_ns": 1605915061836718,
+      "representation_error_ns": 4000,
+      "trace_index": 927
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 47,
+      "source_ns": 1605915062554960,
+      "representation_error_ns": 4000,
+      "trace_index": 947
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 48,
+      "source_ns": 1605915062697083,
+      "representation_error_ns": 4000,
+      "trace_index": 967
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 49,
+      "source_ns": 1605915063412659,
+      "representation_error_ns": 4000,
+      "trace_index": 987
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 50,
+      "source_ns": 1605915063559215,
+      "representation_error_ns": 4000,
+      "trace_index": 1007
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 51,
+      "source_ns": 1605915064293837,
+      "representation_error_ns": 4000,
+      "trace_index": 1027
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 52,
+      "source_ns": 1605915064436095,
+      "representation_error_ns": 4000,
+      "trace_index": 1047
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 53,
+      "source_ns": 1605915065172663,
+      "representation_error_ns": 4000,
+      "trace_index": 1067
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 54,
+      "source_ns": 1605915065326062,
+      "representation_error_ns": 4000,
+      "trace_index": 1087
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 55,
+      "source_ns": 1605915066050997,
+      "representation_error_ns": 4000,
+      "trace_index": 1107
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 56,
+      "source_ns": 1605915066200055,
+      "representation_error_ns": 4000,
+      "trace_index": 1127
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 57,
+      "source_ns": 1605915066901770,
+      "representation_error_ns": 4000,
+      "trace_index": 1147
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 58,
+      "source_ns": 1605915067055418,
+      "representation_error_ns": 4000,
+      "trace_index": 1167
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 59,
+      "source_ns": 1605915067795029,
+      "representation_error_ns": 4000,
+      "trace_index": 1187
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 60,
+      "source_ns": 1605915067949205,
+      "representation_error_ns": 4000,
+      "trace_index": 1207
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 61,
+      "source_ns": 1605915068696276,
+      "representation_error_ns": 4000,
+      "trace_index": 1227
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 62,
+      "source_ns": 1605915068844596,
+      "representation_error_ns": 4000,
+      "trace_index": 1247
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 63,
+      "source_ns": 1605915069601037,
+      "representation_error_ns": 4000,
+      "trace_index": 1267
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 64,
+      "source_ns": 1605915069748675,
+      "representation_error_ns": 4000,
+      "trace_index": 1287
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 65,
+      "source_ns": 1605915070500136,
+      "representation_error_ns": 4000,
+      "trace_index": 1307
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 66,
+      "source_ns": 1605915070647428,
+      "representation_error_ns": 4000,
+      "trace_index": 1327
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 67,
+      "source_ns": 1605915071390575,
+      "representation_error_ns": 4000,
+      "trace_index": 1347
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 68,
+      "source_ns": 1605915071543630,
+      "representation_error_ns": 4000,
+      "trace_index": 1367
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllGather",
+      "seq": 0,
+      "source_ns": 1605914439622750,
+      "representation_error_ns": 4000,
+      "trace_index": 1
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 0,
+      "source_ns": 1605915010534487,
+      "representation_error_ns": 4000,
+      "trace_index": 7
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 1,
+      "source_ns": 1605915037142761,
+      "representation_error_ns": 4000,
+      "trace_index": 27
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 2,
+      "source_ns": 1605915037289954,
+      "representation_error_ns": 4000,
+      "trace_index": 47
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 3,
+      "source_ns": 1605915038609294,
+      "representation_error_ns": 4000,
+      "trace_index": 67
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 4,
+      "source_ns": 1605915038731985,
+      "representation_error_ns": 4000,
+      "trace_index": 87
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 5,
+      "source_ns": 1605915039955157,
+      "representation_error_ns": 4000,
+      "trace_index": 107
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 6,
+      "source_ns": 1605915040082175,
+      "representation_error_ns": 4000,
+      "trace_index": 127
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 7,
+      "source_ns": 1605915041405624,
+      "representation_error_ns": 4000,
+      "trace_index": 147
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 8,
+      "source_ns": 1605915041511379,
+      "representation_error_ns": 4000,
+      "trace_index": 167
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 9,
+      "source_ns": 1605915045187952,
+      "representation_error_ns": 4000,
+      "trace_index": 187
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 10,
+      "source_ns": 1605915045323158,
+      "representation_error_ns": 4000,
+      "trace_index": 207
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 11,
+      "source_ns": 1605915046350601,
+      "representation_error_ns": 4000,
+      "trace_index": 227
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 12,
+      "source_ns": 1605915046469659,
+      "representation_error_ns": 4000,
+      "trace_index": 247
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 13,
+      "source_ns": 1605915047361846,
+      "representation_error_ns": 4000,
+      "trace_index": 267
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 14,
+      "source_ns": 1605915047469374,
+      "representation_error_ns": 4000,
+      "trace_index": 287
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 15,
+      "source_ns": 1605915048336319,
+      "representation_error_ns": 4000,
+      "trace_index": 307
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 16,
+      "source_ns": 1605915048446614,
+      "representation_error_ns": 4000,
+      "trace_index": 327
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 17,
+      "source_ns": 1605915049305597,
+      "representation_error_ns": 4000,
+      "trace_index": 347
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 18,
+      "source_ns": 1605915049416295,
+      "representation_error_ns": 4000,
+      "trace_index": 367
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 19,
+      "source_ns": 1605915050236430,
+      "representation_error_ns": 4000,
+      "trace_index": 387
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 20,
+      "source_ns": 1605915050344464,
+      "representation_error_ns": 4000,
+      "trace_index": 407
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 21,
+      "source_ns": 1605915050991437,
+      "representation_error_ns": 4000,
+      "trace_index": 427
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 22,
+      "source_ns": 1605915051114252,
+      "representation_error_ns": 4000,
+      "trace_index": 447
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 23,
+      "source_ns": 1605915051772115,
+      "representation_error_ns": 4000,
+      "trace_index": 467
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 24,
+      "source_ns": 1605915051904575,
+      "representation_error_ns": 4000,
+      "trace_index": 487
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 25,
+      "source_ns": 1605915052581808,
+      "representation_error_ns": 4000,
+      "trace_index": 507
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 26,
+      "source_ns": 1605915052712354,
+      "representation_error_ns": 4000,
+      "trace_index": 527
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 27,
+      "source_ns": 1605915053467431,
+      "representation_error_ns": 4000,
+      "trace_index": 547
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 28,
+      "source_ns": 1605915053608565,
+      "representation_error_ns": 4000,
+      "trace_index": 567
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 29,
+      "source_ns": 1605915054357025,
+      "representation_error_ns": 4000,
+      "trace_index": 587
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 30,
+      "source_ns": 1605915054486741,
+      "representation_error_ns": 4000,
+      "trace_index": 607
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 31,
+      "source_ns": 1605915055203293,
+      "representation_error_ns": 4000,
+      "trace_index": 627
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 32,
+      "source_ns": 1605915055330052,
+      "representation_error_ns": 4000,
+      "trace_index": 647
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 33,
+      "source_ns": 1605915056050472,
+      "representation_error_ns": 4000,
+      "trace_index": 667
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 34,
+      "source_ns": 1605915056191149,
+      "representation_error_ns": 4000,
+      "trace_index": 687
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 35,
+      "source_ns": 1605915056903114,
+      "representation_error_ns": 4000,
+      "trace_index": 707
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 36,
+      "source_ns": 1605915057058380,
+      "representation_error_ns": 4000,
+      "trace_index": 727
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 37,
+      "source_ns": 1605915057776679,
+      "representation_error_ns": 4000,
+      "trace_index": 747
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 38,
+      "source_ns": 1605915058239013,
+      "representation_error_ns": 4000,
+      "trace_index": 767
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 39,
+      "source_ns": 1605915059065451,
+      "representation_error_ns": 4000,
+      "trace_index": 787
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 40,
+      "source_ns": 1605915059215842,
+      "representation_error_ns": 4000,
+      "trace_index": 807
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 41,
+      "source_ns": 1605915059962338,
+      "representation_error_ns": 4000,
+      "trace_index": 827
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 42,
+      "source_ns": 1605915060112744,
+      "representation_error_ns": 4000,
+      "trace_index": 847
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 43,
+      "source_ns": 1605915060828223,
+      "representation_error_ns": 4000,
+      "trace_index": 867
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 44,
+      "source_ns": 1605915060972713,
+      "representation_error_ns": 4000,
+      "trace_index": 887
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 45,
+      "source_ns": 1605915061714987,
+      "representation_error_ns": 4000,
+      "trace_index": 907
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 46,
+      "source_ns": 1605915061854724,
+      "representation_error_ns": 4000,
+      "trace_index": 927
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 47,
+      "source_ns": 1605915062606018,
+      "representation_error_ns": 4000,
+      "trace_index": 947
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 48,
+      "source_ns": 1605915062756976,
+      "representation_error_ns": 4000,
+      "trace_index": 967
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 49,
+      "source_ns": 1605915063511765,
+      "representation_error_ns": 4000,
+      "trace_index": 987
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 50,
+      "source_ns": 1605915063665491,
+      "representation_error_ns": 4000,
+      "trace_index": 1007
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 51,
+      "source_ns": 1605915064420746,
+      "representation_error_ns": 4000,
+      "trace_index": 1027
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 52,
+      "source_ns": 1605915064564774,
+      "representation_error_ns": 4000,
+      "trace_index": 1047
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 53,
+      "source_ns": 1605915065349561,
+      "representation_error_ns": 4000,
+      "trace_index": 1067
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 54,
+      "source_ns": 1605915065502963,
+      "representation_error_ns": 4000,
+      "trace_index": 1087
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 55,
+      "source_ns": 1605915066278266,
+      "representation_error_ns": 4000,
+      "trace_index": 1107
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 56,
+      "source_ns": 1605915066424953,
+      "representation_error_ns": 4000,
+      "trace_index": 1127
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 57,
+      "source_ns": 1605915067167009,
+      "representation_error_ns": 4000,
+      "trace_index": 1147
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 58,
+      "source_ns": 1605915067317089,
+      "representation_error_ns": 4000,
+      "trace_index": 1167
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 59,
+      "source_ns": 1605915068078794,
+      "representation_error_ns": 4000,
+      "trace_index": 1187
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 60,
+      "source_ns": 1605915068235491,
+      "representation_error_ns": 4000,
+      "trace_index": 1207
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 61,
+      "source_ns": 1605915068980516,
+      "representation_error_ns": 4000,
+      "trace_index": 1227
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 62,
+      "source_ns": 1605915069142241,
+      "representation_error_ns": 4000,
+      "trace_index": 1247
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 63,
+      "source_ns": 1605915069901636,
+      "representation_error_ns": 4000,
+      "trace_index": 1267
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 64,
+      "source_ns": 1605915070075370,
+      "representation_error_ns": 4000,
+      "trace_index": 1287
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 65,
+      "source_ns": 1605915070853508,
+      "representation_error_ns": 4000,
+      "trace_index": 1307
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 66,
+      "source_ns": 1605915071017558,
+      "representation_error_ns": 4000,
+      "trace_index": 1327
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 67,
+      "source_ns": 1605915071767903,
+      "representation_error_ns": 4000,
+      "trace_index": 1347
+    },
+    {
+      "status": "UNSAFE_TO_SUBTRACT",
+      "reference_interval_ns": null,
+      "half_width_ns": null,
+      "evidence_indices": [],
+      "reasons": [
+        "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']"
+      ],
+      "unit": "ns",
+      "coverage": false,
+      "reference_clock": "g104-reference-5a8c32807eb00077bc758298",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 68,
+      "source_ns": 1605915071922074,
+      "representation_error_ns": 4000,
+      "trace_index": 1367
+    }
+  ],
+  "summary": {
+    "events": 280,
+    "covered": 0,
+    "bounded": 0,
+    "unsafe_fraction": 1.0,
+    "half_width_ns": {
+      "n": 0,
+      "p50": null,
+      "p95": null,
+      "max": null
+    },
+    "budget_coverage": {
+      "1000000": 0.0,
+      "5000000": 0.0,
+      "10000000": 0.0
+    },
+    "rejection_reasons": {
+      "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']": 280
+    }
+  },
+  "source_node_summary": {
+    "events": 140,
+    "covered": 0,
+    "bounded": 0,
+    "unsafe_fraction": 1.0,
+    "half_width_ns": {
+      "n": 0,
+      "p50": null,
+      "p95": null,
+      "max": null
+    },
+    "budget_coverage": {
+      "1000000": 0.0,
+      "5000000": 0.0,
+      "10000000": 0.0
+    },
+    "rejection_reasons": {
+      "invalid control evidence: ['CONTROL_CAPTURE_FAILED: no complete four-stamp session']": 140
+    }
+  },
+  "continuous_four_rank_1ms_max_instances": 0,
+  "eligible_four_rank_instances": [],
+  "cross_node_matched_pair_interval_order": {
+    "OVERLAP_OR_UNKNOWN": 280
+  },
+  "control": {
+    "status": "UNSAFE_TO_SUBTRACT",
+    "reasons": [
+      "CONTROL_CAPTURE_FAILED: no complete four-stamp session"
+    ],
+    "count": 0,
+    "complete": false,
+    "stop_reason": "CLIENT_CONNECTION_REFUSED_SERVER_ACCEPT_TIMEOUT",
+    "limits": {
+      "duration_s": 90,
+      "count": 120000,
+      "interval_s": 0.0005,
+      "timeout_s": 110,
+      "max_bytes": 67108864
+    },
+    "sample_spacing_ns": {
+      "t1": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "t2": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "max": null
+      }
+    },
+    "reference_window_ns": null,
+    "source_window_ns": null,
+    "selected_four_stamps_ns": [],
+    "input_sha256": {
+      "node-a": null,
+      "node-b": null
+    },
+    "failure_log_sha256": {
+      "node-a": "3d6d585ea1bfa6608274de9356c46beda0bfb0f54cbd40772ec7e588972857ab",
+      "node-b": "2b8260dbad6c52f7e6373d4d30e97248bdcf8a6aef841a667a45a95cd190ba00"
+    }
+  },
+  "runtime": [
+    {
+      "rank": 0,
+      "torch": "2.14.1+cu130",
+      "nccl": [
+        2,
+        30,
+        7
+      ],
+      "dsos": [
+        {
+          "basename": "libcudart.so.13",
+          "sha256": "96c42e418cec19054186b9429c321603cc190bf26a18104e19408117a2a817b0",
+          "version_query_status": 0,
+          "version": 13000
+        },
+        {
+          "basename": "libnccl.so.2",
+          "sha256": "618968ee277041751512e619190132a9bdf351c3ce7129c73484f6ef441ad692",
+          "version_query_status": 0,
+          "version": 23007
+        },
+        {
+          "basename": "libnccl-profiler-example.so",
+          "sha256": "06740a4ea051720ca974a22a6f448bcacb5648e7a9c4a928e81e043ad88dcf54"
+        }
+      ],
+      "script_sha256": "6f9e20bf32b93731808abd1ec304a29da1f043add1202f77e5c22006271823b5",
+      "warmup": 5,
+      "steps": 30,
+      "gpu_step_ms": [
+        3.473344087600708,
+        1.0388480424880981,
+        0.983680009841919,
+        0.9350399971008301,
+        0.9473919868469238,
+        0.9357119798660278,
+        0.8852800130844116,
+        0.8255360126495361,
+        0.9160320162773132,
+        0.79094398021698,
+        0.8560000061988831,
+        0.9081599712371826,
+        0.8744000196456909,
+        0.8809279799461365,
+        0.8574079871177673,
+        1.002303957939148,
+        0.8687679767608643,
+        0.8557760119438171,
+        0.8763520121574402,
+        0.8877760171890259,
+        0.9154559969902039,
+        0.9046080112457275,
+        0.9231039881706238,
+        0.9267839789390564,
+        0.8772479891777039,
+        0.917631983757019,
+        0.9118720293045044,
+        0.9440320134162903,
+        0.9600319862365723,
+        0.8808640241622925
+      ],
+      "max_rss_kib": 1714312
+    },
+    {
+      "rank": 1,
+      "torch": "2.14.1+cu130",
+      "nccl": [
+        2,
+        30,
+        7
+      ],
+      "dsos": [
+        {
+          "basename": "libcudart.so.13",
+          "sha256": "96c42e418cec19054186b9429c321603cc190bf26a18104e19408117a2a817b0",
+          "version_query_status": 0,
+          "version": 13000
+        },
+        {
+          "basename": "libnccl.so.2",
+          "sha256": "618968ee277041751512e619190132a9bdf351c3ce7129c73484f6ef441ad692",
+          "version_query_status": 0,
+          "version": 23007
+        },
+        {
+          "basename": "libnccl-profiler-example.so",
+          "sha256": "06740a4ea051720ca974a22a6f448bcacb5648e7a9c4a928e81e043ad88dcf54"
+        }
+      ],
+      "script_sha256": "6f9e20bf32b93731808abd1ec304a29da1f043add1202f77e5c22006271823b5",
+      "warmup": 5,
+      "steps": 30,
+      "gpu_step_ms": [
+        3.4733760356903076,
+        1.0402560234069824,
+        0.9936000108718872,
+        0.9414399862289429,
+        0.9435520172119141,
+        0.9391040205955505,
+        0.8820480108261108,
+        0.8291199803352356,
+        0.8984320163726807,
+        0.8073920011520386,
+        0.8551999926567078,
+        0.9094719886779785,
+        0.8751999735832214,
+        0.8791999816894531,
+        0.8580160140991211,
+        0.9999679923057556,
+        0.8702080249786377,
+        0.853983998298645,
+        0.8784319758415222,
+        0.8880959749221802,
+        0.914687991142273,
+        0.9028159976005554,
+        0.92467200756073,
+        0.9256640076637268,
+        0.8799359798431396,
+        0.9160320162773132,
+        0.9116799831390381,
+        0.9431359767913818,
+        0.9605119824409485,
+        0.882752001285553
+      ],
+      "max_rss_kib": 1713024
+    },
+    {
+      "rank": 2,
+      "torch": "2.14.1+cu130",
+      "nccl": [
+        2,
+        30,
+        7
+      ],
+      "dsos": [
+        {
+          "basename": "libcudart.so.13",
+          "sha256": "96c42e418cec19054186b9429c321603cc190bf26a18104e19408117a2a817b0",
+          "version_query_status": 0,
+          "version": 13000
+        },
+        {
+          "basename": "libnccl.so.2",
+          "sha256": "618968ee277041751512e619190132a9bdf351c3ce7129c73484f6ef441ad692",
+          "version_query_status": 0,
+          "version": 23007
+        },
+        {
+          "basename": "libnccl-profiler-example.so",
+          "sha256": "06740a4ea051720ca974a22a6f448bcacb5648e7a9c4a928e81e043ad88dcf54"
+        }
+      ],
+      "script_sha256": "6f9e20bf32b93731808abd1ec304a29da1f043add1202f77e5c22006271823b5",
+      "warmup": 5,
+      "steps": 30,
+      "gpu_step_ms": [
+        3.461695909500122,
+        1.0470080375671387,
+        0.9740800261497498,
+        0.9491199851036072,
+        0.9582399725914001,
+        0.9169600009918213,
+        0.8697280287742615,
+        0.8285760283470154,
+        0.9126719832420349,
+        0.7851840257644653,
+        0.864799976348877,
+        0.8915839791297913,
+        0.8935040235519409,
+        0.8635200262069702,
+        0.8863040208816528,
+        0.9969279766082764,
+        0.8741120100021362,
+        0.8652799725532532,
+        0.8891199827194214,
+        0.8805440068244934,
+        0.9035840034484863,
+        0.9162240028381348,
+        0.9190719723701477,
+        0.9292160272598267,
+        0.8782079815864563,
+        0.9037439823150635,
+        0.9090560078620911,
+        0.9136319756507874,
+        0.9717440009117126,
+        0.8893439769744873
+      ],
+      "max_rss_kib": 1700528
+    },
+    {
+      "rank": 3,
+      "torch": "2.14.1+cu130",
+      "nccl": [
+        2,
+        30,
+        7
+      ],
+      "dsos": [
+        {
+          "basename": "libcudart.so.13",
+          "sha256": "96c42e418cec19054186b9429c321603cc190bf26a18104e19408117a2a817b0",
+          "version_query_status": 0,
+          "version": 13000
+        },
+        {
+          "basename": "libnccl.so.2",
+          "sha256": "618968ee277041751512e619190132a9bdf351c3ce7129c73484f6ef441ad692",
+          "version_query_status": 0,
+          "version": 23007
+        },
+        {
+          "basename": "libnccl-profiler-example.so",
+          "sha256": "06740a4ea051720ca974a22a6f448bcacb5648e7a9c4a928e81e043ad88dcf54"
+        }
+      ],
+      "script_sha256": "6f9e20bf32b93731808abd1ec304a29da1f043add1202f77e5c22006271823b5",
+      "warmup": 5,
+      "steps": 30,
+      "gpu_step_ms": [
+        3.4518721103668213,
+        1.0611200332641602,
+        0.975488007068634,
+        0.9493759870529175,
+        0.9579200148582458,
+        0.9169600009918213,
+        0.8693119883537292,
+        0.8290879726409912,
+        0.8964800238609314,
+        0.8005120158195496,
+        0.8653439879417419,
+        0.892192006111145,
+        0.893343985080719,
+        0.8621439933776855,
+        0.8520320057868958,
+        1.0369280576705933,
+        0.8825920224189758,
+        0.8632640242576599,
+        0.8899520039558411,
+        0.8821120262145996,
+        0.9003840088844299,
+        0.9186239838600159,
+        0.9129599928855896,
+        0.9331520199775696,
+        0.879584014415741,
+        0.8970879912376404,
+        0.9039679765701294,
+        0.9224960207939148,
+        0.9633600115776062,
+        0.8992319703102112
+      ],
+      "max_rss_kib": 1703804
+    }
+  ],
+  "resource_exit": [
+    {
+      "node_alias": "node-a",
+      "training_exit": 0,
+      "control_exit": 1,
+      "task_processes_remaining": 0,
+      "gpu_application_count_after": 8,
+      "private_task_bytes": 596109,
+      "old_profiler_unchanged_sha256": "3982ac146d710cfd3eca59e0c36fd1502790840211eb8f41c2d35934b51c9571"
+    },
+    {
+      "node_alias": "node-b",
+      "training_exit": 0,
+      "control_exit": 1,
+      "task_processes_remaining": 0,
+      "gpu_application_count_after": 8,
+      "private_task_bytes": 598615,
+      "old_profiler_unchanged_sha256": "3982ac146d710cfd3eca59e0c36fd1502790840211eb8f41c2d35934b51c9571"
+    }
+  ],
+  "executed_source_sha256": {
+    "node-a": {
+      "g1_04_control.py": "8b5c469bb5f13580de6987268ac6875aa5ffc421d608ed3b2c567408fa15a7a2",
+      "g1_03_host_clock.py": "53c6c4276626ad03dacfb5cee25eaf13445f27deb5f2cdb11cf01c06fd6ab652",
+      "g1_04_run.sh": "9fbe19a0dc41577127a37e0185545fa8582caad8a6467dbd4bc7e6039e956003",
+      "g1_01_ddp_capture.py": "6f9e20bf32b93731808abd1ec304a29da1f043add1202f77e5c22006271823b5",
+      "libnccl-profiler-example.so": "06740a4ea051720ca974a22a6f448bcacb5648e7a9c4a928e81e043ad88dcf54"
+    },
+    "node-b": {
+      "g1_04_control.py": "8b5c469bb5f13580de6987268ac6875aa5ffc421d608ed3b2c567408fa15a7a2",
+      "g1_03_host_clock.py": "53c6c4276626ad03dacfb5cee25eaf13445f27deb5f2cdb11cf01c06fd6ab652",
+      "g1_04_run.sh": "9fbe19a0dc41577127a37e0185545fa8582caad8a6467dbd4bc7e6039e956003",
+      "g1_01_ddp_capture.py": "6f9e20bf32b93731808abd1ec304a29da1f043add1202f77e5c22006271823b5",
+      "libnccl-profiler-example.so": "06740a4ea051720ca974a22a6f448bcacb5648e7a9c4a928e81e043ad88dcf54"
+    }
+  },
+  "profiler_abi": "v4; unchanged DSO with sole ncclProfiler_v4 symbol",
+  "source_sha256": {
+    "g1_04_report.py": "96521b77fc9d2dafd91a972c1c1c5498976cdf6cc61ec63be6cf715405a7760f",
+    "g1_04_causal.py": "62d9216c1277fcd15a587dca3cd504697fef8aa4f7f47619fdd4e1824ffd115f",
+    "g1_04_control.py": "8b5c469bb5f13580de6987268ac6875aa5ffc421d608ed3b2c567408fa15a7a2",
+    "g1_04_run.sh": "9fbe19a0dc41577127a37e0185545fa8582caad8a6467dbd4bc7e6039e956003",
+    "g1_03_host_clock.py": "53c6c4276626ad03dacfb5cee25eaf13445f27deb5f2cdb11cf01c06fd6ab652"
+  },
+  "unknowns": [
+    "upstream omitted callbacks/end-to-end loss",
+    "GPU timer ring overwrite",
+    "production fail-open",
+    "cross-GPU absolute timing",
+    "step to collective",
+    "net overhead INCONCLUSIVE; historical 6-8% risk"
+  ],
+  "gate_recommendation": "PARTIAL_NO_GATE_PAUSE_FOR_REVIEW_CONTROL_LAUNCH_FAILED",
+  "gate": "IN_PROGRESS_PENDING_INDEPENDENT_REVIEW"
+}
