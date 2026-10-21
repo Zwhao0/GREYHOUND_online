@@ -11,7 +11,7 @@
 
 ## G1-02 本轮候选（未合并）
 
-- [Issue #14](https://github.com/Zwhao0/GREYHOUND_online/issues/14)：**PARTIAL，等待独立审核**。新增 CPU CaptureQuality 与时钟反例，G1-01真实归档离线复核；[详细报告](docs/G1-02-RESULTS.md)、[脱敏质量数据](docs/evidence/g1-02-quality.json)。Draft PR / 最终 HEAD / CI 以本轮 PR 为准。
+- [Issue #14](https://github.com/Zwhao0/GREYHOUND_online/issues/14)：**PARTIAL，等待独立审核**。新增 CPU CaptureQuality 与时钟反例，G1-01真实归档离线复核；[详细报告](docs/G1-02-RESULTS.md)、[脱敏质量数据](docs/evidence/g1-02-quality.json)。[Draft PR #16](https://github.com/Zwhao0/GREYHOUND_online/pull/16)；代码提交 `ea0d8085a821b1f5872f86083b13abebefb92575`，[代码CI PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39539690045)；最终HEAD以PR为准。
 - 真实每 Rank Coll70/Group70/KernelCh553对、AllReduce seq0–68、AllGather seq0；内部gap/重复/配对异常0，仅导出窗口。精确drop、共同遗漏、active window/flush仍 UNKNOWN；跨Rank Host/GPU均 UNSAFE_TO_SUBTRACT。
 - **本轮 DOC/CPU；GPU/MULTINODE NOT_RUN**。未改采集/运行路径、未访问远端、未升级。合成时钟区间不等于现场校准。G1总Gate仍 IN_PROGRESS，保留共享短窗6%～8%开销风险。
 

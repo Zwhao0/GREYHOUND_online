@@ -11,7 +11,7 @@
 | G0-03 单节点 DDP | PASS / MERGED | [PR #8](https://github.com/Zwhao0/GREYHOUND_online/pull/8) |
 | **G0 Gate** | **限定范围 PASS** | 单节点观测可行性；不再重验 |
 | **G1-01 双节点采集** | **限定范围 PASS / MERGED** | [Issue #9 CLOSED](https://github.com/Zwhao0/GREYHOUND_online/issues/9)；[PR #13 MERGED](https://github.com/Zwhao0/GREYHOUND_online/pull/13)；[独立审核](https://github.com/Zwhao0/GREYHOUND_online/pull/13#issuecomment-6306390974) |
-| **G1-02 时钟与采集质量** | **候选 PARTIAL / 待独立审核** | [Issue #14](https://github.com/Zwhao0/GREYHOUND_online/issues/14)；[本轮报告](docs/G1-02-RESULTS.md)；仅 CPU 离线复核 |
+| **G1-02 时钟与采集质量** | **候选 PARTIAL / 待独立审核** | [Issue #14](https://github.com/Zwhao0/GREYHOUND_online/issues/14)；[本轮报告](docs/G1-02-RESULTS.md)；[Draft PR #16](https://github.com/Zwhao0/GREYHOUND_online/pull/16)；仅 CPU 离线复核 |
 | **G1 总 Gate** | **IN_PROGRESS / 未批准通过** | 事件完整性、时钟可比较性仍未充分建立 |
 | G2 / G3 / G4 | BLOCKED | 不允许故障注入、原发 Rank 定位或在线化 |
 
@@ -25,7 +25,7 @@
 
 ## G1-02 候选事实（未合并）
 
-- DOC / CPU：新增 CaptureQuality 离线工具、时钟质量契约与 synthetic 反例；本地33项 PASS（既有9项不回归）。真实输入来自 G1-01 私有归档，公开[质量报告](docs/evidence/g1-02-quality.json)记录源 trace 哈希及保守边界；不是新 GPU 实验。
+- DOC / CPU：新增 CaptureQuality 离线工具、时钟质量契约与 synthetic 反例；本地33项 PASS（既有9项不回归）；[代码HEAD CI PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39539690045)，最终HEAD见PR。真实输入来自 G1-01 私有归档，公开[质量报告](docs/evidence/g1-02-quality.json)记录源 trace 哈希及保守边界；不是新 GPU 实验。
 - 每 Rank AllGather seq0、AllReduce seq0–68，Coll/Group 各70对、KernelCh553对；本导出窗口内部 gap/重复/配对异常0。attempted/drop/overwritten/flush、窗口头尾与共同遗漏仍 UNKNOWN；连续seq不证明全量无损。
 - Host 相对时钟缺 origin 映射/独立校准，GPU globaltimer 与 step CUDA event 无跨域映射。实测跨Rank **UNSAFE_TO_SUBTRACT**，uncertainty UNKNOWN；合成四时间戳 BOUNDED 只证明 CPU 逻辑。
 - 本轮 **GPU / MULTINODE NOT_RUN**：采集器/包装器/采样路径均未变，没有远端操作。G1-02 **PARTIAL**，不能提交 G1 Gate PASS；保留既有6%～8%开销风险。
