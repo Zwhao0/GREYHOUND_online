@@ -1,21 +1,25 @@
 # STATUS — Greenhound Online
 
-2026-10-21（Asia/Shanghai）。[唯一仓库](https://github.com/Zwhao0/GREYHOUND_online)，以main / PR / CI为事实源。
+更新：2026-10-21（Asia/Shanghai）；[唯一仓库](https://github.com/Zwhao0/GREYHOUND_online)，Public。以实时 main / Issue / PR / CI 为准。
 
-| 阶段 | 状态 | 证据 |
+| 阶段 | 经过审核的状态 | 证据 |
 | --- | --- | --- |
-| G0 / G1-01 | 限定PASS，不重验 | PR #8 / #13 |
-| G1-02 / G1-03 | PARTIAL已接收并合并 | PR #16 / #19 |
-| **G1-04** | **纠错补证完成，限定Host Gate审核候选，未合并** | [Issue #20](https://github.com/Zwhao0/GREYHOUND_online/issues/20)、[Draft PR #22](https://github.com/Zwhao0/GREYHOUND_online/pull/22)、[报告](docs/G1-04-CORRECTION.md)、[真实JSON](docs/evidence/g1-04-correction-summary.json) |
-| **G1 Gate** | **IN_PROGRESS，等待ChatGPT裁决** | 不能由Codex自行通过 |
-| G2 / G3 / G4 | BLOCKED | 未获授权 |
+| G0 | **限定范围 PASS**：单节点可行性，不重验 | [PR #8](https://github.com/Zwhao0/GREYHOUND_online/pull/8)，历史PR #2/#5 |
+| G1-01 | **PASS / MERGED**：新栈两机健康4Rank的Collective匹配 | [PR #13](https://github.com/Zwhao0/GREYHOUND_online/pull/13)，Issue #9 CLOSED |
+| G1-02 | **PARTIAL已接收 / MERGED**：CPU采集质量/时间语义 | [PR #16](https://github.com/Zwhao0/GREYHOUND_online/pull/16)，Issue #14 CLOSED |
+| G1-03 | **PARTIAL已接收 / MERGED**：逐类callback审计、真实Host片段 | [PR #19](https://github.com/Zwhao0/GREYHOUND_online/pull/19)，Issue #17 CLOSED |
+| G1-04 | **限定范围 PASS / MERGED**：训练期间Host因果区间 | [PR #22](https://github.com/Zwhao0/GREYHOUND_online/pull/22)，[独立审核](https://github.com/Zwhao0/GREYHOUND_online/pull/22#issuecomment-6310090904)，Issue #20 CLOSED |
+| **G1 总 Gate** | **PASS_SCOPED_OBSERVABILITY** | 已证实**固定两机健康 dense DDP** 的Rank/Collective实例对齐、可追溯的被动Host事件采集和事件级有界时间区间；**不是故障定位或生产级验收** |
+| **G2/G3/G4** | **BLOCKED_PENDING_EXPLICIT_USER_APPROVAL / NOT_STARTED** | 不允许自动故障注入、Rank原发归因或在线化 |
 
-G1-04首次控制地址错误、第一次纠错TCP预检的启动竞态均保留独立失败证据。用户要求继续定位后，确认client因模型/工具回合晚于source deadline；同一进程编排与监听屏障修复，真实两节点CPU/TCP预检2373对四时戳核验PASS，非训练校准。`g1_04_causal.py`冻结未改。
+## G1 最终客观证据和边界
 
-经[独立审核授权](https://github.com/Zwhao0/GREYHOUND_online/pull/22#issuecomment-6308753247)、预检PASS及共享资源低负载检查，**只追加一次**健康两节点4Rank plugin：原Torch2.14.1+cu130/NCCL2.30.7/Profiler v4 DSO与原合成5warmup+30steps负载不变。两训练launcher/两侧车均exit0；106637对四时戳覆盖4/4审计活动窗；70实例、280个真实Host begin事件。
+- 两台共享 H800，Torch **2.14.1+cu130** / NCCL **2.30.7** / 官方example实际 **Profiler v4**；真实4Rank健康DDP；固定单WORLD，观察到的 **70个4侧匹配Collective**。G1-03逐Rank已回调的Group70/Coll70/KernelCh553计数自洽，仅callback内部已计数drop/reject=0，**不等于上游全集零丢失**。
+- G1-04第一次启动控制地址错误、第一次CPU纠错预检启动竞态，均留[失败报告](docs/G1-04-RESULTS.md)与[纠错报告](docs/G1-04-CORRECTION.md)。随后已授权的一次纠错GPU实验，侧车与DDP退出0；106637组真实双端四时间戳，观察的280个Host begin事件全部具有 **≤1ms区间半宽** 的可追溯时间包络，source半宽p50/p95/max **0.511319/0.526649/0.583573ms**；69个连续4Rank AllReduce满足预算。[公开逐事件证据](docs/evidence/g1-04-correction-summary.json)。
+- 独立审核重算了140个source事件所引用的four-stamp因果上下界、各Rank半宽统计与280次跨节点区间排序：**16 BEFORE / 68 AFTER / 196 OVERLAP_OR_UNKNOWN**（70%先后不确定）。**1ms是包络半宽上界，不是独立真值残差；仅覆盖实际观察事件，不保证整个时间轴。** Host callback不是GPU kernel执行/完成。
+- G1-04最终 [DOC/100项CPU CI PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39557871658)；本阶段真实GPU结果基于Codex可追溯归档而非ChatGPT在H800上独立重跑。
+- **尚未解决**：原发Rank/受害Rank可区分性、真实注入定位精度、step→Coll、跨GPU绝对时钟、共同漏采/上游事件缺失、GPU timer ring、长期生产fail-open及真正的低开销SLA。G1-01单次共享窗口p50曾额外+6.1%～7.5%；后续实验混杂，当前开销 INCONCLUSIVE，不能宣称≤2%。
 
-**280/280 BOUNDED，1/5/10ms预算覆盖100%，映射不可用0%；source140事件因果半宽p50/p95/max 0.511319/0.526649/0.583573ms；69个连续4Rank AllReduce满足1ms。** 跨节点严格先后仍196/280=70%区间重叠UNKNOWN。区间半宽不是独立真值误差；全窗被夹住不等于全时间轴≤1ms（最大采样间隙约20ms）。
+## 下一动作
 
-DOC/CPU本地100项PASS；纠错代码/证据提交 `4deec9662ad318174cc8e656aba72c6ae4da4c50`，最终HEAD CI见PR；CPU fixture及真实事件由指定luna/sol分工独立核对。GPU/MULTINODE：本次健康DDP及观察事件Host包络限定验证完成，不代表GPU同步。任务残留0、旧插件指纹未变、两节点各8个GPU应用保留。仅callback级已计数drop/reject为0；全集loss/GPU ring/生产fail-open等UNKNOWN。无baseline重跑，净增量开销INCONCLUSIVE，保留历史p50 +6.1%～7.5%风险。
-
-**建议提交G1限定Host映射Gate审核；当前仍IN_PROGRESS。唯一下一步：停止实验，等待ChatGPT独立审核PR #22。** 不自行合并、关闭Issue、判G1 PASS、追加GPU轮次、故障注入、原发定位或进入G2。
+**不再追加G1/G0验证。** 建议转为G2独立真值的少量盲测先导实验，以快速证伪“原发Rank可由已有观测信号区分”的假设；但用户此前明确要求 **未批准不得进入 G2、故障注入或原发Rank定位**。因此**当前没有获授权可运行的G2任务**，需用户明确批准且隔离独占测试安全条件满足后才能创建并执行G2 Issue。Codex仅保持仓库与私有证据安全，不得自行开始实验。
