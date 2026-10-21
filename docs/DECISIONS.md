@@ -46,3 +46,9 @@ GREYHOUND detector 许可证尚未核实；暂不复制源码。可以读论文�
 ## DEC-007 — 2026-10-20：Codex 双层子智能体分工（用户明确批准）
 
 主Codex负责方案整合、实际GPU操作和最终PR/证据；可以并行委派任务以减少主窗口上下文。**GPT 6 luna max**优先执行简单、机械、重复任务；仅在其失败或任务确有复杂性时升级 **GPT 6.1 sol medium**；主窗口可决定是否需要子智能体，避免为了分工制造额外工作。子智能体回报简短结论、变更与证据，遵守AGENTS授权与安全规则，不得自行跨Gate、GPU越权或同时修改HANDOFF/STATUS。
+
+## DEC-008 — 2026-10-21：G2-01 受控盲测明确授权
+
+- G1 已限定观测可行性 PASS，不证明原发Rank定位。用户明确批准 G2-01 和**隔离合成训练任务**上的有限真实Fail-Slow注入；此前 G2 禁止条款对[Issue #24](https://github.com/Zwhao0/GREYHOUND_online/issues/24) 不再适用。
+- 以8个独立真值的20ms pre-backward慢Rank episode和健康对照，先验证盲测识别能力；最多一次健康、一轮注入，失败如实NO_GO/INCONCLUSIVE，不重复G0/G1或建设完整在线系统。
+- 不授权影响共租训练、改生产模型/框架/NCCL核心/宿主驱动、泄露私有资料或跳到G3；G2总Gate仍需充分重复和独立审核。细节仅由Issue记录，HANDOFF/STATUS保持简洁。
