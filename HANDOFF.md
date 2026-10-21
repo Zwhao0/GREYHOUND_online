@@ -3,7 +3,7 @@
 2026-10-21（Asia/Shanghai）。以[main](https://github.com/Zwhao0/GREYHOUND_online)、Issue/PR/CI为事实源。
 
 - G0限定范围PASS；G1-01 [PR #13](https://github.com/Zwhao0/GREYHOUND_online/pull/13) scoped PASS已合并；G1-02 [PR #16](https://github.com/Zwhao0/GREYHOUND_online/pull/16) CPU/DOC PARTIAL已接收。
-- **G1-03候选PARTIAL，未合并、待独立审核**：[Issue #17](https://github.com/Zwhao0/GREYHOUND_online/issues/17)、[详细报告](docs/G1-03-RESULTS.md)、[脱敏实测](docs/evidence/g1-03-summary.json)。最终HEAD/CI见本轮Draft PR。
+- **G1-03候选PARTIAL，未合并、待独立审核**：[Issue #17](https://github.com/Zwhao0/GREYHOUND_online/issues/17)、[详细报告](docs/G1-03-RESULTS.md)、[脱敏实测](docs/evidence/g1-03-summary.json)。[Draft PR #19](https://github.com/Zwhao0/GREYHOUND_online/pull/19)；代码提交 `6a933600b7214c083c12ac709231089288edeeb0`，最终HEAD/CI见PR。
 - 固定Torch2.14.1/NCCL2.30.7/v4；一次无插件baseline+一次仪表化example的两节点健康4Rank均exit0。callback逐类计数/导出自洽，70实例匹配；end-to-end loss/ring覆盖UNKNOWN。
 - 真实Host控制片段16/16 BOUNDED（半宽0.378～0.682ms）；训练窗口半宽33.279s、无连续漂移界，**UNSAFE_TO_SUBTRACT**。Host不等于GPU同步。唯一阻断：训练窗可用精度的Host映射。
 - 本地58项CPU/DOC PASS；本次真实GPU/MULTINODE健康测试限定PASS。净额外开销INCONCLUSIVE，保留历史6%～8%风险。原插件/venv不变，任务剩余进程0，原驻留GPU任务仍在。
