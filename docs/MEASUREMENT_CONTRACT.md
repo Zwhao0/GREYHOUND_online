@@ -83,3 +83,13 @@ G0-02整体为PARTIAL：真实NCCL字段链可用，但DDP和step分位数未验
 [结果说明](G1-01-RESULTS.md)、[真实汇总](evidence/g1-01-summary.json)和[逐键结果](evidence/g1-01-matches.json)记录两节点4 Rank的Torch2.14.1+cu130/CUDA13.0/NCCL2.30.7、实际官方Profiler v4。单PID唯一WORLD的完整init/finalize，与Torch WORLD成员/launch global-local rank/私有GPU UUID交叉核对后，按run+epoch+comm+operation+seq匹配70个四Rank实例；每Rank70 Coll、553 GPU channel正序非零计时。观察键并集中缺侧、重复、metadata/成员冲突0，**不是全历史零drop**。CPU脚本会隔离孤立/重复/歧义begin污染的实例，不靠时间匹配。
 
 沿用已审v4 example的Host相对CLOCK_MONOTONIC与GPU globaltimer分域，未做跨节点绝对差；step→Coll、root、精确drop/共同遗漏、未观察操作、因果 UNKNOWN，Proxy未采，未实现通用communicator重建。30-step一次共享环境对照p50约+6%～8%，不证明稳定≤2%或生产fail-open。G0历史结果保持；G1总Gate等待独立审核。
+
+## 9. G1-02 CaptureQuality v1（CPU 候选）
+
+[离线工具](../tools/g1_02_capture_quality.py)与[结果](G1-02-RESULTS.md)只评估输入证据能力，不证明线上采集全量无损。机器输出的 `OBSERVED` 是实际文件记录，`MISSING` 是导出内部槽/配对缺侧，`UNKNOWN` 是未观测/无法界定。采集工具分类为 CPU_OFFLINE_CAPTURE_QUALITY_ONLY；报告注明输入为 G1-01 真实归档或 synthetic fixture，均不能标新 GPU/MULTINODE PASS。
+
+- 身份沿用 v1 manifest 的 run/epoch/rank/完整 init-derived world inventory；公开输出用别名及输入 SHA256，不公开 PID/path/commHash。身份前置条件失败必须使跨Rank关联 UNKNOWN。
+- per-op seq 按 communicator + operation 分开；输出 observed/paired/duplicates/内部 gap ranges。首尾 seq 只界定导出内部范围；共同遗漏、未出现的操作、active window 和头尾覆盖 UNKNOWN。
+- Coll、Group、KernelCh、Proxy分别输出观察/配对；一个事件类或池的计数不得升级成全事件类型完整性。attempted/emitted/dropped/overwritten/flush必须有逐类、逐窗口来源，缺失记 UNKNOWN；文件 parse 成功仅证明 export 可读。
+- 时间必须携带域/单位/来源/校准/不确定度/有效窗口。实测 Host relative/GPU raw/step elapsed 分开；无校准输出 UNSAFE_TO_SUBTRACT。合成 BOUNDED 仅验证声明的区间数学；不产生现场 CALIBRATED。
+- 任何内部 seq gap 只证明声明的序号空间中缺少导出槽，不能断言一定发生池丢弃，也不等价于训练未执行。无 gap 不能断言无损。

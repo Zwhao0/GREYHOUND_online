@@ -1,0 +1,782 @@
+{
+  "classification": "CPU_OFFLINE_CAPTURE_QUALITY_ONLY",
+  "inputs": {
+    "manifest_sha256": "26e4eea55f72a9c59777b214c60f6898c7d3891e37eec236874da5dded9b646e",
+    "trace_paths_included": false
+  },
+  "interpretation": {
+    "common_sequence_omissions": "UNKNOWN",
+    "continuous_sequences_do_not_prove_completeness": true,
+    "head_coverage": "UNKNOWN",
+    "raw_exported_window_vs_collector_active_window": "UNKNOWN",
+    "same_gap_on_all_ranks_does_not_prove_common_collector_loss": true,
+    "sequence_gap_meaning": "MISSING_EXPORTED_SEQUENCE_SLOTS_NOT_PROVEN_COLLECTOR_DROPS",
+    "tail_coverage": "UNKNOWN",
+    "unobserved_event_classes": {
+      "Proxy": "UNKNOWN"
+    },
+    "unobserved_operations": "UNKNOWN"
+  },
+  "rank_epoch": "REDACTED",
+  "ranks": [
+    {
+      "bad_pid_event_count": 0,
+      "clocks": {
+        "gpu_channel": {
+          "actual_cross_rank_comparable": false,
+          "calibration": "UNKNOWN",
+          "domain": "GPU_GLOBALTIMER",
+          "domain_id": "UNKNOWN",
+          "epoch": "UNKNOWN",
+          "provenance": {
+            "abi": "https://github.com/NVIDIA/nccl/blob/73cf112295c33aee2b895f329f592f2a9b4b0f97/src/plugin/profiler/profiler_v4.cc#L64-L68",
+            "captured_evidence": "docs/G1-01-RESULTS.md",
+            "export": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/print_event.c#L109-L126",
+            "host": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/plugin.c#L41-L44"
+          },
+          "reasons": [
+            "no measured cross-rank alignment/error bound; existing trace origins and independent-control timestamps were not captured"
+          ],
+          "semantics": "raw per-GPU globaltimer channel-work timestamps, not complete kernel launch times",
+          "status": "UNSAFE",
+          "test_classification": "CPU",
+          "uncertainty": "UNKNOWN",
+          "unit": "ns",
+          "usable_for_cross_rank": false
+        },
+        "host": {
+          "actual_cross_rank_comparable": false,
+          "calibration": "UNKNOWN",
+          "domain": "PROCESS_CLOCK_MONOTONIC_RELATIVE",
+          "domain_id": "UNKNOWN",
+          "epoch": "UNKNOWN",
+          "provenance": {
+            "abi": "https://github.com/NVIDIA/nccl/blob/73cf112295c33aee2b895f329f592f2a9b4b0f97/src/plugin/profiler/profiler_v4.cc#L64-L68",
+            "captured_evidence": "docs/G1-01-RESULTS.md",
+            "export": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/print_event.c#L109-L126",
+            "host": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/plugin.c#L41-L44"
+          },
+          "reasons": [
+            "no measured cross-rank alignment/error bound; existing trace origins and independent-control timestamps were not captured"
+          ],
+          "semantics": "per-process relative Host CLOCK_MONOTONIC; Chrome GPU category ts is also Host observation",
+          "status": "UNSAFE",
+          "test_classification": "CPU",
+          "uncertainty": "UNKNOWN",
+          "unit": "us",
+          "usable_for_cross_rank": false
+        },
+        "step": {
+          "actual_cross_rank_comparable": false,
+          "calibration": "UNKNOWN",
+          "domain": "CUDA_EVENT_DURATION",
+          "domain_id": "UNKNOWN",
+          "epoch": "UNKNOWN",
+          "provenance": {
+            "abi": "https://github.com/NVIDIA/nccl/blob/73cf112295c33aee2b895f329f592f2a9b4b0f97/src/plugin/profiler/profiler_v4.cc#L64-L68",
+            "captured_evidence": "docs/G1-01-RESULTS.md",
+            "export": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/print_event.c#L109-L126",
+            "host": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/plugin.c#L41-L44"
+          },
+          "reasons": [
+            "no measured cross-rank alignment/error bound; existing trace origins and independent-control timestamps were not captured"
+          ],
+          "semantics": "local GPU elapsed duration, not an absolute timestamp or Host/GPU alignment",
+          "status": "UNSAFE",
+          "test_classification": "CPU",
+          "uncertainty": "UNKNOWN",
+          "unit": "ms",
+          "usable_for_cross_rank": false
+        }
+      },
+      "collective_begin_issues": {},
+      "collector_active_window": "UNKNOWN",
+      "event_classes": {
+        "Coll": {
+          "attributed_begin_count": 70,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 70,
+          "observed_end_count": 70,
+          "paired_count": 70,
+          "pairing_issues": {}
+        },
+        "Group": {
+          "attributed_begin_count": 70,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 70,
+          "observed_end_count": 70,
+          "paired_count": 70,
+          "pairing_issues": {}
+        },
+        "KernelCh": {
+          "attributed_begin_count": 553,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 553,
+          "observed_end_count": 553,
+          "paired_count": 553,
+          "pairing_issues": {}
+        },
+        "Proxy": {
+          "attributed_begin_count": 0,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "UNKNOWN",
+          "observed_begin_count": 0,
+          "observed_end_count": 0,
+          "paired_count": 0,
+          "pairing_issues": {}
+        }
+      },
+      "exported_window": {
+        "clock_domain": "PROCESS_CLOCK_MONOTONIC_RELATIVE",
+        "first_ts": 271354.469971,
+        "last_ts": 909597.251953,
+        "maximum_ts": 909597.251953,
+        "minimum_ts": 271354.469971,
+        "status": "OBSERVED",
+        "timestamp_semantics": "RAW_EXPORTED_EVENT_TIMESTAMPS",
+        "unit": "us"
+      },
+      "identity": {
+        "comm_rank": 0,
+        "global_rank": 0,
+        "local_rank": 0,
+        "node_alias": "REDACTED"
+      },
+      "operations": [
+        {
+          "communicator_alias": "world",
+          "duplicate_seq_count": 0,
+          "gap_interpretation": "MISSING_EXPORTED_SEQUENCE_SLOTS; NOT_PROVEN_COLLECTOR_DROPS",
+          "internal_seq_gap_ranges": [],
+          "missing_exported_sequence_slot_count": 0,
+          "observed_begin_count": 1,
+          "operation": "AllGather",
+          "paired_count": 1,
+          "pairing_issues": {},
+          "parser_issues": {},
+          "seq_max": 0,
+          "seq_min": 0,
+          "sequence_completeness_status": "UNKNOWN",
+          "sequence_status": "OBSERVED",
+          "unknown_sequence_begin_count": 0
+        },
+        {
+          "communicator_alias": "world",
+          "duplicate_seq_count": 0,
+          "gap_interpretation": "MISSING_EXPORTED_SEQUENCE_SLOTS; NOT_PROVEN_COLLECTOR_DROPS",
+          "internal_seq_gap_ranges": [],
+          "missing_exported_sequence_slot_count": 0,
+          "observed_begin_count": 69,
+          "operation": "AllReduce",
+          "paired_count": 69,
+          "pairing_issues": {},
+          "parser_issues": {},
+          "seq_max": 68,
+          "seq_min": 0,
+          "sequence_completeness_status": "UNKNOWN",
+          "sequence_status": "OBSERVED",
+          "unknown_sequence_begin_count": 0
+        }
+      ],
+      "quarantined_collective_begin_count": 0,
+      "telemetry": {
+        "attempted": "UNKNOWN",
+        "basis": "No explicit source with event-class and window scope was accepted",
+        "dropped": "UNKNOWN",
+        "emitted": "UNKNOWN",
+        "flush": "UNKNOWN",
+        "overwritten": "UNKNOWN",
+        "scope": "ALL_CLASSES_UNOBSERVED"
+      },
+      "trace_input": {
+        "completeness_status": "UNKNOWN",
+        "export_failure": null,
+        "parse_status": "OBSERVED_SUCCESS",
+        "producer_flush_status": "UNKNOWN",
+        "sha256": "9f09706c3c8c3ce3f29210d8b9329fc55b3f9d13834ceeab4fb039eb1dd6ea41"
+      },
+      "unattributed_collective_begin_count": 0,
+      "unclassified_event_count": 0
+    },
+    {
+      "bad_pid_event_count": 0,
+      "clocks": {
+        "gpu_channel": {
+          "actual_cross_rank_comparable": false,
+          "calibration": "UNKNOWN",
+          "domain": "GPU_GLOBALTIMER",
+          "domain_id": "UNKNOWN",
+          "epoch": "UNKNOWN",
+          "provenance": {
+            "abi": "https://github.com/NVIDIA/nccl/blob/73cf112295c33aee2b895f329f592f2a9b4b0f97/src/plugin/profiler/profiler_v4.cc#L64-L68",
+            "captured_evidence": "docs/G1-01-RESULTS.md",
+            "export": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/print_event.c#L109-L126",
+            "host": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/plugin.c#L41-L44"
+          },
+          "reasons": [
+            "no measured cross-rank alignment/error bound; existing trace origins and independent-control timestamps were not captured"
+          ],
+          "semantics": "raw per-GPU globaltimer channel-work timestamps, not complete kernel launch times",
+          "status": "UNSAFE",
+          "test_classification": "CPU",
+          "uncertainty": "UNKNOWN",
+          "unit": "ns",
+          "usable_for_cross_rank": false
+        },
+        "host": {
+          "actual_cross_rank_comparable": false,
+          "calibration": "UNKNOWN",
+          "domain": "PROCESS_CLOCK_MONOTONIC_RELATIVE",
+          "domain_id": "UNKNOWN",
+          "epoch": "UNKNOWN",
+          "provenance": {
+            "abi": "https://github.com/NVIDIA/nccl/blob/73cf112295c33aee2b895f329f592f2a9b4b0f97/src/plugin/profiler/profiler_v4.cc#L64-L68",
+            "captured_evidence": "docs/G1-01-RESULTS.md",
+            "export": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/print_event.c#L109-L126",
+            "host": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/plugin.c#L41-L44"
+          },
+          "reasons": [
+            "no measured cross-rank alignment/error bound; existing trace origins and independent-control timestamps were not captured"
+          ],
+          "semantics": "per-process relative Host CLOCK_MONOTONIC; Chrome GPU category ts is also Host observation",
+          "status": "UNSAFE",
+          "test_classification": "CPU",
+          "uncertainty": "UNKNOWN",
+          "unit": "us",
+          "usable_for_cross_rank": false
+        },
+        "step": {
+          "actual_cross_rank_comparable": false,
+          "calibration": "UNKNOWN",
+          "domain": "CUDA_EVENT_DURATION",
+          "domain_id": "UNKNOWN",
+          "epoch": "UNKNOWN",
+          "provenance": {
+            "abi": "https://github.com/NVIDIA/nccl/blob/73cf112295c33aee2b895f329f592f2a9b4b0f97/src/plugin/profiler/profiler_v4.cc#L64-L68",
+            "captured_evidence": "docs/G1-01-RESULTS.md",
+            "export": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/print_event.c#L109-L126",
+            "host": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/plugin.c#L41-L44"
+          },
+          "reasons": [
+            "no measured cross-rank alignment/error bound; existing trace origins and independent-control timestamps were not captured"
+          ],
+          "semantics": "local GPU elapsed duration, not an absolute timestamp or Host/GPU alignment",
+          "status": "UNSAFE",
+          "test_classification": "CPU",
+          "uncertainty": "UNKNOWN",
+          "unit": "ms",
+          "usable_for_cross_rank": false
+        }
+      },
+      "collective_begin_issues": {},
+      "collector_active_window": "UNKNOWN",
+      "event_classes": {
+        "Coll": {
+          "attributed_begin_count": 70,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 70,
+          "observed_end_count": 70,
+          "paired_count": 70,
+          "pairing_issues": {}
+        },
+        "Group": {
+          "attributed_begin_count": 70,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 70,
+          "observed_end_count": 70,
+          "paired_count": 70,
+          "pairing_issues": {}
+        },
+        "KernelCh": {
+          "attributed_begin_count": 553,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 553,
+          "observed_end_count": 553,
+          "paired_count": 553,
+          "pairing_issues": {}
+        },
+        "Proxy": {
+          "attributed_begin_count": 0,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "UNKNOWN",
+          "observed_begin_count": 0,
+          "observed_end_count": 0,
+          "paired_count": 0,
+          "pairing_issues": {}
+        }
+      },
+      "exported_window": {
+        "clock_domain": "PROCESS_CLOCK_MONOTONIC_RELATIVE",
+        "first_ts": 273994.759033,
+        "last_ts": 909585.55896,
+        "maximum_ts": 909585.55896,
+        "minimum_ts": 273994.759033,
+        "status": "OBSERVED",
+        "timestamp_semantics": "RAW_EXPORTED_EVENT_TIMESTAMPS",
+        "unit": "us"
+      },
+      "identity": {
+        "comm_rank": 1,
+        "global_rank": 1,
+        "local_rank": 1,
+        "node_alias": "REDACTED"
+      },
+      "operations": [
+        {
+          "communicator_alias": "world",
+          "duplicate_seq_count": 0,
+          "gap_interpretation": "MISSING_EXPORTED_SEQUENCE_SLOTS; NOT_PROVEN_COLLECTOR_DROPS",
+          "internal_seq_gap_ranges": [],
+          "missing_exported_sequence_slot_count": 0,
+          "observed_begin_count": 1,
+          "operation": "AllGather",
+          "paired_count": 1,
+          "pairing_issues": {},
+          "parser_issues": {},
+          "seq_max": 0,
+          "seq_min": 0,
+          "sequence_completeness_status": "UNKNOWN",
+          "sequence_status": "OBSERVED",
+          "unknown_sequence_begin_count": 0
+        },
+        {
+          "communicator_alias": "world",
+          "duplicate_seq_count": 0,
+          "gap_interpretation": "MISSING_EXPORTED_SEQUENCE_SLOTS; NOT_PROVEN_COLLECTOR_DROPS",
+          "internal_seq_gap_ranges": [],
+          "missing_exported_sequence_slot_count": 0,
+          "observed_begin_count": 69,
+          "operation": "AllReduce",
+          "paired_count": 69,
+          "pairing_issues": {},
+          "parser_issues": {},
+          "seq_max": 68,
+          "seq_min": 0,
+          "sequence_completeness_status": "UNKNOWN",
+          "sequence_status": "OBSERVED",
+          "unknown_sequence_begin_count": 0
+        }
+      ],
+      "quarantined_collective_begin_count": 0,
+      "telemetry": {
+        "attempted": "UNKNOWN",
+        "basis": "No explicit source with event-class and window scope was accepted",
+        "dropped": "UNKNOWN",
+        "emitted": "UNKNOWN",
+        "flush": "UNKNOWN",
+        "overwritten": "UNKNOWN",
+        "scope": "ALL_CLASSES_UNOBSERVED"
+      },
+      "trace_input": {
+        "completeness_status": "UNKNOWN",
+        "export_failure": null,
+        "parse_status": "OBSERVED_SUCCESS",
+        "producer_flush_status": "UNKNOWN",
+        "sha256": "623f84eb351648be700446abd7161a0e7ff5ea6d17631881e9b3bacbe6eb25df"
+      },
+      "unattributed_collective_begin_count": 0,
+      "unclassified_event_count": 0
+    },
+    {
+      "bad_pid_event_count": 0,
+      "clocks": {
+        "gpu_channel": {
+          "actual_cross_rank_comparable": false,
+          "calibration": "UNKNOWN",
+          "domain": "GPU_GLOBALTIMER",
+          "domain_id": "UNKNOWN",
+          "epoch": "UNKNOWN",
+          "provenance": {
+            "abi": "https://github.com/NVIDIA/nccl/blob/73cf112295c33aee2b895f329f592f2a9b4b0f97/src/plugin/profiler/profiler_v4.cc#L64-L68",
+            "captured_evidence": "docs/G1-01-RESULTS.md",
+            "export": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/print_event.c#L109-L126",
+            "host": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/plugin.c#L41-L44"
+          },
+          "reasons": [
+            "no measured cross-rank alignment/error bound; existing trace origins and independent-control timestamps were not captured"
+          ],
+          "semantics": "raw per-GPU globaltimer channel-work timestamps, not complete kernel launch times",
+          "status": "UNSAFE",
+          "test_classification": "CPU",
+          "uncertainty": "UNKNOWN",
+          "unit": "ns",
+          "usable_for_cross_rank": false
+        },
+        "host": {
+          "actual_cross_rank_comparable": false,
+          "calibration": "UNKNOWN",
+          "domain": "PROCESS_CLOCK_MONOTONIC_RELATIVE",
+          "domain_id": "UNKNOWN",
+          "epoch": "UNKNOWN",
+          "provenance": {
+            "abi": "https://github.com/NVIDIA/nccl/blob/73cf112295c33aee2b895f329f592f2a9b4b0f97/src/plugin/profiler/profiler_v4.cc#L64-L68",
+            "captured_evidence": "docs/G1-01-RESULTS.md",
+            "export": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/print_event.c#L109-L126",
+            "host": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/plugin.c#L41-L44"
+          },
+          "reasons": [
+            "no measured cross-rank alignment/error bound; existing trace origins and independent-control timestamps were not captured"
+          ],
+          "semantics": "per-process relative Host CLOCK_MONOTONIC; Chrome GPU category ts is also Host observation",
+          "status": "UNSAFE",
+          "test_classification": "CPU",
+          "uncertainty": "UNKNOWN",
+          "unit": "us",
+          "usable_for_cross_rank": false
+        },
+        "step": {
+          "actual_cross_rank_comparable": false,
+          "calibration": "UNKNOWN",
+          "domain": "CUDA_EVENT_DURATION",
+          "domain_id": "UNKNOWN",
+          "epoch": "UNKNOWN",
+          "provenance": {
+            "abi": "https://github.com/NVIDIA/nccl/blob/73cf112295c33aee2b895f329f592f2a9b4b0f97/src/plugin/profiler/profiler_v4.cc#L64-L68",
+            "captured_evidence": "docs/G1-01-RESULTS.md",
+            "export": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/print_event.c#L109-L126",
+            "host": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/plugin.c#L41-L44"
+          },
+          "reasons": [
+            "no measured cross-rank alignment/error bound; existing trace origins and independent-control timestamps were not captured"
+          ],
+          "semantics": "local GPU elapsed duration, not an absolute timestamp or Host/GPU alignment",
+          "status": "UNSAFE",
+          "test_classification": "CPU",
+          "uncertainty": "UNKNOWN",
+          "unit": "ms",
+          "usable_for_cross_rank": false
+        }
+      },
+      "collective_begin_issues": {},
+      "collector_active_window": "UNKNOWN",
+      "event_classes": {
+        "Coll": {
+          "attributed_begin_count": 70,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 70,
+          "observed_end_count": 70,
+          "paired_count": 70,
+          "pairing_issues": {}
+        },
+        "Group": {
+          "attributed_begin_count": 70,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 70,
+          "observed_end_count": 70,
+          "paired_count": 70,
+          "pairing_issues": {}
+        },
+        "KernelCh": {
+          "attributed_begin_count": 553,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 553,
+          "observed_end_count": 553,
+          "paired_count": 553,
+          "pairing_issues": {}
+        },
+        "Proxy": {
+          "attributed_begin_count": 0,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "UNKNOWN",
+          "observed_begin_count": 0,
+          "observed_end_count": 0,
+          "paired_count": 0,
+          "pairing_issues": {}
+        }
+      },
+      "exported_window": {
+        "clock_domain": "PROCESS_CLOCK_MONOTONIC_RELATIVE",
+        "first_ts": 271713.406982,
+        "last_ts": 909663.577881,
+        "maximum_ts": 909663.577881,
+        "minimum_ts": 271713.406982,
+        "status": "OBSERVED",
+        "timestamp_semantics": "RAW_EXPORTED_EVENT_TIMESTAMPS",
+        "unit": "us"
+      },
+      "identity": {
+        "comm_rank": 2,
+        "global_rank": 2,
+        "local_rank": 0,
+        "node_alias": "REDACTED"
+      },
+      "operations": [
+        {
+          "communicator_alias": "world",
+          "duplicate_seq_count": 0,
+          "gap_interpretation": "MISSING_EXPORTED_SEQUENCE_SLOTS; NOT_PROVEN_COLLECTOR_DROPS",
+          "internal_seq_gap_ranges": [],
+          "missing_exported_sequence_slot_count": 0,
+          "observed_begin_count": 1,
+          "operation": "AllGather",
+          "paired_count": 1,
+          "pairing_issues": {},
+          "parser_issues": {},
+          "seq_max": 0,
+          "seq_min": 0,
+          "sequence_completeness_status": "UNKNOWN",
+          "sequence_status": "OBSERVED",
+          "unknown_sequence_begin_count": 0
+        },
+        {
+          "communicator_alias": "world",
+          "duplicate_seq_count": 0,
+          "gap_interpretation": "MISSING_EXPORTED_SEQUENCE_SLOTS; NOT_PROVEN_COLLECTOR_DROPS",
+          "internal_seq_gap_ranges": [],
+          "missing_exported_sequence_slot_count": 0,
+          "observed_begin_count": 69,
+          "operation": "AllReduce",
+          "paired_count": 69,
+          "pairing_issues": {},
+          "parser_issues": {},
+          "seq_max": 68,
+          "seq_min": 0,
+          "sequence_completeness_status": "UNKNOWN",
+          "sequence_status": "OBSERVED",
+          "unknown_sequence_begin_count": 0
+        }
+      ],
+      "quarantined_collective_begin_count": 0,
+      "telemetry": {
+        "attempted": "UNKNOWN",
+        "basis": "No explicit source with event-class and window scope was accepted",
+        "dropped": "UNKNOWN",
+        "emitted": "UNKNOWN",
+        "flush": "UNKNOWN",
+        "overwritten": "UNKNOWN",
+        "scope": "ALL_CLASSES_UNOBSERVED"
+      },
+      "trace_input": {
+        "completeness_status": "UNKNOWN",
+        "export_failure": null,
+        "parse_status": "OBSERVED_SUCCESS",
+        "producer_flush_status": "UNKNOWN",
+        "sha256": "6c9d52a83060faa40fdfe6c5e2a207b2cd124a5e23b00bb5e39714960bcf015f"
+      },
+      "unattributed_collective_begin_count": 0,
+      "unclassified_event_count": 0
+    },
+    {
+      "bad_pid_event_count": 0,
+      "clocks": {
+        "gpu_channel": {
+          "actual_cross_rank_comparable": false,
+          "calibration": "UNKNOWN",
+          "domain": "GPU_GLOBALTIMER",
+          "domain_id": "UNKNOWN",
+          "epoch": "UNKNOWN",
+          "provenance": {
+            "abi": "https://github.com/NVIDIA/nccl/blob/73cf112295c33aee2b895f329f592f2a9b4b0f97/src/plugin/profiler/profiler_v4.cc#L64-L68",
+            "captured_evidence": "docs/G1-01-RESULTS.md",
+            "export": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/print_event.c#L109-L126",
+            "host": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/plugin.c#L41-L44"
+          },
+          "reasons": [
+            "no measured cross-rank alignment/error bound; existing trace origins and independent-control timestamps were not captured"
+          ],
+          "semantics": "raw per-GPU globaltimer channel-work timestamps, not complete kernel launch times",
+          "status": "UNSAFE",
+          "test_classification": "CPU",
+          "uncertainty": "UNKNOWN",
+          "unit": "ns",
+          "usable_for_cross_rank": false
+        },
+        "host": {
+          "actual_cross_rank_comparable": false,
+          "calibration": "UNKNOWN",
+          "domain": "PROCESS_CLOCK_MONOTONIC_RELATIVE",
+          "domain_id": "UNKNOWN",
+          "epoch": "UNKNOWN",
+          "provenance": {
+            "abi": "https://github.com/NVIDIA/nccl/blob/73cf112295c33aee2b895f329f592f2a9b4b0f97/src/plugin/profiler/profiler_v4.cc#L64-L68",
+            "captured_evidence": "docs/G1-01-RESULTS.md",
+            "export": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/print_event.c#L109-L126",
+            "host": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/plugin.c#L41-L44"
+          },
+          "reasons": [
+            "no measured cross-rank alignment/error bound; existing trace origins and independent-control timestamps were not captured"
+          ],
+          "semantics": "per-process relative Host CLOCK_MONOTONIC; Chrome GPU category ts is also Host observation",
+          "status": "UNSAFE",
+          "test_classification": "CPU",
+          "uncertainty": "UNKNOWN",
+          "unit": "us",
+          "usable_for_cross_rank": false
+        },
+        "step": {
+          "actual_cross_rank_comparable": false,
+          "calibration": "UNKNOWN",
+          "domain": "CUDA_EVENT_DURATION",
+          "domain_id": "UNKNOWN",
+          "epoch": "UNKNOWN",
+          "provenance": {
+            "abi": "https://github.com/NVIDIA/nccl/blob/73cf112295c33aee2b895f329f592f2a9b4b0f97/src/plugin/profiler/profiler_v4.cc#L64-L68",
+            "captured_evidence": "docs/G1-01-RESULTS.md",
+            "export": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/print_event.c#L109-L126",
+            "host": "https://github.com/NVIDIA/nccl/blob/593de54e52679b51428571c13271e2ea9f91b1b1/ext-profiler/example/plugin.c#L41-L44"
+          },
+          "reasons": [
+            "no measured cross-rank alignment/error bound; existing trace origins and independent-control timestamps were not captured"
+          ],
+          "semantics": "local GPU elapsed duration, not an absolute timestamp or Host/GPU alignment",
+          "status": "UNSAFE",
+          "test_classification": "CPU",
+          "uncertainty": "UNKNOWN",
+          "unit": "ms",
+          "usable_for_cross_rank": false
+        }
+      },
+      "collective_begin_issues": {},
+      "collector_active_window": "UNKNOWN",
+      "event_classes": {
+        "Coll": {
+          "attributed_begin_count": 70,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 70,
+          "observed_end_count": 70,
+          "paired_count": 70,
+          "pairing_issues": {}
+        },
+        "Group": {
+          "attributed_begin_count": 70,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 70,
+          "observed_end_count": 70,
+          "paired_count": 70,
+          "pairing_issues": {}
+        },
+        "KernelCh": {
+          "attributed_begin_count": 553,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "OBSERVED",
+          "observed_begin_count": 553,
+          "observed_end_count": 553,
+          "paired_count": 553,
+          "pairing_issues": {}
+        },
+        "Proxy": {
+          "attributed_begin_count": 0,
+          "completeness_status": "UNKNOWN",
+          "observation_status": "UNKNOWN",
+          "observed_begin_count": 0,
+          "observed_end_count": 0,
+          "paired_count": 0,
+          "pairing_issues": {}
+        }
+      },
+      "exported_window": {
+        "clock_domain": "PROCESS_CLOCK_MONOTONIC_RELATIVE",
+        "first_ts": 270582.472168,
+        "last_ts": 909707.983154,
+        "maximum_ts": 909707.983154,
+        "minimum_ts": 270582.472168,
+        "status": "OBSERVED",
+        "timestamp_semantics": "RAW_EXPORTED_EVENT_TIMESTAMPS",
+        "unit": "us"
+      },
+      "identity": {
+        "comm_rank": 3,
+        "global_rank": 3,
+        "local_rank": 1,
+        "node_alias": "REDACTED"
+      },
+      "operations": [
+        {
+          "communicator_alias": "world",
+          "duplicate_seq_count": 0,
+          "gap_interpretation": "MISSING_EXPORTED_SEQUENCE_SLOTS; NOT_PROVEN_COLLECTOR_DROPS",
+          "internal_seq_gap_ranges": [],
+          "missing_exported_sequence_slot_count": 0,
+          "observed_begin_count": 1,
+          "operation": "AllGather",
+          "paired_count": 1,
+          "pairing_issues": {},
+          "parser_issues": {},
+          "seq_max": 0,
+          "seq_min": 0,
+          "sequence_completeness_status": "UNKNOWN",
+          "sequence_status": "OBSERVED",
+          "unknown_sequence_begin_count": 0
+        },
+        {
+          "communicator_alias": "world",
+          "duplicate_seq_count": 0,
+          "gap_interpretation": "MISSING_EXPORTED_SEQUENCE_SLOTS; NOT_PROVEN_COLLECTOR_DROPS",
+          "internal_seq_gap_ranges": [],
+          "missing_exported_sequence_slot_count": 0,
+          "observed_begin_count": 69,
+          "operation": "AllReduce",
+          "paired_count": 69,
+          "pairing_issues": {},
+          "parser_issues": {},
+          "seq_max": 68,
+          "seq_min": 0,
+          "sequence_completeness_status": "UNKNOWN",
+          "sequence_status": "OBSERVED",
+          "unknown_sequence_begin_count": 0
+        }
+      ],
+      "quarantined_collective_begin_count": 0,
+      "telemetry": {
+        "attempted": "UNKNOWN",
+        "basis": "No explicit source with event-class and window scope was accepted",
+        "dropped": "UNKNOWN",
+        "emitted": "UNKNOWN",
+        "flush": "UNKNOWN",
+        "overwritten": "UNKNOWN",
+        "scope": "ALL_CLASSES_UNOBSERVED"
+      },
+      "trace_input": {
+        "completeness_status": "UNKNOWN",
+        "export_failure": null,
+        "parse_status": "OBSERVED_SUCCESS",
+        "producer_flush_status": "UNKNOWN",
+        "sha256": "74aa830e4cac1db7a14f1861629d7865009484472a048239f50f30b0fff270be"
+      },
+      "unattributed_collective_begin_count": 0,
+      "unclassified_event_count": 0
+    }
+  ],
+  "run_id": "REDACTED",
+  "schema_name": "CaptureQuality",
+  "schema_version": 1,
+  "summary": {
+    "all_capture_counters": "UNKNOWN",
+    "all_collector_active_windows": "UNKNOWN",
+    "all_producer_flush_status": "UNKNOWN",
+    "event_classes": {
+      "Coll": "OBSERVED",
+      "Group": "OBSERVED",
+      "KernelCh": "OBSERVED",
+      "Proxy": "UNKNOWN"
+    },
+    "expected_rank_count": 4,
+    "manifest_rank_count": 4,
+    "trace_parse_success_count": 4,
+    "trace_parse_unknown_count": 0
+  },
+  "world": {
+    "communicator_alias": "world",
+    "communicator_alias_per_operation": "world",
+    "manifest_precondition_issues": [],
+    "member_global_ranks": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "membership_status": "VERIFIED",
+    "world_size": 4
+  }
+}
