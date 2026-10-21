@@ -77,3 +77,9 @@ G0-02整体为PARTIAL：真实NCCL字段链可用，但DDP和step分位数未验
 [真实摘要](evidence/g0-03-summary.json)覆盖一组共享单机DDP：实际Torch2.7/NCCL2.25.1/官方profiler v2，两DDP PID的DSO指纹和同进程版本查询、插件maps/ABI日志均已核对。两rank各94条Coll按run+commHash+type+seq匹配，并核对count/dtype；单WORLD PG0成员[0,1]的关联基于同PID唯一comm初始化/单commHash，不是通用PG映射；NCCL日志commId不当作CommHash。
 
 每rank 40个真实CUDA-event step值及p50/p95已采，Host dispatch独立计时。只在warmup/测量末尾同步，无每步强制同步。v2 collector Host时钟是gettimeofday估频的RDTSC相对微秒，不能沿用v4 CLOCK_MONOTONIC假设；本次Host Coll-only不是GPU执行时间，v2 KernelCh/pTimer UNSUPPORTED。step→Coll UNKNOWN，Proxy未启用，精确drop/全历史/因果/跨机及fail-open仍未验证。原始GPU channel缺失与训练step GPU计时可用是两个不同结论。
+
+## 8. G1-01 新栈双节点观测（候选待审）
+
+[结果说明](G1-01-RESULTS.md)、[真实汇总](evidence/g1-01-summary.json)和[逐键结果](evidence/g1-01-matches.json)记录两节点4 Rank的Torch2.14.1+cu130/CUDA13.0/NCCL2.30.7、实际官方Profiler v4。单PID唯一WORLD的完整init/finalize，与Torch WORLD成员/launch global-local rank/私有GPU UUID交叉核对后，按run+epoch+comm+operation+seq匹配70个四Rank实例；每Rank70 Coll、553 GPU channel正序非零计时。观察键并集中缺侧、重复、metadata/成员冲突0，**不是全历史零drop**。CPU脚本会隔离孤立/重复/歧义begin污染的实例，不靠时间匹配。
+
+沿用已审v4 example的Host相对CLOCK_MONOTONIC与GPU globaltimer分域，未做跨节点绝对差；step→Coll、root、精确drop/共同遗漏、未观察操作、因果 UNKNOWN，Proxy未采，未实现通用communicator重建。30-step一次共享环境对照p50约+6%～8%，不证明稳定≤2%或生产fail-open。G0历史结果保持；G1总Gate等待独立审核。

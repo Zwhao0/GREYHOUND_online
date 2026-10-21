@@ -1,29 +1,25 @@
 # HANDOFF — Greenhound Online
 
-> 跨 ChatGPT / Codex 窗口的**简短入口**，不是历史手册。以 [GitHub main](https://github.com/Zwhao0/GREYHOUND_online) 及当前 Issue/PR 为准；草稿 PR 不算已合并。仅按任务需要展开其他文档。
+> 简短交接入口。以 GitHub main、当前 [Issue #9](https://github.com/Zwhao0/GREYHOUND_online/issues/9) 与 PR HEAD/CI 为准；以下 G1-01 是**候选未合并**，不能当成 Gate 放行。
 
-## 当前快照（2026-10-20，Asia/Shanghai）
+## 当前快照（2026-10-21，Asia/Shanghai）
 
-- **项目**：[Zwhao0/GREYHOUND_online](https://github.com/Zwhao0/GREYHOUND_online)（Public）；main HEAD / 新 PR / CI 均应实时回读，不把本文 SHA 当实时事实。
-- **Gate**：G0 **PASS（限定范围：单节点观测可行性）**；G1 **IN_PROGRESS、未通过**；G2/G3 未授权。
-- **唯一任务**：[G1-01 Issue #9](https://github.com/Zwhao0/GREYHOUND_online/issues/9)（OPEN）：升级到两台 H800 **实际兼容的较新官方 PyTorch/CUDA/NCCL/Profiler 组合**，最小单机 smoke 后继续**两节点健康 dense DDP 的被动 NCCL 事件采集及跨 Rank 对齐**。不新增升级 Gate、不重验 G0。
-- **执行状态**：本轮新软件栈升级和双节点 GPU 实测均 **NOT_RUN**；Codex 尚无 G1-01 执行 PR。以当前 GitHub 为准复核。
+- **Gate**：G0 限定范围 PASS，未重验；G1 IN_PROGRESS、待 ChatGPT 独立审核；G2/G3 未授权。
+- **任务**：G1-01 已完成隔离升级、一次2-rank最小 smoke、一次4-rank baseline及一次plugin（双机各5 warmup+30 steps）。候选满足本Issue的观测/匹配目标，Issue保持OPEN。
+- **分支 / PR**：`g1-01-multinode-profiler`，[Draft PR #13](https://github.com/Zwhao0/GREYHOUND_online/pull/13) OPEN/未合并；代码/证据HEAD `79d59354d57da391f4831501876b81aff9d877b2`，base main `6ec44426cd18342d441bf34c9eda2f3e0f22782d`。本交接提交仅更新文档，最新HEAD以PR为准。
+- **实测**：Torch2.14.1+cu130 / CUDA runtime13.0.96 / NCCL2.30.7 / 官方Profiler实际v4；四Rank70个Collective实例匹配，每Rank553组GPU channel。单次短窗step p50约 **+6.1%～7.5%**，不宣称≤2% SLA。
+- **测试**：本地DOC PASS；9项CPU fixture及真实trace解析PASS；GPU smoke和MULTINODE运行候选PASS；[代码/证据HEAD CI PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39457160530)，仅DOC/CPU；最新交接HEAD检查见PR。主窗口已结束GPU实验，无本项目训练进程残留。
+- **资源授权**：用户确认两台H800持续共享，允许本项目私有环境升级和有限测试，无需逐项重复申请。本轮只用私有venv，driver580.178.04/全局环境未改，未停止他人作业。
 
-## 关键证据与边界
+## 下一唯一动作
 
-- G0-02：[PR #5](https://github.com/Zwhao0/GREYHOUND_online/pull/5)，NCCL 微基准 2.28.3 / Profiler v4、2 Rank 的 87 对 AllReduce（PARTIAL 已接收）。
-- G0-03：[PR #8](https://github.com/Zwhao0/GREYHOUND_online/pull/8)，真实单节点 2×H800 DDP，Torch 2.7 / NCCL 2.25.1 / Profiler v2、94 对 Collective、40 step 计时（PASS）。旧版本实验**不能证明新版/双机兼容**。
-- **未证实**：双机跨 Rank 事件、跨节点时钟、Proxy、精确丢失、原发/等待因果归因、长期低开销/fail-open；不得写 PASS。
-- **用户授权**：可在**本项目两台 H800 测试资源**的隔离容器/私有目录选择和升级 PyTorch、CUDA 用户态、NCCL、Profiler，必要时使用已许可的 Docker/sudo 客户端；先核实节点与共租安全。**不得**擅自改宿主驱动/全局依赖、重启、影响他人训练、注入故障、开发根因定位或进入 G2。Public 仓库不得提交私有主机/网络/日志/密钥；GREYHOUND detector 许可证不明，不复制源码。
+**等待 ChatGPT 独立审核 [Draft PR #13](https://github.com/Zwhao0/GREYHOUND_online/pull/13) 的最新HEAD、CI和实验报告。**不追加GPU轮次、不重验G0、不新增升级Gate、不自行merge/关闭Issue或进入G2。
 
-## 下一步（只做这一件）
+审核时先读 [STATUS.md](STATUS.md)、Issue #9和实际 Draft PR/CI；需要技术证据再读 [G1-01实验报告](docs/G1-01-RESULTS.md)、[脱敏实测汇总](docs/evidence/g1-01-summary.json)、[逐键匹配](docs/evidence/g1-01-matches.json)。它们包含原始step数组、DSO/文件SHA、身份映射、资源收尾和回退，不在本文复制。
 
-- **Codex 主窗口**：执行 [Issue #9](https://github.com/Zwhao0/GREYHOUND_online/issues/9) 的版本预检→隔离升级→单机兼容 smoke→两节点健康 DDP+Profiler→事件对齐；提交**一个 Draft PR**，含脱敏 GPU/CI 证据，并在同一 PR 更新本文件与 STATUS；停止待 ChatGPT 审核。
-- **子智能体**：简单重复任务用 GPT 6 luna max；难题或其不能完成者用 GPT 6.1 sol medium。主 Codex 负责权限、集成和 GPU 真实性（见 [AGENTS.md](AGENTS.md)）。
-- **ChatGPT 新窗口**：读取**本文、[STATUS](STATUS.md)、[当前 Issue #9](https://github.com/Zwhao0/GREYHOUND_online/issues/9)及实际开放 PR/CI**；只在需要技术判断时打开其他文档，独立验收，不擅自跨 Gate。
+## 关键边界与导航
 
-## 按需查询（不全部预读）
-
-- [STATUS.md](STATUS.md)：当前 Gate / 验证状态 / 证据导航；[AGENTS.md](AGENTS.md)：长期规则 / 子智能体。
-- [ROADMAP.md](ROADMAP.md)：阶段入口与出口；[docs/DECISIONS.md](docs/DECISIONS.md)：长期决策；[docs/MEASUREMENT_CONTRACT.md](docs/MEASUREMENT_CONTRACT.md)：字段/时钟语义。
-- [docs/G0-01-AUDIT.md](docs/G0-01-AUDIT.md)、[G0-02 证据](docs/evidence/g0-02-summary.json)、[G0-03 证据](docs/evidence/g0-03-summary.json)：详细历史和真实数据。**不要把其全文复制进交接文件**。
+- 70个匹配仅覆盖观察键并集；精确drop/共同遗漏/全历史、绝对校时、step→Coll、root、原发/受害因果 UNKNOWN；Proxy未采。没有根因算法或在线服务，也未验证生产fail-open。
+- 共享短窗方向性开销不等于稳定低开销；公开仅别名/统计/数组/哈希，原始私有日志按报告留存。禁止故障注入、主动诊断collective、生产改造、擅改驱动/停他人作业、发布机密或复制许可未明源码。
+- 历史G0：[PR #5](https://github.com/Zwhao0/GREYHOUND_online/pull/5)微基准PARTIAL；[PR #8](https://github.com/Zwhao0/GREYHOUND_online/pull/8)单机DDP PASS/MERGED。历史版本不能当新版证据。
+- 规则/阶段/技术按需读 [AGENTS.md](AGENTS.md)、[ROADMAP.md](ROADMAP.md)、[测量契约](docs/MEASUREMENT_CONTRACT.md)、[来源许可](docs/SOURCES_AND_LICENSES.md)。本轮实际使用GPT6 luna max做脚本/fixture/机械核对，GPT6.1 sol medium做ABI/映射审查；主窗口负责GPU与提交，代码预检不替代ChatGPT审核。

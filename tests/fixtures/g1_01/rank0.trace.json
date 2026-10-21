@@ -1,0 +1,9 @@
+[
+  {"name":"AllReduce","cat":"COLL","ph":"b","id":0,"pid":42137,"tid":1,"ts":100.0,"args":{"SeqNum":7,"CommHash":117001,"Rank":0,"Count":4096,"Datatype":"float32","Algorithm":"Ring","Protocol":"Simple","nChannels":4}},
+  {"name":"AllReduce","cat":"COLL","ph":"e","id":0,"pid":42137,"tid":1,"ts":121.0},
+  {"name":"AllGather","cat":"COLL","ph":"b","id":1,"pid":42137,"tid":1,"ts":140.0,"args":{"SeqNum":3,"CommHash":117001,"Rank":0,"Count":128,"Datatype":"int64","Algorithm":"Ring","Protocol":"LL","nChannels":2}},
+  {"name":"AllGather","cat":"COLL","ph":"e","id":1,"pid":42137,"tid":1,"ts":155.0},
+  {"name":"KernelCh","cat":"GPU","ph":"b","id":0,"pid":42137,"tid":1,"ts":101.0,"args":{"Channel":0,"StartGpuClk":500,"StopGpuClk":800}},
+  {"name":"KernelCh","cat":"GPU","ph":"e","id":0,"pid":42137,"tid":1,"ts":120.0},
+  {}
+]
