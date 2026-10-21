@@ -1,0 +1,113 @@
+{
+  "schema": "g1-04-correction-preflight-v1",
+  "classification": "REAL_TWO_NODE_CPU_NETWORK_PREFLIGHT_ATTEMPT",
+  "date": "2026-10-21",
+  "review_authorization": "https://github.com/Zwhao0/GREYHOUND_online/pull/22#issuecomment-6308753247",
+  "status": "FAIL",
+  "candidate_status": "PARTIAL",
+  "run_alias": "g104-network-preflight",
+  "epoch_alias": "correction-1",
+  "network_attempts": 1,
+  "additional_gpu_attempts": 0,
+  "training_calibration": false,
+  "preflight_proof": "NOT_CREATED",
+  "configured_limits": {
+    "duration_s": 2,
+    "deadline_s": 30,
+    "max_samples": 120000,
+    "minimum_request_interval_s": 0.0005,
+    "max_file_bytes": 67108864
+  },
+  "endpoint_roles": "DDP_MASTER_ADDR and CONTROL_SOURCE_ADDR distinct; live interface ownership independently observed",
+  "failure_scope": "No complete TCP four-stamp exchange. Static endpoint roles agree with intended hosts; reachability/startup failure cause unresolved.",
+  "complete_four_stamps": 0,
+  "new_training_host_events": 0,
+  "half_width_ns": {
+    "n": 0,
+    "p50": null,
+    "p95": null,
+    "max": null
+  },
+  "ranks_evidence": "NO_ADDITIONAL_TRAINING_RUN",
+  "nodes": [
+    {
+      "node_alias": "node-a",
+      "role": "reference/client",
+      "control_exit": 1,
+      "error": "CONNECTION_REFUSED",
+      "complete_four_stamps": 0,
+      "ready": false,
+      "input_log_sha256": "773dd70b24b2eb3639eecc0ed4466ff99c1114504783f74b99a31fd19b8a5077",
+      "exit_sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "executed_sources_sha256": {
+        "g1_04_control.py": "f83c010c49b102edca76854b08a66e15c69499a879ef9ee02d0b443d2e2b8090",
+        "g1_03_host_clock.py": "53c6c4276626ad03dacfb5cee25eaf13445f27deb5f2cdb11cf01c06fd6ab652",
+        "g1_04_preflight.py": "6846a90917ba3a691fcbfce602709b5ab5c6deaeeac0e2a970a61b7709e54be8",
+        "g1_04_sidecar.sh": "a31ffea1f1c330d6f0ab578da6ee80fed7a02855329949b54abf37a366774a70"
+      },
+      "endpoint_observation": {
+        "ddp_master_is_local": true,
+        "control_source_is_local": false,
+        "control_route_is_local": false
+      },
+      "postflight": {
+        "own_wrapper_remaining": 0,
+        "task_processes_remaining": 0,
+        "gpu_or_training_started": false,
+        "capture_plugin_directory_absent": true,
+        "private_preflight_bytes": 40310
+      }
+    },
+    {
+      "node_alias": "node-b",
+      "role": "source/server",
+      "control_exit": 1,
+      "error": "ACCEPT_TIMEOUT",
+      "complete_four_stamps": 0,
+      "ready": false,
+      "input_log_sha256": "e5034ffb99f7d483d7866b20d4a789777d335a3a959d83cb0df3fbe996a572dd",
+      "exit_sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "executed_sources_sha256": {
+        "g1_04_control.py": "f83c010c49b102edca76854b08a66e15c69499a879ef9ee02d0b443d2e2b8090",
+        "g1_03_host_clock.py": "53c6c4276626ad03dacfb5cee25eaf13445f27deb5f2cdb11cf01c06fd6ab652",
+        "g1_04_preflight.py": "6846a90917ba3a691fcbfce602709b5ab5c6deaeeac0e2a970a61b7709e54be8",
+        "g1_04_sidecar.sh": "a31ffea1f1c330d6f0ab578da6ee80fed7a02855329949b54abf37a366774a70"
+      },
+      "endpoint_observation": {
+        "ddp_master_is_local": false,
+        "control_source_is_local": true,
+        "control_route_is_local": true
+      },
+      "postflight": {
+        "own_wrapper_remaining": 0,
+        "task_processes_remaining": 0,
+        "gpu_or_training_started": false,
+        "capture_plugin_directory_absent": true,
+        "private_preflight_bytes": 40136
+      }
+    }
+  ],
+  "initial_failed_gpu_run": {
+    "preserved": true,
+    "public_summary_sha256": "ab99a6316f5e7e2d9b4e546886c453d245a7d0c4327b0fdaf452d6734af924ec",
+    "reviewed_head": "9339bd2f65d8678932662ed99b2e3f26e473c155",
+    "path": "docs/evidence/g1-04-summary.json"
+  },
+  "frozen_causal_sha256": "62d9216c1277fcd15a587dca3cd504697fef8aa4f7f47619fdd4e1824ffd115f",
+  "causal_algorithm_changed": false,
+  "source_sha256": {
+    "g1_04_control.py": "f83c010c49b102edca76854b08a66e15c69499a879ef9ee02d0b443d2e2b8090",
+    "g1_04_preflight.py": "6846a90917ba3a691fcbfce602709b5ab5c6deaeeac0e2a970a61b7709e54be8",
+    "g1_04_sidecar.sh": "a31ffea1f1c330d6f0ab578da6ee80fed7a02855329949b54abf37a366774a70",
+    "g1_04_run.sh": "c5b9c48c039a41a30efffcc03e0b47651326aeeeef973f74d23665de9741a6d8",
+    "g1_03_host_clock.py": "53c6c4276626ad03dacfb5cee25eaf13445f27deb5f2cdb11cf01c06fd6ab652"
+  },
+  "test_classifications": {
+    "CPU": "PASS",
+    "REAL_CPU_NETWORK_PREFLIGHT": "FAIL",
+    "GPU": "NOT_RUN_PREFLIGHT_FAILED",
+    "MULTINODE_DDP": "NOT_RUN_PREFLIGHT_FAILED"
+  },
+  "gate": "IN_PROGRESS_NOT_APPROVED",
+  "next_action": "STOP_FOR_INDEPENDENT_REVIEW_NO_GPU_RETRY"
+}

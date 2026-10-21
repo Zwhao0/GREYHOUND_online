@@ -1,4 +1,6 @@
-# G1-04 — 连续 Host 因果包络（候选 PARTIAL）
+# G1-04 — 首次运行的连续 Host 因果包络（历史 PARTIAL）
+
+> 本文保留首次失败事实。后续启动时序已修复且真实补证成功，当前结果与Gate建议见 [纠错报告](G1-04-CORRECTION.md)。
 
 2026-10-21（Asia/Shanghai），[Issue #20](https://github.com/Zwhao0/GREYHOUND_online/issues/20)。**候选 PARTIAL；不具备 G1 Gate 放行证据。** 一次健康双节点 4 Rank plugin 训练退出成功，但本次控制启动配置错误，未形成训练期间四时戳证据。没有追加 GPU 轮次；CPU 逻辑通过不补足真实映射缺口。
 

@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 """Bounded continuous private Host sidecar; independent of training and GPUs."""
 import argparse
+import os
+import tempfile
+from pathlib import Path
 import socket
 import time
-from g1_03_host_clock import metadata, now, _send, _remaining, _write_private
+from g1_03_host_clock import metadata, now, _send, _remaining, _write_private, _identity
 import json
 import math
+import hashlib
 
 MAX_SAMPLES = 120000
 MAX_BYTES = 64 * 1024 * 1024
@@ -25,7 +29,25 @@ def receive(sock, deadline):
             return json.loads(data), stamp
     raise ValueError('packet limit')
 
-def run(role, address, port, identity, duration, count, interval, timeout):
+def publish_ready(path, identity, peer, row):
+    # Hard-link publication is atomic and refuses an existing session marker.
+    path=Path(path)
+    with tempfile.NamedTemporaryFile(mode='w',dir=path.parent,delete=False) as f:
+        temp=Path(f.name)
+        start=Path('/proc/self/stat')
+        ticks=int(start.read_text().rsplit(')',1)[1].split()[19]) if start.exists() else None
+        json.dump(dict(status='CONTROL_READY',unit='ns',self=identity,peer=peer,first_exchange=row,process_start_ticks=ticks),f)
+    try:os.link(temp,path)
+    finally:temp.unlink()
+
+
+def check_peer(peer, identity, expected_node):
+    a,b=_identity(identity),_identity(peer)
+    if a[:2]!=b[:2] or peer['node']!=expected_node or a[2]==b[2] or a[5]==b[5]:
+        raise ValueError('peer run/epoch/node/boot identity mismatch')
+
+
+def run(role, address, port, identity, duration, count, interval, timeout, ready_output=None, expected_peer_node=None):
     if role not in {'client','server'} or type(count) is not int or any(type(x) not in (int,float) or not math.isfinite(x) for x in (duration,interval,timeout)):
         raise ValueError('invalid control parameters')
     if not 1 <= count <= MAX_SAMPLES or not 1 <= duration <= 100 or not .0005 <= interval <= 1 or not duration+5 <= timeout <= 120:
@@ -33,7 +55,7 @@ def run(role, address, port, identity, duration, count, interval, timeout):
     socket.inet_pton(socket.AF_INET,address)
     doc = dict(schema='g1-04-host-control-v1', classification='REAL_HOST_CONTROL',
                transport='INDEPENDENT_TCP_CONTROL', phase='continuous', unit='ns',
-               privacy='PRIVATE', exchanges=[], complete=False,
+               privacy='PRIVATE', exchanges=[], complete=False,collector_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),host_helper_sha256=hashlib.sha256(Path(__file__).with_name('g1_03_host_clock.py').read_bytes()).hexdigest(),
                limits=dict(duration_s=duration,count=count,interval_s=interval,timeout_s=timeout,max_bytes=MAX_BYTES))
     deadline=time.monotonic()+timeout
     listener=None
@@ -50,22 +72,30 @@ def run(role, address, port, identity, duration, count, interval, timeout):
             size=0
             for index in range(count):
                 if role=='client':
-                    request=dict(run=identity['run'],epoch=identity['epoch'],index=index,stop=time.monotonic()>=stop)
+                    request=dict(run=identity['run'],epoch=identity['epoch'],reference=identity,index=index,stop=time.monotonic()>=stop)
                     request['t1']=now();_send(connection,request,deadline)
                     response,t4=receive(connection,deadline)
                     if any(response.get(k)!=v for k,v in request.items()): raise ValueError('response mismatch')
                     if index and doc['source']!=response['source']: raise ValueError('source identity changed')
                     doc['source']=response['source']
+                    if expected_peer_node:check_peer(doc['source'],identity,expected_peer_node)
                     row={k:response[k] for k in ('index','t1','t2','t3')};row['t4']=t4
                 else:
                     request,t2=receive(connection,deadline)
                     if request.get('index')!=index or request.get('run')!=identity['run'] or request.get('epoch')!=identity['epoch']: raise ValueError('request mismatch')
+                    peer=request.get('reference')
+                    if expected_peer_node:check_peer(peer,identity,expected_peer_node)
+                    if index and doc['reference']!=peer:raise ValueError('reference identity changed')
+                    doc['reference']=peer
                     response={**request,'t2':t2,'source':identity};response['t3']=now()
                     _send(connection,response,deadline)
                     row={k:response[k] for k in ('index','t1','t2','t3')}
                 size+=len(json.dumps(row))+2
                 if size>MAX_BYTES: raise ValueError('file budget exceeded')
                 doc['exchanges'].append(row)
+                if index==0 and ready_output is not None:
+                    if not expected_peer_node:raise ValueError('readiness requires validated peer')
+                    publish_ready(ready_output,identity,doc['source' if role=='client' else 'reference'],row)
                 if request['stop']:
                     doc['complete']=True;doc['stop_reason']='DURATION_LIMIT';break
                 if role=='client': time.sleep(interval)
@@ -79,7 +109,9 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('role',choices=('server','client'));p.add_argument('--address',required=True);p.add_argument('--port',type=int,required=True)
     for k in ('run','epoch','node','output'):p.add_argument('--'+k,required=True)
+    p.add_argument('--ready-output',type=Path)
+    p.add_argument('--expected-peer-node',choices=('node-a','node-b'),required=True)
     p.add_argument('--duration',type=float,default=90);p.add_argument('--count',type=int,default=120000)
     p.add_argument('--interval',type=float,default=.0005);p.add_argument('--timeout',type=float,default=110)
-    a=p.parse_args();_write_private(a.output,run(a.role,a.address,a.port,metadata(a.run,a.epoch,a.node),a.duration,a.count,a.interval,a.timeout))
+    a=p.parse_args();_write_private(a.output,run(a.role,a.address,a.port,metadata(a.run,a.epoch,a.node),a.duration,a.count,a.interval,a.timeout,a.ready_output,a.expected_peer_node))
 if __name__=='__main__':main()

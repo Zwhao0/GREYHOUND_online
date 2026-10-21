@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Run only on the two authorized test nodes. Private task dir/venv must exist.
 # Usage: g1_04_run.sh MODE TASK_DIR NODE_RANK MASTER_ADDR RUN_ID RANK_EPOCH
-# MODE=baseline|plugin. Start both multinode launchers together.
+# MODE=plugin. Start both launchers only after both live sidecars are ready.
 set -euo pipefail
 mode=${1:?smoke/baseline/plugin}
 task_dir=${2:?private task directory}
@@ -14,6 +14,13 @@ rank_epoch=${6:?fresh epoch per invocation}
 [[ "${CUDA_VISIBLE_DEVICES:?expose two authorized H800 GPUs}" =~ ^[0-9]+,[0-9]+$ ]]
 cd "$task_dir"
 task_dir=$PWD
+: "${DDP_MASTER_ADDR:?explicit rendezvous address}"
+: "${CONTROL_SOURCE_ADDR:?explicit source control address}"
+[[ "$master_addr" = "$DDP_MASTER_ADDR" ]]
+node_for_ready=node-a
+[[ "$node_rank" = 0 ]] || node_for_ready=node-b
+"$task_dir/venv/bin/python" "$task_dir/g1_04_preflight.py" config --ddp-master-addr "$DDP_MASTER_ADDR" --control-source-addr "$CONTROL_SOURCE_ADDR"
+"$task_dir/venv/bin/python" "$task_dir/g1_04_preflight.py" ready --marker "$task_dir/ready.json" --proof "$task_dir/preflight-proof.json" --collector-source "$task_dir/g1_04_control.py" --run "$run_id" --epoch "$rank_epoch" --node "$node_for_ready"
 export OMP_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1
 umask 077
 ulimit -f 65536

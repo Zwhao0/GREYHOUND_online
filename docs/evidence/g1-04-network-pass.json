@@ -1,0 +1,73 @@
+{
+  "schema": "g1-04-correction-network-pass-v1",
+  "classification": "REAL_TWO_NODE_CPU_NETWORK_ONLY",
+  "status": "PASS",
+  "training_calibration": false,
+  "run_alias": "g104-network-preflight-2",
+  "epoch_alias": "correction-2",
+  "paired_exchanges": 2373,
+  "control_exits": {
+    "node-a": 0,
+    "node-b": 0
+  },
+  "endpoint_roles": "INDEPENDENTLY_OBSERVED_CORRECT_LOCAL_OWNERSHIP",
+  "source_hashes": {
+    "collector": "f83c010c49b102edca76854b08a66e15c69499a879ef9ee02d0b443d2e2b8090",
+    "host_helper": "53c6c4276626ad03dacfb5cee25eaf13445f27deb5f2cdb11cf01c06fd6ab652",
+    "coordinator": "681a9d5fb9ad38551aad9ee6425a07f7d297d9d107b9ba9cb467079e272262d6"
+  },
+  "controller_events": [
+    {
+      "event": "source_spawn",
+      "relative_ns": 1284728750
+    },
+    {
+      "event": "source_listener_verified",
+      "relative_ns": 1689022167
+    },
+    {
+      "event": "reference_spawn",
+      "relative_ns": 1689176250
+    },
+    {
+      "event": "source_exit",
+      "relative_ns": 3948612708
+    },
+    {
+      "event": "reference_exit",
+      "relative_ns": 3949082833
+    },
+    {
+      "event": "paired_four_stamps_verified_PASS",
+      "relative_ns": 6110098750
+    }
+  ],
+  "input_sha256": {
+    "node-a": "aee9948aaa068fcb36db849b90d3b1a142a53cae473bb773d562508848f4fd91",
+    "node-b": "9671ecb02fa54ac49e9f44101bb692effb196bdbaaa8c8d20b73b18ff4e553c5"
+  },
+  "sample_four_stamps_ns": {
+    "first": {
+      "index": 0,
+      "t1": 778820263071524,
+      "t2": 1610727174159191,
+      "t3": 1610727174298932,
+      "t4": 778820263636770
+    },
+    "last": {
+      "index": 2372,
+      "t1": 778822263416575,
+      "t2": 1610729174385902,
+      "t3": 1610729174424139,
+      "t4": 778822263648921
+    }
+  },
+  "previous_network_failure_preserved": "docs/evidence/g1-04-correction-preflight.json",
+  "startup_failure_diagnosis": {
+    "classification": "SAME_CONTROLLER_FILESYSTEM_LAUNCH_RECORDS_ONLY_NOT_CLOCK_CALIBRATION",
+    "client_launch_after_server_launch_s": 53.136,
+    "client_launch_after_server_command_completed_s": 21.951,
+    "server_accept_deadline_s": 30
+  },
+  "gate": "IN_PROGRESS_NOT_APPROVED"
+}

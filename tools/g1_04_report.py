@@ -14,6 +14,7 @@ from tools.g1_01_match_trace import analyze_manifest
 from tools.g1_03_audit import validate_audit
 from tools.g1_04_causal import validate_capture,map_event,compare_intervals,normalized
 from tools.g1_03_host_clock import _identity,_integer
+from tools.g1_04_preflight import verify_pair
 
 
 def read(p):return json.loads(p.read_text())
@@ -63,6 +64,7 @@ def build(root,manifest_path):
     client,server=[read(root/n/'control.json') if (root/n/'control.json').exists() else None for n in ('node-a','node-b')]
     q=validate_capture(client,server,raws) if client is not None and server is not None else dict(status='UNSAFE_TO_SUBTRACT',reasons=['CONTROL_CAPTURE_FAILED: no complete four-stamp session'],mapping_model='STRICT_MONOTONIC_CAUSAL_NO_RATE_ASSUMPTION')
     if client is not None and server is not None and (client['reference']['node']!='node-a' or client['source']['node']!='node-b'):raise ValueError('control node role mismatch')
+    if client is not None and server is not None and verify_pair(client,server)['status']!='PASS':raise ValueError('independent identity/four-stamp reconciliation failed')
     reference_token='g104-reference-'+sha(manifest_path)[:24]
     events=[];rankrows=[];used=set();instance={}
     for rank,raw,audit,auditpath in rank_inputs:
@@ -88,6 +90,7 @@ def build(root,manifest_path):
             instance.setdefault((mapped['op'],mapped['seq']),[]).append(mapped)
         rankrows.append(dict(rank=r,node_alias=rank['node_alias'],status='BOUNDED' if local and all(e['status']=='BOUNDED' for e in local) else 'UNSAFE_TO_SUBTRACT',identity_binding='OBSERVED' if q['status']=='BOUNDED' else 'TRACE_TRAINING_PID_ONLY_CONTROL_UNAVAILABLE',
                              origin_monotonic_ns=raw['origin_monotonic_ns'],active_until_monotonic_ns=raw['active_until_monotonic_ns'],
+                             control_covers_audited_active_window=bool(client and q['status']=='BOUNDED' and client['exchanges'][0]['t1' if rank['node_alias']=='node-a' else 't2']<raw['origin_monotonic_ns']<=raw['active_until_monotonic_ns']<client['exchanges'][-1]['t4' if rank['node_alias']=='node-a' else 't3']),
                              input_trace_sha256=sha(Path(rank['trace_file'])),input_audit_sha256=sha(auditpath),
                              collector_audit=audit,summary=summarize(local)))
     # Only same-operation consecutive seq values establish a run of matched
@@ -135,12 +138,32 @@ def build(root,manifest_path):
                              input_sha256={n:sha(root/n/'control.json') if (root/n/'control.json').exists() else None for n in ('node-a','node-b')},
                              failure_log_sha256={n:sha(root/n/'control.log') for n in ('node-a','node-b')}),
                 runtime=runtime,resource_exit=exitrows,executed_source_sha256=executed,profiler_abi='v4; unchanged DSO with sole ncclProfiler_v4 symbol',
-                source_sha256={p.name:sha(p) for p in (Path(__file__),Path(__file__).with_name('g1_04_causal.py'),Path(__file__).with_name('g1_04_control.py'),Path(__file__).with_name('g1_04_run.sh'),Path(__file__).with_name('g1_03_host_clock.py'))},
+                source_sha256={p.name:sha(p) for p in (Path(__file__),Path(__file__).with_name('g1_04_causal.py'),Path(__file__).with_name('g1_04_control.py'),Path(__file__).with_name('g1_04_run.sh'),Path(__file__).with_name('g1_03_host_clock.py'),Path(__file__).with_name('g1_04_preflight.py'),Path(__file__).with_name('g1_04_sidecar.sh'),Path(__file__).with_name('g1_04_coordinate.py'))},
                 unknowns=['upstream omitted callbacks/end-to-end loss','GPU timer ring overwrite','production fail-open','cross-GPU absolute timing','step to collective','net overhead INCONCLUSIVE; historical 6-8% risk'],
-                gate_recommendation='SUBMIT_SCOPED_HOST_GATE_REVIEW' if longest>=10 else 'PARTIAL_NO_GATE_PAUSE_FOR_REVIEW_CONTROL_LAUNCH_FAILED',
+                gate_recommendation='SUBMIT_SCOPED_HOST_GATE_REVIEW' if longest>=10 else ('PARTIAL_HOST_BUDGET_NOT_MET' if q['status']=='BOUNDED' else 'PARTIAL_NO_GATE_PAUSE_FOR_REVIEW_CONTROL_LAUNCH_FAILED'),
                 gate='IN_PROGRESS_PENDING_INDEPENDENT_REVIEW')
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('root',type=Path);p.add_argument('--private-manifest',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
-    a=p.parse_args();a.output.write_text(json.dumps(build(a.root.resolve(),a.private_manifest.resolve()),indent=2,allow_nan=False)+'\n')
+    p.add_argument('--network-proof',type=Path)
+    p.add_argument('--controller-events',type=Path)
+    p.add_argument('--controller-source',type=Path)
+    p.add_argument('--initial-summary',type=Path)
+    a=p.parse_args();report=build(a.root.resolve(),a.private_manifest.resolve())
+    if a.network_proof:
+        proof=read(a.network_proof)
+        if proof.get('status')!='PASS' or proof.get('training_calibration') is not False:raise ValueError('independent CPU/network proof required')
+        if proof['source_hashes']['collector']!=report['source_sha256']['g1_04_control.py'] or proof['source_hashes']['host_helper']!=report['source_sha256']['g1_03_host_clock.py'] or proof['source_hashes']['coordinator']!=report['source_sha256']['g1_04_coordinate.py']:raise ValueError('preflight/capture source mismatch')
+        report['network_preflight']=dict(status='PASS',training_calibration=False,paired_exchanges=proof['paired_exchanges'],public_evidence=a.network_proof.name,sha256=sha(a.network_proof))
+    if a.controller_events:
+        events=read(a.controller_events)
+        allowed={'event','relative_ns','readings','node','exit'}
+        if any(set(e)-allowed for e in events):raise ValueError('controller events contain unexpected fields')
+        report['controller']=dict(classification='SAME_CONTROLLER_MONOTONIC_ORCHESTRATION_ONLY',events=events,input_sha256=sha(a.controller_events),source_sha256=sha(a.controller_source) if a.controller_source else None)
+    if a.initial_summary:
+        initial=read(a.initial_summary)
+        if initial['source_sha256']['g1_04_causal.py']!=report['source_sha256']['g1_04_causal.py']:raise ValueError('frozen causal algorithm changed')
+        report['initial_failed_capture']=dict(preserved=True,sha256=sha(a.initial_summary),public_evidence=a.initial_summary.name)
+        report['additional_gpu_attempts']=1
+    a.output.write_text(json.dumps(report,indent=2,allow_nan=False)+'\n')
 if __name__=='__main__':main()

@@ -1,14 +1,15 @@
 # HANDOFF — Greenhound Online
 
-2026-10-21（Asia/Shanghai）。以[main](https://github.com/Zwhao0/GREYHOUND_online)及PR/CI为事实源。
+2026-10-21（Asia/Shanghai）。以[main](https://github.com/Zwhao0/GREYHOUND_online)和PR/CI为事实源。
 
 - G0/G1-01限定PASS；G1-02/G1-03 PARTIAL已接收并合并（PR #16 / #19）。
-- **G1-04候选PARTIAL，未合并**：[Issue #20](https://github.com/Zwhao0/GREYHOUND_online/issues/20)、[报告](docs/G1-04-RESULTS.md)、[真实脱敏JSON](docs/evidence/g1-04-summary.json)。[Draft PR #22](https://github.com/Zwhao0/GREYHOUND_online/pull/22)；代码/证据提交 `bd6757c4bf3606e86eac1fa90496208f2ef74255`，最终HEAD/CI见PR；不是main已验收事实。
-- 严格单调因果包络实现及CPU反例已完成，本地DOC/76项CPU PASS，无漂移假设。一次共享双节点健康4Rank plugin训练两launcher exit0，旧栈/DSO/负载不变；70匹配实例、280个实际Host begin事件。
-- **主Codex控制启动地址配置错误**：client连到reference自身，连接拒绝；source server接收超时，侧车均exit1。训练期间完整四时戳0；280事件全部UNSAFE，1/5/10ms覆盖0%、无法比较100%，误差分布UNKNOWN。不重复GPU实验。
-- 任务残留0，原插件指纹未变；真实Host映射FAIL，健康GPU/MULTINODE仅限定PASS，CPU通过不补足真实映射。净开销INCONCLUSIVE，历史6%～8%风险及全集drop/GPU ring/fail-open UNKNOWN保留。
-- **G1 Gate IN_PROGRESS，不建议放行；G2/G3/G4 BLOCKED。**
+- **G1-04纠错后具备限定Host映射Gate审核证据，候选未合并**：[Issue #20](https://github.com/Zwhao0/GREYHOUND_online/issues/20)、[同一Draft PR #22](https://github.com/Zwhao0/GREYHOUND_online/pull/22)、[纠错报告](docs/G1-04-CORRECTION.md)、[本次真实JSON](docs/evidence/g1-04-correction-summary.json)。最终HEAD/CI见PR。
+- 首次GPU控制地址误配及第一次纠错TCP预检超时均保留。定位到模型/工具回合使client晚53秒启动、超过server30秒deadline；改成同一控制进程确认source监听后立即启动client，真实CPU/TCP预检2373对戳、双端exit0。冻结因果算法SHA不变。
+- 预检PASS并等到共享GPU低负载后，只追加**一次**相同栈/旧DSO/原负载健康4Rank；两训练+两侧车均exit0，106637对四时戳夹住4/4审计活动窗。280事件全部BOUNDED，1/5/10ms预算覆盖100%，映射不可用0%。source140事件半宽p50/p95/max **0.511319 / 0.526649 / 0.583573ms**；连续合格4Rank AllReduce **69个**。
+- 严格跨节点顺序仍有 **196/280=70%** 因区间重叠UNKNOWN；不按中点排序/做Rank归因。约20ms最大采样间隙不构成全时间轴1ms保证。Host不是GPU时间；净开销INCONCLUSIVE，历史6%～8%风险及全集drop/GPU ring/生产fail-open等UNKNOWN保留。
+- 本地DOC/100项CPU PASS，最新HEAD CI见PR；任务残留0、旧插件未变、两节点各8个GPU应用保留。首次失败摘要与私有日志不覆盖。
+- **G1 Gate IN_PROGRESS，等待ChatGPT裁决；G2/G3/G4 BLOCKED。**
 
-**唯一下一步：停止，等待ChatGPT独立审核Draft PR。** 暂停现场时钟路线；本次失败不能推断因果包络精度极限。任何修复配置后补证或精度目标调整须由用户/审核重新决定。不得自合并、关闭Issue、放行Gate、注入故障、原发Rank评分、进入G2、改生产/框架/NCCL核心/宿主/全局依赖或公开私有数据。
+**唯一下一步：停止实验，等待ChatGPT独立审核PR #22最终HEAD/CI与新证据，申请限定Host映射Gate审核。** 不自行合并/关闭Issue/判Gate PASS，不追加GPU实验，不故障注入、原发Rank评分、进入G2或改生产/框架/NCCL核心/宿主/全局依赖。私有raw、启动脚本、PID/boot/ns/IP/UUID只留隔离目录，审核完成后7天内手动清理。
 
-[STATUS](STATUS.md) · [G1-04报告](docs/G1-04-RESULTS.md) · [测量契约](docs/MEASUREMENT_CONTRACT.md) · [AGENTS](AGENTS.md)。私有raw/失败日志/launcher保留至独立审核完成后7天内手动清理；旧G1-01/03证据不覆盖。
+[STATUS](STATUS.md) · [当前纠错报告](docs/G1-04-CORRECTION.md) · [首次历史失败](docs/G1-04-RESULTS.md) · [测量契约](docs/MEASUREMENT_CONTRACT.md) · [AGENTS](AGENTS.md)。
