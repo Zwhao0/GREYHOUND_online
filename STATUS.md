@@ -6,7 +6,7 @@
 | --- | --- | --- |
 | G0 / G1-01 | 限定PASS，不重验 | PR #8 / #13 |
 | G1-02 / G1-03 | PARTIAL已接收并合并 | PR #16 / #19；G1-03最终CI 58项CPU PASS |
-| **G1-04** | **候选PARTIAL，未合并** | [Issue #20](https://github.com/Zwhao0/GREYHOUND_online/issues/20)、[报告](docs/G1-04-RESULTS.md)、[真实JSON](docs/evidence/g1-04-summary.json)；Draft PR及最终HEAD/CI见本分支PR |
+| **G1-04** | **候选PARTIAL，未合并** | [Issue #20](https://github.com/Zwhao0/GREYHOUND_online/issues/20)、[报告](docs/G1-04-RESULTS.md)、[真实JSON](docs/evidence/g1-04-summary.json)；[Draft PR #22](https://github.com/Zwhao0/GREYHOUND_online/pull/22)；代码/证据提交 `bd6757c4bf3606e86eac1fa90496208f2ef74255`，最终HEAD/CI见PR |
 | **G1 Gate** | **IN_PROGRESS，不建议放行** | 本次训练期间Host控制采样失败 |
 | G2 / G3 / G4 | BLOCKED | 未获授权 |
 
