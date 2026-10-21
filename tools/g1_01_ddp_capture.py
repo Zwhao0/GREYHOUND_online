@@ -15,6 +15,17 @@ import torch
 import torch.distributed as dist
 from torch.nn.parallel import DistributedDataParallel as DDP
 
+if __package__:
+    from .g2_01_inject import (
+        ensure_separate_output, episode_for, load_plan, sleep_for_episode,
+        validate_capture_bounds, write_rank_truth,
+    )
+else:
+    from g2_01_inject import (
+        ensure_separate_output, episode_for, load_plan, sleep_for_episode,
+        validate_capture_bounds, write_rank_truth,
+    )
+
 
 def percentile(values, q):
     values = sorted(values)
@@ -58,6 +69,10 @@ def main():
     parser.add_argument('--mode', choices=['smoke', 'multinode'], required=True)
     parser.add_argument('--steps', type=int, default=40)
     parser.add_argument('--warmup', type=int, default=5)
+    parser.add_argument('--g2-plan', type=Path,
+                        help='private G2-01 injection plan; omitted for a healthy run')
+    parser.add_argument('--g2-truth-output', type=Path,
+                        help='separate private directory for G2-01 truth timestamps')
     args = parser.parse_args()
     rank, local = int(os.environ['RANK']), int(os.environ['LOCAL_RANK'])
     expected = 2 if args.mode == 'smoke' else 4
@@ -71,6 +86,16 @@ def main():
         raise RuntimeError('Expose exactly two authorized H800 devices')
     if not 1 <= args.steps <= 40 or not 0 <= args.warmup <= 5:
         raise RuntimeError('Short PoC only')
+    if args.g2_plan is not None and args.g2_truth_output is None:
+        raise RuntimeError('--g2-plan requires --g2-truth-output')
+    if args.g2_truth_output is not None:
+        ensure_separate_output(args.g2_truth_output, args.output)
+        validate_capture_bounds(steps=args.steps, warmup=args.warmup,
+                                world_size=int(os.environ['WORLD_SIZE']))
+    g2_plan = None
+    if args.g2_plan is not None:
+        g2_plan = load_plan(args.g2_plan, steps=args.steps, warmup=args.warmup,
+                            world_size=int(os.environ['WORLD_SIZE']))
     torch.set_num_threads(1)
     torch.manual_seed(20261020)
     torch.cuda.set_per_process_memory_fraction(0.01, local)  # ~800 MiB allocator cap; context/NCCL excluded.
@@ -79,10 +104,14 @@ def main():
                                    torch.nn.Linear(1024, 1024)).cuda(), device_ids=[local])
     optimizer = torch.optim.SGD(model.parameters(), lr=0.001)
     inputs = torch.randn(32, 1024, device='cuda')
-    def step():
+    def step(measured_step=None):
         optimizer.zero_grad(set_to_none=True)
-        model(inputs).square().mean().backward()
+        loss = model(inputs).square().mean()
+        episode = episode_for(g2_plan, step=measured_step, rank=rank) if measured_step is not None else None
+        injection_truth = sleep_for_episode(episode)
+        loss.backward()
         optimizer.step()
+        return injection_truth
     loaded = libraries()  # Same DDP PID, after comm init; hash before warmup.
     for _ in range(args.warmup):
         step()
@@ -90,13 +119,22 @@ def main():
     events = [(torch.cuda.Event(enable_timing=True), torch.cuda.Event(enable_timing=True))
               for _ in range(args.steps)]
     host_ms = []
+    step_boundaries = []
     start = time.perf_counter()
-    for begin, end in events:
+    for measured_step, (begin, end) in enumerate(events):
         host_start = time.perf_counter()
+        step_start_ns = time.monotonic_ns()
         begin.record()
-        step()
+        injection_truth = step(measured_step)
         end.record()
+        step_end_ns = time.monotonic_ns()
         host_ms.append((time.perf_counter() - host_start) * 1000)
+        step_boundaries.append({
+            'step': measured_step,
+            'start_monotonic_ns': step_start_ns,
+            'end_monotonic_ns': step_end_ns,
+            'injection': injection_truth,
+        })
     torch.cuda.synchronize()  # One measurement boundary before reading all CUDA events.
     wall_ms = (time.perf_counter() - start) * 1000
     gpu_ms = [begin.elapsed_time(end) for begin, end in events]
@@ -128,6 +166,9 @@ def main():
     }
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / f'rank-{rank}.json').write_text(json.dumps(record, indent=2) + '\n')
+    if args.g2_truth_output is not None:
+        write_rank_truth(args.g2_truth_output, rank=rank, steps=args.steps, warmup=args.warmup,
+                         plan=g2_plan, step_boundaries=step_boundaries)
     dist.destroy_process_group()
 
 

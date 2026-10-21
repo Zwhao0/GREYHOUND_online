@@ -1,0 +1,41 @@
+{
+  "aggregation": "Per fixed truth step: union ROOT_CANDIDATE ranks across all four-rank step-bound instances; exactly one => candidate; zero or conflicting => UNKNOWN. Missing mappings => INCONCLUSIVE. UNKNOWN is a miss. Eight fixed no-injection steps as healthy windows.",
+  "analysis_scope": "AllReduce by operation type only; includes warmup; no truth/step filtering",
+  "delay_s": 0.02,
+  "each_rank_count": 2,
+  "episode_count": 8,
+  "go": "Actual sleep 19..100ms all8; complete mappings each window; Top1>=7/8; healthyFP<=1/8; no truth leak. G2 Gate not passed.",
+  "healthy_steps": [
+    2,
+    6,
+    10,
+    14,
+    18,
+    22,
+    26,
+    30
+  ],
+  "margin_ns": 10000000,
+  "max_gpu_runs": {
+    "healthy": 1,
+    "injected": 1
+  },
+  "nonce_private": true,
+  "plan_sha256": "4321cddc032d0551e0a4cb3de19d769c240feda63b4a2fca3a7841af71d592fc",
+  "resource_policy": "2 low-load snapshots; GPU0,1 only each node; free >=2400/4800MiB; utilization<=10%; unchanged shared G1 allocation; Torch fraction .01; no preemption",
+  "schema": "g2-01-registration-v1",
+  "source_sha256": {
+    "g1_01_ddp_capture.py": "e9a32c7e3bb6471e385b71bad54a5a910a4954239d760d5609c687042c7e3ced",
+    "g1_01_match_trace.py": "36413537cab0d01792cfa4bd1dfa0e7e129bb0e37d433600dd5419c9781d1b50",
+    "g1_04_causal.py": "62d9216c1277fcd15a587dca3cd504697fef8aa4f7f47619fdd4e1824ffd115f",
+    "g1_04_control.py": "f83c010c49b102edca76854b08a66e15c69499a879ef9ee02d0b443d2e2b8090",
+    "g1_04_sidecar.sh": "a31ffea1f1c330d6f0ab578da6ee80fed7a02855329949b54abf37a366774a70",
+    "g2_01_inject.py": "443814453719b9069a37dd3de7705147914db6883b7935300225760942166f06",
+    "g2_01_locate.py": "8b175a5e456ef2a59cf94ca6b881e4f478dd9e764ab8661f2298c68454383738",
+    "g2_01_prepare.py": "0322b38cd57f9d0d4155b776c2c7ca52922e8708c879a1a231e45225387dbdcf",
+    "g2_01_run.sh": "de2ea934d598452a8167058b2d738395094c42570e07b5be137ef43ad6dc6d86",
+    "g2_01_score.py": "a36bd67646a95e8c59584d5e1240121b589b411560357a8b5ee4c646cecdc80d"
+  },
+  "steps": 40,
+  "warmup": 5
+}
