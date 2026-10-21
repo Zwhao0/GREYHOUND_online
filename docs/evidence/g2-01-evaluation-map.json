@@ -1,0 +1,278 @@
+{
+  "schema": "g2-01-reveal-map-v1",
+  "revealed_after_commit": "0f87ac33f0bc4d0a777d9689360f4fe1ef3f8b91",
+  "windows": [
+    {
+      "kind": "INJECTED",
+      "step": 4,
+      "truth_rank": 2,
+      "instances": [
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 17
+        },
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 18
+        }
+      ]
+    },
+    {
+      "kind": "INJECTED",
+      "step": 8,
+      "truth_rank": 1,
+      "instances": [
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 25
+        },
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 26
+        }
+      ]
+    },
+    {
+      "kind": "INJECTED",
+      "step": 12,
+      "truth_rank": 1,
+      "instances": [
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 33
+        },
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 34
+        }
+      ]
+    },
+    {
+      "kind": "INJECTED",
+      "step": 16,
+      "truth_rank": 3,
+      "instances": [
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 41
+        },
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 42
+        }
+      ]
+    },
+    {
+      "kind": "INJECTED",
+      "step": 20,
+      "truth_rank": 2,
+      "instances": [
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 49
+        },
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 50
+        }
+      ]
+    },
+    {
+      "kind": "INJECTED",
+      "step": 24,
+      "truth_rank": 0,
+      "instances": [
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 57
+        },
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 58
+        }
+      ]
+    },
+    {
+      "kind": "INJECTED",
+      "step": 28,
+      "truth_rank": 0,
+      "instances": [
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 65
+        },
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 66
+        }
+      ]
+    },
+    {
+      "kind": "INJECTED",
+      "step": 32,
+      "truth_rank": 3,
+      "instances": [
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 73
+        },
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 74
+        }
+      ]
+    },
+    {
+      "kind": "NO_INJECTION",
+      "step": 2,
+      "truth_rank": null,
+      "instances": [
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 13
+        },
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 14
+        }
+      ]
+    },
+    {
+      "kind": "NO_INJECTION",
+      "step": 6,
+      "truth_rank": null,
+      "instances": [
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 21
+        },
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 22
+        }
+      ]
+    },
+    {
+      "kind": "NO_INJECTION",
+      "step": 10,
+      "truth_rank": null,
+      "instances": [
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 29
+        },
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 30
+        }
+      ]
+    },
+    {
+      "kind": "NO_INJECTION",
+      "step": 14,
+      "truth_rank": null,
+      "instances": [
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 37
+        },
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 38
+        }
+      ]
+    },
+    {
+      "kind": "NO_INJECTION",
+      "step": 18,
+      "truth_rank": null,
+      "instances": [
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 45
+        },
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 46
+        }
+      ]
+    },
+    {
+      "kind": "NO_INJECTION",
+      "step": 22,
+      "truth_rank": null,
+      "instances": [
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 53
+        },
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 54
+        }
+      ]
+    },
+    {
+      "kind": "NO_INJECTION",
+      "step": 26,
+      "truth_rank": null,
+      "instances": [
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 61
+        },
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 62
+        }
+      ]
+    },
+    {
+      "kind": "NO_INJECTION",
+      "step": 30,
+      "truth_rank": null,
+      "instances": [
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 69
+        },
+        {
+          "comm_hash": "WORLD",
+          "function": "AllReduce",
+          "seq_num": 70
+        }
+      ]
+    }
+  ]
+}

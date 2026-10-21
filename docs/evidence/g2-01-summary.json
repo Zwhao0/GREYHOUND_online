@@ -1,0 +1,427 @@
+{
+  "schema": "g2-01-public-summary-v1",
+  "classifications": {
+    "DOC": "PASS",
+    "CPU": "PASS",
+    "GPU": "ONE_HEALTHY_ONE_INJECTED_COMPLETED",
+    "MULTINODE": "TWO_NODES_FOUR_H800_RANKS"
+  },
+  "preregistration_commit": "37d543258c1e1b10933d9b5575650fba031770f7",
+  "prediction_freeze_commit": "0f87ac33f0bc4d0a777d9689360f4fe1ef3f8b91",
+  "source_hashes_unchanged": true,
+  "runs": {
+    "healthy": {
+      "gpu_attempts": 1,
+      "quality": {
+        "status": "BOUNDED",
+        "complete": true
+      },
+      "allreduce_instances": 89,
+      "observed_host_events": 356,
+      "bounded_host_events": 356,
+      "half_width_ns": {
+        "min": 4000,
+        "p50": 51265.0,
+        "max": 674436
+      },
+      "crossnode_pair_order": {
+        "strict": 46,
+        "overlap_or_unknown": 310
+      },
+      "nodes": [
+        {
+          "node": "node-a",
+          "training_exit": 0,
+          "control_exit": 0,
+          "control_samples": 55957,
+          "task_processes_remaining": 0,
+          "gpu_application_count_after": 8,
+          "private_task_bytes": 10806458,
+          "profiler_sha256": "06740a4ea051720ca974a22a6f448bcacb5648e7a9c4a928e81e043ad88dcf54",
+          "clock_max_sample_spacing_ns": 2764273,
+          "private_raw_sha256": "1394ec2920b73a1c2495402cf20d8eb5381b2c15c458df2f1eb4eb7bf1477f7b"
+        },
+        {
+          "node": "node-b",
+          "training_exit": 0,
+          "control_exit": 0,
+          "control_samples": 55957,
+          "task_processes_remaining": 0,
+          "gpu_application_count_after": 8,
+          "private_task_bytes": 7579749,
+          "profiler_sha256": "06740a4ea051720ca974a22a6f448bcacb5648e7a9c4a928e81e043ad88dcf54",
+          "clock_max_sample_spacing_ns": 2764273,
+          "private_raw_sha256": "de35446dae6aa1798d600e2947300f8af97fde42fea82b625097c4a3b4517053"
+        }
+      ],
+      "ranks": [
+        {
+          "rank": 0,
+          "torch": "2.14.1+cu130",
+          "cuda_build": "13.0",
+          "nccl_python_version": [
+            2,
+            30,
+            7
+          ],
+          "warmup": 5,
+          "steps": 40,
+          "gpu_p50_ms": 0.8994719982147217,
+          "gpu_p95_ms": 1.0432623863220214,
+          "wall_ms_per_step": 0.9604270744603127,
+          "max_torch_allocated_bytes": 100959232,
+          "max_torch_reserved_bytes": 111149056,
+          "script_sha256": "e9a32c7e3bb6471e385b71bad54a5a910a4954239d760d5609c687042c7e3ced"
+        },
+        {
+          "rank": 1,
+          "torch": "2.14.1+cu130",
+          "cuda_build": "13.0",
+          "nccl_python_version": [
+            2,
+            30,
+            7
+          ],
+          "warmup": 5,
+          "steps": 40,
+          "gpu_p50_ms": 0.8993760049343109,
+          "gpu_p95_ms": 1.0465471982955932,
+          "wall_ms_per_step": 0.9607884247088805,
+          "max_torch_allocated_bytes": 100959232,
+          "max_torch_reserved_bytes": 111149056,
+          "script_sha256": "e9a32c7e3bb6471e385b71bad54a5a910a4954239d760d5609c687042c7e3ced"
+        },
+        {
+          "rank": 2,
+          "torch": "2.14.1+cu130",
+          "cuda_build": "13.0",
+          "nccl_python_version": [
+            2,
+            30,
+            7
+          ],
+          "warmup": 5,
+          "steps": 40,
+          "gpu_p50_ms": 0.9041760265827179,
+          "gpu_p95_ms": 1.0380991518497467,
+          "wall_ms_per_step": 0.9614446549676359,
+          "max_torch_allocated_bytes": 100959232,
+          "max_torch_reserved_bytes": 111149056,
+          "script_sha256": "e9a32c7e3bb6471e385b71bad54a5a910a4954239d760d5609c687042c7e3ced"
+        },
+        {
+          "rank": 3,
+          "torch": "2.14.1+cu130",
+          "cuda_build": "13.0",
+          "nccl_python_version": [
+            2,
+            30,
+            7
+          ],
+          "warmup": 5,
+          "steps": 40,
+          "gpu_p50_ms": 0.901311993598938,
+          "gpu_p95_ms": 1.0471791803836823,
+          "wall_ms_per_step": 0.9613161208108068,
+          "max_torch_allocated_bytes": 100959232,
+          "max_torch_reserved_bytes": 111149056,
+          "script_sha256": "e9a32c7e3bb6471e385b71bad54a5a910a4954239d760d5609c687042c7e3ced"
+        }
+      ],
+      "input_sha256": "5ae53d6c50afbd8ea23d4b4769de02cab4b1154caae12da748ad61bfeda475ef",
+      "controller_note": "ALL_CHANNELS_EXIT_ZERO"
+    },
+    "observed": {
+      "gpu_attempts": 1,
+      "quality": {
+        "status": "BOUNDED",
+        "complete": true
+      },
+      "allreduce_instances": 89,
+      "observed_host_events": 356,
+      "bounded_host_events": 356,
+      "half_width_ns": {
+        "min": 4000,
+        "p50": 50936.0,
+        "max": 542602
+      },
+      "crossnode_pair_order": {
+        "strict": 250,
+        "overlap_or_unknown": 106
+      },
+      "nodes": [
+        {
+          "node": "node-a",
+          "training_exit": 0,
+          "control_exit": 0,
+          "control_samples": 53629,
+          "task_processes_remaining": 0,
+          "gpu_application_count_after": 8,
+          "private_task_bytes": 8847815,
+          "profiler_sha256": "06740a4ea051720ca974a22a6f448bcacb5648e7a9c4a928e81e043ad88dcf54",
+          "clock_max_sample_spacing_ns": 2139202,
+          "private_raw_sha256": "ff6c1db0ee1aa119d2eb382ed3f8064cf4a2de6c13281b1444df13ea4f2f166c"
+        },
+        {
+          "node": "node-b",
+          "training_exit": 0,
+          "control_exit": 0,
+          "control_samples": 53629,
+          "task_processes_remaining": 0,
+          "gpu_application_count_after": 8,
+          "private_task_bytes": 7295498,
+          "profiler_sha256": "06740a4ea051720ca974a22a6f448bcacb5648e7a9c4a928e81e043ad88dcf54",
+          "clock_max_sample_spacing_ns": 2139202,
+          "private_raw_sha256": "ff5f5f59f46cee20dbb3166e403edfcc22348ca14fca31c914195b8b2e9963ba"
+        }
+      ],
+      "ranks": [
+        {
+          "rank": 0,
+          "torch": "2.14.1+cu130",
+          "cuda_build": "13.0",
+          "nccl_python_version": [
+            2,
+            30,
+            7
+          ],
+          "warmup": 5,
+          "steps": 40,
+          "gpu_p50_ms": 1.8115519881248474,
+          "gpu_p95_ms": 20.70396728515625,
+          "wall_ms_per_step": 3.058644224074669,
+          "max_torch_allocated_bytes": 100959232,
+          "max_torch_reserved_bytes": 111149056,
+          "script_sha256": "e9a32c7e3bb6471e385b71bad54a5a910a4954239d760d5609c687042c7e3ced"
+        },
+        {
+          "rank": 1,
+          "torch": "2.14.1+cu130",
+          "cuda_build": "13.0",
+          "nccl_python_version": [
+            2,
+            30,
+            7
+          ],
+          "warmup": 5,
+          "steps": 40,
+          "gpu_p50_ms": 1.7818400263786316,
+          "gpu_p95_ms": 20.702649116516113,
+          "wall_ms_per_step": 3.065275674453005,
+          "max_torch_allocated_bytes": 100959232,
+          "max_torch_reserved_bytes": 111149056,
+          "script_sha256": "e9a32c7e3bb6471e385b71bad54a5a910a4954239d760d5609c687042c7e3ced"
+        },
+        {
+          "rank": 2,
+          "torch": "2.14.1+cu130",
+          "cuda_build": "13.0",
+          "nccl_python_version": [
+            2,
+            30,
+            7
+          ],
+          "warmup": 5,
+          "steps": 40,
+          "gpu_p50_ms": 1.806656002998352,
+          "gpu_p95_ms": 20.643317699432373,
+          "wall_ms_per_step": 3.058175352634862,
+          "max_torch_allocated_bytes": 92562432,
+          "max_torch_reserved_bytes": 111149056,
+          "script_sha256": "e9a32c7e3bb6471e385b71bad54a5a910a4954239d760d5609c687042c7e3ced"
+        },
+        {
+          "rank": 3,
+          "torch": "2.14.1+cu130",
+          "cuda_build": "13.0",
+          "nccl_python_version": [
+            2,
+            30,
+            7
+          ],
+          "warmup": 5,
+          "steps": 40,
+          "gpu_p50_ms": 1.8078719973564148,
+          "gpu_p95_ms": 20.646751213073728,
+          "wall_ms_per_step": 3.0578103964217007,
+          "max_torch_allocated_bytes": 92562432,
+          "max_torch_reserved_bytes": 111149056,
+          "script_sha256": "e9a32c7e3bb6471e385b71bad54a5a910a4954239d760d5609c687042c7e3ced"
+        }
+      ],
+      "input_sha256": "7bb42dbc265ac1ed94b6ad6da27040706c10d346d18d033af5eb3f3b9dbdf540",
+      "controller_note": "LOCAL_CONTROLLER_INTERRUPTED_AFTER_REMOTE_EXIT_ZERO_AND_ZERO_TASK_PROCESSES; no GPU relaunch"
+    }
+  },
+  "limitations": [
+    "end-to-end upstream omitted callbacks UNKNOWN",
+    "GPU timer ring overwrite UNKNOWN",
+    "HOST callback only; cross-GPU absolute clock UNKNOWN",
+    "net overhead not evaluated",
+    "no-injection windows may contain carryover; not independent healthy specificity",
+    "single-run episodes not statistically independent"
+  ],
+  "score": {
+    "actual_sleep_ns": [
+      20068072,
+      20065541,
+      20063774,
+      20060001,
+      20066419,
+      20069952,
+      20064246,
+      20062962
+    ],
+    "classification": "GPU_MULTINODE_PILOT",
+    "conclusion": "NO_GO_FOR_CURRENT_SIGNAL",
+    "episodes": [
+      {
+        "candidate_collectives": 2,
+        "correct": true,
+        "matched_collectives": 2,
+        "rank": 2,
+        "status": "ROOT_CANDIDATE",
+        "step": 4,
+        "truth_rank": 2
+      },
+      {
+        "candidate_collectives": 2,
+        "correct": true,
+        "matched_collectives": 2,
+        "rank": 1,
+        "status": "ROOT_CANDIDATE",
+        "step": 8,
+        "truth_rank": 1
+      },
+      {
+        "candidate_collectives": 2,
+        "correct": true,
+        "matched_collectives": 2,
+        "rank": 1,
+        "status": "ROOT_CANDIDATE",
+        "step": 12,
+        "truth_rank": 1
+      },
+      {
+        "candidate_collectives": 2,
+        "correct": false,
+        "matched_collectives": 2,
+        "rank": 1,
+        "status": "ROOT_CANDIDATE",
+        "step": 16,
+        "truth_rank": 3
+      },
+      {
+        "candidate_collectives": 2,
+        "correct": false,
+        "matched_collectives": 2,
+        "rank": 1,
+        "status": "ROOT_CANDIDATE",
+        "step": 20,
+        "truth_rank": 2
+      },
+      {
+        "candidate_collectives": 2,
+        "correct": false,
+        "matched_collectives": 2,
+        "rank": 1,
+        "status": "ROOT_CANDIDATE",
+        "step": 24,
+        "truth_rank": 0
+      },
+      {
+        "candidate_collectives": 2,
+        "correct": false,
+        "matched_collectives": 2,
+        "rank": 1,
+        "status": "ROOT_CANDIDATE",
+        "step": 28,
+        "truth_rank": 0
+      },
+      {
+        "candidate_collectives": 2,
+        "correct": false,
+        "matched_collectives": 2,
+        "rank": 1,
+        "status": "ROOT_CANDIDATE",
+        "step": 32,
+        "truth_rank": 3
+      }
+    ],
+    "freeze_sha256": "c0e96ab4a39fd486bc99d5fa54d59fe9cc3b66b3da41c9dce3b07d0b818bdadf",
+    "gate": "G2_NOT_PASSED_PENDING_INDEPENDENT_REVIEW",
+    "healthy_false_positives": 6,
+    "healthy_total": 8,
+    "healthy_unknown": 2,
+    "healthy_windows": [
+      {
+        "candidate_collectives": 0,
+        "matched_collectives": 2,
+        "rank": null,
+        "status": "UNKNOWN",
+        "step": 2
+      },
+      {
+        "candidate_collectives": 0,
+        "matched_collectives": 2,
+        "rank": null,
+        "status": "UNKNOWN",
+        "step": 6
+      },
+      {
+        "candidate_collectives": 2,
+        "matched_collectives": 2,
+        "rank": 1,
+        "status": "ROOT_CANDIDATE",
+        "step": 10
+      },
+      {
+        "candidate_collectives": 2,
+        "matched_collectives": 2,
+        "rank": 1,
+        "status": "ROOT_CANDIDATE",
+        "step": 14
+      },
+      {
+        "candidate_collectives": 2,
+        "matched_collectives": 2,
+        "rank": 1,
+        "status": "ROOT_CANDIDATE",
+        "step": 18
+      },
+      {
+        "candidate_collectives": 2,
+        "matched_collectives": 2,
+        "rank": 1,
+        "status": "ROOT_CANDIDATE",
+        "step": 22
+      },
+      {
+        "candidate_collectives": 2,
+        "matched_collectives": 2,
+        "rank": 1,
+        "status": "ROOT_CANDIDATE",
+        "step": 26
+      },
+      {
+        "candidate_collectives": 2,
+        "matched_collectives": 2,
+        "rank": 1,
+        "status": "ROOT_CANDIDATE",
+        "step": 30
+      }
+    ],
+    "injection_effective": true,
+    "injection_unknown": 0,
+    "injection_unknown_rate": 0.0,
+    "plan_sha256": "4321cddc032d0551e0a4cb3de19d769c240feda63b4a2fca3a7841af71d592fc",
+    "schema": "g2-01-score-v1",
+    "scope": "8 engineering pilot episodes; UNKNOWN counts as miss; no accuracy or G2 Gate claim",
+    "scorer_sha256": "a36bd67646a95e8c59584d5e1240121b589b411560357a8b5ee4c646cecdc80d",
+    "top1_correct": 3,
+    "top1_rate": 0.375,
+    "top1_total": 8
+  },
+  "scientific_conclusion": "INCONCLUSIVE_ISOLATED_EPISODE_IDENTIFIABILITY",
+  "operational_conclusion": "NO_GO_FOR_CURRENT_SIGNAL"
+}
