@@ -1,0 +1,148 @@
+--- a/plugin.c
++++ b/plugin.c
+@@ -20,6 +20,7 @@
+ 
+ static int initialized;             // initialization counter for profiler
+ static double startTime;            // profiler start time
++#include "g1_03_audit.h"
+ 
+ static const int defaultEActivationMask = ncclProfileColl | ncclProfileP2p;
+ static const int defaultGroupPoolSize = 16;
+@@ -86,7 +87,7 @@
+     // process address space.
+     pid = getpid();
+ 
+-    startTime = gettime();
++    g103_origin();
+   }
+   pthread_mutex_unlock(&lock);
+ 
+@@ -141,9 +142,9 @@
+   struct context* ctx = (struct context *)context;
+   const char* dump = getenv("NCCL_PROFILE_DUMP_FILE");
+   if (dump) {
+-    sprintf(filename, "%s_%lu_%d.json", dump, ctx->commHash, ctx->rank);
+-    fh = fopen(filename, "w");
+-    fprintf(fh, "[\n");
++    if (snprintf(filename, sizeof(filename), "%s_%lu_%d.json", dump, ctx->commHash, ctx->rank) >= sizeof(filename)) filename[0] = 0;
++    fh = filename[0] ? fopen(filename, "w") : NULL;
++    if (fh) fprintf(fh, "[\n");
+   }
+   INFO(NCCL_INIT, "PROFILER/Plugin: finalize commName: %s commHash: %lu nranks: %d rank: %d", ctx->commName ? ctx->commName : "", ctx->commHash, ctx->nranks, ctx->rank);
+ 
+@@ -164,7 +165,6 @@
+   free(ctx->collPool);
+   free(ctx->p2pPool);
+   free(ctx->proxyCtrlPool);
+-  free(ctx);
+ 
+   // last thread cleans up shared detach pool
+   if (__atomic_sub_fetch(&initialized, 1, __ATOMIC_RELAXED) == 0) {
+@@ -177,7 +177,10 @@
+   }
+ 
+   if (fh) fprintf(fh, "{}]\n");
+-  if (fh) fclose(fh);
++  int opened = fh != NULL, wrote = 0, closed = 0;
++  if (fh) { wrote = (fflush(fh) == 0 && !ferror(fh)); closed = (fclose(fh) == 0); }
++  g103_audit(ctx, opened, wrote, closed);
++  free(ctx);
+ 
+   return ncclSuccess;
+ }
+@@ -187,6 +190,8 @@
+ __hidden ncclResult_t exampleProfilerStartEvent(void* context, void** eHandle, ncclProfilerEventDescr_t* eDescr) {
+   *eHandle = NULL;
+   struct context* ctx = (struct context *)context;
++  int audit_cls = eDescr->type == ncclProfileGroup ? 0 : eDescr->type == ncclProfileColl ? 1 : eDescr->type == ncclProfileKernelCh ? 2 : -1;
++  if (audit_cls >= 0) g103_add(ctx, audit_cls, 0);
+   if (eDescr->type == ncclProfileGroup) {
+     struct group* event;
+     int groupId = __atomic_fetch_add(&ctx->groupPoolIndex, 1, __ATOMIC_RELAXED);
+@@ -211,6 +216,7 @@
+       }
+     } else {
+       // else drop this event
++      g103_add(ctx, 0, 2);
+       __atomic_fetch_sub(&ctx->groupPoolIndex, 1, __ATOMIC_RELAXED);
+       return ncclSuccess;
+     }
+@@ -223,7 +229,7 @@
+   } else if (eDescr->type == ncclProfileColl) {
+     // the parent might be null if we run out of events
+     struct group* parent = (struct group *)eDescr->parentObj;
+-    if (parent == NULL) return ncclSuccess;
++    if (parent == NULL) { g103_add(ctx, 1, 3); return ncclSuccess; }
+ 
+     struct collective* event;
+     int collId = __atomic_fetch_add(&ctx->collPoolIndex, 1, __ATOMIC_RELAXED);
+@@ -232,6 +238,7 @@
+       event = &ctx->collPool[collId%collPoolSize];
+     } else {
+       // else drop this event
++      g103_add(ctx, 1, 2);
+       __atomic_fetch_sub(&ctx->collPoolIndex, 1, __ATOMIC_RELAXED);
+       return ncclSuccess;
+     }
+@@ -385,7 +392,8 @@
+     debugEvent(event, "ProxyStepStart");
+   } else if (eDescr->type == ncclProfileKernelCh) {
+     struct taskEventBase* eventBase = (struct taskEventBase *)eDescr->parentObj;
+-    if (eventBase == NULL) return ncclSuccess;
++    if (eventBase == NULL) { g103_add(ctx, 2, 3); return ncclSuccess; }
++    if (eDescr->kernelCh.channelId >= MAX_CHANNELS) { g103_add(ctx, 2, 4); return ncclSuccess; }
+     if (eventBase->type == ncclProfileColl) {
+       struct collective* parent = (struct collective *)eDescr->parentObj;
+       struct kernelCh* event = &parent->kernel[eDescr->kernelCh.channelId];
+@@ -454,6 +462,7 @@
+       }
+     }
+   }
++  if (audit_cls >= 0 && *eHandle) g103_add(ctx, audit_cls, 1);
+   return ncclSuccess;
+ }
+ 
+--- a/event.h
++++ b/event.h
+@@ -160,6 +160,7 @@
+ 
+ // arrays for different event objects
+ struct context {
++  uint64_t g103[3][6]; // attempted, accepted, pool-drop, parent/guard reject, exported
+   const char* commName;
+   uint64_t commHash;
+   int nranks;
+@@ -186,6 +187,7 @@
+   struct proxyCtrl* proxyCtrlPool;
+ };
+ 
++void g103_export(struct context* c, int cls);
+ int taskEventQueueEmpty(struct group* g);
+ void taskEventQueueEnqueue(struct group* g, struct taskEventBase* event);
+ struct taskEventBase* taskEventQueueHead(struct group* g);
+--- a/print_event.c
++++ b/print_event.c
+@@ -16,6 +16,7 @@
+ // category that matches the type of event (GROUP, COLL, P2P, PROXY, NET)
+ static __thread int groupId;
+ __hidden void printGroupEventHeader(FILE* fh, struct group* event) {
++  g103_export(event->ctx, 0);
+   fprintf(fh, "{\"name\": \"%s\", \"cat\": \"GROUP\", \"ph\": \"b\", \"id\": %d, \"pid\": %d, \"tid\": %d, \"ts\": %f, \"args\": {\"groupId\": %d}},\n",
+           "Group", groupId, getpid(), 1, event->startTs, event->groupId);
+ }
+@@ -27,6 +28,7 @@
+ 
+ static __thread int collId;
+ __hidden void printCollEventHeader(FILE* fh, struct collective* event) {
++  g103_export(event->base.parent->ctx, 1);
+   fprintf(fh, "{\"name\": \"%s\", \"cat\": \"COLL\", \"ph\": \"b\", \"id\": %d, \"pid\": %d, \"tid\": %d, \"ts\": %f, \"args\": {\"SeqNum\": %lu, \"CommHash\": %lu, \"Rank\": %d, \"Count\": %lu, \"Datatype\": \"%s\", \"Algorithm\": \"%s\", \"Protocol\": \"%s\", \"nChannels\": %d}},\n",
+           event->base.func, collId, getpid(), 1, event->base.startTs, event->seqNumber, event->base.parent->ctx->commHash, event->base.rank, event->count, event->datatype, event->algo, event->proto, event->nChannels);
+ }
+@@ -111,6 +113,7 @@
+ static __thread int kernelId;
+ __hidden void printKernelChEventHeader(FILE* fh, struct kernelCh* event) {
+   if (event->type != ncclProfileKernelCh) return;
++  g103_export(event->parent->parent->ctx, 2);
+   fprintf(fh, "{\"name\": \"%s\", \"cat\": \"GPU\", \"ph\": \"b\", \"id\": %d, \"pid\": %d, \"tid\": %d, \"ts\": %f, \"args\": {\"Channel\": %d, \"StartGpuClk\": %lu, \"StopGpuClk\": %lu}},\n",
+           "KernelCh", kernelId, getpid(), 1, event->startTs, event->channelId, event->startGpuClk, event->stopGpuClk);
+ }
