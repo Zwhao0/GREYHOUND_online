@@ -1,16 +1,12 @@
 # HANDOFF — Greenhound Online
 
-> 跨 ChatGPT/Codex 简明交接，2026-10-21（Asia/Shanghai）。以 [GitHub main](https://github.com/Zwhao0/GREYHOUND_online)、最新 Issue/PR/CI 为准；详细证据留在PR和实验报告。
+> ChatGPT / Codex 新窗口简短入口（2026-10-21，Asia/Shanghai）。以 GitHub main、当期 Issue/PR 为事实源；细节按需打开，不复制历史长日志。
 
-## 当前真实状态
+- **唯一仓库**：[Zwhao0/GREYHOUND_online](https://github.com/Zwhao0/GREYHOUND_online)，Public。ChatGPT负责规划、独立审核/Gate；Codex主窗口负责实施，子智能体只处理分工任务。
+- **G0 PASS、G1 `PASS_SCOPED_OBSERVABILITY`**，已经完成，不重新验收。[PR #22与独立审核](https://github.com/Zwhao0/GREYHOUND_online/pull/22)。健康两机H800 4Rank事件匹配与Host因果有界时间映射已证明；**不是**故障定位精度或生产低开销证明。时间比较70%仍UNKNOWN、GPU端时钟/全集drop/实际净开销未充分证明。
+- **用户刚批准进入G2及有界测试故障注入。G2-01 OPEN / NOT_RUN**：[唯一可执行 Issue #24](https://github.com/Zwhao0/GREYHOUND_online/issues/24)。G2总Gate未通过；G3/G4不授权。
+- **G2-01目标**：在隔离合成两机4Rank dense DDP上，先CPU+资源预检，再最多一次健康与一次含8个独立真值episode的单Rank pre-backward 20ms延迟测试。定位器不能读注入真值；冻结预测再揭盲，报告Top-1/UNKNOWN/健康误报，快速判断现有被动信号GO/NO_GO/INCONCLUSIVE。**不是完整G2 30次精度验收**。
+- **授权边界**：获准两台共享H800的可安全分配测试资源、受控注入、私有venv/任务目录；不影响其他训练，不改生产训练脚本/模型/PyTorch/NCCL核心或宿主全局依赖。不新增训练world诊断collective/每step GPU同步，不泄露Public仓库敏感日志/地址/真值。主Codex先核实共租安全，安全不满足则说明阻断。
+- **交付**：一个Draft PR、真实GPU证据分类、少量必要CPU反例、简洁同步 `STATUS.md`/`HANDOFF.md` 后停等ChatGPT审核；不自行合并或进入G3。子智能体 GPT 6 luna max 处理fixture/重复工作，GPT 6.1 sol medium只处理复杂因果或盲评问题，主Codex负责真实GPU/集成。
 
-- **G0：限定PASS**（单节点）；**G1：`PASS_SCOPED_OBSERVABILITY`，已经独立审核，结束G1，不重验**。G1-01 [PR #13](https://github.com/Zwhao0/GREYHOUND_online/pull/13) PASS；G1-02 [#16](https://github.com/Zwhao0/GREYHOUND_online/pull/16) CPU PARTIAL接收；G1-03 [#19](https://github.com/Zwhao0/GREYHOUND_online/pull/19) PARTIAL接收；G1-04 [PR #22](https://github.com/Zwhao0/GREYHOUND_online/pull/22) **scoped PASS并合并**、[Issue #20关闭](https://github.com/Zwhao0/GREYHOUND_online/issues/20)。[最终独立审核](https://github.com/Zwhao0/GREYHOUND_online/pull/22#issuecomment-6310090904)、[CI DOC+100 CPU PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39557871658)。
-- **已经证明**：两台共享H800，Torch2.14.1+cu130/NCCL2.30.7/实际Profiler v4，健康4Rank dense DDP的70个观察Collective匹配；106637组sidecar四时间戳，280/280个实际Host begin事件有≤1ms半宽的严格因果时间包络，source半宽p50/p95/max 0.511319/0.526649/0.583573ms，69个连续AllReduce满足预算。[纠错报告](docs/G1-04-CORRECTION.md)、[真实逐事件统计](docs/evidence/g1-04-correction-summary.json)。
-- **能力边界**：196/280=70%跨节点事件对无法确定严格先后；Host callback不等于GPU执行时刻。没有原发/受害Rank定位、全量零drop、跨GPU时钟、step关联、长期fail-open或≤2%低开销证明。历史p50 +6%～8%风险保留。
-- **G2/G3/G4：NOT_STARTED / BLOCKED_PENDING_EXPLICIT_USER_APPROVAL。** 不因G1 scoped PASS自动开启G2。
-
-## 唯一下一步：等待用户授权 G2
-
-技术上建议采用**小样本独立真值盲测**作为G2的第一项可证伪实验：比较健康、单一计算慢、通信路径异常的真实被动观测，分清 late-to-collective 与 waiting；若分不开先降级至组/边/UNKNOWN并考虑局部基线和额外非侵入信号。**目前只是下一阶段提案，不是已授权的Codex执行任务。** 用户此前要求进入G2、故障注入、原发Rank定位必须获明确批准；不得擅自进行任何此类实验或创建可执行任务。共享H800上做故障注入须另核实隔离独占窗口和共租安全。
-
-主Codex保持当前main/PR/CI清晰、留存和脱敏规则，不在G1反复测试、不改生产模型/PyTorch/NCCL核心、宿主驱动/全局依赖或他人GPU工作。下一次新窗口先读此文件、[STATUS](STATUS.md)、[ROADMAP](ROADMAP.md)按需查证细节即可。
+按需：[STATUS](STATUS.md) · [G2-01 Issue #24](https://github.com/Zwhao0/GREYHOUND_online/issues/24) · [ROADMAP](ROADMAP.md) · [AGENTS](AGENTS.md) · [G1证据](docs/G1-04-CORRECTION.md)。
