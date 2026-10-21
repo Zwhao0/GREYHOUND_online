@@ -1,0 +1,1936 @@
+{
+  "delay_margin_ns": 10000000,
+  "input_sha256": {
+    "baseline": "5ae53d6c50afbd8ea23d4b4769de02cab4b1154caae12da748ad61bfeda475ef",
+    "observed": "7bb42dbc265ac1ed94b6ad6da27040706c10d346d18d033af5eb3f3b9dbdf540"
+  },
+  "instances": [
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          20223,
+          36223
+        ],
+        "excess_lower_ns": -7358,
+        "healthy_instances": 1,
+        "healthy_same_rank_max_upper_ns": 27581,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "NO_20MS_SCALE_EXCESS_ESTABLISHED"
+      ],
+      "seq_num": 0,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 1,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 2,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 3,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 4,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 5,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 6,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 7,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 8,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 9,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 10,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 11,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 12,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 13,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 14,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 15,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 16,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          18916341,
+          20881524
+        ],
+        "excess_lower_ns": 17877841,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 1038500,
+        "late_rank": 2,
+        "strict_later_than": [
+          0,
+          1,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 2,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 17,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          18916341,
+          20737152
+        ],
+        "excess_lower_ns": 17877841,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 1038500,
+        "late_rank": 2,
+        "strict_later_than": [
+          0,
+          1,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 2,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 18,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 19,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 20,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 21,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 22,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 23,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": null,
+      "function": "AllReduce",
+      "rank": null,
+      "reasons": [
+        "OVERLAP_OR_NO_STRICT_LATEST"
+      ],
+      "seq_num": 24,
+      "status": "UNKNOWN"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          19345994,
+          19769620
+        ],
+        "excess_lower_ns": 18670961,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 25,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          18698273,
+          19738481
+        ],
+        "excess_lower_ns": 18023240,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 26,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          18616781,
+          19655721
+        ],
+        "excess_lower_ns": 17941748,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 27,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          18795771,
+          19811675
+        ],
+        "excess_lower_ns": 18120738,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 28,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          18689497,
+          19733029
+        ],
+        "excess_lower_ns": 18014464,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 29,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          18868625,
+          19846990
+        ],
+        "excess_lower_ns": 18193592,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 30,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          19131984,
+          19337337
+        ],
+        "excess_lower_ns": 18456951,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 31,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          18591257,
+          19625554
+        ],
+        "excess_lower_ns": 17916224,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 32,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          38812410,
+          39845268
+        ],
+        "excess_lower_ns": 38137377,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 33,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          39047398,
+          40080256
+        ],
+        "excess_lower_ns": 38372365,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 34,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          39184154,
+          40211406
+        ],
+        "excess_lower_ns": 38509121,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 35,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          39429917,
+          40457169
+        ],
+        "excess_lower_ns": 38754884,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 36,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          38781707,
+          39831339
+        ],
+        "excess_lower_ns": 38106674,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 37,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          39055679,
+          40105311
+        ],
+        "excess_lower_ns": 38380646,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 38,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          39372957,
+          40425146
+        ],
+        "excess_lower_ns": 38697924,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 39,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          39675016,
+          40727205
+        ],
+        "excess_lower_ns": 38999983,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 40,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          22688309,
+          23727484
+        ],
+        "excess_lower_ns": 22013276,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 41,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          22185046,
+          23230713
+        ],
+        "excess_lower_ns": 21510013,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 42,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          22601081,
+          23636690
+        ],
+        "excess_lower_ns": 21926048,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 43,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          22926475,
+          23962084
+        ],
+        "excess_lower_ns": 22251442,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 44,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          23442438,
+          24492748
+        ],
+        "excess_lower_ns": 22767405,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 45,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          23794877,
+          24845187
+        ],
+        "excess_lower_ns": 23119844,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 46,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          24367082,
+          25424632
+        ],
+        "excess_lower_ns": 23692049,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 47,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          24733459,
+          25791009
+        ],
+        "excess_lower_ns": 24058426,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 48,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          22010968,
+          23042420
+        ],
+        "excess_lower_ns": 21335935,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 49,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          22389607,
+          23421059
+        ],
+        "excess_lower_ns": 21714574,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 50,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          22973868,
+          24013850
+        ],
+        "excess_lower_ns": 22298835,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 51,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          22489604,
+          23533943
+        ],
+        "excess_lower_ns": 21814571,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 52,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          23083079,
+          24133695
+        ],
+        "excess_lower_ns": 22408046,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 53,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          23450374,
+          24500990
+        ],
+        "excess_lower_ns": 22775341,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 54,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          23290426,
+          24332859
+        ],
+        "excess_lower_ns": 22615393,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 55,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          23643287,
+          24685720
+        ],
+        "excess_lower_ns": 22968254,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 56,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          24341994,
+          25379962
+        ],
+        "excess_lower_ns": 23666961,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 57,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          23849357,
+          24892285
+        ],
+        "excess_lower_ns": 23174324,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 58,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          24568752,
+          25613944
+        ],
+        "excess_lower_ns": 23893719,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 59,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          24104547,
+          25152040
+        ],
+        "excess_lower_ns": 23429514,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 60,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          24739008,
+          25794055
+        ],
+        "excess_lower_ns": 24063975,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 61,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          24274290,
+          25308569
+        ],
+        "excess_lower_ns": 23599257,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 62,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          24870484,
+          25905924
+        ],
+        "excess_lower_ns": 24195451,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 63,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          24380204,
+          25420193
+        ],
+        "excess_lower_ns": 23705171,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 64,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          10928913,
+          10944913
+        ],
+        "excess_lower_ns": 10253880,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 65,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          10974182,
+          10990182
+        ],
+        "excess_lower_ns": 10299149,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 66,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          11308816,
+          11324816
+        ],
+        "excess_lower_ns": 10633783,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 67,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          11372313,
+          11388313
+        ],
+        "excess_lower_ns": 10697280,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 68,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          11708969,
+          11724969
+        ],
+        "excess_lower_ns": 11033936,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 69,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          11764269,
+          11780269
+        ],
+        "excess_lower_ns": 11089236,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 70,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          11958495,
+          11974495
+        ],
+        "excess_lower_ns": 11283462,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 71,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          11975929,
+          11991929
+        ],
+        "excess_lower_ns": 11300896,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 72,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          11521873,
+          12189596
+        ],
+        "excess_lower_ns": 10846840,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 73,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          11876547,
+          12186765
+        ],
+        "excess_lower_ns": 11201514,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 74,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          11743932,
+          12326605
+        ],
+        "excess_lower_ns": 11068899,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 75,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          12083366,
+          12314830
+        ],
+        "excess_lower_ns": 11408333,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 76,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          12386571,
+          12402571
+        ],
+        "excess_lower_ns": 11711538,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 77,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          12271549,
+          12392817
+        ],
+        "excess_lower_ns": 11596516,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 78,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          12405042,
+          12421042
+        ],
+        "excess_lower_ns": 11730009,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 79,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          12386328,
+          12402328
+        ],
+        "excess_lower_ns": 11711295,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 80,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          12419076,
+          12435076
+        ],
+        "excess_lower_ns": 11744043,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 81,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          12412705,
+          12428705
+        ],
+        "excess_lower_ns": 11737672,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 82,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          12450656,
+          12466656
+        ],
+        "excess_lower_ns": 11775623,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 83,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          12461139,
+          12477139
+        ],
+        "excess_lower_ns": 11786106,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 84,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          12488905,
+          12504905
+        ],
+        "excess_lower_ns": 11813872,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 85,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          12518175,
+          12534175
+        ],
+        "excess_lower_ns": 11843142,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 86,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          12565255,
+          12581255
+        ],
+        "excess_lower_ns": 11890222,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 87,
+      "status": "ROOT_CANDIDATE"
+    },
+    {
+      "comm_hash": "WORLD",
+      "evidence": {
+        "arrival_lag_ns": [
+          12580331,
+          12596331
+        ],
+        "excess_lower_ns": 11905298,
+        "healthy_instances": 88,
+        "healthy_same_rank_max_upper_ns": 675033,
+        "late_rank": 1,
+        "strict_later_than": [
+          0,
+          2,
+          3
+        ]
+      },
+      "function": "AllReduce",
+      "rank": 1,
+      "reasons": [
+        "STRICT_LATE_HOST_ARRIVAL_ABOVE_HEALTHY_BASELINE"
+      ],
+      "seq_num": 88,
+      "status": "ROOT_CANDIDATE"
+    }
+  ],
+  "locator_sha256": "8b175a5e456ef2a59cf94ca6b881e4f478dd9e764ab8661f2298c68454383738",
+  "method": "STRICT_HOST_LATE_ARRIVAL_V1",
+  "reasons": [],
+  "schema": "g2-01-blind-predictions-v1",
+  "status": "COMPLETE",
+  "summary": {
+    "ROOT_CANDIDATE": 66,
+    "UNKNOWN": 23
+  },
+  "timing_semantics": "HOST_COLL_BEGIN_NOT_GPU_KERNEL_START"
+}

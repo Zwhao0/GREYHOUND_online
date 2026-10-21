@@ -1,0 +1,161 @@
+{
+  "actual_sleep_ns": [
+    20068072,
+    20065541,
+    20063774,
+    20060001,
+    20066419,
+    20069952,
+    20064246,
+    20062962
+  ],
+  "classification": "GPU_MULTINODE_PILOT",
+  "conclusion": "NO_GO_FOR_CURRENT_SIGNAL",
+  "episodes": [
+    {
+      "candidate_collectives": 2,
+      "correct": true,
+      "matched_collectives": 2,
+      "rank": 2,
+      "status": "ROOT_CANDIDATE",
+      "step": 4,
+      "truth_rank": 2
+    },
+    {
+      "candidate_collectives": 2,
+      "correct": true,
+      "matched_collectives": 2,
+      "rank": 1,
+      "status": "ROOT_CANDIDATE",
+      "step": 8,
+      "truth_rank": 1
+    },
+    {
+      "candidate_collectives": 2,
+      "correct": true,
+      "matched_collectives": 2,
+      "rank": 1,
+      "status": "ROOT_CANDIDATE",
+      "step": 12,
+      "truth_rank": 1
+    },
+    {
+      "candidate_collectives": 2,
+      "correct": false,
+      "matched_collectives": 2,
+      "rank": 1,
+      "status": "ROOT_CANDIDATE",
+      "step": 16,
+      "truth_rank": 3
+    },
+    {
+      "candidate_collectives": 2,
+      "correct": false,
+      "matched_collectives": 2,
+      "rank": 1,
+      "status": "ROOT_CANDIDATE",
+      "step": 20,
+      "truth_rank": 2
+    },
+    {
+      "candidate_collectives": 2,
+      "correct": false,
+      "matched_collectives": 2,
+      "rank": 1,
+      "status": "ROOT_CANDIDATE",
+      "step": 24,
+      "truth_rank": 0
+    },
+    {
+      "candidate_collectives": 2,
+      "correct": false,
+      "matched_collectives": 2,
+      "rank": 1,
+      "status": "ROOT_CANDIDATE",
+      "step": 28,
+      "truth_rank": 0
+    },
+    {
+      "candidate_collectives": 2,
+      "correct": false,
+      "matched_collectives": 2,
+      "rank": 1,
+      "status": "ROOT_CANDIDATE",
+      "step": 32,
+      "truth_rank": 3
+    }
+  ],
+  "freeze_sha256": "c0e96ab4a39fd486bc99d5fa54d59fe9cc3b66b3da41c9dce3b07d0b818bdadf",
+  "gate": "G2_NOT_PASSED_PENDING_INDEPENDENT_REVIEW",
+  "healthy_false_positives": 6,
+  "healthy_total": 8,
+  "healthy_unknown": 2,
+  "healthy_windows": [
+    {
+      "candidate_collectives": 0,
+      "matched_collectives": 2,
+      "rank": null,
+      "status": "UNKNOWN",
+      "step": 2
+    },
+    {
+      "candidate_collectives": 0,
+      "matched_collectives": 2,
+      "rank": null,
+      "status": "UNKNOWN",
+      "step": 6
+    },
+    {
+      "candidate_collectives": 2,
+      "matched_collectives": 2,
+      "rank": 1,
+      "status": "ROOT_CANDIDATE",
+      "step": 10
+    },
+    {
+      "candidate_collectives": 2,
+      "matched_collectives": 2,
+      "rank": 1,
+      "status": "ROOT_CANDIDATE",
+      "step": 14
+    },
+    {
+      "candidate_collectives": 2,
+      "matched_collectives": 2,
+      "rank": 1,
+      "status": "ROOT_CANDIDATE",
+      "step": 18
+    },
+    {
+      "candidate_collectives": 2,
+      "matched_collectives": 2,
+      "rank": 1,
+      "status": "ROOT_CANDIDATE",
+      "step": 22
+    },
+    {
+      "candidate_collectives": 2,
+      "matched_collectives": 2,
+      "rank": 1,
+      "status": "ROOT_CANDIDATE",
+      "step": 26
+    },
+    {
+      "candidate_collectives": 2,
+      "matched_collectives": 2,
+      "rank": 1,
+      "status": "ROOT_CANDIDATE",
+      "step": 30
+    }
+  ],
+  "injection_effective": true,
+  "injection_unknown": 0,
+  "injection_unknown_rate": 0.0,
+  "plan_sha256": "4321cddc032d0551e0a4cb3de19d769c240feda63b4a2fca3a7841af71d592fc",
+  "schema": "g2-01-score-v1",
+  "scope": "8 engineering pilot episodes; UNKNOWN counts as miss; no accuracy or G2 Gate claim",
+  "scorer_sha256": "a36bd67646a95e8c59584d5e1240121b589b411560357a8b5ee4c646cecdc80d",
+  "top1_correct": 3,
+  "top1_rate": 0.375,
+  "top1_total": 8
+}
