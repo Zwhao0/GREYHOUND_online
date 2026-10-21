@@ -1,27 +1,21 @@
 # STATUS — Greenhound Online
 
-更新：2026-10-21（Asia/Shanghai）。[唯一仓库](https://github.com/Zwhao0/GREYHOUND_online)；以 GitHub main / Issue / PR / CI 实时信息为准。
+2026-10-21（Asia/Shanghai）。[唯一仓库](https://github.com/Zwhao0/GREYHOUND_online)，以main / PR / CI为事实源。
 
-| 阶段 | 当前状态 | 证据 |
+| 阶段 | 状态 | 证据 |
 | --- | --- | --- |
-| G0 单节点 | **限定范围 PASS**；不重验 | PR #2 / #5 (PARTIAL) / #8 |
-| G1-01 真实双节点 Rank 对齐 | **限定范围 PASS / MERGED** | [PR #13](https://github.com/Zwhao0/GREYHOUND_online/pull/13)；[Issue #9 CLOSED](https://github.com/Zwhao0/GREYHOUND_online/issues/9) |
-| G1-02 CaptureQuality/时钟契约 | **CPU/DOC PARTIAL 已接收 / MERGED** | [PR #16](https://github.com/Zwhao0/GREYHOUND_online/pull/16)；[Issue #14 CLOSED](https://github.com/Zwhao0/GREYHOUND_online/issues/14) |
-| G1-03 Host控制片段/插件计数 | **PARTIAL 已接收 / MERGED** | [PR #19](https://github.com/Zwhao0/GREYHOUND_online/pull/19)；[独立审核](https://github.com/Zwhao0/GREYHOUND_online/pull/19#issuecomment-6308132405)；[Issue #17 CLOSED](https://github.com/Zwhao0/GREYHOUND_online/issues/17) |
-| **G1-04 训练窗 Host 时间有界映射** | **OPEN / NOT_RUN** | [下一唯一任务 Issue #20](https://github.com/Zwhao0/GREYHOUND_online/issues/20) |
-| **G1 总 Gate** | **IN_PROGRESS / 未批准通过** | 训练事件跨节点Host时间差尚无可用误差预算 |
-| G2 / G3 / G4 | **BLOCKED** | 尚未授权故障注入、原发Rank定位或在线化 |
+| G0 / G1-01 | 限定PASS，不重验 | PR #8 / #13 |
+| G1-02 / G1-03 | PARTIAL已接收并合并 | PR #16 / #19 |
+| **G1-04** | **纠错补证完成，限定Host Gate审核候选，未合并** | [Issue #20](https://github.com/Zwhao0/GREYHOUND_online/issues/20)、[Draft PR #22](https://github.com/Zwhao0/GREYHOUND_online/pull/22)、[报告](docs/G1-04-CORRECTION.md)、[真实JSON](docs/evidence/g1-04-correction-summary.json) |
+| **G1 Gate** | **IN_PROGRESS，等待ChatGPT裁决** | 不能由Codex自行通过 |
+| G2 / G3 / G4 | BLOCKED | 未获授权 |
 
-## 已确认与未确认的证据
+G1-04首次控制地址错误、第一次纠错TCP预检的启动竞态均保留独立失败证据。用户要求继续定位后，确认client因模型/工具回合晚于source deadline；同一进程编排与监听屏障修复，真实两节点CPU/TCP预检2373对四时戳核验PASS，非训练校准。`g1_04_causal.py`冻结未改。
 
-- [G1-01实测](docs/G1-01-RESULTS.md)：两台H800、Torch **2.14.1+cu130** / CUDA runtime **13.0.96** / NCCL **2.30.7** / Profiler实际 **v4**。健康4Rank短窗70个观察Collective实例跨Rank匹配，G0不重做。
-- [G1-02离线审计](docs/G1-02-RESULTS.md)：33项CPU测试，观察序列内部无gap，但共同遗漏、全生命周期drop、跨GPU时间、Producer完整导出仍UNKNOWN；CPU合成四时戳不冒充实测校准。
-- [G1-03实测](docs/G1-03-RESULTS.md) / [脱敏数据](docs/evidence/g1-03-summary.json)：两机一次baseline+一次instrumented官方example健康4Rank DDP均exit0；逐Rank Group70/Coll70/KernelCh553已回调并导出，已计数own pool-drop/parent/guard reject为0；观察范围内70实例匹配。仅callback级审计，**不证明**所有NCCL操作都回调、GPU timer ring无覆盖、端到端零drop或生产fail-open。
-- 同PID Host origin/time namespace绑定4/4；独立TCP pre/post **16个真实控制片段**误差半宽约 **0.378～0.682ms**（限片段），但训练窗口**33.279s**且无有据漂移界：**UNSAFE_TO_SUBTRACT**。Host片段不代表GPU globaltimer/step同步，不能形成Rank原发/受害归因。
-- G1-03 final-head [CI DOC+58 CPU PASS](https://github.com/Zwhao0/GREYHOUND_online/actions/runs/39544013660)；本轮审核独立重算了公开step p50/p95、计数与片段包络，非重新操作H800。G1-03 squash `57bb5fe68e4922b04762d51f6980242706e8c831`。共享环境一次性能对照混杂，净额外开销INCONCLUSIVE，保留旧G1-01 p50 **+6.1%～7.5%** 的风险；未验证≤2% SLA。
+经[独立审核授权](https://github.com/Zwhao0/GREYHOUND_online/pull/22#issuecomment-6308753247)、预检PASS及共享资源低负载检查，**只追加一次**健康两节点4Rank plugin：原Torch2.14.1+cu130/NCCL2.30.7/Profiler v4 DSO与原合成5warmup+30steps负载不变。两训练launcher/两侧车均exit0；106637对四时戳覆盖4/4审计活动窗；70实例、280个真实Host begin事件。
 
-## 下一动作与权限
+**280/280 BOUNDED，1/5/10ms预算覆盖100%，映射不可用0%；source140事件因果半宽p50/p95/max 0.511319/0.526649/0.583573ms；69个连续4Rank AllReduce满足1ms。** 跨节点严格先后仍196/280=70%区间重叠UNKNOWN。区间半宽不是独立真值误差；全窗被夹住不等于全时间轴≤1ms（最大采样间隙约20ms）。
 
-Codex **仅执行 [G1-04 Issue #20](https://github.com/Zwhao0/GREYHOUND_online/issues/20)**：延续现有独立Host控制侧车，在健康DDP**训练期间**对事件建立可审计的短包络/时钟误差界，完成一次有界双节点真实验证；之后提交一个 Draft PR 及最终G1 Gate证据建议、更新简洁STATUS/HANDOFF，停等独立审核。无需重做已通过的G0/G1-01/逐类计数，不启动软件栈升级。
+DOC/CPU本地100项PASS；纠错代码/证据提交 `4deec9662ad318174cc8e656aba72c6ae4da4c50`，最终HEAD CI见PR；CPU fixture及真实事件由指定luna/sol分工独立核对。GPU/MULTINODE：本次健康DDP及观察事件Host包络限定验证完成，不代表GPU同步。任务残留0、旧插件指纹未变、两节点各8个GPU应用保留。仅callback级已计数drop/reject为0；全集loss/GPU ring/生产fail-open等UNKNOWN。无baseline重跑，净增量开销INCONCLUSIVE，保留历史p50 +6.1%～7.5%风险。
 
-沿用两台已获授权**共享H800隔离健康试验**（先检查共租安全）。不得故障注入、故意减速、原发Rank评分、进入G2、插入world诊断collective、每step同步、修改生产脚本/框架/NCCL核心/宿主驱动/全局依赖、停止他人训练或上传敏感原始日志。
+**建议提交G1限定Host映射Gate审核；当前仍IN_PROGRESS。唯一下一步：停止实验，等待ChatGPT独立审核PR #22。** 不自行合并、关闭Issue、判G1 PASS、追加GPU轮次、故障注入、原发定位或进入G2。

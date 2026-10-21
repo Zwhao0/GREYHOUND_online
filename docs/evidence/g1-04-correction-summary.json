@@ -1,0 +1,7494 @@
+{
+  "schema": "g1-04-public-evidence-v1",
+  "classification": "REAL_HEALTHY_MULTINODE_TRACE_AND_CONTROL_EXCHANGES",
+  "task": "G1-04",
+  "candidate_status": "SCOPED_GATE_REVIEW_CANDIDATE",
+  "test_classifications": {
+    "DOC": "PASS",
+    "CPU": "PASS",
+    "GPU": "HEALTHY_DDP_ONLY_PASS",
+    "MULTINODE": "HEALTHY_4RANK_ONLY_PASS",
+    "REAL_HOST_MAPPING": "OBSERVED"
+  },
+  "mapping_model": "STRICT_MONOTONIC_CAUSAL_NO_RATE_ASSUMPTION",
+  "unit": "ns",
+  "budget_ns": 1000000,
+  "assumptions": [
+    "nonnegative communication delay",
+    "CLOCK_MONOTONIC monotonic in audited boot/time namespace",
+    "audited trace representation bound, not physical hardware accuracy"
+  ],
+  "run_alias": "g104-correction-plugin",
+  "epoch_alias": "epoch-correction-2",
+  "matching_summary": {
+    "expected_ranks": 4,
+    "parsed_rank_traces": 4,
+    "collective_keys": 70,
+    "matched": 70,
+    "missing_rank": 0,
+    "duplicates": 0,
+    "metadata_conflicts": 0,
+    "unknown": 0,
+    "comm_hash_mismatch_events": 0,
+    "member_mismatch_events": 0,
+    "event_pairing_issue_count": 0,
+    "bad_pid_event_count": 0
+  },
+  "ranks": [
+    {
+      "rank": 0,
+      "node_alias": "node-a",
+      "status": "BOUNDED",
+      "identity_binding": "OBSERVED",
+      "origin_monotonic_ns": 779698232820718,
+      "active_until_monotonic_ns": 779699520764288,
+      "control_covers_audited_active_window": true,
+      "input_trace_sha256": "01a36626defa0739d401ecebbcf8835f919013aad7293b0bb5dc15662326819b",
+      "input_audit_sha256": "ce5931e80bafb68d02aaf2e807ee1d99100269277274585df9f100eb2014dc96",
+      "collector_audit": {
+        "schema_version": 1,
+        "schema_status": "OBSERVED",
+        "identity": {
+          "node_alias": "node-a",
+          "comm_rank": 0,
+          "origin_monotonic_ns": 779698232820718,
+          "clock_api": "CLOCK_MONOTONIC",
+          "resolution_ns": 1,
+          "origin_mapping_error_ns": 4000,
+          "active_until_monotonic_ns": 779699520764288
+        },
+        "mapping_status": "OBSERVED",
+        "mapping_checks": {
+          "run_id": "MATCH",
+          "rank_epoch": "MATCH",
+          "node_alias": "MATCH",
+          "pid": "MATCH",
+          "comm_rank": "MATCH",
+          "comm_hash": "MATCH",
+          "time_namespace": "NOT_CHECKED",
+          "pid_namespace": "NOT_CHECKED",
+          "boot_id": "NOT_CHECKED"
+        },
+        "classes": {
+          "Group": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 70,
+              "pool_accepted": 70,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 70,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "Coll": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 70,
+              "pool_accepted": 70,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 70,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "KernelCh": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 553,
+              "pool_accepted": 553,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 553,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          }
+        },
+        "export": {
+          "file_open_ok": true,
+          "write_ok": true,
+          "close_ok": true,
+          "status": "OBSERVED_SUCCESS"
+        },
+        "callback_attempted_is_nccl_total": false,
+        "issues": []
+      },
+      "summary": {
+        "events": 70,
+        "covered": 70,
+        "bounded": 70,
+        "unsafe_fraction": 0.0,
+        "half_width_ns": {
+          "n": 70,
+          "p50": 4000.0,
+          "p95": 4000.0,
+          "max": 4000
+        },
+        "budget_coverage": {
+          "1000000": 1.0,
+          "5000000": 1.0,
+          "10000000": 1.0
+        },
+        "rejection_reasons": {}
+      }
+    },
+    {
+      "rank": 1,
+      "node_alias": "node-a",
+      "status": "BOUNDED",
+      "identity_binding": "OBSERVED",
+      "origin_monotonic_ns": 779698233082788,
+      "active_until_monotonic_ns": 779699521176103,
+      "control_covers_audited_active_window": true,
+      "input_trace_sha256": "eedd0e1a1e47105bc1f7f63817861af7eb45ca07609d5dd23d615182e6c7d104",
+      "input_audit_sha256": "14cc672f3e2635a9a2e9e52f8924c1145174e1a6b5dc94326ca7df31f674ab3f",
+      "collector_audit": {
+        "schema_version": 1,
+        "schema_status": "OBSERVED",
+        "identity": {
+          "node_alias": "node-a",
+          "comm_rank": 1,
+          "origin_monotonic_ns": 779698233082788,
+          "clock_api": "CLOCK_MONOTONIC",
+          "resolution_ns": 1,
+          "origin_mapping_error_ns": 4000,
+          "active_until_monotonic_ns": 779699521176103
+        },
+        "mapping_status": "OBSERVED",
+        "mapping_checks": {
+          "run_id": "MATCH",
+          "rank_epoch": "MATCH",
+          "node_alias": "MATCH",
+          "pid": "MATCH",
+          "comm_rank": "MATCH",
+          "comm_hash": "MATCH",
+          "time_namespace": "NOT_CHECKED",
+          "pid_namespace": "NOT_CHECKED",
+          "boot_id": "NOT_CHECKED"
+        },
+        "classes": {
+          "Group": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 70,
+              "pool_accepted": 70,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 70,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "Coll": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 70,
+              "pool_accepted": 70,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 70,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "KernelCh": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 553,
+              "pool_accepted": 553,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 553,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          }
+        },
+        "export": {
+          "file_open_ok": true,
+          "write_ok": true,
+          "close_ok": true,
+          "status": "OBSERVED_SUCCESS"
+        },
+        "callback_attempted_is_nccl_total": false,
+        "issues": []
+      },
+      "summary": {
+        "events": 70,
+        "covered": 70,
+        "bounded": 70,
+        "unsafe_fraction": 0.0,
+        "half_width_ns": {
+          "n": 70,
+          "p50": 4000.0,
+          "p95": 4000.0,
+          "max": 4000
+        },
+        "budget_coverage": {
+          "1000000": 1.0,
+          "5000000": 1.0,
+          "10000000": 1.0
+        },
+        "rejection_reasons": {}
+      }
+    },
+    {
+      "rank": 2,
+      "node_alias": "node-b",
+      "status": "BOUNDED",
+      "identity_binding": "OBSERVED",
+      "origin_monotonic_ns": 1611605143668174,
+      "active_until_monotonic_ns": 1611606418432579,
+      "control_covers_audited_active_window": true,
+      "input_trace_sha256": "adc318a79384396d7955aad593a9b410e2a9b1fea1db4cbb2daeeee9897a43cb",
+      "input_audit_sha256": "99120af15e1dd55b11a605028ef04373038195cd4d22ea2766cff1a7f52e6b1d",
+      "collector_audit": {
+        "schema_version": 1,
+        "schema_status": "OBSERVED",
+        "identity": {
+          "node_alias": "node-b",
+          "comm_rank": 2,
+          "origin_monotonic_ns": 1611605143668174,
+          "clock_api": "CLOCK_MONOTONIC",
+          "resolution_ns": 1,
+          "origin_mapping_error_ns": 4000,
+          "active_until_monotonic_ns": 1611606418432579
+        },
+        "mapping_status": "OBSERVED",
+        "mapping_checks": {
+          "run_id": "MATCH",
+          "rank_epoch": "MATCH",
+          "node_alias": "MATCH",
+          "pid": "MATCH",
+          "comm_rank": "MATCH",
+          "comm_hash": "MATCH",
+          "time_namespace": "NOT_CHECKED",
+          "pid_namespace": "NOT_CHECKED",
+          "boot_id": "NOT_CHECKED"
+        },
+        "classes": {
+          "Group": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 70,
+              "pool_accepted": 70,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 70,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "Coll": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 70,
+              "pool_accepted": 70,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 70,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "KernelCh": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 553,
+              "pool_accepted": 553,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 553,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          }
+        },
+        "export": {
+          "file_open_ok": true,
+          "write_ok": true,
+          "close_ok": true,
+          "status": "OBSERVED_SUCCESS"
+        },
+        "callback_attempted_is_nccl_total": false,
+        "issues": []
+      },
+      "summary": {
+        "events": 70,
+        "covered": 70,
+        "bounded": 70,
+        "unsafe_fraction": 0.0,
+        "half_width_ns": {
+          "n": 70,
+          "p50": 511304.0,
+          "p95": 525694.0,
+          "max": 583573
+        },
+        "budget_coverage": {
+          "1000000": 1.0,
+          "5000000": 1.0,
+          "10000000": 1.0
+        },
+        "rejection_reasons": {}
+      }
+    },
+    {
+      "rank": 3,
+      "node_alias": "node-b",
+      "status": "BOUNDED",
+      "identity_binding": "OBSERVED",
+      "origin_monotonic_ns": 1611605143637051,
+      "active_until_monotonic_ns": 1611606414862353,
+      "control_covers_audited_active_window": true,
+      "input_trace_sha256": "8f571e6a31174039964d3a6f2a16265b76c9406e9b8bc42d595aa10bb4239f20",
+      "input_audit_sha256": "813bfbd72c1afa500fd381a1a36205f19e6b6724043a7a73661bf579f1ac5015",
+      "collector_audit": {
+        "schema_version": 1,
+        "schema_status": "OBSERVED",
+        "identity": {
+          "node_alias": "node-b",
+          "comm_rank": 3,
+          "origin_monotonic_ns": 1611605143637051,
+          "clock_api": "CLOCK_MONOTONIC",
+          "resolution_ns": 1,
+          "origin_mapping_error_ns": 4000,
+          "active_until_monotonic_ns": 1611606414862353
+        },
+        "mapping_status": "OBSERVED",
+        "mapping_checks": {
+          "run_id": "MATCH",
+          "rank_epoch": "MATCH",
+          "node_alias": "MATCH",
+          "pid": "MATCH",
+          "comm_rank": "MATCH",
+          "comm_hash": "MATCH",
+          "time_namespace": "NOT_CHECKED",
+          "pid_namespace": "NOT_CHECKED",
+          "boot_id": "NOT_CHECKED"
+        },
+        "classes": {
+          "Group": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 70,
+              "pool_accepted": 70,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 70,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "Coll": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 70,
+              "pool_accepted": 70,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 70,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "KernelCh": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 553,
+              "pool_accepted": 553,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 553,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          }
+        },
+        "export": {
+          "file_open_ok": true,
+          "write_ok": true,
+          "close_ok": true,
+          "status": "OBSERVED_SUCCESS"
+        },
+        "callback_attempted_is_nccl_total": false,
+        "issues": []
+      },
+      "summary": {
+        "events": 70,
+        "covered": 70,
+        "bounded": 70,
+        "unsafe_fraction": 0.0,
+        "half_width_ns": {
+          "n": 70,
+          "p50": 511334.0,
+          "p95": 526649.0,
+          "max": 583173
+        },
+        "budget_coverage": {
+          "1000000": 1.0,
+          "5000000": 1.0,
+          "10000000": 1.0
+        },
+        "rejection_reasons": {}
+      }
+    }
+  ],
+  "events": [
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779698512243329,
+        779698512251329
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllGather",
+      "seq": 0,
+      "source_ns": 779698512247329,
+      "representation_error_ns": 4000,
+      "trace_index": 1
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699065446181,
+        779699065454181
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 0,
+      "source_ns": 779699065450181,
+      "representation_error_ns": 4000,
+      "trace_index": 7
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699090028403,
+        779699090036403
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 1,
+      "source_ns": 779699090032403,
+      "representation_error_ns": 4000,
+      "trace_index": 27
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699090182317,
+        779699090190317
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 2,
+      "source_ns": 779699090186317,
+      "representation_error_ns": 4000,
+      "trace_index": 47
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699092589758,
+        779699092597758
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 3,
+      "source_ns": 779699092593758,
+      "representation_error_ns": 4000,
+      "trace_index": 67
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699092710160,
+        779699092718160
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 4,
+      "source_ns": 779699092714160,
+      "representation_error_ns": 4000,
+      "trace_index": 87
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699094071507,
+        779699094079507
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 5,
+      "source_ns": 779699094075507,
+      "representation_error_ns": 4000,
+      "trace_index": 107
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699094220362,
+        779699094228362
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 6,
+      "source_ns": 779699094224362,
+      "representation_error_ns": 4000,
+      "trace_index": 127
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699095357503,
+        779699095365503
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 7,
+      "source_ns": 779699095361503,
+      "representation_error_ns": 4000,
+      "trace_index": 147
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699095462820,
+        779699095470820
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 8,
+      "source_ns": 779699095466820,
+      "representation_error_ns": 4000,
+      "trace_index": 167
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699098342044,
+        779699098350044
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 9,
+      "source_ns": 779699098346044,
+      "representation_error_ns": 4000,
+      "trace_index": 187
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699098443692,
+        779699098451692
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 10,
+      "source_ns": 779699098447692,
+      "representation_error_ns": 4000,
+      "trace_index": 207
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699100302363,
+        779699100310363
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 11,
+      "source_ns": 779699100306363,
+      "representation_error_ns": 4000,
+      "trace_index": 227
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699100410941,
+        779699100418941
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 12,
+      "source_ns": 779699100414941,
+      "representation_error_ns": 4000,
+      "trace_index": 247
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699101434864,
+        779699101442864
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 13,
+      "source_ns": 779699101438864,
+      "representation_error_ns": 4000,
+      "trace_index": 267
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699101537645,
+        779699101545645
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 14,
+      "source_ns": 779699101541645,
+      "representation_error_ns": 4000,
+      "trace_index": 287
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699102522030,
+        779699102530030
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 15,
+      "source_ns": 779699102526030,
+      "representation_error_ns": 4000,
+      "trace_index": 307
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699102643128,
+        779699102651128
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 16,
+      "source_ns": 779699102647128,
+      "representation_error_ns": 4000,
+      "trace_index": 327
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699103517953,
+        779699103525953
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 17,
+      "source_ns": 779699103521953,
+      "representation_error_ns": 4000,
+      "trace_index": 347
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699103646244,
+        779699103654244
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 18,
+      "source_ns": 779699103650244,
+      "representation_error_ns": 4000,
+      "trace_index": 367
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699104513684,
+        779699104521684
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 19,
+      "source_ns": 779699104517684,
+      "representation_error_ns": 4000,
+      "trace_index": 387
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699104655790,
+        779699104663790
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 20,
+      "source_ns": 779699104659790,
+      "representation_error_ns": 4000,
+      "trace_index": 407
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699105359723,
+        779699105367723
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 21,
+      "source_ns": 779699105363723,
+      "representation_error_ns": 4000,
+      "trace_index": 427
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699105499418,
+        779699105507418
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 22,
+      "source_ns": 779699105503418,
+      "representation_error_ns": 4000,
+      "trace_index": 447
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699106184563,
+        779699106192563
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 23,
+      "source_ns": 779699106188563,
+      "representation_error_ns": 4000,
+      "trace_index": 467
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699106313736,
+        779699106321736
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 24,
+      "source_ns": 779699106317736,
+      "representation_error_ns": 4000,
+      "trace_index": 487
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699106989601,
+        779699106997601
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 25,
+      "source_ns": 779699106993601,
+      "representation_error_ns": 4000,
+      "trace_index": 507
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699107139279,
+        779699107147279
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 26,
+      "source_ns": 779699107143279,
+      "representation_error_ns": 4000,
+      "trace_index": 527
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699107831247,
+        779699107839247
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 27,
+      "source_ns": 779699107835247,
+      "representation_error_ns": 4000,
+      "trace_index": 547
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699107982723,
+        779699107990723
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 28,
+      "source_ns": 779699107986723,
+      "representation_error_ns": 4000,
+      "trace_index": 567
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699108717671,
+        779699108725671
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 29,
+      "source_ns": 779699108721671,
+      "representation_error_ns": 4000,
+      "trace_index": 587
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699108859774,
+        779699108867774
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 30,
+      "source_ns": 779699108863774,
+      "representation_error_ns": 4000,
+      "trace_index": 607
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699109611227,
+        779699109619227
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 31,
+      "source_ns": 779699109615227,
+      "representation_error_ns": 4000,
+      "trace_index": 627
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699109751293,
+        779699109759293
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 32,
+      "source_ns": 779699109755293,
+      "representation_error_ns": 4000,
+      "trace_index": 647
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699110475088,
+        779699110483088
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 33,
+      "source_ns": 779699110479088,
+      "representation_error_ns": 4000,
+      "trace_index": 667
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699110612842,
+        779699110620842
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 34,
+      "source_ns": 779699110616842,
+      "representation_error_ns": 4000,
+      "trace_index": 687
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699111328791,
+        779699111336791
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 35,
+      "source_ns": 779699111332791,
+      "representation_error_ns": 4000,
+      "trace_index": 707
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699111471119,
+        779699111479119
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 36,
+      "source_ns": 779699111475119,
+      "representation_error_ns": 4000,
+      "trace_index": 727
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699112199042,
+        779699112207042
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 37,
+      "source_ns": 779699112203042,
+      "representation_error_ns": 4000,
+      "trace_index": 747
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699112347922,
+        779699112355922
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 38,
+      "source_ns": 779699112351922,
+      "representation_error_ns": 4000,
+      "trace_index": 767
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699113125353,
+        779699113133353
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 39,
+      "source_ns": 779699113129353,
+      "representation_error_ns": 4000,
+      "trace_index": 787
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699113278545,
+        779699113286545
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 40,
+      "source_ns": 779699113282545,
+      "representation_error_ns": 4000,
+      "trace_index": 807
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699114025497,
+        779699114033497
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 41,
+      "source_ns": 779699114029497,
+      "representation_error_ns": 4000,
+      "trace_index": 827
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699114177927,
+        779699114185927
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 42,
+      "source_ns": 779699114181927,
+      "representation_error_ns": 4000,
+      "trace_index": 847
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699114903256,
+        779699114911256
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 43,
+      "source_ns": 779699114907256,
+      "representation_error_ns": 4000,
+      "trace_index": 867
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699115063676,
+        779699115071676
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 44,
+      "source_ns": 779699115067676,
+      "representation_error_ns": 4000,
+      "trace_index": 887
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699115780054,
+        779699115788054
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 45,
+      "source_ns": 779699115784054,
+      "representation_error_ns": 4000,
+      "trace_index": 907
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699115938118,
+        779699115946118
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 46,
+      "source_ns": 779699115942118,
+      "representation_error_ns": 4000,
+      "trace_index": 927
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699116673882,
+        779699116681882
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 47,
+      "source_ns": 779699116677882,
+      "representation_error_ns": 4000,
+      "trace_index": 947
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699116820597,
+        779699116828597
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 48,
+      "source_ns": 779699116824597,
+      "representation_error_ns": 4000,
+      "trace_index": 967
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699117586285,
+        779699117594285
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 49,
+      "source_ns": 779699117590285,
+      "representation_error_ns": 4000,
+      "trace_index": 987
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699117744483,
+        779699117752483
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 50,
+      "source_ns": 779699117748483,
+      "representation_error_ns": 4000,
+      "trace_index": 1007
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699118524510,
+        779699118532510
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 51,
+      "source_ns": 779699118528510,
+      "representation_error_ns": 4000,
+      "trace_index": 1027
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699118678133,
+        779699118686133
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 52,
+      "source_ns": 779699118682133,
+      "representation_error_ns": 4000,
+      "trace_index": 1047
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699119435501,
+        779699119443501
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 53,
+      "source_ns": 779699119439501,
+      "representation_error_ns": 4000,
+      "trace_index": 1067
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699119601614,
+        779699119609614
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 54,
+      "source_ns": 779699119605614,
+      "representation_error_ns": 4000,
+      "trace_index": 1087
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699120359061,
+        779699120367061
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 55,
+      "source_ns": 779699120363061,
+      "representation_error_ns": 4000,
+      "trace_index": 1107
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699120520986,
+        779699120528986
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 56,
+      "source_ns": 779699120524986,
+      "representation_error_ns": 4000,
+      "trace_index": 1127
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699121310133,
+        779699121318133
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 57,
+      "source_ns": 779699121314133,
+      "representation_error_ns": 4000,
+      "trace_index": 1147
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699121462753,
+        779699121470753
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 58,
+      "source_ns": 779699121466753,
+      "representation_error_ns": 4000,
+      "trace_index": 1167
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699122263732,
+        779699122271732
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 59,
+      "source_ns": 779699122267732,
+      "representation_error_ns": 4000,
+      "trace_index": 1187
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699122421959,
+        779699122429959
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 60,
+      "source_ns": 779699122425959,
+      "representation_error_ns": 4000,
+      "trace_index": 1207
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699123267596,
+        779699123275596
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 61,
+      "source_ns": 779699123271596,
+      "representation_error_ns": 4000,
+      "trace_index": 1227
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699123423246,
+        779699123431246
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 62,
+      "source_ns": 779699123427246,
+      "representation_error_ns": 4000,
+      "trace_index": 1247
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699124198742,
+        779699124206742
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 63,
+      "source_ns": 779699124202742,
+      "representation_error_ns": 4000,
+      "trace_index": 1267
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699124349865,
+        779699124357865
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 64,
+      "source_ns": 779699124353865,
+      "representation_error_ns": 4000,
+      "trace_index": 1287
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699125111895,
+        779699125119895
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 65,
+      "source_ns": 779699125115895,
+      "representation_error_ns": 4000,
+      "trace_index": 1307
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699125267196,
+        779699125275196
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 66,
+      "source_ns": 779699125271196,
+      "representation_error_ns": 4000,
+      "trace_index": 1327
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699125990295,
+        779699125998295
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 67,
+      "source_ns": 779699125994295,
+      "representation_error_ns": 4000,
+      "trace_index": 1347
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699126150567,
+        779699126158567
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 0,
+      "op": "AllReduce",
+      "seq": 68,
+      "source_ns": 779699126154567,
+      "representation_error_ns": 4000,
+      "trace_index": 1367
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779698506479465,
+        779698506487465
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllGather",
+      "seq": 0,
+      "source_ns": 779698506483465,
+      "representation_error_ns": 4000,
+      "trace_index": 1
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699065478889,
+        779699065486889
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 0,
+      "source_ns": 779699065482889,
+      "representation_error_ns": 4000,
+      "trace_index": 7
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699090109516,
+        779699090117516
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 1,
+      "source_ns": 779699090113516,
+      "representation_error_ns": 4000,
+      "trace_index": 27
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699090264843,
+        779699090272843
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 2,
+      "source_ns": 779699090268843,
+      "representation_error_ns": 4000,
+      "trace_index": 47
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699092611238,
+        779699092619238
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 3,
+      "source_ns": 779699092615238,
+      "representation_error_ns": 4000,
+      "trace_index": 67
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699092744191,
+        779699092752191
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 4,
+      "source_ns": 779699092748191,
+      "representation_error_ns": 4000,
+      "trace_index": 87
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699094088296,
+        779699094096296
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 5,
+      "source_ns": 779699094092296,
+      "representation_error_ns": 4000,
+      "trace_index": 107
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699094239441,
+        779699094247441
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 6,
+      "source_ns": 779699094243441,
+      "representation_error_ns": 4000,
+      "trace_index": 127
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699095409649,
+        779699095417649
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 7,
+      "source_ns": 779699095413649,
+      "representation_error_ns": 4000,
+      "trace_index": 147
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699095513453,
+        779699095521453
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 8,
+      "source_ns": 779699095517453,
+      "representation_error_ns": 4000,
+      "trace_index": 167
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699098453975,
+        779699098461975
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 9,
+      "source_ns": 779699098457975,
+      "representation_error_ns": 4000,
+      "trace_index": 187
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699098559700,
+        779699098567700
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 10,
+      "source_ns": 779699098563700,
+      "representation_error_ns": 4000,
+      "trace_index": 207
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699100367363,
+        779699100375363
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 11,
+      "source_ns": 779699100371363,
+      "representation_error_ns": 4000,
+      "trace_index": 227
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699100473165,
+        779699100481165
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 12,
+      "source_ns": 779699100477165,
+      "representation_error_ns": 4000,
+      "trace_index": 247
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699101468192,
+        779699101476192
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 13,
+      "source_ns": 779699101472192,
+      "representation_error_ns": 4000,
+      "trace_index": 267
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699101576937,
+        779699101584937
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 14,
+      "source_ns": 779699101580937,
+      "representation_error_ns": 4000,
+      "trace_index": 287
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699102572490,
+        779699102580490
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 15,
+      "source_ns": 779699102576490,
+      "representation_error_ns": 4000,
+      "trace_index": 307
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699102712536,
+        779699102720536
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 16,
+      "source_ns": 779699102716536,
+      "representation_error_ns": 4000,
+      "trace_index": 327
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699103580107,
+        779699103588107
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 17,
+      "source_ns": 779699103584107,
+      "representation_error_ns": 4000,
+      "trace_index": 347
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699103709413,
+        779699103717413
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 18,
+      "source_ns": 779699103713413,
+      "representation_error_ns": 4000,
+      "trace_index": 367
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699104542316,
+        779699104550316
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 19,
+      "source_ns": 779699104546316,
+      "representation_error_ns": 4000,
+      "trace_index": 387
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699104675673,
+        779699104683673
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 20,
+      "source_ns": 779699104679673,
+      "representation_error_ns": 4000,
+      "trace_index": 407
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699105424867,
+        779699105432867
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 21,
+      "source_ns": 779699105428867,
+      "representation_error_ns": 4000,
+      "trace_index": 427
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699105565580,
+        779699105573580
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 22,
+      "source_ns": 779699105569580,
+      "representation_error_ns": 4000,
+      "trace_index": 447
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699106264322,
+        779699106272322
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 23,
+      "source_ns": 779699106268322,
+      "representation_error_ns": 4000,
+      "trace_index": 467
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699106402176,
+        779699106410176
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 24,
+      "source_ns": 779699106406176,
+      "representation_error_ns": 4000,
+      "trace_index": 487
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699107115847,
+        779699107123847
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 25,
+      "source_ns": 779699107119847,
+      "representation_error_ns": 4000,
+      "trace_index": 507
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699107253957,
+        779699107261957
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 26,
+      "source_ns": 779699107257957,
+      "representation_error_ns": 4000,
+      "trace_index": 527
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699108040000,
+        779699108048000
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 27,
+      "source_ns": 779699108044000,
+      "representation_error_ns": 4000,
+      "trace_index": 547
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699108192228,
+        779699108200228
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 28,
+      "source_ns": 779699108196228,
+      "representation_error_ns": 4000,
+      "trace_index": 567
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699108911899,
+        779699108919899
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 29,
+      "source_ns": 779699108915899,
+      "representation_error_ns": 4000,
+      "trace_index": 587
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699109060498,
+        779699109068498
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 30,
+      "source_ns": 779699109064498,
+      "representation_error_ns": 4000,
+      "trace_index": 607
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699109775103,
+        779699109783103
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 31,
+      "source_ns": 779699109779103,
+      "representation_error_ns": 4000,
+      "trace_index": 627
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699109920813,
+        779699109928813
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 32,
+      "source_ns": 779699109924813,
+      "representation_error_ns": 4000,
+      "trace_index": 647
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699110635266,
+        779699110643266
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 33,
+      "source_ns": 779699110639266,
+      "representation_error_ns": 4000,
+      "trace_index": 667
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699110773896,
+        779699110781896
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 34,
+      "source_ns": 779699110777896,
+      "representation_error_ns": 4000,
+      "trace_index": 687
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699111516472,
+        779699111524472
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 35,
+      "source_ns": 779699111520472,
+      "representation_error_ns": 4000,
+      "trace_index": 707
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699111670878,
+        779699111678878
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 36,
+      "source_ns": 779699111674878,
+      "representation_error_ns": 4000,
+      "trace_index": 727
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699112430575,
+        779699112438575
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 37,
+      "source_ns": 779699112434575,
+      "representation_error_ns": 4000,
+      "trace_index": 747
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699112577403,
+        779699112585403
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 38,
+      "source_ns": 779699112581403,
+      "representation_error_ns": 4000,
+      "trace_index": 767
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699113324738,
+        779699113332738
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 39,
+      "source_ns": 779699113328738,
+      "representation_error_ns": 4000,
+      "trace_index": 787
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699113464977,
+        779699113472977
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 40,
+      "source_ns": 779699113468977,
+      "representation_error_ns": 4000,
+      "trace_index": 807
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699114215803,
+        779699114223803
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 41,
+      "source_ns": 779699114219803,
+      "representation_error_ns": 4000,
+      "trace_index": 827
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699114355799,
+        779699114363799
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 42,
+      "source_ns": 779699114359799,
+      "representation_error_ns": 4000,
+      "trace_index": 847
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699115169544,
+        779699115177544
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 43,
+      "source_ns": 779699115173544,
+      "representation_error_ns": 4000,
+      "trace_index": 867
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699115315544,
+        779699115323544
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 44,
+      "source_ns": 779699115319544,
+      "representation_error_ns": 4000,
+      "trace_index": 887
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699116096330,
+        779699116104330
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 45,
+      "source_ns": 779699116100330,
+      "representation_error_ns": 4000,
+      "trace_index": 907
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699116246373,
+        779699116254373
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 46,
+      "source_ns": 779699116250373,
+      "representation_error_ns": 4000,
+      "trace_index": 927
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699117029813,
+        779699117037813
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 47,
+      "source_ns": 779699117033813,
+      "representation_error_ns": 4000,
+      "trace_index": 947
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699117177166,
+        779699117185166
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 48,
+      "source_ns": 779699117181166,
+      "representation_error_ns": 4000,
+      "trace_index": 967
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699117895274,
+        779699117903274
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 49,
+      "source_ns": 779699117899274,
+      "representation_error_ns": 4000,
+      "trace_index": 987
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699118062009,
+        779699118070009
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 50,
+      "source_ns": 779699118066009,
+      "representation_error_ns": 4000,
+      "trace_index": 1007
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699118811617,
+        779699118819617
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 51,
+      "source_ns": 779699118815617,
+      "representation_error_ns": 4000,
+      "trace_index": 1027
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699118957481,
+        779699118965481
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 52,
+      "source_ns": 779699118961481,
+      "representation_error_ns": 4000,
+      "trace_index": 1047
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699119810123,
+        779699119818123
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 53,
+      "source_ns": 779699119814123,
+      "representation_error_ns": 4000,
+      "trace_index": 1067
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699119966408,
+        779699119974408
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 54,
+      "source_ns": 779699119970408,
+      "representation_error_ns": 4000,
+      "trace_index": 1087
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699120767652,
+        779699120775652
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 55,
+      "source_ns": 779699120771652,
+      "representation_error_ns": 4000,
+      "trace_index": 1107
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699120930610,
+        779699120938610
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 56,
+      "source_ns": 779699120934610,
+      "representation_error_ns": 4000,
+      "trace_index": 1127
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699121679996,
+        779699121687996
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 57,
+      "source_ns": 779699121683996,
+      "representation_error_ns": 4000,
+      "trace_index": 1147
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699121836022,
+        779699121844022
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 58,
+      "source_ns": 779699121840022,
+      "representation_error_ns": 4000,
+      "trace_index": 1167
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699122642807,
+        779699122650807
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 59,
+      "source_ns": 779699122646807,
+      "representation_error_ns": 4000,
+      "trace_index": 1187
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699122796405,
+        779699122804405
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 60,
+      "source_ns": 779699122800405,
+      "representation_error_ns": 4000,
+      "trace_index": 1207
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699123631293,
+        779699123639293
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 61,
+      "source_ns": 779699123635293,
+      "representation_error_ns": 4000,
+      "trace_index": 1227
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699123779242,
+        779699123787242
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 62,
+      "source_ns": 779699123783242,
+      "representation_error_ns": 4000,
+      "trace_index": 1247
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699124573219,
+        779699124581219
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 63,
+      "source_ns": 779699124577219,
+      "representation_error_ns": 4000,
+      "trace_index": 1267
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699124725935,
+        779699124733935
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 64,
+      "source_ns": 779699124729935,
+      "representation_error_ns": 4000,
+      "trace_index": 1287
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699125497760,
+        779699125505760
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 65,
+      "source_ns": 779699125501760,
+      "representation_error_ns": 4000,
+      "trace_index": 1307
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699125647862,
+        779699125655862
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 66,
+      "source_ns": 779699125651862,
+      "representation_error_ns": 4000,
+      "trace_index": 1327
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699126402912,
+        779699126410912
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 67,
+      "source_ns": 779699126406912,
+      "representation_error_ns": 4000,
+      "trace_index": 1347
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699126555519,
+        779699126563519
+      ],
+      "half_width_ns": 4000,
+      "evidence_indices": [],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 1,
+      "op": "AllReduce",
+      "seq": 68,
+      "source_ns": 779699126559519,
+      "representation_error_ns": 4000,
+      "trace_index": 1367
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779698507642054,
+        779698508809199
+      ],
+      "half_width_ns": 583573,
+      "evidence_indices": [
+        6961,
+        6962
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllGather",
+      "seq": 0,
+      "source_ns": 1611605419101031,
+      "representation_error_ns": 4000,
+      "trace_index": 1
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699063556332,
+        779699064585451
+      ],
+      "half_width_ns": 514560,
+      "evidence_indices": [
+        7632,
+        7633
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 0,
+      "source_ns": 1611605974984956,
+      "representation_error_ns": 4000,
+      "trace_index": 7
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699090547546,
+        779699091558910
+      ],
+      "half_width_ns": 505682,
+      "evidence_indices": [
+        7662,
+        7663
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 1,
+      "source_ns": 1611606002006874,
+      "representation_error_ns": 4000,
+      "trace_index": 27
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699090547546,
+        779699091558910
+      ],
+      "half_width_ns": 505682,
+      "evidence_indices": [
+        7662,
+        7663
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 2,
+      "source_ns": 1611606002163680,
+      "representation_error_ns": 4000,
+      "trace_index": 47
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699092184329,
+        779699093207385
+      ],
+      "half_width_ns": 511528,
+      "evidence_indices": [
+        7664,
+        7665
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 3,
+      "source_ns": 1611606003572415,
+      "representation_error_ns": 4000,
+      "trace_index": 67
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699092184329,
+        779699093207385
+      ],
+      "half_width_ns": 511528,
+      "evidence_indices": [
+        7664,
+        7665
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 4,
+      "source_ns": 1611606003695891,
+      "representation_error_ns": 4000,
+      "trace_index": 87
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699093831366,
+        779699094847665
+      ],
+      "half_width_ns": 508150,
+      "evidence_indices": [
+        7666,
+        7667
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 5,
+      "source_ns": 1611606004995156,
+      "representation_error_ns": 4000,
+      "trace_index": 107
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699093831366,
+        779699094847665
+      ],
+      "half_width_ns": 508150,
+      "evidence_indices": [
+        7666,
+        7667
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 6,
+      "source_ns": 1611606005123195,
+      "representation_error_ns": 4000,
+      "trace_index": 127
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699094649079,
+        779699095665655
+      ],
+      "half_width_ns": 508288,
+      "evidence_indices": [
+        7667,
+        7668
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 7,
+      "source_ns": 1611606006457884,
+      "representation_error_ns": 4000,
+      "trace_index": 147
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699095473352,
+        779699096490524
+      ],
+      "half_width_ns": 508586,
+      "evidence_indices": [
+        7668,
+        7669
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 8,
+      "source_ns": 1611606006560424,
+      "representation_error_ns": 4000,
+      "trace_index": 167
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699098775184,
+        779699099681371
+      ],
+      "half_width_ns": 453094,
+      "evidence_indices": [
+        7672,
+        7673
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 9,
+      "source_ns": 1611606010131514,
+      "representation_error_ns": 4000,
+      "trace_index": 187
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699098775184,
+        779699099681371
+      ],
+      "half_width_ns": 453094,
+      "evidence_indices": [
+        7672,
+        7673
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 10,
+      "source_ns": 1611606010230239,
+      "representation_error_ns": 4000,
+      "trace_index": 207
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699100258643,
+        779699101172913
+      ],
+      "half_width_ns": 457135,
+      "evidence_indices": [
+        7674,
+        7675
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 11,
+      "source_ns": 1611606011300641,
+      "representation_error_ns": 4000,
+      "trace_index": 227
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699100258643,
+        779699101172913
+      ],
+      "half_width_ns": 457135,
+      "evidence_indices": [
+        7674,
+        7675
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 12,
+      "source_ns": 1611606011406302,
+      "representation_error_ns": 4000,
+      "trace_index": 247
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699100995729,
+        779699101915022
+      ],
+      "half_width_ns": 459647,
+      "evidence_indices": [
+        7675,
+        7676
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 13,
+      "source_ns": 1611606012471057,
+      "representation_error_ns": 4000,
+      "trace_index": 267
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699100995729,
+        779699101915022
+      ],
+      "half_width_ns": 459647,
+      "evidence_indices": [
+        7675,
+        7676
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 14,
+      "source_ns": 1611606012602860,
+      "representation_error_ns": 4000,
+      "trace_index": 287
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699101750156,
+        779699102649945
+      ],
+      "half_width_ns": 449895,
+      "evidence_indices": [
+        7676,
+        7677
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 15,
+      "source_ns": 1611606013453754,
+      "representation_error_ns": 4000,
+      "trace_index": 307
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699102494913,
+        779699103394290
+      ],
+      "half_width_ns": 449689,
+      "evidence_indices": [
+        7677,
+        7678
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 16,
+      "source_ns": 1611606013565975,
+      "representation_error_ns": 4000,
+      "trace_index": 327
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699103225406,
+        779699104145806
+      ],
+      "half_width_ns": 460200,
+      "evidence_indices": [
+        7678,
+        7679
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 17,
+      "source_ns": 1611606014487948,
+      "representation_error_ns": 4000,
+      "trace_index": 347
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699103225406,
+        779699104145806
+      ],
+      "half_width_ns": 460200,
+      "evidence_indices": [
+        7678,
+        7679
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 18,
+      "source_ns": 1611606014625923,
+      "representation_error_ns": 4000,
+      "trace_index": 367
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699103969724,
+        779699104887704
+      ],
+      "half_width_ns": 458990,
+      "evidence_indices": [
+        7679,
+        7680
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 19,
+      "source_ns": 1611606015446512,
+      "representation_error_ns": 4000,
+      "trace_index": 387
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699103969724,
+        779699104887704
+      ],
+      "half_width_ns": 458990,
+      "evidence_indices": [
+        7679,
+        7680
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 20,
+      "source_ns": 1611606015584928,
+      "representation_error_ns": 4000,
+      "trace_index": 407
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699104721734,
+        779699105636610
+      ],
+      "half_width_ns": 457438,
+      "evidence_indices": [
+        7680,
+        7681
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 21,
+      "source_ns": 1611606016274354,
+      "representation_error_ns": 4000,
+      "trace_index": 427
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699104721734,
+        779699105636610
+      ],
+      "half_width_ns": 457438,
+      "evidence_indices": [
+        7680,
+        7681
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 22,
+      "source_ns": 1611606016416000,
+      "representation_error_ns": 4000,
+      "trace_index": 447
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699105466810,
+        779699106378220
+      ],
+      "half_width_ns": 455705,
+      "evidence_indices": [
+        7681,
+        7682
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 23,
+      "source_ns": 1611606017090992,
+      "representation_error_ns": 4000,
+      "trace_index": 467
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699106216056,
+        779699107167137
+      ],
+      "half_width_ns": 475541,
+      "evidence_indices": [
+        7682,
+        7683
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 24,
+      "source_ns": 1611606017222624,
+      "representation_error_ns": 4000,
+      "trace_index": 487
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699106216056,
+        779699107167137
+      ],
+      "half_width_ns": 475541,
+      "evidence_indices": [
+        7682,
+        7683
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 25,
+      "source_ns": 1611606017873742,
+      "representation_error_ns": 4000,
+      "trace_index": 507
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699106960632,
+        779699107983240
+      ],
+      "half_width_ns": 511304,
+      "evidence_indices": [
+        7683,
+        7684
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 26,
+      "source_ns": 1611606017998165,
+      "representation_error_ns": 4000,
+      "trace_index": 527
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699106960632,
+        779699107983240
+      ],
+      "half_width_ns": 511304,
+      "evidence_indices": [
+        7683,
+        7684
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 27,
+      "source_ns": 1611606018699217,
+      "representation_error_ns": 4000,
+      "trace_index": 547
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699107789149,
+        779699108813136
+      ],
+      "half_width_ns": 511994,
+      "evidence_indices": [
+        7684,
+        7685
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 28,
+      "source_ns": 1611606018833292,
+      "representation_error_ns": 4000,
+      "trace_index": 567
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699107789149,
+        779699108813136
+      ],
+      "half_width_ns": 511994,
+      "evidence_indices": [
+        7684,
+        7685
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 29,
+      "source_ns": 1611606019512302,
+      "representation_error_ns": 4000,
+      "trace_index": 587
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699108615360,
+        779699109638027
+      ],
+      "half_width_ns": 511334,
+      "evidence_indices": [
+        7685,
+        7686
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 30,
+      "source_ns": 1611606019650246,
+      "representation_error_ns": 4000,
+      "trace_index": 607
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699108615360,
+        779699109638027
+      ],
+      "half_width_ns": 511334,
+      "evidence_indices": [
+        7685,
+        7686
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 31,
+      "source_ns": 1611606020392859,
+      "representation_error_ns": 4000,
+      "trace_index": 627
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699109436252,
+        779699110457074
+      ],
+      "half_width_ns": 510411,
+      "evidence_indices": [
+        7686,
+        7687
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 32,
+      "source_ns": 1611606020537269,
+      "representation_error_ns": 4000,
+      "trace_index": 647
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699110260229,
+        779699111279428
+      ],
+      "half_width_ns": 509600,
+      "evidence_indices": [
+        7687,
+        7688
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 33,
+      "source_ns": 1611606021315288,
+      "representation_error_ns": 4000,
+      "trace_index": 667
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699110260229,
+        779699111279428
+      ],
+      "half_width_ns": 509600,
+      "evidence_indices": [
+        7687,
+        7688
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 34,
+      "source_ns": 1611606021463775,
+      "representation_error_ns": 4000,
+      "trace_index": 687
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699111081197,
+        779699112103111
+      ],
+      "half_width_ns": 510957,
+      "evidence_indices": [
+        7688,
+        7689
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 35,
+      "source_ns": 1611606022233108,
+      "representation_error_ns": 4000,
+      "trace_index": 707
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699111081197,
+        779699112103111
+      ],
+      "half_width_ns": 510957,
+      "evidence_indices": [
+        7688,
+        7689
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 36,
+      "source_ns": 1611606022369891,
+      "representation_error_ns": 4000,
+      "trace_index": 727
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699111905960,
+        779699112930728
+      ],
+      "half_width_ns": 512384,
+      "evidence_indices": [
+        7689,
+        7690
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 37,
+      "source_ns": 1611606023104005,
+      "representation_error_ns": 4000,
+      "trace_index": 747
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699111905960,
+        779699112930728
+      ],
+      "half_width_ns": 512384,
+      "evidence_indices": [
+        7689,
+        7690
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 38,
+      "source_ns": 1611606023239013,
+      "representation_error_ns": 4000,
+      "trace_index": 767
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699112726654,
+        779699113757601
+      ],
+      "half_width_ns": 515474,
+      "evidence_indices": [
+        7690,
+        7691
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 39,
+      "source_ns": 1611606023946236,
+      "representation_error_ns": 4000,
+      "trace_index": 787
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699112726654,
+        779699113757601
+      ],
+      "half_width_ns": 515474,
+      "evidence_indices": [
+        7690,
+        7691
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 40,
+      "source_ns": 1611606024095469,
+      "representation_error_ns": 4000,
+      "trace_index": 807
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699113555086,
+        779699114583695
+      ],
+      "half_width_ns": 514305,
+      "evidence_indices": [
+        7691,
+        7692
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 41,
+      "source_ns": 1611606024811340,
+      "representation_error_ns": 4000,
+      "trace_index": 827
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699113555086,
+        779699114583695
+      ],
+      "half_width_ns": 514305,
+      "evidence_indices": [
+        7691,
+        7692
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 42,
+      "source_ns": 1611606024943367,
+      "representation_error_ns": 4000,
+      "trace_index": 847
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699114385577,
+        779699115405964
+      ],
+      "half_width_ns": 510194,
+      "evidence_indices": [
+        7692,
+        7693
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 43,
+      "source_ns": 1611606025682563,
+      "representation_error_ns": 4000,
+      "trace_index": 867
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699114385577,
+        779699115405964
+      ],
+      "half_width_ns": 510194,
+      "evidence_indices": [
+        7692,
+        7693
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 44,
+      "source_ns": 1611606025818421,
+      "representation_error_ns": 4000,
+      "trace_index": 887
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699115206205,
+        779699116218416
+      ],
+      "half_width_ns": 506106,
+      "evidence_indices": [
+        7693,
+        7694
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 45,
+      "source_ns": 1611606026579697,
+      "representation_error_ns": 4000,
+      "trace_index": 907
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699115206205,
+        779699116218416
+      ],
+      "half_width_ns": 506106,
+      "evidence_indices": [
+        7693,
+        7694
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 46,
+      "source_ns": 1611606026727891,
+      "representation_error_ns": 4000,
+      "trace_index": 927
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699116012696,
+        779699117061987
+      ],
+      "half_width_ns": 524646,
+      "evidence_indices": [
+        7694,
+        7695
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 47,
+      "source_ns": 1611606027459006,
+      "representation_error_ns": 4000,
+      "trace_index": 947
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699116012696,
+        779699117061987
+      ],
+      "half_width_ns": 524646,
+      "evidence_indices": [
+        7694,
+        7695
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 48,
+      "source_ns": 1611606027595133,
+      "representation_error_ns": 4000,
+      "trace_index": 967
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699116843423,
+        779699117894810
+      ],
+      "half_width_ns": 525694,
+      "evidence_indices": [
+        7695,
+        7696
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 49,
+      "source_ns": 1611606028355805,
+      "representation_error_ns": 4000,
+      "trace_index": 987
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699116843423,
+        779699117894810
+      ],
+      "half_width_ns": 525694,
+      "evidence_indices": [
+        7695,
+        7696
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 50,
+      "source_ns": 1611606028499366,
+      "representation_error_ns": 4000,
+      "trace_index": 1007
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699117686067,
+        779699118722514
+      ],
+      "half_width_ns": 518224,
+      "evidence_indices": [
+        7696,
+        7697
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 51,
+      "source_ns": 1611606029288757,
+      "representation_error_ns": 4000,
+      "trace_index": 1027
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699117686067,
+        779699118722514
+      ],
+      "half_width_ns": 518224,
+      "evidence_indices": [
+        7696,
+        7697
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 52,
+      "source_ns": 1611606029432818,
+      "representation_error_ns": 4000,
+      "trace_index": 1047
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699118519465,
+        779699119550534
+      ],
+      "half_width_ns": 515535,
+      "evidence_indices": [
+        7697,
+        7698
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 53,
+      "source_ns": 1611606030170977,
+      "representation_error_ns": 4000,
+      "trace_index": 1067
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699118519465,
+        779699119550534
+      ],
+      "half_width_ns": 515535,
+      "evidence_indices": [
+        7697,
+        7698
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 54,
+      "source_ns": 1611606030323478,
+      "representation_error_ns": 4000,
+      "trace_index": 1087
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699119345688,
+        779699120378577
+      ],
+      "half_width_ns": 516445,
+      "evidence_indices": [
+        7698,
+        7699
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 55,
+      "source_ns": 1611606031060391,
+      "representation_error_ns": 4000,
+      "trace_index": 1107
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699120173848,
+        779699120378577
+      ],
+      "half_width_ns": 102365,
+      "evidence_indices": [
+        7699
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 56,
+      "source_ns": 1611606031205868,
+      "representation_error_ns": 4000,
+      "trace_index": 1127
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699120173848,
+        779699121227146
+      ],
+      "half_width_ns": 526649,
+      "evidence_indices": [
+        7699,
+        7700
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 57,
+      "source_ns": 1611606031922699,
+      "representation_error_ns": 4000,
+      "trace_index": 1147
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699120999982,
+        779699122063986
+      ],
+      "half_width_ns": 532002,
+      "evidence_indices": [
+        7700,
+        7701
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 58,
+      "source_ns": 1611606032072655,
+      "representation_error_ns": 4000,
+      "trace_index": 1167
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699121855198,
+        779699122063986
+      ],
+      "half_width_ns": 104394,
+      "evidence_indices": [
+        7701
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 59,
+      "source_ns": 1611606032871499,
+      "representation_error_ns": 4000,
+      "trace_index": 1187
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699121855198,
+        779699122901230
+      ],
+      "half_width_ns": 523016,
+      "evidence_indices": [
+        7701,
+        7702
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 60,
+      "source_ns": 1611606033029246,
+      "representation_error_ns": 4000,
+      "trace_index": 1207
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699122690426,
+        779699123731597
+      ],
+      "half_width_ns": 520586,
+      "evidence_indices": [
+        7702,
+        7703
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 61,
+      "source_ns": 1611606033771816,
+      "representation_error_ns": 4000,
+      "trace_index": 1227
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699122690426,
+        779699123731597
+      ],
+      "half_width_ns": 520586,
+      "evidence_indices": [
+        7702,
+        7703
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 62,
+      "source_ns": 1611606033917254,
+      "representation_error_ns": 4000,
+      "trace_index": 1247
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699123528703,
+        779699124571396
+      ],
+      "half_width_ns": 521347,
+      "evidence_indices": [
+        7703,
+        7704
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 63,
+      "source_ns": 1611606034730887,
+      "representation_error_ns": 4000,
+      "trace_index": 1267
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699123528703,
+        779699124571396
+      ],
+      "half_width_ns": 521347,
+      "evidence_indices": [
+        7703,
+        7704
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 64,
+      "source_ns": 1611606034874370,
+      "representation_error_ns": 4000,
+      "trace_index": 1287
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699124359124,
+        779699125400647
+      ],
+      "half_width_ns": 520762,
+      "evidence_indices": [
+        7704,
+        7705
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 65,
+      "source_ns": 1611606035633880,
+      "representation_error_ns": 4000,
+      "trace_index": 1307
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699124359124,
+        779699125400647
+      ],
+      "half_width_ns": 520762,
+      "evidence_indices": [
+        7704,
+        7705
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 66,
+      "source_ns": 1611606035782827,
+      "representation_error_ns": 4000,
+      "trace_index": 1327
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699125197271,
+        779699126220827
+      ],
+      "half_width_ns": 511778,
+      "evidence_indices": [
+        7705,
+        7706
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 67,
+      "source_ns": 1611606036583000,
+      "representation_error_ns": 4000,
+      "trace_index": 1347
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699125197271,
+        779699126220827
+      ],
+      "half_width_ns": 511778,
+      "evidence_indices": [
+        7705,
+        7706
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 2,
+      "op": "AllReduce",
+      "seq": 68,
+      "source_ns": 1611606036730055,
+      "representation_error_ns": 4000,
+      "trace_index": 1367
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779698505757887,
+        779698506924232
+      ],
+      "half_width_ns": 583173,
+      "evidence_indices": [
+        6959,
+        6960
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllGather",
+      "seq": 0,
+      "source_ns": 1611605417520368,
+      "representation_error_ns": 4000,
+      "trace_index": 1
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699063556332,
+        779699064585451
+      ],
+      "half_width_ns": 514560,
+      "evidence_indices": [
+        7632,
+        7633
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 0,
+      "source_ns": 1611605974768616,
+      "representation_error_ns": 4000,
+      "trace_index": 7
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699090547546,
+        779699091558910
+      ],
+      "half_width_ns": 505682,
+      "evidence_indices": [
+        7662,
+        7663
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 1,
+      "source_ns": 1611606002084192,
+      "representation_error_ns": 4000,
+      "trace_index": 27
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699090547546,
+        779699091558910
+      ],
+      "half_width_ns": 505682,
+      "evidence_indices": [
+        7662,
+        7663
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 2,
+      "source_ns": 1611606002283419,
+      "representation_error_ns": 4000,
+      "trace_index": 47
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699092184329,
+        779699093207385
+      ],
+      "half_width_ns": 511528,
+      "evidence_indices": [
+        7664,
+        7665
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 3,
+      "source_ns": 1611606003628107,
+      "representation_error_ns": 4000,
+      "trace_index": 67
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699092184329,
+        779699093207385
+      ],
+      "half_width_ns": 511528,
+      "evidence_indices": [
+        7664,
+        7665
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 4,
+      "source_ns": 1611606003795267,
+      "representation_error_ns": 4000,
+      "trace_index": 87
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699093831366,
+        779699094847665
+      ],
+      "half_width_ns": 508150,
+      "evidence_indices": [
+        7666,
+        7667
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 5,
+      "source_ns": 1611606005013222,
+      "representation_error_ns": 4000,
+      "trace_index": 107
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699093831366,
+        779699094847665
+      ],
+      "half_width_ns": 508150,
+      "evidence_indices": [
+        7666,
+        7667
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 6,
+      "source_ns": 1611606005149380,
+      "representation_error_ns": 4000,
+      "trace_index": 127
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699094649079,
+        779699095665655
+      ],
+      "half_width_ns": 508288,
+      "evidence_indices": [
+        7667,
+        7668
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 7,
+      "source_ns": 1611606006353392,
+      "representation_error_ns": 4000,
+      "trace_index": 147
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699095473352,
+        779699096490524
+      ],
+      "half_width_ns": 508586,
+      "evidence_indices": [
+        7668,
+        7669
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 8,
+      "source_ns": 1611606006513471,
+      "representation_error_ns": 4000,
+      "trace_index": 167
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699098003448,
+        779699098943410
+      ],
+      "half_width_ns": 469981,
+      "evidence_indices": [
+        7671,
+        7672
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 9,
+      "source_ns": 1611606009374940,
+      "representation_error_ns": 4000,
+      "trace_index": 187
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699098003448,
+        779699098943410
+      ],
+      "half_width_ns": 469981,
+      "evidence_indices": [
+        7671,
+        7672
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 10,
+      "source_ns": 1611606009517204,
+      "representation_error_ns": 4000,
+      "trace_index": 207
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699100258643,
+        779699101172913
+      ],
+      "half_width_ns": 457135,
+      "evidence_indices": [
+        7674,
+        7675
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 11,
+      "source_ns": 1611606011376560,
+      "representation_error_ns": 4000,
+      "trace_index": 227
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699100258643,
+        779699101172913
+      ],
+      "half_width_ns": 457135,
+      "evidence_indices": [
+        7674,
+        7675
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 12,
+      "source_ns": 1611606011526942,
+      "representation_error_ns": 4000,
+      "trace_index": 247
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699100995729,
+        779699101915022
+      ],
+      "half_width_ns": 459647,
+      "evidence_indices": [
+        7675,
+        7676
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 13,
+      "source_ns": 1611606012460482,
+      "representation_error_ns": 4000,
+      "trace_index": 267
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699100995729,
+        779699101915022
+      ],
+      "half_width_ns": 459647,
+      "evidence_indices": [
+        7675,
+        7676
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 14,
+      "source_ns": 1611606012617091,
+      "representation_error_ns": 4000,
+      "trace_index": 287
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699102494913,
+        779699103394290
+      ],
+      "half_width_ns": 449689,
+      "evidence_indices": [
+        7677,
+        7678
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 15,
+      "source_ns": 1611606013500552,
+      "representation_error_ns": 4000,
+      "trace_index": 307
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699102494913,
+        779699103394290
+      ],
+      "half_width_ns": 449689,
+      "evidence_indices": [
+        7677,
+        7678
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 16,
+      "source_ns": 1611606013660074,
+      "representation_error_ns": 4000,
+      "trace_index": 327
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699103225406,
+        779699104145806
+      ],
+      "half_width_ns": 460200,
+      "evidence_indices": [
+        7678,
+        7679
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 17,
+      "source_ns": 1611606014487097,
+      "representation_error_ns": 4000,
+      "trace_index": 347
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699103225406,
+        779699104145806
+      ],
+      "half_width_ns": 460200,
+      "evidence_indices": [
+        7678,
+        7679
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 18,
+      "source_ns": 1611606014642654,
+      "representation_error_ns": 4000,
+      "trace_index": 367
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699103969724,
+        779699104887704
+      ],
+      "half_width_ns": 458990,
+      "evidence_indices": [
+        7679,
+        7680
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 19,
+      "source_ns": 1611606015467582,
+      "representation_error_ns": 4000,
+      "trace_index": 387
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699103969724,
+        779699104887704
+      ],
+      "half_width_ns": 458990,
+      "evidence_indices": [
+        7679,
+        7680
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 20,
+      "source_ns": 1611606015620549,
+      "representation_error_ns": 4000,
+      "trace_index": 407
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699104721734,
+        779699105636610
+      ],
+      "half_width_ns": 457438,
+      "evidence_indices": [
+        7680,
+        7681
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 21,
+      "source_ns": 1611606016371240,
+      "representation_error_ns": 4000,
+      "trace_index": 427
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699105466810,
+        779699106378220
+      ],
+      "half_width_ns": 455705,
+      "evidence_indices": [
+        7681,
+        7682
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 22,
+      "source_ns": 1611606016578143,
+      "representation_error_ns": 4000,
+      "trace_index": 447
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699106216056,
+        779699107167137
+      ],
+      "half_width_ns": 475541,
+      "evidence_indices": [
+        7682,
+        7683
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 23,
+      "source_ns": 1611606017281814,
+      "representation_error_ns": 4000,
+      "trace_index": 467
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699106216056,
+        779699107167137
+      ],
+      "half_width_ns": 475541,
+      "evidence_indices": [
+        7682,
+        7683
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 24,
+      "source_ns": 1611606017429713,
+      "representation_error_ns": 4000,
+      "trace_index": 487
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699106960632,
+        779699107983240
+      ],
+      "half_width_ns": 511304,
+      "evidence_indices": [
+        7683,
+        7684
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 25,
+      "source_ns": 1611606018121927,
+      "representation_error_ns": 4000,
+      "trace_index": 507
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699106960632,
+        779699107983240
+      ],
+      "half_width_ns": 511304,
+      "evidence_indices": [
+        7683,
+        7684
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 26,
+      "source_ns": 1611606018266779,
+      "representation_error_ns": 4000,
+      "trace_index": 527
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699107789149,
+        779699108813136
+      ],
+      "half_width_ns": 511994,
+      "evidence_indices": [
+        7684,
+        7685
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 27,
+      "source_ns": 1611606018941431,
+      "representation_error_ns": 4000,
+      "trace_index": 547
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699107789149,
+        779699108813136
+      ],
+      "half_width_ns": 511994,
+      "evidence_indices": [
+        7684,
+        7685
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 28,
+      "source_ns": 1611606019099637,
+      "representation_error_ns": 4000,
+      "trace_index": 567
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699108615360,
+        779699109638027
+      ],
+      "half_width_ns": 511334,
+      "evidence_indices": [
+        7685,
+        7686
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 29,
+      "source_ns": 1611606019769312,
+      "representation_error_ns": 4000,
+      "trace_index": 587
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699108615360,
+        779699109638027
+      ],
+      "half_width_ns": 511334,
+      "evidence_indices": [
+        7685,
+        7686
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 30,
+      "source_ns": 1611606019912382,
+      "representation_error_ns": 4000,
+      "trace_index": 607
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699109436252,
+        779699110457074
+      ],
+      "half_width_ns": 510411,
+      "evidence_indices": [
+        7686,
+        7687
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 31,
+      "source_ns": 1611606020603255,
+      "representation_error_ns": 4000,
+      "trace_index": 627
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699109436252,
+        779699110457074
+      ],
+      "half_width_ns": 510411,
+      "evidence_indices": [
+        7686,
+        7687
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 32,
+      "source_ns": 1611606020753307,
+      "representation_error_ns": 4000,
+      "trace_index": 647
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699110260229,
+        779699111279428
+      ],
+      "half_width_ns": 509600,
+      "evidence_indices": [
+        7687,
+        7688
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 33,
+      "source_ns": 1611606021439112,
+      "representation_error_ns": 4000,
+      "trace_index": 667
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699110260229,
+        779699111279428
+      ],
+      "half_width_ns": 509600,
+      "evidence_indices": [
+        7687,
+        7688
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 34,
+      "source_ns": 1611606021577865,
+      "representation_error_ns": 4000,
+      "trace_index": 687
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699111081197,
+        779699112103111
+      ],
+      "half_width_ns": 510957,
+      "evidence_indices": [
+        7688,
+        7689
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 35,
+      "source_ns": 1611606022271800,
+      "representation_error_ns": 4000,
+      "trace_index": 707
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699111081197,
+        779699112103111
+      ],
+      "half_width_ns": 510957,
+      "evidence_indices": [
+        7688,
+        7689
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 36,
+      "source_ns": 1611606022418847,
+      "representation_error_ns": 4000,
+      "trace_index": 727
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699111905960,
+        779699112930728
+      ],
+      "half_width_ns": 512384,
+      "evidence_indices": [
+        7689,
+        7690
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 37,
+      "source_ns": 1611606023090873,
+      "representation_error_ns": 4000,
+      "trace_index": 747
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699111905960,
+        779699112930728
+      ],
+      "half_width_ns": 512384,
+      "evidence_indices": [
+        7689,
+        7690
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 38,
+      "source_ns": 1611606023239610,
+      "representation_error_ns": 4000,
+      "trace_index": 767
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699112726654,
+        779699113757601
+      ],
+      "half_width_ns": 515474,
+      "evidence_indices": [
+        7690,
+        7691
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 39,
+      "source_ns": 1611606023899514,
+      "representation_error_ns": 4000,
+      "trace_index": 787
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699112726654,
+        779699113757601
+      ],
+      "half_width_ns": 515474,
+      "evidence_indices": [
+        7690,
+        7691
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 40,
+      "source_ns": 1611606024058916,
+      "representation_error_ns": 4000,
+      "trace_index": 807
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699113555086,
+        779699114583695
+      ],
+      "half_width_ns": 514305,
+      "evidence_indices": [
+        7691,
+        7692
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 41,
+      "source_ns": 1611606024740394,
+      "representation_error_ns": 4000,
+      "trace_index": 827
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699113555086,
+        779699114583695
+      ],
+      "half_width_ns": 514305,
+      "evidence_indices": [
+        7691,
+        7692
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 42,
+      "source_ns": 1611606024887326,
+      "representation_error_ns": 4000,
+      "trace_index": 847
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699114385577,
+        779699115405964
+      ],
+      "half_width_ns": 510194,
+      "evidence_indices": [
+        7692,
+        7693
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 43,
+      "source_ns": 1611606025560322,
+      "representation_error_ns": 4000,
+      "trace_index": 867
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699114385577,
+        779699115405964
+      ],
+      "half_width_ns": 510194,
+      "evidence_indices": [
+        7692,
+        7693
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 44,
+      "source_ns": 1611606025716710,
+      "representation_error_ns": 4000,
+      "trace_index": 887
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699115206205,
+        779699116218416
+      ],
+      "half_width_ns": 506106,
+      "evidence_indices": [
+        7693,
+        7694
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 45,
+      "source_ns": 1611606026414078,
+      "representation_error_ns": 4000,
+      "trace_index": 907
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699115206205,
+        779699116218416
+      ],
+      "half_width_ns": 506106,
+      "evidence_indices": [
+        7693,
+        7694
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 46,
+      "source_ns": 1611606026562236,
+      "representation_error_ns": 4000,
+      "trace_index": 927
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699116012696,
+        779699117061987
+      ],
+      "half_width_ns": 524646,
+      "evidence_indices": [
+        7694,
+        7695
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 47,
+      "source_ns": 1611606027227933,
+      "representation_error_ns": 4000,
+      "trace_index": 947
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699116012696,
+        779699117061987
+      ],
+      "half_width_ns": 524646,
+      "evidence_indices": [
+        7694,
+        7695
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 48,
+      "source_ns": 1611606027385941,
+      "representation_error_ns": 4000,
+      "trace_index": 967
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699116843423,
+        779699117894810
+      ],
+      "half_width_ns": 525694,
+      "evidence_indices": [
+        7695,
+        7696
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 49,
+      "source_ns": 1611606028073868,
+      "representation_error_ns": 4000,
+      "trace_index": 987
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699116843423,
+        779699117894810
+      ],
+      "half_width_ns": 525694,
+      "evidence_indices": [
+        7695,
+        7696
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 50,
+      "source_ns": 1611606028257646,
+      "representation_error_ns": 4000,
+      "trace_index": 1007
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699117686067,
+        779699118722514
+      ],
+      "half_width_ns": 518224,
+      "evidence_indices": [
+        7696,
+        7697
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 51,
+      "source_ns": 1611606028939184,
+      "representation_error_ns": 4000,
+      "trace_index": 1027
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699117686067,
+        779699118722514
+      ],
+      "half_width_ns": 518224,
+      "evidence_indices": [
+        7696,
+        7697
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 52,
+      "source_ns": 1611606029103590,
+      "representation_error_ns": 4000,
+      "trace_index": 1047
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699118519465,
+        779699119550534
+      ],
+      "half_width_ns": 515535,
+      "evidence_indices": [
+        7697,
+        7698
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 53,
+      "source_ns": 1611606029754638,
+      "representation_error_ns": 4000,
+      "trace_index": 1067
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699118519465,
+        779699119550534
+      ],
+      "half_width_ns": 515535,
+      "evidence_indices": [
+        7697,
+        7698
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 54,
+      "source_ns": 1611606029932668,
+      "representation_error_ns": 4000,
+      "trace_index": 1087
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699119345688,
+        779699120378577
+      ],
+      "half_width_ns": 516445,
+      "evidence_indices": [
+        7698,
+        7699
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 55,
+      "source_ns": 1611606030587664,
+      "representation_error_ns": 4000,
+      "trace_index": 1107
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699119345688,
+        779699120378577
+      ],
+      "half_width_ns": 516445,
+      "evidence_indices": [
+        7698,
+        7699
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 56,
+      "source_ns": 1611606030751244,
+      "representation_error_ns": 4000,
+      "trace_index": 1127
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699120173848,
+        779699121227146
+      ],
+      "half_width_ns": 526649,
+      "evidence_indices": [
+        7699,
+        7700
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 57,
+      "source_ns": 1611606031426470,
+      "representation_error_ns": 4000,
+      "trace_index": 1147
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699120173848,
+        779699121227146
+      ],
+      "half_width_ns": 526649,
+      "evidence_indices": [
+        7699,
+        7700
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 58,
+      "source_ns": 1611606031594988,
+      "representation_error_ns": 4000,
+      "trace_index": 1167
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699120999982,
+        779699122063986
+      ],
+      "half_width_ns": 532002,
+      "evidence_indices": [
+        7700,
+        7701
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 59,
+      "source_ns": 1611606032299033,
+      "representation_error_ns": 4000,
+      "trace_index": 1187
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699120999982,
+        779699122063986
+      ],
+      "half_width_ns": 532002,
+      "evidence_indices": [
+        7700,
+        7701
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 60,
+      "source_ns": 1611606032472055,
+      "representation_error_ns": 4000,
+      "trace_index": 1207
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699121855198,
+        779699122901230
+      ],
+      "half_width_ns": 523016,
+      "evidence_indices": [
+        7701,
+        7702
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 61,
+      "source_ns": 1611606033147218,
+      "representation_error_ns": 4000,
+      "trace_index": 1227
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699121855198,
+        779699122901230
+      ],
+      "half_width_ns": 523016,
+      "evidence_indices": [
+        7701,
+        7702
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 62,
+      "source_ns": 1611606033302648,
+      "representation_error_ns": 4000,
+      "trace_index": 1247
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699122690426,
+        779699123731597
+      ],
+      "half_width_ns": 520586,
+      "evidence_indices": [
+        7702,
+        7703
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 63,
+      "source_ns": 1611606033946789,
+      "representation_error_ns": 4000,
+      "trace_index": 1267
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699122690426,
+        779699123731597
+      ],
+      "half_width_ns": 520586,
+      "evidence_indices": [
+        7702,
+        7703
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 64,
+      "source_ns": 1611606034116057,
+      "representation_error_ns": 4000,
+      "trace_index": 1287
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699123528703,
+        779699124571396
+      ],
+      "half_width_ns": 521347,
+      "evidence_indices": [
+        7703,
+        7704
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 65,
+      "source_ns": 1611606034764028,
+      "representation_error_ns": 4000,
+      "trace_index": 1307
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699123528703,
+        779699124571396
+      ],
+      "half_width_ns": 521347,
+      "evidence_indices": [
+        7703,
+        7704
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 66,
+      "source_ns": 1611606034919360,
+      "representation_error_ns": 4000,
+      "trace_index": 1327
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699124359124,
+        779699125400647
+      ],
+      "half_width_ns": 520762,
+      "evidence_indices": [
+        7704,
+        7705
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 67,
+      "source_ns": 1611606035595684,
+      "representation_error_ns": 4000,
+      "trace_index": 1347
+    },
+    {
+      "status": "BOUNDED",
+      "reference_interval_ns": [
+        779699124359124,
+        779699125400647
+      ],
+      "half_width_ns": 520762,
+      "evidence_indices": [
+        7704,
+        7705
+      ],
+      "reasons": [],
+      "unit": "ns",
+      "coverage": true,
+      "reference_clock": "g104-reference-f88ab9004390bdf7d391c7ab",
+      "rank": 3,
+      "op": "AllReduce",
+      "seq": 68,
+      "source_ns": 1611606035749562,
+      "representation_error_ns": 4000,
+      "trace_index": 1367
+    }
+  ],
+  "summary": {
+    "events": 280,
+    "covered": 280,
+    "bounded": 280,
+    "unsafe_fraction": 0.0,
+    "half_width_ns": {
+      "n": 280,
+      "p50": 53182.5,
+      "p95": 524646.0,
+      "max": 583573
+    },
+    "budget_coverage": {
+      "1000000": 1.0,
+      "5000000": 1.0,
+      "10000000": 1.0
+    },
+    "rejection_reasons": {}
+  },
+  "source_node_summary": {
+    "events": 140,
+    "covered": 140,
+    "bounded": 140,
+    "unsafe_fraction": 0.0,
+    "half_width_ns": {
+      "n": 140,
+      "p50": 511319.0,
+      "p95": 526649.0,
+      "max": 583573
+    },
+    "budget_coverage": {
+      "1000000": 1.0,
+      "5000000": 1.0,
+      "10000000": 1.0
+    },
+    "rejection_reasons": {}
+  },
+  "continuous_four_rank_1ms_max_instances": 69,
+  "eligible_four_rank_instances": [
+    {
+      "op": "AllGather",
+      "seq": 0
+    },
+    {
+      "op": "AllReduce",
+      "seq": 0
+    },
+    {
+      "op": "AllReduce",
+      "seq": 1
+    },
+    {
+      "op": "AllReduce",
+      "seq": 2
+    },
+    {
+      "op": "AllReduce",
+      "seq": 3
+    },
+    {
+      "op": "AllReduce",
+      "seq": 4
+    },
+    {
+      "op": "AllReduce",
+      "seq": 5
+    },
+    {
+      "op": "AllReduce",
+      "seq": 6
+    },
+    {
+      "op": "AllReduce",
+      "seq": 7
+    },
+    {
+      "op": "AllReduce",
+      "seq": 8
+    },
+    {
+      "op": "AllReduce",
+      "seq": 9
+    },
+    {
+      "op": "AllReduce",
+      "seq": 10
+    },
+    {
+      "op": "AllReduce",
+      "seq": 11
+    },
+    {
+      "op": "AllReduce",
+      "seq": 12
+    },
+    {
+      "op": "AllReduce",
+      "seq": 13
+    },
+    {
+      "op": "AllReduce",
+      "seq": 14
+    },
+    {
+      "op": "AllReduce",
+      "seq": 15
+    },
+    {
+      "op": "AllReduce",
+      "seq": 16
+    },
+    {
+      "op": "AllReduce",
+      "seq": 17
+    },
+    {
+      "op": "AllReduce",
+      "seq": 18
+    },
+    {
+      "op": "AllReduce",
+      "seq": 19
+    },
+    {
+      "op": "AllReduce",
+      "seq": 20
+    },
+    {
+      "op": "AllReduce",
+      "seq": 21
+    },
+    {
+      "op": "AllReduce",
+      "seq": 22
+    },
+    {
+      "op": "AllReduce",
+      "seq": 23
+    },
+    {
+      "op": "AllReduce",
+      "seq": 24
+    },
+    {
+      "op": "AllReduce",
+      "seq": 25
+    },
+    {
+      "op": "AllReduce",
+      "seq": 26
+    },
+    {
+      "op": "AllReduce",
+      "seq": 27
+    },
+    {
+      "op": "AllReduce",
+      "seq": 28
+    },
+    {
+      "op": "AllReduce",
+      "seq": 29
+    },
+    {
+      "op": "AllReduce",
+      "seq": 30
+    },
+    {
+      "op": "AllReduce",
+      "seq": 31
+    },
+    {
+      "op": "AllReduce",
+      "seq": 32
+    },
+    {
+      "op": "AllReduce",
+      "seq": 33
+    },
+    {
+      "op": "AllReduce",
+      "seq": 34
+    },
+    {
+      "op": "AllReduce",
+      "seq": 35
+    },
+    {
+      "op": "AllReduce",
+      "seq": 36
+    },
+    {
+      "op": "AllReduce",
+      "seq": 37
+    },
+    {
+      "op": "AllReduce",
+      "seq": 38
+    },
+    {
+      "op": "AllReduce",
+      "seq": 39
+    },
+    {
+      "op": "AllReduce",
+      "seq": 40
+    },
+    {
+      "op": "AllReduce",
+      "seq": 41
+    },
+    {
+      "op": "AllReduce",
+      "seq": 42
+    },
+    {
+      "op": "AllReduce",
+      "seq": 43
+    },
+    {
+      "op": "AllReduce",
+      "seq": 44
+    },
+    {
+      "op": "AllReduce",
+      "seq": 45
+    },
+    {
+      "op": "AllReduce",
+      "seq": 46
+    },
+    {
+      "op": "AllReduce",
+      "seq": 47
+    },
+    {
+      "op": "AllReduce",
+      "seq": 48
+    },
+    {
+      "op": "AllReduce",
+      "seq": 49
+    },
+    {
+      "op": "AllReduce",
+      "seq": 50
+    },
+    {
+      "op": "AllReduce",
+      "seq": 51
+    },
+    {
+      "op": "AllReduce",
+      "seq": 52
+    },
+    {
+      "op": "AllReduce",
+      "seq": 53
+    },
+    {
+      "op": "AllReduce",
+      "seq": 54
+    },
+    {
+      "op": "AllReduce",
+      "seq": 55
+    },
+    {
+      "op": "AllReduce",
+      "seq": 56
+    },
+    {
+      "op": "AllReduce",
+      "seq": 57
+    },
+    {
+      "op": "AllReduce",
+      "seq": 58
+    },
+    {
+      "op": "AllReduce",
+      "seq": 59
+    },
+    {
+      "op": "AllReduce",
+      "seq": 60
+    },
+    {
+      "op": "AllReduce",
+      "seq": 61
+    },
+    {
+      "op": "AllReduce",
+      "seq": 62
+    },
+    {
+      "op": "AllReduce",
+      "seq": 63
+    },
+    {
+      "op": "AllReduce",
+      "seq": 64
+    },
+    {
+      "op": "AllReduce",
+      "seq": 65
+    },
+    {
+      "op": "AllReduce",
+      "seq": 66
+    },
+    {
+      "op": "AllReduce",
+      "seq": 67
+    },
+    {
+      "op": "AllReduce",
+      "seq": 68
+    }
+  ],
+  "cross_node_matched_pair_interval_order": {
+    "AFTER": 68,
+    "BEFORE": 16,
+    "OVERLAP_OR_UNKNOWN": 196
+  },
+  "control": {
+    "status": "BOUNDED",
+    "reasons": [],
+    "count": 106637,
+    "complete": true,
+    "stop_reason": "DURATION_LIMIT",
+    "limits": {
+      "duration_s": 90.0,
+      "count": 120000,
+      "interval_s": 0.0005,
+      "timeout_s": 110.0,
+      "max_bytes": 67108864
+    },
+    "sample_spacing_ns": {
+      "t1": {
+        "n": 106636,
+        "p50": 844908.0,
+        "p95": 868315.75,
+        "max": 20001149
+      },
+      "t2": {
+        "n": 106636,
+        "p50": 844607.5,
+        "p95": 870101.75,
+        "max": 20024210
+      }
+    },
+    "reference_window_ns": [
+      779692799174226,
+      779782799786060
+    ],
+    "source_window_ns": [
+      1611599710281865,
+      1611689710599431
+    ],
+    "selected_four_stamps_ns": [
+      {
+        "index": 6959,
+        "t1": 779698505757887,
+        "t2": 1611605416774973,
+        "t3": 1611605416814551,
+        "t4": 779698505993734
+      },
+      {
+        "index": 6960,
+        "t1": 779698506682117,
+        "t2": 1611605417705474,
+        "t3": 1611605417744714,
+        "t4": 779698506924232
+      },
+      {
+        "index": 6961,
+        "t1": 779698507642054,
+        "t2": 1611605418669828,
+        "t3": 1611605418709011,
+        "t4": 779698507886608
+      },
+      {
+        "index": 6962,
+        "t1": 779698508560050,
+        "t2": 1611605419582582,
+        "t3": 1611605419624554,
+        "t4": 779698508809199
+      },
+      {
+        "index": 7632,
+        "t1": 779699063556332,
+        "t2": 1611605974535612,
+        "t3": 1611605974576525,
+        "t4": 779699063757111
+      },
+      {
+        "index": 7633,
+        "t1": 779699064384811,
+        "t2": 1611605975375484,
+        "t3": 1611605975412616,
+        "t4": 779699064585451
+      },
+      {
+        "index": 7662,
+        "t1": 779699090547546,
+        "t2": 1611606001527404,
+        "t3": 1611606001565359,
+        "t4": 779699090730999
+      },
+      {
+        "index": 7663,
+        "t1": 779699091360029,
+        "t2": 1611606002356758,
+        "t3": 1611606002394510,
+        "t4": 779699091558910
+      },
+      {
+        "index": 7664,
+        "t1": 779699092184329,
+        "t2": 1611606003171436,
+        "t3": 1611606003209511,
+        "t4": 779699092372593
+      },
+      {
+        "index": 7665,
+        "t1": 779699092995795,
+        "t2": 1611606003997671,
+        "t3": 1611606004042038,
+        "t4": 779699093207385
+      },
+      {
+        "index": 7666,
+        "t1": 779699093831366,
+        "t2": 1611606004810677,
+        "t3": 1611606004847404,
+        "t4": 779699094022296
+      },
+      {
+        "index": 7667,
+        "t1": 779699094649079,
+        "t2": 1611606005646125,
+        "t3": 1611606005681705,
+        "t4": 779699094847665
+      },
+      {
+        "index": 7668,
+        "t1": 779699095473352,
+        "t2": 1611606006463011,
+        "t3": 1611606006500065,
+        "t4": 779699095665655
+      },
+      {
+        "index": 7669,
+        "t1": 779699096292011,
+        "t2": 1611606007283414,
+        "t3": 1611606007324102,
+        "t4": 779699096490524
+      },
+      {
+        "index": 7671,
+        "t1": 779699098003448,
+        "t2": 1611606008961807,
+        "t3": 1611606009032479,
+        "t4": 779699098196221
+      },
+      {
+        "index": 7672,
+        "t1": 779699098775184,
+        "t2": 1611606009744733,
+        "t3": 1611606009786408,
+        "t4": 779699098943410
+      },
+      {
+        "index": 7673,
+        "t1": 779699099521205,
+        "t2": 1611606010481696,
+        "t3": 1611606010524770,
+        "t4": 779699099681371
+      },
+      {
+        "index": 7674,
+        "t1": 779699100258643,
+        "t2": 1611606011216254,
+        "t3": 1611606011256117,
+        "t4": 779699100413508
+      },
+      {
+        "index": 7675,
+        "t1": 779699100995729,
+        "t2": 1611606011969251,
+        "t3": 1611606012016426,
+        "t4": 779699101172913
+      },
+      {
+        "index": 7676,
+        "t1": 779699101750156,
+        "t2": 1611606012720871,
+        "t3": 1611606012758678,
+        "t4": 779699101915022
+      },
+      {
+        "index": 7677,
+        "t1": 779699102494913,
+        "t2": 1611606013458117,
+        "t3": 1611606013494988,
+        "t4": 779699102649945
+      },
+      {
+        "index": 7678,
+        "t1": 779699103225406,
+        "t2": 1611606014200808,
+        "t3": 1611606014238383,
+        "t4": 779699103394290
+      },
+      {
+        "index": 7679,
+        "t1": 779699103969724,
+        "t2": 1611606014937912,
+        "t3": 1611606014977157,
+        "t4": 779699104145806
+      },
+      {
+        "index": 7680,
+        "t1": 779699104721734,
+        "t2": 1611606015690915,
+        "t3": 1611606015730943,
+        "t4": 779699104887704
+      },
+      {
+        "index": 7681,
+        "t1": 779699105466810,
+        "t2": 1611606016439102,
+        "t3": 1611606016479150,
+        "t4": 779699105636610
+      },
+      {
+        "index": 7682,
+        "t1": 779699106216056,
+        "t2": 1611606017181848,
+        "t3": 1611606017221031,
+        "t4": 779699106378220
+      },
+      {
+        "index": 7683,
+        "t1": 779699106960632,
+        "t2": 1611606017949927,
+        "t3": 1611606017989077,
+        "t4": 779699107167137
+      },
+      {
+        "index": 7684,
+        "t1": 779699107789149,
+        "t2": 1611606018779703,
+        "t3": 1611606018819396,
+        "t4": 779699107983240
+      },
+      {
+        "index": 7685,
+        "t1": 779699108615360,
+        "t2": 1611606019609006,
+        "t3": 1611606019647046,
+        "t4": 779699108813136
+      },
+      {
+        "index": 7686,
+        "t1": 779699109436252,
+        "t2": 1611606020427033,
+        "t3": 1611606020471744,
+        "t4": 779699109638027
+      },
+      {
+        "index": 7687,
+        "t1": 779699110260229,
+        "t2": 1611606021252712,
+        "t3": 1611606021289982,
+        "t4": 779699110457074
+      },
+      {
+        "index": 7688,
+        "t1": 779699111081197,
+        "t2": 1611606022074336,
+        "t3": 1611606022112450,
+        "t4": 779699111279428
+      },
+      {
+        "index": 7689,
+        "t1": 779699111905960,
+        "t2": 1611606022900142,
+        "t3": 1611606022937788,
+        "t4": 779699112103111
+      },
+      {
+        "index": 7690,
+        "t1": 779699112726654,
+        "t2": 1611606023719041,
+        "t3": 1611606023764864,
+        "t4": 779699112930728
+      },
+      {
+        "index": 7691,
+        "t1": 779699113555086,
+        "t2": 1611606024552173,
+        "t3": 1611606024593290,
+        "t4": 779699113757601
+      },
+      {
+        "index": 7692,
+        "t1": 779699114385577,
+        "t2": 1611606025378796,
+        "t3": 1611606025417153,
+        "t4": 779699114583695
+      },
+      {
+        "index": 7693,
+        "t1": 779699115206205,
+        "t2": 1611606026200076,
+        "t3": 1611606026239446,
+        "t4": 779699115405964
+      },
+      {
+        "index": 7694,
+        "t1": 779699116012696,
+        "t2": 1611606027013146,
+        "t3": 1611606027053158,
+        "t4": 779699116218416
+      },
+      {
+        "index": 7695,
+        "t1": 779699116843423,
+        "t2": 1611606027836777,
+        "t3": 1611606027875164,
+        "t4": 779699117061987
+      },
+      {
+        "index": 7696,
+        "t1": 779699117686067,
+        "t2": 1611606028686942,
+        "t3": 1611606028729942,
+        "t4": 779699117894810
+      },
+      {
+        "index": 7697,
+        "t1": 779699118519465,
+        "t2": 1611606029516080,
+        "t3": 1611606029556428,
+        "t4": 779699118722514
+      },
+      {
+        "index": 7698,
+        "t1": 779699119345688,
+        "t2": 1611606030343542,
+        "t3": 1611606030381805,
+        "t4": 779699119550534
+      },
+      {
+        "index": 7699,
+        "t1": 779699120173848,
+        "t2": 1611606031174023,
+        "t3": 1611606031213023,
+        "t4": 779699120378577
+      },
+      {
+        "index": 7700,
+        "t1": 779699120999982,
+        "t2": 1611606032025442,
+        "t3": 1611606032061882,
+        "t4": 779699121227146
+      },
+      {
+        "index": 7701,
+        "t1": 779699121855198,
+        "t2": 1611606032855028,
+        "t3": 1611606032898920,
+        "t4": 779699122063986
+      },
+      {
+        "index": 7702,
+        "t1": 779699122690426,
+        "t2": 1611606033693934,
+        "t3": 1611606033734731,
+        "t4": 779699122901230
+      },
+      {
+        "index": 7703,
+        "t1": 779699123528703,
+        "t2": 1611606034527820,
+        "t3": 1611606034566747,
+        "t4": 779699123731597
+      },
+      {
+        "index": 7704,
+        "t1": 779699124359124,
+        "t2": 1611606035364087,
+        "t3": 1611606035404595,
+        "t4": 779699124571396
+      },
+      {
+        "index": 7705,
+        "t1": 779699125197271,
+        "t2": 1611606036198131,
+        "t3": 1611606036237208,
+        "t4": 779699125400647
+      },
+      {
+        "index": 7706,
+        "t1": 779699126013901,
+        "t2": 1611606037016163,
+        "t3": 1611606037054203,
+        "t4": 779699126220827
+      }
+    ],
+    "input_sha256": {
+      "node-a": "0187e319884f1095aa6daa33105edb1fb3c4a451a8d402d3d4c3d3d93dbbbe5b",
+      "node-b": "a3644b18e26d011dfdcf1f7cc358fd3c19420ce47acf51dde51f799200c7f55a"
+    },
+    "failure_log_sha256": {
+      "node-a": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "node-b": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "runtime": [
+    {
+      "rank": 0,
+      "torch": "2.14.1+cu130",
+      "nccl": [
+        2,
+        30,
+        7
+      ],
+      "dsos": [
+        {
+          "basename": "libcudart.so.13",
+          "sha256": "96c42e418cec19054186b9429c321603cc190bf26a18104e19408117a2a817b0",
+          "version_query_status": 0,
+          "version": 13000
+        },
+        {
+          "basename": "libnccl.so.2",
+          "sha256": "618968ee277041751512e619190132a9bdf351c3ce7129c73484f6ef441ad692",
+          "version_query_status": 0,
+          "version": 23007
+        },
+        {
+          "basename": "libnccl-profiler-example.so",
+          "sha256": "06740a4ea051720ca974a22a6f448bcacb5648e7a9c4a928e81e043ad88dcf54"
+        }
+      ],
+      "script_sha256": "6f9e20bf32b93731808abd1ec304a29da1f043add1202f77e5c22006271823b5",
+      "warmup": 5,
+      "steps": 30,
+      "gpu_step_ms": [
+        3.3229119777679443,
+        1.1559040546417236,
+        1.0657919645309448,
+        1.0016640424728394,
+        0.9921280145645142,
+        0.9459199905395508,
+        0.8789119720458984,
+        0.9092159867286682,
+        0.8334400057792664,
+        0.872223973274231,
+        0.8695679903030396,
+        0.8524159789085388,
+        0.8760640025138855,
+        0.8527359962463379,
+        0.9147520065307617,
+        0.8946239948272705,
+        0.8759999871253967,
+        1.030176043510437,
+        0.8369600176811218,
+        0.93094402551651,
+        0.865119993686676,
+        0.9151999950408936,
+        1.0166720151901245,
+        0.9371200203895569,
+        0.9184960126876831,
+        0.9506880044937134,
+        0.9920639991760254,
+        0.9307519793510437,
+        0.9214720129966736,
+        0.9104959964752197
+      ],
+      "max_rss_kib": 1722660
+    },
+    {
+      "rank": 1,
+      "torch": "2.14.1+cu130",
+      "nccl": [
+        2,
+        30,
+        7
+      ],
+      "dsos": [
+        {
+          "basename": "libcudart.so.13",
+          "sha256": "96c42e418cec19054186b9429c321603cc190bf26a18104e19408117a2a817b0",
+          "version_query_status": 0,
+          "version": 13000
+        },
+        {
+          "basename": "libnccl.so.2",
+          "sha256": "618968ee277041751512e619190132a9bdf351c3ce7129c73484f6ef441ad692",
+          "version_query_status": 0,
+          "version": 23007
+        },
+        {
+          "basename": "libnccl-profiler-example.so",
+          "sha256": "06740a4ea051720ca974a22a6f448bcacb5648e7a9c4a928e81e043ad88dcf54"
+        }
+      ],
+      "script_sha256": "6f9e20bf32b93731808abd1ec304a29da1f043add1202f77e5c22006271823b5",
+      "warmup": 5,
+      "steps": 30,
+      "gpu_step_ms": [
+        3.3746559619903564,
+        1.1499520540237427,
+        1.0782719850540161,
+        1.003872036933899,
+        0.9904639720916748,
+        0.9476159811019897,
+        0.8772479891777039,
+        0.9096959829330444,
+        0.833952009677887,
+        0.8720319867134094,
+        0.868287980556488,
+        0.8537920117378235,
+        0.8740479946136475,
+        0.8552960157394409,
+        0.9127359986305237,
+        0.8959680199623108,
+        0.8739839792251587,
+        1.0135680437088013,
+        0.8536319732666016,
+        0.9312959909439087,
+        0.8656319975852966,
+        0.9163839817047119,
+        1.0142719745635986,
+        0.938368022441864,
+        0.9178879857063293,
+        0.9512320160865784,
+        0.9910079836845398,
+        0.9310399889945984,
+        0.9202560186386108,
+        0.91075199842453
+      ],
+      "max_rss_kib": 1718868
+    },
+    {
+      "rank": 2,
+      "torch": "2.14.1+cu130",
+      "nccl": [
+        2,
+        30,
+        7
+      ],
+      "dsos": [
+        {
+          "basename": "libcudart.so.13",
+          "sha256": "96c42e418cec19054186b9429c321603cc190bf26a18104e19408117a2a817b0",
+          "version_query_status": 0,
+          "version": 13000
+        },
+        {
+          "basename": "libnccl.so.2",
+          "sha256": "618968ee277041751512e619190132a9bdf351c3ce7129c73484f6ef441ad692",
+          "version_query_status": 0,
+          "version": 23007
+        },
+        {
+          "basename": "libnccl-profiler-example.so",
+          "sha256": "06740a4ea051720ca974a22a6f448bcacb5648e7a9c4a928e81e043ad88dcf54"
+        }
+      ],
+      "script_sha256": "6f9e20bf32b93731808abd1ec304a29da1f043add1202f77e5c22006271823b5",
+      "warmup": 5,
+      "steps": 30,
+      "gpu_step_ms": [
+        3.297408103942871,
+        1.102944016456604,
+        1.0567359924316406,
+        0.9911680221557617,
+        0.9790400266647339,
+        0.9581440091133118,
+        0.8982399702072144,
+        0.9367039799690247,
+        0.8287680149078369,
+        0.8175680041313171,
+        0.8519039750099182,
+        0.8663039803504944,
+        0.8564479947090149,
+        0.8686720132827759,
+        0.909824013710022,
+        0.8885120153427124,
+        0.8854719996452332,
+        1.0349760055541992,
+        0.841152012348175,
+        0.9223999977111816,
+        0.8786240220069885,
+        0.9049919843673706,
+        1.0172799825668335,
+        0.9336000084877014,
+        0.9116799831390381,
+        0.9560319781303406,
+        0.9763839840888977,
+        0.9560319781303406,
+        0.9175999760627747,
+        0.8981119990348816
+      ],
+      "max_rss_kib": 1711292
+    },
+    {
+      "rank": 3,
+      "torch": "2.14.1+cu130",
+      "nccl": [
+        2,
+        30,
+        7
+      ],
+      "dsos": [
+        {
+          "basename": "libcudart.so.13",
+          "sha256": "96c42e418cec19054186b9429c321603cc190bf26a18104e19408117a2a817b0",
+          "version_query_status": 0,
+          "version": 13000
+        },
+        {
+          "basename": "libnccl.so.2",
+          "sha256": "618968ee277041751512e619190132a9bdf351c3ce7129c73484f6ef441ad692",
+          "version_query_status": 0,
+          "version": 23007
+        },
+        {
+          "basename": "libnccl-profiler-example.so",
+          "sha256": "06740a4ea051720ca974a22a6f448bcacb5648e7a9c4a928e81e043ad88dcf54"
+        }
+      ],
+      "script_sha256": "6f9e20bf32b93731808abd1ec304a29da1f043add1202f77e5c22006271823b5",
+      "warmup": 5,
+      "steps": 30,
+      "gpu_step_ms": [
+        3.35097599029541,
+        1.1209280490875244,
+        1.0385279655456543,
+        1.007423996925354,
+        0.9774399995803833,
+        0.9596800208091736,
+        0.8982399702072144,
+        0.9379519820213318,
+        0.8283839821815491,
+        0.8170880079269409,
+        0.8381440043449402,
+        0.862559974193573,
+        0.8649280071258545,
+        0.8612160086631775,
+        0.9161919951438904,
+        0.8882240056991577,
+        0.8905280232429504,
+        1.0237760543823242,
+        0.8436800241470337,
+        0.9309120178222656,
+        0.8647680282592773,
+        0.9082559943199158,
+        1.0225919485092163,
+        0.9343360066413879,
+        0.9104959964752197,
+        0.9672639966011047,
+        0.9727039933204651,
+        0.9410240054130554,
+        0.9195839762687683,
+        0.9054719805717468
+      ],
+      "max_rss_kib": 1715708
+    }
+  ],
+  "resource_exit": [
+    {
+      "node_alias": "node-a",
+      "training_exit": 0,
+      "control_exit": 0,
+      "task_processes_remaining": 0,
+      "gpu_application_count_after": 8,
+      "private_task_bytes": 16768751,
+      "old_profiler_unchanged_sha256": "3982ac146d710cfd3eca59e0c36fd1502790840211eb8f41c2d35934b51c9571"
+    },
+    {
+      "node_alias": "node-b",
+      "training_exit": 0,
+      "control_exit": 0,
+      "task_processes_remaining": 0,
+      "gpu_application_count_after": 8,
+      "private_task_bytes": 13678245,
+      "old_profiler_unchanged_sha256": "3982ac146d710cfd3eca59e0c36fd1502790840211eb8f41c2d35934b51c9571"
+    }
+  ],
+  "executed_source_sha256": {
+    "node-a": {
+      "g1_04_control.py": "f83c010c49b102edca76854b08a66e15c69499a879ef9ee02d0b443d2e2b8090",
+      "g1_03_host_clock.py": "53c6c4276626ad03dacfb5cee25eaf13445f27deb5f2cdb11cf01c06fd6ab652",
+      "g1_04_run.sh": "c5b9c48c039a41a30efffcc03e0b47651326aeeeef973f74d23665de9741a6d8",
+      "g1_04_preflight.py": "6846a90917ba3a691fcbfce602709b5ab5c6deaeeac0e2a970a61b7709e54be8",
+      "g1_04_sidecar.sh": "a31ffea1f1c330d6f0ab578da6ee80fed7a02855329949b54abf37a366774a70",
+      "g1_01_ddp_capture.py": "6f9e20bf32b93731808abd1ec304a29da1f043add1202f77e5c22006271823b5",
+      "libnccl-profiler-example.so": "06740a4ea051720ca974a22a6f448bcacb5648e7a9c4a928e81e043ad88dcf54"
+    },
+    "node-b": {
+      "g1_04_control.py": "f83c010c49b102edca76854b08a66e15c69499a879ef9ee02d0b443d2e2b8090",
+      "g1_03_host_clock.py": "53c6c4276626ad03dacfb5cee25eaf13445f27deb5f2cdb11cf01c06fd6ab652",
+      "g1_04_run.sh": "c5b9c48c039a41a30efffcc03e0b47651326aeeeef973f74d23665de9741a6d8",
+      "g1_04_preflight.py": "6846a90917ba3a691fcbfce602709b5ab5c6deaeeac0e2a970a61b7709e54be8",
+      "g1_04_sidecar.sh": "a31ffea1f1c330d6f0ab578da6ee80fed7a02855329949b54abf37a366774a70",
+      "g1_01_ddp_capture.py": "6f9e20bf32b93731808abd1ec304a29da1f043add1202f77e5c22006271823b5",
+      "libnccl-profiler-example.so": "06740a4ea051720ca974a22a6f448bcacb5648e7a9c4a928e81e043ad88dcf54"
+    }
+  },
+  "profiler_abi": "v4; unchanged DSO with sole ncclProfiler_v4 symbol",
+  "source_sha256": {
+    "g1_04_report.py": "eda98a82cb53f5048de00ea90054e3a5a989c9ff1cd9a902c8e7686db9c72103",
+    "g1_04_causal.py": "62d9216c1277fcd15a587dca3cd504697fef8aa4f7f47619fdd4e1824ffd115f",
+    "g1_04_control.py": "f83c010c49b102edca76854b08a66e15c69499a879ef9ee02d0b443d2e2b8090",
+    "g1_04_run.sh": "c5b9c48c039a41a30efffcc03e0b47651326aeeeef973f74d23665de9741a6d8",
+    "g1_03_host_clock.py": "53c6c4276626ad03dacfb5cee25eaf13445f27deb5f2cdb11cf01c06fd6ab652",
+    "g1_04_preflight.py": "6846a90917ba3a691fcbfce602709b5ab5c6deaeeac0e2a970a61b7709e54be8",
+    "g1_04_sidecar.sh": "a31ffea1f1c330d6f0ab578da6ee80fed7a02855329949b54abf37a366774a70",
+    "g1_04_coordinate.py": "681a9d5fb9ad38551aad9ee6425a07f7d297d9d107b9ba9cb467079e272262d6"
+  },
+  "unknowns": [
+    "upstream omitted callbacks/end-to-end loss",
+    "GPU timer ring overwrite",
+    "production fail-open",
+    "cross-GPU absolute timing",
+    "step to collective",
+    "net overhead INCONCLUSIVE; historical 6-8% risk"
+  ],
+  "gate_recommendation": "SUBMIT_SCOPED_HOST_GATE_REVIEW",
+  "gate": "IN_PROGRESS_PENDING_INDEPENDENT_REVIEW",
+  "network_preflight": {
+    "status": "PASS",
+    "training_calibration": false,
+    "paired_exchanges": 2373,
+    "public_evidence": "g1-04-network-pass.json",
+    "sha256": "d335f6bfbdc39a8ef5582cf66e04e16aeb68000f51f522cf4e4ecfa23494f776"
+  },
+  "controller": {
+    "classification": "SAME_CONTROLLER_MONOTONIC_ORCHESTRATION_ONLY",
+    "events": [
+      {
+        "event": "resource_low_load",
+        "relative_ns": 1206045208,
+        "readings": [
+          [
+            [
+              2458,
+              0
+            ],
+            [
+              2458,
+              0
+            ]
+          ],
+          [
+            [
+              5200,
+              0
+            ],
+            [
+              5200,
+              0
+            ]
+          ]
+        ]
+      },
+      {
+        "event": "resource_low_load",
+        "relative_ns": 3551427583,
+        "readings": [
+          [
+            [
+              2458,
+              0
+            ],
+            [
+              2458,
+              0
+            ]
+          ],
+          [
+            [
+              5200,
+              0
+            ],
+            [
+              5200,
+              0
+            ]
+          ]
+        ]
+      },
+      {
+        "event": "source_control_spawn",
+        "relative_ns": 4703932000
+      },
+      {
+        "event": "source_listener_verified",
+        "relative_ns": 5113010458
+      },
+      {
+        "event": "reference_control_spawn",
+        "relative_ns": 5113147875
+      },
+      {
+        "event": "both_live_sidecars_verified",
+        "relative_ns": 5690620166
+      },
+      {
+        "event": "reference_training_spawn",
+        "relative_ns": 5691662708
+      },
+      {
+        "event": "source_training_spawn",
+        "relative_ns": 5759627875
+      },
+      {
+        "event": "training_exit",
+        "relative_ns": 13341390708,
+        "node": 0,
+        "exit": 0
+      },
+      {
+        "event": "training_exit",
+        "relative_ns": 13343740291,
+        "node": 1,
+        "exit": 0
+      },
+      {
+        "event": "control_exit",
+        "relative_ns": 95897914666,
+        "node": 1,
+        "exit": 0
+      },
+      {
+        "event": "control_exit",
+        "relative_ns": 95898273333,
+        "node": 0,
+        "exit": 0
+      },
+      {
+        "event": "capture_complete_all_exit_zero",
+        "relative_ns": 95898294375
+      }
+    ],
+    "input_sha256": "ffd44200e8f5ddb9c0a54bc6c0e1997c7149aafb0e938b4183df2a6fbe8b6fa1",
+    "source_sha256": "a04ed662432771802b973823e30618d6c9fabce69c344b3c22b913999d02742c"
+  },
+  "initial_failed_capture": {
+    "preserved": true,
+    "sha256": "ab99a6316f5e7e2d9b4e546886c453d245a7d0c4327b0fdaf452d6734af924ec",
+    "public_evidence": "g1-04-summary.json"
+  },
+  "additional_gpu_attempts": 1
+}
