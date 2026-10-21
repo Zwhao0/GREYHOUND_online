@@ -1,0 +1,485 @@
+{
+  "matching_summary": {
+    "expected_ranks": 4,
+    "parsed_rank_traces": 4,
+    "collective_keys": 90,
+    "matched": 90,
+    "missing_rank": 0,
+    "duplicates": 0,
+    "metadata_conflicts": 0,
+    "unknown": 0,
+    "comm_hash_mismatch_events": 0,
+    "member_mismatch_events": 0,
+    "event_pairing_issue_count": 0,
+    "bad_pid_event_count": 0
+  },
+  "audits": [
+    {
+      "rank": 0,
+      "audit": {
+        "schema_version": 1,
+        "schema_status": "OBSERVED",
+        "identity": {
+          "node_alias": "node-a",
+          "comm_rank": 0,
+          "origin_monotonic_ns": 784005993470819,
+          "clock_api": "CLOCK_MONOTONIC",
+          "resolution_ns": 1,
+          "origin_mapping_error_ns": 4000,
+          "active_until_monotonic_ns": 784007310208226
+        },
+        "mapping_status": "OBSERVED",
+        "mapping_checks": {
+          "run_id": "MATCH",
+          "rank_epoch": "MATCH",
+          "node_alias": "MATCH",
+          "pid": "MATCH",
+          "comm_rank": "MATCH",
+          "comm_hash": "MATCH",
+          "time_namespace": "NOT_CHECKED",
+          "pid_namespace": "NOT_CHECKED",
+          "boot_id": "NOT_CHECKED"
+        },
+        "classes": {
+          "Group": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 90,
+              "pool_accepted": 90,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 90,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "Coll": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 90,
+              "pool_accepted": 90,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 90,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "KernelCh": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 713,
+              "pool_accepted": 713,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 713,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          }
+        },
+        "export": {
+          "file_open_ok": true,
+          "write_ok": true,
+          "close_ok": true,
+          "status": "OBSERVED_SUCCESS"
+        },
+        "callback_attempted_is_nccl_total": false,
+        "issues": []
+      }
+    },
+    {
+      "rank": 1,
+      "audit": {
+        "schema_version": 1,
+        "schema_status": "OBSERVED",
+        "identity": {
+          "node_alias": "node-a",
+          "comm_rank": 1,
+          "origin_monotonic_ns": 784005993471779,
+          "clock_api": "CLOCK_MONOTONIC",
+          "resolution_ns": 1,
+          "origin_mapping_error_ns": 4000,
+          "active_until_monotonic_ns": 784007310323257
+        },
+        "mapping_status": "OBSERVED",
+        "mapping_checks": {
+          "run_id": "MATCH",
+          "rank_epoch": "MATCH",
+          "node_alias": "MATCH",
+          "pid": "MATCH",
+          "comm_rank": "MATCH",
+          "comm_hash": "MATCH",
+          "time_namespace": "NOT_CHECKED",
+          "pid_namespace": "NOT_CHECKED",
+          "boot_id": "NOT_CHECKED"
+        },
+        "classes": {
+          "Group": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 90,
+              "pool_accepted": 90,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 90,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "Coll": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 90,
+              "pool_accepted": 90,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 90,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "KernelCh": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 713,
+              "pool_accepted": 713,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 713,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          }
+        },
+        "export": {
+          "file_open_ok": true,
+          "write_ok": true,
+          "close_ok": true,
+          "status": "OBSERVED_SUCCESS"
+        },
+        "callback_attempted_is_nccl_total": false,
+        "issues": []
+      }
+    },
+    {
+      "rank": 2,
+      "audit": {
+        "schema_version": 1,
+        "schema_status": "OBSERVED",
+        "identity": {
+          "node_alias": "node-b",
+          "comm_rank": 2,
+          "origin_monotonic_ns": 1615912904314611,
+          "clock_api": "CLOCK_MONOTONIC",
+          "resolution_ns": 1,
+          "origin_mapping_error_ns": 4000,
+          "active_until_monotonic_ns": 1615914179009091
+        },
+        "mapping_status": "OBSERVED",
+        "mapping_checks": {
+          "run_id": "MATCH",
+          "rank_epoch": "MATCH",
+          "node_alias": "MATCH",
+          "pid": "MATCH",
+          "comm_rank": "MATCH",
+          "comm_hash": "MATCH",
+          "time_namespace": "NOT_CHECKED",
+          "pid_namespace": "NOT_CHECKED",
+          "boot_id": "NOT_CHECKED"
+        },
+        "classes": {
+          "Group": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 90,
+              "pool_accepted": 90,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 90,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "Coll": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 90,
+              "pool_accepted": 90,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 90,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "KernelCh": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 713,
+              "pool_accepted": 713,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 713,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          }
+        },
+        "export": {
+          "file_open_ok": true,
+          "write_ok": true,
+          "close_ok": true,
+          "status": "OBSERVED_SUCCESS"
+        },
+        "callback_attempted_is_nccl_total": false,
+        "issues": []
+      }
+    },
+    {
+      "rank": 3,
+      "audit": {
+        "schema_version": 1,
+        "schema_status": "OBSERVED",
+        "identity": {
+          "node_alias": "node-b",
+          "comm_rank": 3,
+          "origin_monotonic_ns": 1615912904319183,
+          "clock_api": "CLOCK_MONOTONIC",
+          "resolution_ns": 1,
+          "origin_mapping_error_ns": 4000,
+          "active_until_monotonic_ns": 1615914212513714
+        },
+        "mapping_status": "OBSERVED",
+        "mapping_checks": {
+          "run_id": "MATCH",
+          "rank_epoch": "MATCH",
+          "node_alias": "MATCH",
+          "pid": "MATCH",
+          "comm_rank": "MATCH",
+          "comm_hash": "MATCH",
+          "time_namespace": "NOT_CHECKED",
+          "pid_namespace": "NOT_CHECKED",
+          "boot_id": "NOT_CHECKED"
+        },
+        "classes": {
+          "Group": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 90,
+              "pool_accepted": 90,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 90,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "Coll": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 90,
+              "pool_accepted": 90,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 90,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          },
+          "KernelCh": {
+            "status": "OBSERVED",
+            "counters": {
+              "callback_attempted": 713,
+              "pool_accepted": 713,
+              "known_pool_drop": 0,
+              "parent_rejected": 0,
+              "guard_rejected": 0,
+              "exported": 713,
+              "overwritten": "UNKNOWN"
+            },
+            "counter_status": {
+              "callback_attempted": "OBSERVED",
+              "pool_accepted": "OBSERVED",
+              "known_pool_drop": "OBSERVED",
+              "parent_rejected": "OBSERVED",
+              "guard_rejected": "OBSERVED",
+              "exported": "OBSERVED",
+              "overwritten": "UNKNOWN"
+            },
+            "callback_conservation": "OBSERVED",
+            "exported_le_accepted": "OBSERVED",
+            "flush_status": "OBSERVED_SUCCESS",
+            "source_status": "OBSERVED"
+          }
+        },
+        "export": {
+          "file_open_ok": true,
+          "write_ok": true,
+          "close_ok": true,
+          "status": "OBSERVED_SUCCESS"
+        },
+        "callback_attempted_is_nccl_total": false,
+        "issues": []
+      }
+    }
+  ],
+  "control_status": "BOUNDED",
+  "analysis_scope": {
+    "function": "AllReduce",
+    "selection": "OPERATION_TYPE_ONLY_INCLUDES_WARMUP",
+    "selected_instances": 89,
+    "excluded_instance_counts": {
+      "AllGather": 1
+    }
+  },
+  "source_sha256": {
+    "g2_01_prepare.py": "0322b38cd57f9d0d4155b776c2c7ca52922e8708c879a1a231e45225387dbdcf",
+    "g1_04_causal.py": "62d9216c1277fcd15a587dca3cd504697fef8aa4f7f47619fdd4e1824ffd115f"
+  },
+  "upstream_omitted_callbacks": "UNKNOWN",
+  "clock_semantics": "HOST_CALLBACK_ONLY"
+}

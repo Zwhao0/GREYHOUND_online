@@ -1,0 +1,4386 @@
+{
+  "schema": "g2-01-host-intervals-v1",
+  "role": "HEALTHY_BASELINE",
+  "run_id": "g201-healthy",
+  "rank_epoch": "epoch-g201-healthy",
+  "reference_clock": "reference-8e4c47ac41999244",
+  "unit": "ns",
+  "expected_ranks": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "comparability": {
+    "workload": "dense-DDP-1024x2-batch32-warmup5-steps40",
+    "configuration": "f3857e066a1b3d752b4195391688ea43bfdde1d5cd680e81f94a9a569d637017",
+    "rank_mapping": "f5e2eb037319a5e4ec544a6866f52e1439e103351bb662094ba4beb65682ff9c"
+  },
+  "quality": {
+    "status": "BOUNDED",
+    "complete": true
+  },
+  "instances": [
+    {
+      "function": "AllReduce",
+      "seq_num": 0,
+      "count": 2099200,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893139436500,
+            783893139444500
+          ],
+          "source_ns": 783893139440500
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893139456081,
+            783893139464081
+          ],
+          "source_ns": 783893139460081
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893136907606,
+            783893137952271
+          ],
+          "source_ns": 1615800048575844
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893137747215,
+            783893137952271
+          ],
+          "source_ns": 1615800048794150
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 1,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893163976962,
+            783893163984962
+          ],
+          "source_ns": 783893163980962
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893164757949,
+            783893164765949
+          ],
+          "source_ns": 783893164761949
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893164290904,
+            783893165319869
+          ],
+          "source_ns": 1615800075640193
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893164290904,
+            783893165319869
+          ],
+          "source_ns": 1615800075643486
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 2,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893164142182,
+            783893164150182
+          ],
+          "source_ns": 783893164146182
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893164915413,
+            783893164923413
+          ],
+          "source_ns": 783893164919413
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893164290904,
+            783893165319869
+          ],
+          "source_ns": 1615800075795528
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893164290904,
+            783893165319869
+          ],
+          "source_ns": 1615800075795762
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 3,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893166341583,
+            783893166349583
+          ],
+          "source_ns": 783893166345583
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893166223689,
+            783893166231689
+          ],
+          "source_ns": 783893166227689
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893165945319,
+            783893166975784
+          ],
+          "source_ns": 1615800077195316
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893165945319,
+            783893166975784
+          ],
+          "source_ns": 1615800077191101
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 4,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893166468934,
+            783893166476934
+          ],
+          "source_ns": 783893166472934
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893166354679,
+            783893166362679
+          ],
+          "source_ns": 783893166358679
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893165945319,
+            783893166975784
+          ],
+          "source_ns": 1615800077321240
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893165945319,
+            783893166975784
+          ],
+          "source_ns": 1615800077337315
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 5,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893167808169,
+            783893167816169
+          ],
+          "source_ns": 783893167812169
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893167787207,
+            783893167795207
+          ],
+          "source_ns": 783893167791207
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893166776598,
+            783893167811065
+          ],
+          "source_ns": 1615800078611901
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893166776598,
+            783893167811065
+          ],
+          "source_ns": 1615800078619476
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 6,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893167937076,
+            783893167945076
+          ],
+          "source_ns": 783893167941076
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893167904705,
+            783893167912705
+          ],
+          "source_ns": 783893167908705
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893167609107,
+            783893168638324
+          ],
+          "source_ns": 1615800078728533
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893167609107,
+            783893168638324
+          ],
+          "source_ns": 1615800078733502
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 7,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893169147040,
+            783893169155040
+          ],
+          "source_ns": 783893169151040
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893169101821,
+            783893169109821
+          ],
+          "source_ns": 783893169105821
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893168439895,
+            783893169467940
+          ],
+          "source_ns": 1615800080053158
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893168439895,
+            783893169467940
+          ],
+          "source_ns": 1615800080016525
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 8,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893169287340,
+            783893169295340
+          ],
+          "source_ns": 783893169291340
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893169209654,
+            783893169217654
+          ],
+          "source_ns": 783893169213654
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893168439895,
+            783893169467940
+          ],
+          "source_ns": 1615800080187793
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893168439895,
+            783893169467940
+          ],
+          "source_ns": 1615800080125874
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 9,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893171855237,
+            783893171863237
+          ],
+          "source_ns": 783893171859237
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893172054525,
+            783893172062525
+          ],
+          "source_ns": 783893172058525
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893171752586,
+            783893172782930
+          ],
+          "source_ns": 1615800083031053
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893171752586,
+            783893172782930
+          ],
+          "source_ns": 1615800083107604
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 10,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893171971085,
+            783893171979085
+          ],
+          "source_ns": 783893171975085
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893172161813,
+            783893172169813
+          ],
+          "source_ns": 783893172165813
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893171752586,
+            783893172782930
+          ],
+          "source_ns": 1615800083141004
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893171752586,
+            783893172782930
+          ],
+          "source_ns": 1615800083213514
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 11,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893173299242,
+            783893173307242
+          ],
+          "source_ns": 783893173303242
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893173262060,
+            783893173270060
+          ],
+          "source_ns": 783893173266060
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893172584345,
+            783893173608290
+          ],
+          "source_ns": 1615800084233485
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893172584345,
+            783893173608290
+          ],
+          "source_ns": 1615800084267874
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 12,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893173409558,
+            783893173417558
+          ],
+          "source_ns": 783893173413558
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893173373925,
+            783893173381925
+          ],
+          "source_ns": 783893173377925
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893172584345,
+            783893173608290
+          ],
+          "source_ns": 1615800084345888
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893172584345,
+            783893173608290
+          ],
+          "source_ns": 1615800084411696
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 13,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893174329897,
+            783893174337897
+          ],
+          "source_ns": 783893174333897
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893174365005,
+            783893174373005
+          ],
+          "source_ns": 783893174369005
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893173408416,
+            783893174443669
+          ],
+          "source_ns": 1615800085269879
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893174244089,
+            783893174443669
+          ],
+          "source_ns": 1615800085294281
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 14,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893174447902,
+            783893174455902
+          ],
+          "source_ns": 783893174451902
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893174470706,
+            783893174478706
+          ],
+          "source_ns": 783893174474706
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893174244089,
+            783893175263349
+          ],
+          "source_ns": 1615800085383425
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893174244089,
+            783893175263349
+          ],
+          "source_ns": 1615800085433099
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 15,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893175368483,
+            783893175376483
+          ],
+          "source_ns": 783893175372483
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893175389815,
+            783893175397815
+          ],
+          "source_ns": 783893175393815
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893175066605,
+            783893176083053
+          ],
+          "source_ns": 1615800086285730
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893175066605,
+            783893176083053
+          ],
+          "source_ns": 1615800086305453
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 16,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893175494877,
+            783893175502877
+          ],
+          "source_ns": 783893175498877
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893175500634,
+            783893175508634
+          ],
+          "source_ns": 783893175504634
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893175066605,
+            783893176083053
+          ],
+          "source_ns": 1615800086400669
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893175066605,
+            783893176083053
+          ],
+          "source_ns": 1615800086447201
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 17,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893176361235,
+            783893176369235
+          ],
+          "source_ns": 783893176365235
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893176380734,
+            783893176388734
+          ],
+          "source_ns": 783893176384734
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893175885915,
+            783893176910686
+          ],
+          "source_ns": 1615800087297226
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893175885915,
+            783893176910686
+          ],
+          "source_ns": 1615800087334774
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 18,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893176490647,
+            783893176498647
+          ],
+          "source_ns": 783893176494647
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893176488175,
+            783893176496175
+          ],
+          "source_ns": 783893176492175
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893175885915,
+            783893176910686
+          ],
+          "source_ns": 1615800087425937
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893175885915,
+            783893176910686
+          ],
+          "source_ns": 1615800087472803
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 19,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893177362834,
+            783893177370834
+          ],
+          "source_ns": 783893177366834
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893177324993,
+            783893177332993
+          ],
+          "source_ns": 783893177328993
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893176706588,
+            783893177745433
+          ],
+          "source_ns": 1615800088268868
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893176706588,
+            783893177745433
+          ],
+          "source_ns": 1615800088299451
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 20,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893177513951,
+            783893177521951
+          ],
+          "source_ns": 783893177517951
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893177435793,
+            783893177443793
+          ],
+          "source_ns": 783893177439793
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893176706588,
+            783893177745433
+          ],
+          "source_ns": 1615800088402188
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893176706588,
+            783893177745433
+          ],
+          "source_ns": 1615800088438620
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 21,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893178262300,
+            783893178270300
+          ],
+          "source_ns": 783893178266300
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893178120055,
+            783893178128055
+          ],
+          "source_ns": 783893178124055
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893177536124,
+            783893178575054
+          ],
+          "source_ns": 1615800089074149
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893177536124,
+            783893178575054
+          ],
+          "source_ns": 1615800089151568
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 22,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893178420853,
+            783893178428853
+          ],
+          "source_ns": 783893178424853
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893178252235,
+            783893178260235
+          ],
+          "source_ns": 783893178256235
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893177536124,
+            783893178575054
+          ],
+          "source_ns": 1615800089232203
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893177536124,
+            783893178575054
+          ],
+          "source_ns": 1615800089297315
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 23,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893179162509,
+            783893179170509
+          ],
+          "source_ns": 783893179166509
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893179109102,
+            783893179117102
+          ],
+          "source_ns": 783893179113102
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893178369953,
+            783893179404076
+          ],
+          "source_ns": 1615800090072462
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893178369953,
+            783893179404076
+          ],
+          "source_ns": 1615800090010942
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 24,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893179312362,
+            783893179320362
+          ],
+          "source_ns": 783893179316362
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893179236443,
+            783893179244443
+          ],
+          "source_ns": 783893179240443
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893178369953,
+            783893179404076
+          ],
+          "source_ns": 1615800090218813
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893178369953,
+            783893179404076
+          ],
+          "source_ns": 1615800090143121
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 25,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893180037242,
+            783893180045242
+          ],
+          "source_ns": 783893180041242
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893179943245,
+            783893179951245
+          ],
+          "source_ns": 783893179947245
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893179201340,
+            783893180218521
+          ],
+          "source_ns": 1615800090925524
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893179201340,
+            783893180218521
+          ],
+          "source_ns": 1615800090812212
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 26,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893180187043,
+            783893180195043
+          ],
+          "source_ns": 783893180191043
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893180079971,
+            783893180087971
+          ],
+          "source_ns": 783893180083971
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893180014671,
+            783893180218521
+          ],
+          "source_ns": 1615800091066144
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893179201340,
+            783893180218521
+          ],
+          "source_ns": 1615800090940172
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 27,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893180913511,
+            783893180921511
+          ],
+          "source_ns": 783893180917511
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893180767523,
+            783893180775523
+          ],
+          "source_ns": 783893180771523
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893180014671,
+            783893181041873
+          ],
+          "source_ns": 1615800091762284
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893180014671,
+            783893181041873
+          ],
+          "source_ns": 1615800091621992
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 28,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893181077921,
+            783893181085921
+          ],
+          "source_ns": 783893181081921
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893180908154,
+            783893180916154
+          ],
+          "source_ns": 783893180912154
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893180842712,
+            783893181998249
+          ],
+          "source_ns": 1615800091911814
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893180014671,
+            783893181041873
+          ],
+          "source_ns": 1615800091771503
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 29,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893181770406,
+            783893181778406
+          ],
+          "source_ns": 783893181774406
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893181647724,
+            783893181655724
+          ],
+          "source_ns": 783893181651724
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893180842712,
+            783893181998249
+          ],
+          "source_ns": 1615800092594610
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893180842712,
+            783893181998249
+          ],
+          "source_ns": 1615800092454470
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 30,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893181908504,
+            783893181916504
+          ],
+          "source_ns": 783893181912504
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893181775613,
+            783893181783613
+          ],
+          "source_ns": 783893181779613
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893180842712,
+            783893181998249
+          ],
+          "source_ns": 1615800092728022
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893180842712,
+            783893181998249
+          ],
+          "source_ns": 1615800092590779
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 31,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893182626098,
+            783893182634098
+          ],
+          "source_ns": 783893182630098
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893182515221,
+            783893182523221
+          ],
+          "source_ns": 783893182519221
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893181671931,
+            783893183020802
+          ],
+          "source_ns": 1615800093437823
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893181671931,
+            783893183020802
+          ],
+          "source_ns": 1615800093294663
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 32,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893182763871,
+            783893182771871
+          ],
+          "source_ns": 783893182767871
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893182643312,
+            783893182651312
+          ],
+          "source_ns": 783893182647312
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893181671931,
+            783893183020802
+          ],
+          "source_ns": 1615800093571277
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893181671931,
+            783893183020802
+          ],
+          "source_ns": 1615800093426299
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 33,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893183475592,
+            783893183483592
+          ],
+          "source_ns": 783893183479592
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893183381570,
+            783893183389570
+          ],
+          "source_ns": 783893183385570
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893182780596,
+            783893183921733
+          ],
+          "source_ns": 1615800094316266
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893182780596,
+            783893183921733
+          ],
+          "source_ns": 1615800094138641
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 34,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893183612925,
+            783893183620925
+          ],
+          "source_ns": 783893183616925
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893183512615,
+            783893183520615
+          ],
+          "source_ns": 783893183516615
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893182780596,
+            783893183921733
+          ],
+          "source_ns": 1615800094451499
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893182780596,
+            783893183921733
+          ],
+          "source_ns": 1615800094270914
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 35,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893184295181,
+            783893184303181
+          ],
+          "source_ns": 783893184299181
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893184226863,
+            783893184234863
+          ],
+          "source_ns": 783893184230863
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893183706717,
+            783893184796685
+          ],
+          "source_ns": 1615800095164953
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893183706717,
+            783893184796685
+          ],
+          "source_ns": 1615800094975011
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 36,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893184437020,
+            783893184445020
+          ],
+          "source_ns": 783893184441020
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893184368781,
+            783893184376781
+          ],
+          "source_ns": 783893184372781
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893183706717,
+            783893184796685
+          ],
+          "source_ns": 1615800095314243
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893183706717,
+            783893184796685
+          ],
+          "source_ns": 1615800095122509
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 37,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893185153689,
+            783893185161689
+          ],
+          "source_ns": 783893185157689
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893185112195,
+            783893185120195
+          ],
+          "source_ns": 783893185116195
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893184585577,
+            783893185647700
+          ],
+          "source_ns": 1615800096015346
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893184585577,
+            783893185647700
+          ],
+          "source_ns": 1615800095844027
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 38,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893185301681,
+            783893185309681
+          ],
+          "source_ns": 783893185305681
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893185259120,
+            783893185267120
+          ],
+          "source_ns": 783893185263120
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893184585577,
+            783893185647700
+          ],
+          "source_ns": 1615800096165281
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893184585577,
+            783893185647700
+          ],
+          "source_ns": 1615800095984313
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 39,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893186010320,
+            783893186018320
+          ],
+          "source_ns": 783893186014320
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893186066010,
+            783893186074010
+          ],
+          "source_ns": 783893186070010
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893185441440,
+            783893186496218
+          ],
+          "source_ns": 1615800096852837
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893185441440,
+            783893186496218
+          ],
+          "source_ns": 1615800096728079
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 40,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893186163741,
+            783893186171741
+          ],
+          "source_ns": 783893186167741
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893186219172,
+            783893186227172
+          ],
+          "source_ns": 783893186223172
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893185441440,
+            783893186496218
+          ],
+          "source_ns": 1615800096997787
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893185441440,
+            783893186496218
+          ],
+          "source_ns": 1615800096875455
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 41,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893186849699,
+            783893186857699
+          ],
+          "source_ns": 783893186853699
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893186963567,
+            783893186971567
+          ],
+          "source_ns": 783893186967567
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893186289555,
+            783893187338454
+          ],
+          "source_ns": 1615800097709431
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893186289555,
+            783893187338454
+          ],
+          "source_ns": 1615800097599344
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 42,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893186994156,
+            783893187002156
+          ],
+          "source_ns": 783893186998156
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893187106353,
+            783893187114353
+          ],
+          "source_ns": 783893187110353
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893186289555,
+            783893187338454
+          ],
+          "source_ns": 1615800097851601
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893186289555,
+            783893187338454
+          ],
+          "source_ns": 1615800097745753
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 43,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893187679721,
+            783893187687721
+          ],
+          "source_ns": 783893187683721
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893187816690,
+            783893187824690
+          ],
+          "source_ns": 783893187820690
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893187133971,
+            783893188181793
+          ],
+          "source_ns": 1615800098582474
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893187133971,
+            783893188181793
+          ],
+          "source_ns": 1615800098464579
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 44,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893187826384,
+            783893187834384
+          ],
+          "source_ns": 783893187830384
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893187956138,
+            783893187964138
+          ],
+          "source_ns": 783893187960138
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893187133971,
+            783893188181793
+          ],
+          "source_ns": 1615800098732819
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893187133971,
+            783893188181793
+          ],
+          "source_ns": 1615800098608715
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 45,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893188578347,
+            783893188586347
+          ],
+          "source_ns": 783893188582347
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893188668514,
+            783893188676514
+          ],
+          "source_ns": 783893188672514
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893187969655,
+            783893189013695
+          ],
+          "source_ns": 1615800099462236
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893187969655,
+            783893189013695
+          ],
+          "source_ns": 1615800099320826
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 46,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893188726760,
+            783893188734760
+          ],
+          "source_ns": 783893188730760
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893188804305,
+            783893188812305
+          ],
+          "source_ns": 783893188808305
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893187969655,
+            783893189013695
+          ],
+          "source_ns": 1615800099610832
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893187969655,
+            783893189013695
+          ],
+          "source_ns": 1615800099462091
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 47,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893189439321,
+            783893189447321
+          ],
+          "source_ns": 783893189443321
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893189573853,
+            783893189581853
+          ],
+          "source_ns": 783893189577853
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893188814091,
+            783893189850304
+          ],
+          "source_ns": 1615800100310792
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893188814091,
+            783893189850304
+          ],
+          "source_ns": 1615800100196220
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 48,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893189597763,
+            783893189605763
+          ],
+          "source_ns": 783893189601763
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893189709051,
+            783893189717051
+          ],
+          "source_ns": 783893189713051
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893188814091,
+            783893189850304
+          ],
+          "source_ns": 1615800100463147
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893188814091,
+            783893189850304
+          ],
+          "source_ns": 1615800100338031
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 49,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893190285556,
+            783893190293556
+          ],
+          "source_ns": 783893190289556
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893190456732,
+            783893190464732
+          ],
+          "source_ns": 783893190460732
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893189646287,
+            783893190680084
+          ],
+          "source_ns": 1615800101159670
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893189646287,
+            783893190680084
+          ],
+          "source_ns": 1615800101074945
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 50,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893190446643,
+            783893190454643
+          ],
+          "source_ns": 783893190450643
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893190599266,
+            783893190607266
+          ],
+          "source_ns": 783893190603266
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893189646287,
+            783893190680084
+          ],
+          "source_ns": 1615800101317520
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893189646287,
+            783893190680084
+          ],
+          "source_ns": 1615800101235009
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 51,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893191142157,
+            783893191150157
+          ],
+          "source_ns": 783893191146157
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893191387222,
+            783893191395222
+          ],
+          "source_ns": 783893191391222
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893190479911,
+            783893191523991
+          ],
+          "source_ns": 1615800102035963
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893190479911,
+            783893191523991
+          ],
+          "source_ns": 1615800101953116
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 52,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893191299134,
+            783893191307134
+          ],
+          "source_ns": 783893191303134
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893191521067,
+            783893191529067
+          ],
+          "source_ns": 783893191525067
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893190479911,
+            783893191523991
+          ],
+          "source_ns": 1615800102184677
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893190479911,
+            783893191523991
+          ],
+          "source_ns": 1615800102102030
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 53,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893192022977,
+            783893192030977
+          ],
+          "source_ns": 783893192026977
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893192273526,
+            783893192281526
+          ],
+          "source_ns": 783893192277526
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893191313787,
+            783893192374260
+          ],
+          "source_ns": 1615800102888050
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893191313787,
+            783893192374260
+          ],
+          "source_ns": 1615800102857767
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 54,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893192198285,
+            783893192206285
+          ],
+          "source_ns": 783893192202285
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893192424837,
+            783893192432837
+          ],
+          "source_ns": 783893192428837
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893191313787,
+            783893192374260
+          ],
+          "source_ns": 1615800103072767
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893191313787,
+            783893192374260
+          ],
+          "source_ns": 1615800103021700
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 55,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893192897799,
+            783893192905799
+          ],
+          "source_ns": 783893192901799
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893193185182,
+            783893193193182
+          ],
+          "source_ns": 783893193189182
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893192169371,
+            783893193209674
+          ],
+          "source_ns": 1615800103777391
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893192169371,
+            783893193209674
+          ],
+          "source_ns": 1615800103782587
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 56,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893193076116,
+            783893193084116
+          ],
+          "source_ns": 783893193080116
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893193326276,
+            783893193334276
+          ],
+          "source_ns": 783893193330276
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893192169371,
+            783893193209674
+          ],
+          "source_ns": 1615800103929490
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893192169371,
+            783893193209674
+          ],
+          "source_ns": 1615800103943785
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 57,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893193782723,
+            783893193790723
+          ],
+          "source_ns": 783893193786723
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893194052630,
+            783893194060630
+          ],
+          "source_ns": 783893194056630
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893193012213,
+            783893194037223
+          ],
+          "source_ns": 1615800104638099
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893193012213,
+            783893194037223
+          ],
+          "source_ns": 1615800104686353
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 58,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893193933000,
+            783893193941000
+          ],
+          "source_ns": 783893193937000
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893194192365,
+            783893194200365
+          ],
+          "source_ns": 783893194196365
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893193012213,
+            783893194037223
+          ],
+          "source_ns": 1615800104788083
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893193012213,
+            783893194037223
+          ],
+          "source_ns": 1615800104843272
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 59,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893194665196,
+            783893194673196
+          ],
+          "source_ns": 783893194669196
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893194932216,
+            783893194940216
+          ],
+          "source_ns": 783893194936216
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893193839917,
+            783893194865079
+          ],
+          "source_ns": 1615800105580591
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893193839917,
+            783893194865079
+          ],
+          "source_ns": 1615800105603185
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 60,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893194822650,
+            783893194830650
+          ],
+          "source_ns": 783893194826650
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893195090278,
+            783893195098278
+          ],
+          "source_ns": 783893195094278
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893194664627,
+            783893195690595
+          ],
+          "source_ns": 1615800105734462
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893194664627,
+            783893195690595
+          ],
+          "source_ns": 1615800105752357
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 61,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893195564671,
+            783893195572671
+          ],
+          "source_ns": 783893195568671
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893195873354,
+            783893195881354
+          ],
+          "source_ns": 783893195877354
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893194664627,
+            783893195690595
+          ],
+          "source_ns": 1615800106489318
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893194664627,
+            783893195690595
+          ],
+          "source_ns": 1615800106491938
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 62,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893195721604,
+            783893195729604
+          ],
+          "source_ns": 783893195725604
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893196019058,
+            783893196027058
+          ],
+          "source_ns": 783893196023058
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893195491905,
+            783893196531827
+          ],
+          "source_ns": 1615800106637708
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893195491905,
+            783893196531827
+          ],
+          "source_ns": 1615800106646758
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 63,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893196429592,
+            783893196437592
+          ],
+          "source_ns": 783893196433592
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893196793585,
+            783893196801585
+          ],
+          "source_ns": 783893196797585
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893195491905,
+            783893196531827
+          ],
+          "source_ns": 1615800107360201
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893196328886,
+            783893197365160
+          ],
+          "source_ns": 1615800107408757
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 64,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893196582885,
+            783893196590885
+          ],
+          "source_ns": 783893196586885
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893196940839,
+            783893196948839
+          ],
+          "source_ns": 783893196944839
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893196328886,
+            783893197365160
+          ],
+          "source_ns": 1615800107510264
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893196328886,
+            783893197365160
+          ],
+          "source_ns": 1615800107563387
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 65,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893197294825,
+            783893197302825
+          ],
+          "source_ns": 783893197298825
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893197702274,
+            783893197710274
+          ],
+          "source_ns": 783893197706274
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893197161442,
+            783893197365160
+          ],
+          "source_ns": 1615800108214101
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893197161442,
+            783893198198611
+          ],
+          "source_ns": 1615800108313316
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 66,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893197449782,
+            783893197457782
+          ],
+          "source_ns": 783893197453782
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893197848100,
+            783893197856100
+          ],
+          "source_ns": 783893197852100
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893197161442,
+            783893198198611
+          ],
+          "source_ns": 1615800108360878
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893197161442,
+            783893198198611
+          ],
+          "source_ns": 1615800108458272
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 67,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893198137607,
+            783893198145607
+          ],
+          "source_ns": 783893198141607
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893198626261,
+            783893198634261
+          ],
+          "source_ns": 783893198630261
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893197991390,
+            783893199021981
+          ],
+          "source_ns": 1615800109124802
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893197991390,
+            783893199021981
+          ],
+          "source_ns": 1615800109185348
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 68,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893198306773,
+            783893198314773
+          ],
+          "source_ns": 783893198310773
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893198779821,
+            783893198787821
+          ],
+          "source_ns": 783893198783821
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893197991390,
+            783893199021981
+          ],
+          "source_ns": 1615800109280293
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893197991390,
+            783893199021981
+          ],
+          "source_ns": 1615800109334635
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 69,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893199030255,
+            783893199038255
+          ],
+          "source_ns": 783893199034255
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893199565757,
+            783893199573757
+          ],
+          "source_ns": 783893199569757
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893198823182,
+            783893199847011
+          ],
+          "source_ns": 1615800110043045
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893198823182,
+            783893199847011
+          ],
+          "source_ns": 1615800110081640
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 70,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893199190549,
+            783893199198549
+          ],
+          "source_ns": 783893199194549
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893199718899,
+            783893199726899
+          ],
+          "source_ns": 783893199722899
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893198823182,
+            783893199847011
+          ],
+          "source_ns": 1615800110200838
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893198823182,
+            783893199847011
+          ],
+          "source_ns": 1615800110241135
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 71,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893199909413,
+            783893199917413
+          ],
+          "source_ns": 783893199913413
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893200475618,
+            783893200483618
+          ],
+          "source_ns": 783893200479618
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893199645928,
+            783893200673310
+          ],
+          "source_ns": 1615800110938268
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893199645928,
+            783893200673310
+          ],
+          "source_ns": 1615800110959572
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 72,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893200086634,
+            783893200094634
+          ],
+          "source_ns": 783893200090634
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893200626233,
+            783893200634233
+          ],
+          "source_ns": 783893200630233
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893199645928,
+            783893200673310
+          ],
+          "source_ns": 1615800111107782
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893199645928,
+            783893200673310
+          ],
+          "source_ns": 1615800111112068
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 73,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893200791540,
+            783893200799540
+          ],
+          "source_ns": 783893200795540
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893201377142,
+            783893201385142
+          ],
+          "source_ns": 783893201381142
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893200473925,
+            783893201507794
+          ],
+          "source_ns": 1615800111838638
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893200473925,
+            783893201507794
+          ],
+          "source_ns": 1615800111862615
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 74,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893200952164,
+            783893200960164
+          ],
+          "source_ns": 783893200956164
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893201524560,
+            783893201532560
+          ],
+          "source_ns": 783893201528560
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893200473925,
+            783893201507794
+          ],
+          "source_ns": 1615800111993848
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893200473925,
+            783893201507794
+          ],
+          "source_ns": 1615800112013044
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 75,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893201687895,
+            783893201695895
+          ],
+          "source_ns": 783893201691895
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893202308261,
+            783893202316261
+          ],
+          "source_ns": 783893202312261
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893201305965,
+            783893202335996
+          ],
+          "source_ns": 1615800112752930
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893201305965,
+            783893202335996
+          ],
+          "source_ns": 1615800112768249
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 76,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893201846013,
+            783893201854013
+          ],
+          "source_ns": 783893201850013
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893202457463,
+            783893202465463
+          ],
+          "source_ns": 783893202461463
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893201305965,
+            783893202335996
+          ],
+          "source_ns": 1615800112904467
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893201305965,
+            783893202335996
+          ],
+          "source_ns": 1615800112919407
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 77,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893202559856,
+            783893202567856
+          ],
+          "source_ns": 783893202563856
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893203226889,
+            783893203234889
+          ],
+          "source_ns": 783893203230889
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893202135915,
+            783893203203525
+          ],
+          "source_ns": 1615800113659519
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893202135915,
+            783893203203525
+          ],
+          "source_ns": 1615800113681316
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 78,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893202720688,
+            783893202728688
+          ],
+          "source_ns": 783893202724688
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893203373479,
+            783893203381479
+          ],
+          "source_ns": 783893203377479
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893202135915,
+            783893203203525
+          ],
+          "source_ns": 1615800113817867
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893202135915,
+            783893203203525
+          ],
+          "source_ns": 1615800113846186
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 79,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893203484490,
+            783893203492490
+          ],
+          "source_ns": 783893203488490
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893204122516,
+            783893204130516
+          ],
+          "source_ns": 783893204126516
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893202960413,
+            783893204039898
+          ],
+          "source_ns": 1615800114626371
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893202960413,
+            783893204039898
+          ],
+          "source_ns": 1615800114668715
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 80,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893203647996,
+            783893203655996
+          ],
+          "source_ns": 783893203651996
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893204273907,
+            783893204281907
+          ],
+          "source_ns": 783893204277907
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893202960413,
+            783893204039898
+          ],
+          "source_ns": 1615800114790883
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893202960413,
+            783893204039898
+          ],
+          "source_ns": 1615800114832337
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 81,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893204482672,
+            783893204490672
+          ],
+          "source_ns": 783893204486672
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893205052619,
+            783893205060619
+          ],
+          "source_ns": 783893205056619
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893203831965,
+            783893204865132
+          ],
+          "source_ns": 1615800115548654
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893203831965,
+            783893204865132
+          ],
+          "source_ns": 1615800115629680
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 82,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893204662147,
+            783893204670147
+          ],
+          "source_ns": 783893204666147
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893205209270,
+            783893205217270
+          ],
+          "source_ns": 783893205213270
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893204664088,
+            783893204865132
+          ],
+          "source_ns": 1615800115708603
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893204664088,
+            783893205693973
+          ],
+          "source_ns": 1615800115786723
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 83,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893205478391,
+            783893205486391
+          ],
+          "source_ns": 783893205482391
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893206006879,
+            783893206014879
+          ],
+          "source_ns": 783893206010879
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893204664088,
+            783893205693973
+          ],
+          "source_ns": 1615800116526304
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893205493475,
+            783893206525680
+          ],
+          "source_ns": 1615800116636271
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 84,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893205652776,
+            783893205660776
+          ],
+          "source_ns": 783893205656776
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893206166564,
+            783893206174564
+          ],
+          "source_ns": 783893206170564
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893205493475,
+            783893206525680
+          ],
+          "source_ns": 1615800117252552
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893205493475,
+            783893206525680
+          ],
+          "source_ns": 1615800117254102
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 85,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893206464998,
+            783893206472998
+          ],
+          "source_ns": 783893206468998
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893206931826,
+            783893206939826
+          ],
+          "source_ns": 783893206935826
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893206322274,
+            783893207353519
+          ],
+          "source_ns": 1615800118082444
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893206322274,
+            783893207353519
+          ],
+          "source_ns": 1615800118030143
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 86,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893206648747,
+            783893206656747
+          ],
+          "source_ns": 783893206652747
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893207103440,
+            783893207111440
+          ],
+          "source_ns": 783893207107440
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893207156460,
+            783893208194960
+          ],
+          "source_ns": 1615800118256031
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893207156460,
+            783893207353519
+          ],
+          "source_ns": 1615800118206691
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 87,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893207480699,
+            783893207488699
+          ],
+          "source_ns": 783893207484699
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893207863661,
+            783893207871661
+          ],
+          "source_ns": 783893207867661
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893207156460,
+            783893208194960
+          ],
+          "source_ns": 1615800119010889
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893207156460,
+            783893208194960
+          ],
+          "source_ns": 1615800119008419
+        }
+      ]
+    },
+    {
+      "function": "AllReduce",
+      "seq_num": 88,
+      "count": 1049600,
+      "datatype": "ncclFloat32",
+      "algorithm": "TREE",
+      "protocol": "SIMPLE",
+      "n_channels": 8,
+      "status": "MATCHED",
+      "comm_hash": "WORLD",
+      "ranks": [
+        {
+          "rank": 0,
+          "status": "BOUNDED",
+          "start": [
+            783893207648686,
+            783893207656686
+          ],
+          "source_ns": 783893207652686
+        },
+        {
+          "rank": 1,
+          "status": "BOUNDED",
+          "start": [
+            783893208024668,
+            783893208032668
+          ],
+          "source_ns": 783893208028668
+        },
+        {
+          "rank": 2,
+          "status": "BOUNDED",
+          "start": [
+            783893207983596,
+            783893209022367
+          ],
+          "source_ns": 1615800119170728
+        },
+        {
+          "rank": 3,
+          "status": "BOUNDED",
+          "start": [
+            783893207983596,
+            783893209022367
+          ],
+          "source_ns": 1615800119168150
+        }
+      ]
+    }
+  ]
+}
